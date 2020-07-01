@@ -7,7 +7,7 @@ var items = [
         brand: "Dilex",
         image: "img/1.jpg",
         description: "FraîcheLes lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben.///Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées.///Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.",
-        price: "xxx",
+        price: "xxx €",
     },
     
 ];
@@ -16,10 +16,6 @@ var html = "";
 var len = items.length;
 
 for(var i = 0; i < len; i++) {
-    // Ici on reconstruit nos "li" = éléments de liste
-    // Accés recette => recettes[i]
-    // Accés titre d'une recette => recettes[i].titre
-    // <li><a href="pages_entrees/recette_salade_nicoise.html">Salade Niçoise</a></li>
    html += "<li class=\"elem\" id=\"item" + i + "\">" + items[i].name + "</li>";
 }
 
@@ -40,11 +36,11 @@ for(var i = 0; i < len; i++) {
     elems[i].addEventListener("click", (event) => {
         event.preventDefault();
         var index = parseInt(event.target.id.substring(3));
-        showRecette(index);
+        showItem(index);
     });
 }
 
-function showRecette(index) {
+function showItem(index) {
     console.log("Vous avez demandé le produit " + items[index].name);
     container.style.display = "block";
 
