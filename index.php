@@ -66,7 +66,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
        
 <script src="js/jquery-3.4.1.js"></script>    
 <script src="js/script.js"></script>
-<script src="js/test.js"></script>
+<script src="js/modal.js"></script>
     
 </body>
 </html>

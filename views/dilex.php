@@ -6,6 +6,7 @@
                     <figcaption class="overlay">
                         <a href="#"><img src="img\DILEX\1.jpg" width="350" height="300" alt="dilex"></a>
                         <a class="link" href="index?route=item"><p>Lingettes hydratantes</p></a>
+                        <button id="myBtn">Voir le produit</button>
                         <p>Prix</p>
                     </figcaption>
                 </figure>               
@@ -123,10 +124,8 @@
 
         </div>
 
-        <h2>Animated Modal with Header and Footer</h2>
-
 <!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
+
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -134,15 +133,15 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">�</span>
-      <h2>Modal Header</h2>
+      <span class="close">X</span>
+      <h2>Nom du produit</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
+      <p>Description text</p>
       <p>Some other text...</p>
     </div>
     <div class="modal-footer">
-      <h3>Modal Footer</h3>
+      <h3>Prix : xx €</h3>
     </div>
   </div>
 

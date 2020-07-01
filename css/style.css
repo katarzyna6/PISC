@@ -177,7 +177,8 @@ ol > li > ul > li:hover {
     height: 65px;
     background-color: #9494b8;
     left: 0px;
-    bottom: 0px;
+    
+    top: 0px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
