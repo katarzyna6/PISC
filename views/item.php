@@ -1,5 +1,3 @@
-<section id="item_container">
-        <div id="item">
 <h1>DILEX</h1>
 <div class="name"><h2>Lingettes hydratantes<h2></div>
 <div class="product">
@@ -21,12 +19,6 @@
 <p>Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p></div>
 
 <div class="prix"><p>Prix : ... €</p></div>
-
-</div>
-</section>
-
-<script src="js/test.js"></script>
-
 
 
 

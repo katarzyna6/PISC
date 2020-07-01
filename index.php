@@ -50,6 +50,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/modal.css">
         <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">  
     </head>
 
@@ -65,7 +66,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
        
 <script src="js/jquery-3.4.1.js"></script>    
 <script src="js/script.js"></script>
-
+<script src="js/test.js"></script>
     
 </body>
 </html>
