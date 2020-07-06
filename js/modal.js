@@ -5,7 +5,7 @@ console.log('OK');
     {
         name: "Lingettes hydratantes", 
         brand: "Dilex",
-        image: "img/1.jpg",
+        image: "img/1.jpg",img/1_2.jpg, img/1_3.jpg"
         description: "FraîcheLes lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben.///Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées.///Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.",
         price: "xxx €",
     },
