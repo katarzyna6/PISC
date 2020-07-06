@@ -64,8 +64,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 
 <?php require "views/footer.php"; ?>
        
-<script src="js/jquery-3.4.1.js"></script>    
-<script src="js/script.js"></script>
+<!-- <script src="js/jquery-3.4.1.js"></script>    
+<script src="js/script.js"></script> -->
 <script src="js/modal.js"></script>
     
 </body>
