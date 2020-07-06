@@ -33,6 +33,7 @@ var span = document.getElementsByClassName("close")[0];
 //     console.log("click");
 //     modal.style.display = "block";
 // }
+
 console.log(btns);
 for(var btn of btns) {
     btn.onclick = function() {
