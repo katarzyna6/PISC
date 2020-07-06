@@ -1,6 +1,10 @@
 <h1>DILEX</h1>
         <div class="container">
 
+            <!-- 3. Attention, l'affichage de tes produits reprennent ta maquette, or, ces produits doivent provenir de ta base de données
+            il faut donc automatiser l'affichage ! Dans un premier temps tu peux, par exemple, mettre tes données dans un tableau php
+            et boucler dessus pour afficher tes div, ce qui permettra d'afficher les bonnes informations dans ta modale -->
+
             <div class="produit">
                 <figure class="photo"> 
                     <figcaption class="overlay">
