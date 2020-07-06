@@ -151,6 +151,9 @@
     </div>
     <div class="modal-body">
       <p>Description text</p>
+        <img  src="img\DILEX\1.jpg" width="300" height="250" alt="dilex">
+        <img src="img\DILEX\1_2.jpg" width="300" height="250" alt="dilex">
+        <img src="img\DILEX\1_3.jpg" width="300" height="250" alt="dilex">
     </div>
     <div class="modal-footer">
       <h3>Prix : xx €</h3>

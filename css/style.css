@@ -234,17 +234,35 @@ h3 {
 }
 
 .product {
+    border: red solid 2px;  
+    text-align: center;   
+}
+
+.product .item1  {
+    border: red solid 2px;
+    width: 50%;
+    margin: 0;
     text-align: center;
-    width: 100%;    
+    
 }
 
 .product .item  {
-    width: 30%;
-    padding:13px;
-    
+    clear: both;
+    border: red solid 2px;
+    width: 25%;
     display: inline-block;
-    vertical-align: middle;
-    float: none;
+    margin: 0;
+    
+}
+
+.product .item1 img  {
+    border: red solid 2px;
+    width: 50%;
+}
+
+.product .item img  {
+    border: red solid 2px;
+    width: 35%;
 }
 
 .item
@@ -271,6 +289,7 @@ h3 {
 }
 
 .description {
+    clear: both;
     text-align: center;
 }
 

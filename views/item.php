@@ -1,16 +1,16 @@
 <h1>DILEX</h1>
 <div class="name"><h2>Lingettes hydratantes<h2></div>
 <div class="product">
-    <div class="item">
+    <div class="item1">
         <img src="img\DILEX\1.jpg" width="350" height="300" alt="dilex">
     </div>
 
     <div class="item">
-        <img src="img\DILEX\1_2.jpg" width="350" height="300" alt="dilex">
+        <img src="img\DILEX\1_2.jpg" width="175" height="150" alt="dilex">
     </div>
 
     <div class="item">
-        <img src="img\DILEX\1_3.jpg" width="350" height="300" alt="dilex">
+        <img src="img\DILEX\1_3.jpg" width="175" height="150" alt="dilex">
     </div>
 </div>
 
