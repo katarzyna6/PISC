@@ -80,7 +80,8 @@ var modal = document.getElementById('myModal');
       une classe, par exemple, ce qui te fera récupérer un tableau contenant tous tes boutons
       var btns = document.getElementsByClassName("myBtn");
 */ 
-var btn = document.getElementById("myBtn");
+//var btn = document.getElementById("myBtn");
+var btns = document.getElementsByClassName("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -96,10 +97,16 @@ var span = document.getElementsByClassName("close")[0];
       }
 }
 */
-btn.onclick = function() {
-    console.log("click");
-    modal.style.display = "block";
-}
+// btn.onclick = function() {
+//     console.log("click");
+//     modal.style.display = "block";
+// }
+for(var btn of btns) {
+    btn.onclick = function() {
+        console.log("click");
+        modal.style.display = "block";
+    }
+ }
 
 
 // When the user clicks on <span> (x), close the modal

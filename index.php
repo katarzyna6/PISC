@@ -1,4 +1,5 @@
-<?php require_once "conf/global.php"; 
+<?php 
+//require_once "conf/global.php"; 
 
 spl_autoload_register(function ($class) {
     if(file_exists("models/$class.php")) {
@@ -8,15 +9,14 @@ spl_autoload_register(function ($class) {
 
 $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 
-
     switch ($route) {
-    case "home": $view = showHome();
-    break;
-    case "dilex": $view = showDilex();
-    break;
-    case "item": $view = showItem();
-    break;
-    default : $view = showHome();
+        case "home": $view = showHome();
+        break;
+        case "dilex": $view = showDilex();
+        break;
+        case "item": $view = showItem();
+        break;
+        default : $view = showHome();
     }
 
     function showHome() {

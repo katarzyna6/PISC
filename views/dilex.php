@@ -10,7 +10,7 @@
                     <figcaption class="overlay">
                         <a href="#"><img src="img\DILEX\1.jpg" width="350" height="300" alt="dilex"></a>
                         <a class="link" href="index?route=item"><p>Lingettes hydratantes</p></a>
-                        <button id="myBtn">Voir le produit</button>
+                        <button class="myBtn" id="myBtn-1">Voir le produit</button>
                         <p>Prix</p>
                     </figcaption>
                 </figure>               
@@ -21,7 +21,7 @@
                     <figcaption class="overlay">
                         <a href="#"><img src="img\DILEX\2.jpg" width="350" height="300" alt="dilex"></a>
                         <a class="link" href="#"><p>Serviettes hygiéniques taille M</p></a>
-                        <button id="myBtn">Voir le produit</button>
+                        <button class="myBtn" id="myBtn-2">Voir le produit</button>
                         <p>Prix</p>
                     </figcaption>
                 </figure>               
@@ -32,7 +32,7 @@
                     <figcaption class="overlay">
                         <a href="#"><img src="img\DILEX\3.jpg" width="350" height="300" alt="dilex"></a>
                         <a class="link" href="#"><p>Serviettes hygiéniques taille L</p></a>
-                        <button id="myBtn">Voir le produit</button>
+                        <button class="myBtn" id="myBtn-3">Voir le produit</button>
                         <p>Prix</p>
                     </figcaption>
                 </figure>               
@@ -43,7 +43,7 @@
                     <figcaption class="overlay">
                         <a href="#"><img src="img\DILEX\4.jpg" width="350" height="300" alt="dilex"></a>
                         <a class="link" href="#"><p>Protège-slip ultra fin</p></a>
-                        <button id="myBtn">Voir le produit</button>
+                        <button class="myBtn" id="myBtn-4">Voir le produit</button>
                         <p>Prix</p>
                     </figcaption>
                 </figure>               
@@ -54,7 +54,7 @@
                     <figcaption class="overlay">
                         <a href="#"><img src="img\DILEX\5.jpg" width="350" height="300" alt="dilex"></a>
                         <a class="link" href="#"><p>100 Mouchoirs, double épaisseur</p></a>
-                        <button id="myBtn">Voir le produit</button>
+                        <button class="myBtn" id="myBtn-5">Voir le produit</button>
                         <p>Prix</p>
                     </figcaption>
                 </figure>               
