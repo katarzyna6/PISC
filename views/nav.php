@@ -76,7 +76,8 @@
 
         </li>
 
-        <li><a href="#">Contactez-moi</a></li>
+        <li><a href="index?route=contact">Contactez-moi</a></li>
+        <li><a href="index?route=admin">Espace admin</a></li>
                         
     </ol>
     

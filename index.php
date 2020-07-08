@@ -16,6 +16,10 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "item": $view = showItem();
         break;
+        case "contact": $view = showContact();
+        break;
+        case "admin": $view = showAdmin();
+        break;
         default : $view = showHome();
     }
 
@@ -35,6 +39,18 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         
         $datas = [];
         return ["template" => "item.php", "datas" => $datas];
+    }
+
+    function showContact() {
+        
+        $datas = [];
+        return ["template" => "contact.php", "datas" => $datas];
+    }
+
+    function showAdmin() {
+        
+        $datas = [];
+        return ["template" => "admin.php", "datas" => $datas];
     }
 
 
@@ -67,6 +83,6 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 <!-- <script src="js/jquery-3.4.1.js"></script>    
 <script src="js/script.js"></script> -->
 <script src="js/modal.js"></script>
-    
+<script src="js/ajax.js"></script>
 </body>
 </html>
