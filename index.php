@@ -1,5 +1,5 @@
 <?php 
-//require_once "conf/global.php"; 
+require_once "conf/global.php"; 
 
 spl_autoload_register(function ($class) {
     if(file_exists("models/$class.php")) {

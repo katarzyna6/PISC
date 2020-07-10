@@ -1,8 +1,8 @@
 <?php
 
-$item = [
-    "id" => 1,
-    "nom" => "Lingettes hydratantes",
+$properties = [
+    
+    $nom => "Lingettes hydratantes",
     "image1" => "img\DILEX\1.jpg",
     "image2" => "img\DILEX\1_2.jpg",
     "image3" => "img\DILEX\1_3.jpg",
@@ -14,6 +14,7 @@ $item = [
 
 
 $donnees = [
+    $nom
     
 ];
 
@@ -23,7 +24,7 @@ $donnees = [
 
 <h1>DILEX</h1>
 <?php foreach($donnees as $donnee): ?>
-<div class="name"><h2><?= $donnee["nom"]?><h2></div>
+<div class="name"><h2><?= $donnee[$nom]?><h2></div>
 <div class="product">
     <div class="item1">
         <img src="img\<?= $donnee["image1"]?>" width="175" height="150" alt="dilex">

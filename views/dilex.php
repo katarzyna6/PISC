@@ -115,10 +115,15 @@ $donnees = [
             <div class="produit">
                 <figure class="photo"> 
                     <figcaption class="overlay">
-                        <a href="#"><img src="img\<?= $donnee["image"]?>" width="350" height="300" alt="dilex"></a>
+
+                        <a href="#"><img src="img/DILEX/<?= $donnee["image"]?>" width="350" height="300" alt="dilex"></a>
+
                         <a class="link" href="index?route=item"><p><?= $donnee["nom"]?></p></a>
+
                         <button class="myBtn" id="myBtn-<?= $donnee["id"]?>">Voir le produit</button>
+
                         <p>Prix : <?= $donnee["prix"]?> €</p>
+
                     </figcaption>
                 </figure>               
             </div>
