@@ -58,3 +58,16 @@ CREATE TABLE PHOTO(
 	,CONSTRAINT PHOTO_ITEM_FK FOREIGN KEY (id_item) REFERENCES ITEM(id_item)
 )ENGINE=InnoDB;
 
+
+#------------------------------------------------------------
+# Table: PHOTO
+#------------------------------------------------------------
+
+CREATE TABLE ADMINS(
+        id_admin Int  Auto_increment  NOT NULL ,
+        name     Varchar (250) NOT NULL ,
+        email  Varchar (250) NOT NULL ,
+        password Varchar (250) NOT NULL ,
+
+)ENGINE=InnoDB;
+
