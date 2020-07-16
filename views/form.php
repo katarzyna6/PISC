@@ -1,1 +1,0 @@
-<div id="modeContent"></div>

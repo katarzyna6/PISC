@@ -15,6 +15,18 @@ CREATE TABLE CATEGORY(
 
 
 #------------------------------------------------------------
+# Table: SUBCATEGORY
+#------------------------------------------------------------
+
+CREATE TABLE SUBCATEGORY(
+        id_subcategory Int  Auto_increment  NOT NULL ,
+        name        Varchar (250) NOT NULL ,
+        id_category Int Auto_increment NOT NULL 
+	,CONSTRAINT CATEGORY_PK PRIMARY KEY (id_category)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
 # Table: BRAND
 #------------------------------------------------------------
 
@@ -36,7 +48,9 @@ CREATE TABLE ITEM(
         description Varchar (250) NOT NULL ,
         prix        Float NOT NULL ,
         id_category Int NOT NULL ,
-        id_brand    Int NOT NULL
+        id_brand    Int NOT NULL ,
+        avis Varchar (250) NOT NULL ,
+        note Int (5) NOT NULL
 	,CONSTRAINT ITEM_PK PRIMARY KEY (id_item)
 
 	,CONSTRAINT ITEM_CATEGORY_FK FOREIGN KEY (id_category) REFERENCES CATEGORY(id_category)
@@ -65,7 +79,7 @@ CREATE TABLE PHOTO(
 
 CREATE TABLE ADMINS(
         id_admin Int  Auto_increment  NOT NULL ,
-        name     Varchar (250) NOT NULL ,
+        nick     Varchar (250) NOT NULL ,
         email  Varchar (250) NOT NULL ,
         password Varchar (250) NOT NULL ,
 

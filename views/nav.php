@@ -77,7 +77,7 @@
         </li>
 
         <li><a href="index?route=contact">Contactez-moi</a></li>
-        <li><a href="index?route=admin">Espace admin</a></li>
+        <li><a href="index?route=connect">Espace admin</a></li>
                         
     </ol>
     

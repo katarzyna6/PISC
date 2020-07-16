@@ -1,6 +1,8 @@
 console.log('OK');
  var elem = document.getElementById('modContent');
- elem.innerHTML = '<img src="../img/loading.gif" alt="chargement"/>';
+ console.log(elem);
+ elem.innerHTML = '<img src="img/loading.gif" alt="chargement"/>';
+
 function getRequest() {
     
     //Récupère la connexion au serveur http
@@ -17,8 +19,21 @@ function getRequest() {
         request = false;
     }
     return request;
-}
-console.log(getRequest());
 
-request.open('POST', 'index.php', true);
+    
+}
+
+var request = getRequest();
+request.open('POST', "index.php");
+request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+request.send('route=ajax');
+
+console.log(request);
+
+request.onreadystatechange = function() {
+  if(request.readyState == 4 && request.status == 200) {
+    elem.innerHTML = request.response;
+  }
+}
+
 

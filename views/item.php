@@ -1,23 +1,16 @@
 <?php
 
-$properties = [
+$donnees = [
     
-    $nom => "Lingettes hydratantes",
+    "name" => "Lingettes hydratantes",
     "image1" => "img\DILEX\1.jpg",
     "image2" => "img\DILEX\1_2.jpg",
     "image3" => "img\DILEX\1_3.jpg",
-    "description" => "Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben.</p>
-    <p>Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées.</p>
-    <p>Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.",
-    "prix" => 15
+    "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+    "prix" => 15,
+    "avis" => "<p>OK</p>",
+    "note" => 3
 ];
-
-
-$donnees = [
-    $nom
-    
-];
-
 
 ?>
 

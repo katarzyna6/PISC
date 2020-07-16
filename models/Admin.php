@@ -19,7 +19,7 @@ class Admin extends DbConnect {
     public function setIdAdmin($id_admin) {
         $this->id_admin = $id_admin;
     }
-    
+
     public function getNick() {
         return $this->nick;
     }

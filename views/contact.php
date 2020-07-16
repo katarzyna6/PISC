@@ -25,3 +25,5 @@
             <h3><a href="index.php">Retour</a><h3>
 
         </form>
+        
+        <div id="modeContent"></div>
