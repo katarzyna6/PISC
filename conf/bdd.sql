@@ -46,7 +46,7 @@ CREATE TABLE ITEM(
         id_item     Int  Auto_increment  NOT NULL ,
         name        Varchar (250) NOT NULL ,
         description Varchar (250) NOT NULL ,
-        prix        Float NOT NULL ,
+        price        Float NOT NULL ,
         id_category Int NOT NULL ,
         id_subcategory Int NOT NULL ,
         id_brand    Int NOT NULL ,

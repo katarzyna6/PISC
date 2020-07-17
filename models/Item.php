@@ -5,7 +5,7 @@ class Item extends DbConnect {
     private $id_item;
     private $name;
     private $description;
-    private $prix;
+    private $price;
     private $avis;
     private $note;
     private $id_category;
@@ -41,12 +41,12 @@ class Item extends DbConnect {
         $this->description = $description;
     }
 
-    public function getPrix () {    
-        return $this->prix;
+    public function getPrice () {    
+        return $this->price;
     }
     
-    public function setPrix($prix) {
-        $this->prix = $prix;
+    public function setPrice($price) {
+        $this->price = $price;
     }
 
     public function getAvis () {    

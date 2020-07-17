@@ -1,7 +1,7 @@
 <?php
 //var_dump($view['datas']);
 unset($_SESSION["admin"]);
-?>
+?> 
 
 
 <div class="espace">
@@ -78,10 +78,7 @@ unset($_SESSION["admin"]);
     </div>       
 
 <div>
-        <a href="insert_item">Ajouter un produit</a>
-        <a href="insert_brand">Ajouter une marque</a>
-        <a href="insert_category">Ajouter une categorie</a>
-        <a href="insert_subcategory">Ajouter une souscategorie</a>
+        <a href="insert_item">Ajouter un autre produit</a>
         <div><a href="index.html">Retour</a></div>
 </div>
 

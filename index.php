@@ -148,7 +148,7 @@ function deconnectAdmin() {
 function showAdmin() {
     
     if(!isset($_SESSION["admin"])) {
-            header("Location:index");
+            header("Location:admin");
     }
     var_dump($_SESSION);
 }    

@@ -4,7 +4,7 @@ class Subcategory extends DbConnect {
 
     protected $id_subcategory; 
     protected $name;
-    protected $id_category; 
+    protected $id_category;
     
     function __construct($id=null) {
         parent::__construct($id);
@@ -33,3 +33,4 @@ class Subcategory extends DbConnect {
     public function setIdCategory(string $id_category) {
         $this->id_category = $id_category;
     }
+}
