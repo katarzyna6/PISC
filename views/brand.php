@@ -3,7 +3,7 @@
 $item1 = [
     "id" => 1,
     "nom" => "Lingettes hydratantes",
-    "image" => "img\DILEX\1.jpg",
+    "image" => "img/DILEX/1.jpg",
     "prix" => 15
 ];
 
@@ -116,7 +116,7 @@ $donnees = [
                 <figure class="photo"> 
                     <figcaption class="overlay">
 
-                        <a href="#"><img src="img/DILEX/<?= $donnee["image"]?>" width="350" height="300" alt="dilex"></a>
+                        <a href="#"><img src="DILEX/<?= $donnee["image"]?>" width="350" height="300" alt="dilex"></a>
 
                         <a class="link" href="index?route=item"><p><?= $donnee["nom"]?></p></a>
 
@@ -269,6 +269,8 @@ $donnees = [
         <img  src="img\DILEX\1.jpg" width="300" height="250" alt="dilex">
         <img src="img\DILEX\1_2.jpg" width="300" height="250" alt="dilex">
         <img src="img\DILEX\1_3.jpg" width="300" height="250" alt="dilex">
+        <p>Note moyenne : 10</p>
+        <a href="#">Voir les avis</a>
     </div>
     <div class="modal-footer">
       <h3>Prix : xx €</h3>
