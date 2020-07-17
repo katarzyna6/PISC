@@ -112,7 +112,7 @@ function InsertAdmin() {
     }
         
     setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
-    header("Location:index");
+    header("Location:admin");
 }
 
 function connectAdmin() {

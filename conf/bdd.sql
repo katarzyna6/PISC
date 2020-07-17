@@ -48,6 +48,7 @@ CREATE TABLE ITEM(
         description Varchar (250) NOT NULL ,
         prix        Float NOT NULL ,
         id_category Int NOT NULL ,
+        id_subcategory Int NOT NULL ,
         id_brand    Int NOT NULL ,
         avis Varchar (250) NOT NULL ,
         note Int (5) NOT NULL

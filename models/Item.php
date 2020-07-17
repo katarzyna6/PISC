@@ -9,6 +9,7 @@ class Item extends DbConnect {
     private $avis;
     private $note;
     private $id_category;
+    private $id_subcategory;
     private $id_brand;
 
     function __construct($id = null) {
@@ -70,6 +71,14 @@ class Item extends DbConnect {
     
     public function setIdCategory($id_category) {
         $this->id_category = $id_category;
+    }
+
+    public function getIdSubcategory () {    
+        return $this->id_subcategory;
+    }
+    
+    public function setIdSubcategory($id_subcategory) {
+        $this->id_subcategory = $id_subcategory;
     }
 
     public function getIdBrand () {    

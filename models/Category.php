@@ -1,6 +1,6 @@
 <?php
 
-class Categorie extends DbConnect {
+class Category extends DbConnect {
 
     protected $id_category; 
     protected $name; 
