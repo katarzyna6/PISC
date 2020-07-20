@@ -56,7 +56,7 @@ unset($_SESSION["admin"]);
                 
         <div><label for="opinion">Avis</label><input type="text" name="opinion" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getOpinion() : ""; ?>"/></div>
 
-        <div><label for="note">Ajouter une note</label><br><br><br><input type="radio" name="note" value=" <?= isset($view['datas']['item'])? $view['datas']['item']->getNote() : ""; ?>
+        <div><label for="note">Ajouter une note</label><br><br><br><input type="radio" name="note" value=" <?= isset($view['datas']['item'])? $view['datas']['item']->getNote() : ""; ?>">
 
                 <?php for($i = 1; $i < 6; $i++) : ?>
                 <?php 
@@ -68,7 +68,7 @@ unset($_SESSION["admin"]);
                 }
                 
                 ?>
-                <label for="note"<?= $i ?>"><?= $i ?><input type="radio" id="<?= $i ?>" name="note" value="<?= $i ?>" <?= $selected ?> ></label>
+                <label for="note<?= $i ?>"><?= $i ?><input type="radio" id="<?= $i ?>" name="note" value="<?= $i ?>" <?= $selected ?> ></label>
                 <?php endfor ?></div>
 
                 <div><?= isset($view['datas']['item'])? "<input type='hidden' name='id_item' value=' ".$view['datas']['item']->getIdItem()."'>" : ""; ?></div>
