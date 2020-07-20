@@ -257,7 +257,7 @@ function showAjax() {
 
 <!-- <script src="js/jquery-3.4.1.js"></script>    
 <script src="js/script.js"></script> -->
-<script src="js/modal.js"></script>
-<script src="js/ajax.js"></script>
+<!-- <script src="js/modal.js"></script> -->
+<!-- <script src="js/ajax.js"></script> -->
 </body>
 </html>
