@@ -225,11 +225,11 @@ function modSubcategory() {
     return ["template" => "mod_subcategory.php", "datas" => $datas];
 }
 
-// function showAjax() {
+function showAjax() {
 
-    //sleep(5);
-    //echo("<p>Contenu modifie</p>");
-    //exit;}
+    sleep(5);
+    echo("<p>Contenu modifie</p>");
+    exit;}
 ?>
 
 <!DOCTYPE html>
@@ -250,7 +250,7 @@ function modSubcategory() {
 <?php require "views/nav.php"; ?>
 <?php require "views/{$view['template']}"; ?>
 
-<!-- <div id="modContent"></div> -->
+<div id="modContent"></div>
 
 
 <?php require "views/footer.php"; ?>
@@ -258,6 +258,6 @@ function modSubcategory() {
 <!-- <script src="js/jquery-3.4.1.js"></script>    
 <script src="js/script.js"></script> -->
 <script src="js/modal.js"></script>
-<!-- <script src="js/ajax.js"></script> -->
+<script src="js/ajax.js"></script>
 </body>
 </html>
