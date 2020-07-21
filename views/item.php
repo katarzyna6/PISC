@@ -33,8 +33,19 @@ $donnees = [
 
 <div class="description"><p><?= $donnee["description"]?></p></div>
 
+<div class="avis">
+    <p><?= $donnee["avis"]?></p>
+</div>
+
+<div class="note">
+    <p><?= $donnee["note"]?></p>
+</div>
+
 <div class="prix">
     <p><?= $donnee["prix"]?></p>
+</div>
+
+
 </div>
 
 <?php endforeach ?>
