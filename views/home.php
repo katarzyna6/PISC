@@ -14,9 +14,17 @@
     
 </div>
 
-<div class="dummy">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in tincidunt magna. Ut vestibulum justo ac dui rhoncus, vel commodo turpis tempus. Maecenas ornare, est vitae blandit feugiat, enim nunc ornare quam, nec dapibus arcu erat vitae ligula. Quisque elementum bibendum elit eget condimentum. Phasellus eget neque auctor, finibus dolor nec, ornare ex.</p>
+<div>
+    <p>Nos nouveautés :</p>
 </div>
+
+    <div class="selection">
+        <a href="#"><img src="img\DILEX\1.jpg"/></a>
+       <a href="#"><img src="img\DILEX\2.jpg"/></a>
+        <a href="#"><img src="img\DILEX\4.jpg"/></a>
+        <a href="#"><img src="img\DILEX\5.jpg"/></a>
+    </div>
+
 
 <div id="modeContent"></div>
 

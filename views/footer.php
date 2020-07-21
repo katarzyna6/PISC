@@ -5,7 +5,7 @@
         <div><a href="#">Accueil</a></div>
         <div><a href="#">Politique de confidentialité</a></div>
         <div><a href="#">CGV</a></div>
-        <div><a href="#">Contactez-moi</a></div>
+        <div><a href="#">Contact</a></div>
         <div><a href="#">Liens</a></div>
     </div>
 </div>
