@@ -243,6 +243,7 @@ function showAjax() {
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
         <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">  
+        <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
     </head>
 
 
