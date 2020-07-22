@@ -10,6 +10,14 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+    
+}
+h3 {
+    text-align: center;
+}
+
 /* .wrapper {
     width: 100%;
 }
@@ -54,9 +62,7 @@ nav {
     padding: 10px 0;
     color: #762877;
     background-color: #9494b8;
-    text-align: center;
-   
-    
+    text-align: center;   
 }
 
 .form_nav {
@@ -71,11 +77,10 @@ nav {
     padding-left: 10px;
     padding-top: 15px;
     padding-bottom: 10px;
-
 }
 
 .selection {
-   border: solid red 2px;
+    border: solid red 2px;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -90,17 +95,17 @@ nav {
 
 .insta {
     border: solid red 2px;
-     margin: auto;
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
- }
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
  
- .insta a img {
-     width: 80%;
-     margin: auto;
-     border: solid green 2px;
- } 
+.insta a img {
+    width: 80%;
+    margin: auto;
+    border: solid green 2px;
+} 
 
 
 /* .sticky {
@@ -141,15 +146,12 @@ ol > li:first-child {
 }
 
 ol > li:hover {
-    color: #ffffff;
-    
+    color: #ffffff; 
 }
 
 ol > li:hover > a {
     color: #ffffff;
-   background-color: #762877;
-    
-    
+   background-color: #762877;   
 }
 
 ol > li > ul {
@@ -173,15 +175,12 @@ ol > li > ul > li {
 }
 
 ol > li > ul > li:hover {
-    background-color: #963597;
-   
+    background-color: #963597;  
 }
-
 
 /* ------------------- CONTENT ------------------------*/
 
 .content {
-    
     margin-bottom: 40px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -194,7 +193,6 @@ ol > li > ul > li:hover {
 	margin-left: auto;
     margin-right: auto;
     margin-bottom: 35px;
-	
 }
 
 .produit {
@@ -205,8 +203,6 @@ ol > li > ul > li:hover {
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     -moz-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
-    
-
 }
 
 .overlay {
@@ -243,17 +239,12 @@ ol > li > ul > li:hover {
 
 /*-------------------MODAL-------------------*/
 .modal-body {
-    width: 100%;
-    
-    
+    width: 100%; 
 }
 
 .modal-body .photos_modal {
-    
-    float: left;
-    
+    float: left;  
 }
-
 
 /* ------------FOOTER -------------------------*/
 
@@ -283,13 +274,6 @@ ol > li > ul > li:hover {
 
 /* ------------------- ITEM ----------------- */
 
-h2 {
-    text-align: center;
-    color: #9494b8;
-}
-h3 {
-    text-align: center;
-}
 
 .product {
     border: red solid 2px;  
@@ -300,8 +284,7 @@ h3 {
     border: red solid 2px;
     width: 50%;
     margin: 0;
-    text-align: center;
-    
+    text-align: center;   
 }
 
 .product .item  {
@@ -351,7 +334,7 @@ h3 {
     text-align: center;
 }
 
-    
+/* ------------------- BRAND ----------------- */
 
 .brands {
     text-align: center;
@@ -359,52 +342,56 @@ h3 {
 
 /* ------------------BUTTONS-------------------------------------- */
 
-  button a {
-      color: #ffffff;
-      text-decoration: none;
-  }
-  button{
-      text-decoration: none;
-      text-align: center;
-      background-color: #9494b8;
-      border: 2px solid #9494b8;
-      border-radius: 4px;
-      position: relative;
-      width: 150px;
-      line-height: 40px;
-      display: inline-block;
-     
-      font-weight: 600;
-      overflow: hidden;
-  }
-  button:before {
+button a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+button{
+    text-decoration: none;
+    text-align: center;
     background-color: #9494b8;
-      content: "";
-      background-color: rgba(255,255,255,0.5);
-      height: 100%;
-      width: 40px;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: -70px;
-      transform: skewX(-45deg) translateX(0px);
-      transition: none;
-    }
-  button:hover{
-      background-color: #9494b8;
-      color: #ffffff;
-      border-bottom: 2px solid #9494b8;
-  }
+    border: 2px solid #9494b8;
+    border-radius: 4px;
+    position: relative;
+    width: 150px;
+    line-height: 40px;
+    display: inline-block;
+     
+    font-weight: 600;
+    overflow: hidden;
+}
+
+button:before {
+    background-color: #9494b8;
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -70px;
+    transform: skewX(-45deg) translateX(0px);
+    transition: none;
+}
+
+button:hover {
+    background-color: #9494b8;
+    color: #ffffff;
+    border-bottom: 2px solid #9494b8;
+}
   
-  button:hover:before{
-      transform: skewX(-45deg) translateX(250px);
-      transition: all 0.4s ease-in;
-  }
+button:hover:before{
+    transform: skewX(-45deg) translateX(250px);
+    transition: all 0.4s ease-in;
+}
 
 .button_nav a {
     color: #ffffff;
     text-decoration: none;
 }
+
 .button_nav {
     text-decoration: none;
     text-align: center;
@@ -419,8 +406,9 @@ h3 {
     font-weight: 600;
     overflow: hidden;
 }
+
 .button_nav :before {
-  background-color: #9494b8;
+    background-color: #9494b8;
     content: "";
     background-color: rgba(255,255,255,0.5);
     height: 100%;
@@ -431,8 +419,9 @@ h3 {
     left: -70px;
     transform: skewX(-45deg) translateX(0px);
     transition: none;
-  }
-  .button_nav :hover{
+}
+
+.button_nav :hover{
     background-color: #9494b8;
     color: #ffffff;
     border-bottom: 2px solid #9494b8;

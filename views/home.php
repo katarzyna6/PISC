@@ -1,4 +1,4 @@
-<h3>NOS MARQUES : </h3>
+<h2>NOS MARQUES : </h2>
 
 <div class="content">
     
@@ -14,7 +14,7 @@
     
 </div>
 
-<div><h4>Nos nouveautés :</h4></div>
+<div><h3>Nos nouveautés :</h3></div>
 
 <div class="selection">
     <a href="#"><img src="img\DILEX\1.jpg"/></a>
@@ -23,7 +23,7 @@
     <a href="#"><img src="img\DILEX\5.jpg"/></a>
 </div>
 
-<div><h4>Nos best-sellers :</h4></div>
+<div><h3>Nos best-sellers :</h3></div>
 
 <div class="selection">
     <a href="#"><img src="img\DILEX\6.jpg"/></a>
@@ -32,7 +32,7 @@
     <a href="#"><img src="img\DILEX\9.jpg"/></a>
 </div>
 
-<div><h4>Retrouvez toutes nos actualités sur Instagram</h4></div>
+<div><h3>Retrouvez toutes nos actualités sur Instagram</h3></div>
 
 <div class="insta">
     <a href="#"><img src="img\DILEX\10.jpg"/></a>
