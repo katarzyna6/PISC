@@ -27,13 +27,13 @@
                 <li><a href="#">Soins des cheveux</a></li>
                 <li><a href="#">Soins bucco-dentaires</a></li>
                 <li><a href="#">Soins du corps</a></li>
-                <li><a href="#">Coton-tiges</a></li>
+                <li><a href="#">Coton-tige</a></li>
                 <li><a href="#">Lingettes</a></li>
             </ul>
                     
         </li>
 
-        <li><a href="#">Special Femme</a>
+        <li><a href="#">Spécial Femme</a>
             <ul>
                 <li><a href="#">Protection hygiènique</a></li>       
             </ul>

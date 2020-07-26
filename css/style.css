@@ -1,5 +1,6 @@
 body {
-    font-family: 'Krona One', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
     background-color: #d4d4e9;
     color: #762877;
     ;
@@ -239,11 +240,23 @@ ol > li > ul > li:hover {
 
 /*-------------------MODAL-------------------*/
 .modal-body {
-    width: 100%; 
+    border: orangered 2px solid;
 }
 
 .modal-body .photos_modal {
-    float: left;  
+    border: olivedrab 2px solid;
+
+    display: inline-block;
+  
+    
+}
+
+.modal-body .photos_modal img {
+    border: rebeccapurple 2px solid;
+}
+
+.modal-footer{
+    
 }
 
 /* ------------FOOTER -------------------------*/

@@ -291,15 +291,15 @@ $donnees = [
     <div class="modal-body">
       <p>Description text</p>
 
-      <div class="photos_modal">
-        <img src="img\DILEX\1.jpg"  alt="dilex">
-        <img src="img\DILEX\1_2.jpg"alt="dilex">
-        <img src="img\DILEX\1_3.jpg"alt="dilex">
+      <div class="photos_modal"><img src="img\DILEX\1.jpg"  alt="dilex"></div>
+      <div class="photos_modal"><img src="img\DILEX\1_2.jpg"alt="dilex"></div>
+      <div class="photos_modal"><img src="img\DILEX\1_3.jpg"alt="dilex"></div>
       </div>
       
         <p>Note moyenne : 10</p>
-        <a href="#">Voir les avis</a>
-    </div>
+        <a href="#">Voir les avis</a><br>
+        <a href="#">Laissez votre note et commentaire</a>
+
     <div class="modal-footer">
       <h3>Prix : xx €</h3>
     </div>
