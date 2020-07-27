@@ -225,11 +225,11 @@ function modSubcategory() {
     return ["template" => "mod_subcategory.php", "datas" => $datas];
 }
 
-// function showAjax() {
+function showAjax() {
 
-    //sleep(5);
-    //echo("<p>Contenu modifie</p>");
-    //exit;}
+    sleep(5);
+    echo("<p>Contenu modifie</p>");
+    exit;}
 ?>
 
 <!DOCTYPE html>
@@ -242,7 +242,8 @@ function modSubcategory() {
         <meta name="keywords" content=""/>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
-        <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
     </head>
 
 
@@ -250,7 +251,7 @@ function modSubcategory() {
 <?php require "views/nav.php"; ?>
 <?php require "views/{$view['template']}"; ?>
 
-<!-- <div id="modContent"></div> -->
+<div id="modContent"></div>
 
 
 <?php require "views/footer.php"; ?>
