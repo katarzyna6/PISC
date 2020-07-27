@@ -37,7 +37,7 @@ header {
 
 img {
     margin: auto;
-    margin-left: 42%;
+    /* margin-left: 42%; */
     width: 16%;
     margin-top: 15px;
 }
@@ -85,13 +85,16 @@ nav {
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
+.selection p {
+    width: 24%;
+} 
+
 .selection a img {
-    width: 80%;
+    width: 100%;
     margin: auto;
-    border: solid green 2px;
 } 
 
 .insta {
@@ -245,14 +248,17 @@ ol > li > ul > li:hover {
 
 .modal-body .photos_modal {
     border: olivedrab 2px solid;
+    width: 30%;
+}
 
-    display: inline-block;
-  
-    
+.modal-photo-container {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .modal-body .photos_modal img {
     border: rebeccapurple 2px solid;
+    width: 100%;
 }
 
 .modal-footer{

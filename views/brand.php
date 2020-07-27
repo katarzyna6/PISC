@@ -140,7 +140,7 @@ $donnees = [
                 <figure class="photo"> 
                     <figcaption class="overlay">
 
-                        <a href="#"><img src="<?= $donnee["image"]?>" width="350" height="300" alt="dilex"></a>
+                        <a href="#"><img src="<?= $donnee["image"]?>" alt="dilex"></a>
 
                         <a class="link" href="index?route=item&item=<?= $donnee["id"]?>"><p><?= $donnee["nom"]?></p></a>
 
@@ -290,10 +290,12 @@ $donnees = [
     </div>
     <div class="modal-body">
       <p>Description text</p>
-
+    <div class="modal-photo-container">
       <div class="photos_modal"><img src="img\DILEX\1.jpg"  alt="dilex"></div>
       <div class="photos_modal"><img src="img\DILEX\1_2.jpg"alt="dilex"></div>
       <div class="photos_modal"><img src="img\DILEX\1_3.jpg"alt="dilex"></div>
+    </div>
+      
       </div>
       
         <p>Note moyenne : 10</p>
