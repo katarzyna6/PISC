@@ -81,7 +81,3 @@ unset($_SESSION["admin"]);
         <a href="insert_item">Ajouter un autre produit</a>
         <div><a href="index.html">Retour</a></div>
 </div>
-
-<?php
-    require "views/footer.php";
-?>

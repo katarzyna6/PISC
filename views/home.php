@@ -35,10 +35,10 @@
 <div><h3>Retrouvez toutes nos actualités sur Instagram</h3></div>
 
 <div class="insta">
-    <a href="#"><img src="img\DILEX\10.jpg"/></a>
-    <a href="#"><img src="img\DILEX\11.jpg"/></a>
-    <a href="#"><img src="img\DILEX\12.jpg"/></a>
-    <a href="#"><img src="img\DILEX\12_2.jpg"/></a>
+    <a href="#"><img src="#"/></a>
+    <a href="#"><img src="#"/></a>
+    <a href="#"><img src="#"/></a>
+    <a href="#"><img src="#"/></a>
 </div>
 
 
