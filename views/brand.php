@@ -137,8 +137,8 @@ $donnees = [
             <?php foreach($donnees as $donnee): ?>
 
             <div class="produit">
-                <figure class="photo"> 
-                    <figcaption class="overlay">
+                <div class="photo"> 
+                    <div class="overlay">
 
                         <a href="#"><img src="<?= $donnee["image"]?>" alt="dilex"></a>
 
@@ -148,8 +148,8 @@ $donnees = [
 
                         <p>Prix : <?= $donnee["prix"]?> €</p>
 
-                    </figcaption>
-                </figure>               
+            </div>
+            </div>               
             </div>
 
             <?php endforeach ?>
@@ -277,7 +277,7 @@ $donnees = [
             </div>
 
         </div> -->
-
+        </div>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">

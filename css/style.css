@@ -2,9 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.1em;
     background-color: #d4d4e9;
-    color: #762877;
-    ;
-    
+    color: #762877;  
 }
 
 h1 {
@@ -35,19 +33,19 @@ header {
 
 } */
 
-img {
+/* .logo img {
     margin: auto;
-    /* margin-left: 42%; */
+    margin-left: 42%;
     width: 16%;
     margin-top: 15px;
-}
+} */
 
-.title {
+/* .title {
     
     font-size: 48px;
     margin: auto; 
     text-align: center;
-}
+} */
 
 .form {
     float: right;
@@ -194,26 +192,28 @@ ol > li > ul > li:hover {
 /* ------------------- CONTAINER ------------------------*/
 .container
 {
-	margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 35px;
+    width: 100%;
 }
 
 .produit {
-    display: inline-block;
-    clear: both;  
+    display: flex;
+    flex-direction: row;
+    width: 30%; 
+    margin: 0;
+    
 }
 .photo {
+    width: 100%;
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     -moz-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
+    
 }
 
 .overlay {
     position: relative;
-    width: 350px;
-    height: 300px;
 }
+
 
 .overlay .link {
     position: absolute;
@@ -222,8 +222,8 @@ ol > li > ul > li:hover {
     height: 65px;
     background-color: #9494b8;
     left: 0px;
+    bottom: 85px;
     
-    top: 0px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -232,9 +232,13 @@ ol > li > ul > li:hover {
     opacity: 0.8;
 }
 
-.overlay a {
+.produit .photo .overlay a {
     color: #ffffff;
     text-decoration: none;
+}
+
+.produit .photo .overlay a img {
+    width: 100%;
 }
 
 .overlay p {
