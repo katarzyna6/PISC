@@ -17,7 +17,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "brand": $view = showBrand();
         break;
-        case "brand": $view = showItem();
+        case "item": $view = showItem();
         break;
         case "contact": $view = showContact();
         break;
@@ -26,7 +26,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "admin" : $view = showAdmin();
         break;
-        case "connect": $view = connectAdmin();
+        case "connect": connectAdmin();
         break;
         case "deconnect" : $view = deconnectAdmin();
         break;
@@ -78,8 +78,23 @@ function showBrand() {
 }
 
 function showItem() {
+
+    // C'est ici que l'on gère les fluxs de données !!!
+    //$item = new Item();
+    //$donnees = $item->select();
+    $donnees = [
+        "name" => "Lingettes hydratantes",
+        "image1" => "img/DILEX/1.jpg",
+        "image2" => "img/DILEX/1_2.jpg",
+        "image3" => "img/DILEX/1_3.jpg",
+        "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+        "prix" => 15,
+        "avis" => "<p>OK</p>",
+        "note" => 3
+    ];
+    $donnees["brand"] = "DILEX";
         
-    $datas = [];
+    $datas = $donnees;
     return ["template" => "item.php", "datas" => $datas];
 }
 
@@ -147,10 +162,13 @@ function deconnectAdmin() {
 
 function showAdmin() {
     
-    if(!isset($_SESSION["admin"])) {
-            header("Location:admin");
-    }
-    var_dump($_SESSION);
+    // if(!isset($_SESSION["admin"])) {
+    //         header("Location:index.php?route=admin");
+    // }
+
+
+    $datas = [];
+    return ["template" => "admin.php", "datas" => $datas];
 }    
 
 function insertItem() {

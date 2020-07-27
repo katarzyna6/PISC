@@ -40,8 +40,8 @@
 
         </li>
 
-        <li><a href="index?route=contact">Contact</a></li>
-        <li><a href="index?route=connect">Espace admin</a></li>
+        <li><a href="index.php?route=contact">Contact</a></li>
+        <li><a href="index.php?route=admin">Espace admin</a></li>
                         
     </ol>
     
