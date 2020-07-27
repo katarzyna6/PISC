@@ -67,10 +67,9 @@ CREATE TABLE PHOTO(
         id_photo Int  Auto_increment  NOT NULL ,
         name     Varchar (250) NOT NULL ,
         alt      Varchar (50) NOT NULL ,
-        id_item  Int NOT NULL
-	,CONSTRAINT PHOTO_PK PRIMARY KEY (id_photo)
-
-	,CONSTRAINT PHOTO_ITEM_FK FOREIGN KEY (id_item) REFERENCES ITEM(id_item)
+        id_item  Int NOT NULL,
+        CONSTRAINT PHOTO_PK PRIMARY KEY (id_photo),
+        CONSTRAINT PHOTO_ITEM_FK FOREIGN KEY (id_item) REFERENCES ITEM(id_item)
 )ENGINE=InnoDB;
 
 
