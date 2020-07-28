@@ -1,12 +1,42 @@
 <?php
 //var_dump($view['datas']);
 unset($_SESSION["admin"]);
-?> 
+
+
+$items = $view['datas']['items'];
+//var_dump($view['datas']); 
+
+
+
+?>
 
 <div class="espace">
     <h2>Mon espace</h2>
     <div><a href="deconnect.html">Me déconnecter</a></div>
 </div>
+
+<h2>Mes produits ajoutés :</h2>
+
+<ul>
+    <?php
+    foreach((array) $items as $item) :?>
+
+        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName()?></a></li>
+        <li>Description : <?=$item->getDescription()?></li>
+        <li><img src="img/<?= $item->getPhoto() ?>" alt="" style="width:65px; height:56px; margin: 2px;"><a href="admin-<?= $item->getIdItem() ?>.html"></li>
+        <li>Marque : <?=$item->brand->getName();?></li>
+        <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
+        <li>Sous-Catégorie : <?=$book->categoriecomplete->getName();?></li>
+        <li>Prix : <?=$item->getPrice()?></li>
+        <li>Note : <?=$item->getNote()?></li>
+        <li>Avis : <?=$item->getAvis()?></li>
+
+        <a href="admin-<?= $item->getIdItem()?>">Modifier</a>
+        <a href="del_item-<?= $item->getIdItem()?>">Supprimer</a>
+                    
+        <?php endforeach ?>
+    
+</ul>
 
 
 <div class = "form_admin">
