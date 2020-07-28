@@ -18,27 +18,6 @@ unset($_SESSION["admin"]);
 
         <div><label for="name">Nom</label><input type="text" name="title" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
 
-        <div><label for="description">Description</label><input type="text" name="description" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getDescription() : ""; ?>"/></div>
-
-        <div><label for="prix">Prix</label><input type="text" name="prix" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrix() : ""; ?>"/></div>
-
-        <div><label for="categorie">Catégorie :</label><br><br>
-
-            <select id="cats" name="cats">
-                <?php foreach ($view["datas"]["category"] as $category): ?>
-                    <option value="<?=$category->getIdCategorie(); ?>"><?=$category->getName(); ?></option> 
-                <?php endforeach ?>
-            </select>
-        </div>
-
-        <div><label for="categorie">Souscatégorie :</label><br><br>
-            <select id="subcats" name="subcats">
-                <?php foreach ($view["datas"]["subcategory"] as $subcategory): ?>
-                    <option value="<?=$subcategory->getIdSubcategorie(); ?>"><?=$subcategory->getName(); ?></option> 
-                <?php endforeach ?>
-            </select>
-        </div>
-
         <div><label for="brand">Marque :</label><br><br>
             <select id="brand" name="brand">
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
@@ -47,12 +26,45 @@ unset($_SESSION["admin"]);
             </select>
         </div>
 
+        <div><label for="description">Description</label><input type="text" name="description" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getDescription() : ""; ?>"/></div>
+
+        <div><label for="prix">Prix</label><input type="text" name="prix" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrix() : ""; ?>"/></div>
+
+        <div><label for="category">Catégorie :</label><br><br>
+
+        <select id="categories" name="categories">
+
+        <?php foreach ($view["datas"]["categories"] as $categories): ?>
+            <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
+    
+            <option value="Beauté">Beauté</option>
+                <div><label for="subcategory">Sous-catégorie :</label><br><br>
+                <select id="subcategories" name="subcategories">
+                <?php foreach ($view["datas"]["subcategories"] as $subcategories): ?>
+                    <option value="<?=$cat->getIdSubcategory(); ?>"><?=$cat->getName(); ?></option>
+                <?php endforeach ?>
+
+            <option value="Hygiène et Soins">Hygiène et Soins</option>
+                <div><label for="subcategory">Sous-catégorie :</label><br><br>
+                    <select id="subcategories" name="subcategories">
+                    <?php foreach ($view["datas"]["subcategories"] as $subcategories): ?>
+                        <option value="<?=$cat->getIdSubcategory(); ?>"><?=$cat->getName(); ?></option>
+                    <?php endforeach ?>
+
+            <option value="Special Femme">Special Femme</option>
+                <div><label for="subcategory">Sous-catégorie :</label><br><br>
+                    <select id="subcategories" name="subcategories">
+                    <?php foreach ($view["datas"]["subcategories"] as $subcategories): ?>
+                        <option value="<?=$cat->getIdSubcategory(); ?>"><?=$cat->getName(); ?></option>
+                    <?php endforeach ?>
+            <?php endforeach ?>
+        </select>
+</div>
+
         <div>
             <label for="image">Image</label><br><br><br>
             <input type="file" id="image" name="image"value="">
         </div>
-
-        <div><label for="description">Description</label><input type="text" name="description" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getDescription() : ""; ?>"/></div>
                 
         <div><label for="opinion">Avis</label><input type="text" name="opinion" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getOpinion() : ""; ?>"/></div>
 

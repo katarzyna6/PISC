@@ -14,13 +14,13 @@ abstract class DbConnect implements Crud {
         return $this->id;
     }
 
-    // abstract function insert();
+    abstract function insert();
     
-    // abstract function update();
+    abstract function update();
 
-    // abstract function delete();
+    abstract function delete();
 
-    // abstract function selectAll();
+    abstract function selectAll();
         
-    // abstract function select();
+    abstract function select();
 }
