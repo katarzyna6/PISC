@@ -3,7 +3,6 @@
 unset($_SESSION["admin"]);
 ?> 
 
-
 <div class="espace">
     <h2>Mon espace</h2>
     <div><a href="deconnect.html">Me déconnecter</a></div>
@@ -28,33 +27,33 @@ unset($_SESSION["admin"]);
 
         <div><label for="description">Description</label><input type="text" name="description" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getDescription() : ""; ?>"/></div>
 
-        <div><label for="prix">Prix</label><input type="text" name="prix" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrix() : ""; ?>"/></div>
+        <div><label for="price">Prix</label><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>"/></div>
 
         <div><label for="category">Catégorie :</label><br><br>
 
-        <select id="categories" name="categories">
+        <select id="category" name="category">
 
-        <?php foreach ($view["datas"]["categories"] as $categories): ?>
+        <?php foreach ($view["datas"]["category"] as $category): ?>
             <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
     
             <option value="Beauté">Beauté</option>
                 <div><label for="subcategory">Sous-catégorie :</label><br><br>
-                <select id="subcategories" name="subcategories">
-                <?php foreach ($view["datas"]["subcategories"] as $subcategories): ?>
+                <select id="subcategory" name="subcategory">
+                <?php foreach ($view["datas"]["subcategory"] as $subcategory): ?>
                     <option value="<?=$cat->getIdSubcategory(); ?>"><?=$cat->getName(); ?></option>
                 <?php endforeach ?>
 
             <option value="Hygiène et Soins">Hygiène et Soins</option>
                 <div><label for="subcategory">Sous-catégorie :</label><br><br>
-                    <select id="subcategories" name="subcategories">
-                    <?php foreach ($view["datas"]["subcategories"] as $subcategories): ?>
+                    <select id="subcategory" name="subcategory">
+                    <?php foreach ($view["datas"]["subcategory"] as $subcategory): ?>
                         <option value="<?=$cat->getIdSubcategory(); ?>"><?=$cat->getName(); ?></option>
                     <?php endforeach ?>
 
             <option value="Special Femme">Special Femme</option>
                 <div><label for="subcategory">Sous-catégorie :</label><br><br>
-                    <select id="subcategories" name="subcategories">
-                    <?php foreach ($view["datas"]["subcategories"] as $subcategories): ?>
+                    <select id="subcategory" name="subcategory">
+                    <?php foreach ($view["datas"]["subcategories"] as $subcategory): ?>
                         <option value="<?=$cat->getIdSubcategory(); ?>"><?=$cat->getName(); ?></option>
                     <?php endforeach ?>
             <?php endforeach ?>
@@ -66,7 +65,7 @@ unset($_SESSION["admin"]);
             <input type="file" id="image" name="image"value="">
         </div>
                 
-        <div><label for="opinion">Avis</label><input type="text" name="opinion" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getOpinion() : ""; ?>"/></div>
+        <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getAvis() : ""; ?>"/></div>
 
         <div><label for="note">Ajouter une note</label><br><br><br><input type="radio" name="note" value=" <?= isset($view['datas']['item'])? $view['datas']['item']->getNote() : ""; ?>">
 
