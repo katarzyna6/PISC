@@ -19,6 +19,16 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "item": $view = showItem();
         break;
+        case "category": $view = showCategory();
+        break;
+        case "subcategory": $view = showSubcategory();
+        break;
+        case "insert_subcategory": $view = insertSubcategory();
+        break;
+        case "mod_subcategory": $view = modSubcategory();
+        break;
+        case "del_subcategory": $view = delSubcategory();
+        break;
         case "contact": $view = showContact();
         break;
         //ADMIN
@@ -52,12 +62,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         // case "del_category": $view = delCategory();
         // break;
         //SUBCATEGORY
-        case "insert_subcategory": $view = insertSubcategory();
-        break;
-        case "mod_subcategory": $view = modSubcategory();
-        break;
-        case "del_subcategory": $view = delSubcategory();
-        break;
+        
         
         
         // case "ajax": $view = showAjax();
@@ -102,6 +107,8 @@ function showItem() {
         "image2" => "img/DILEX/1_2.jpg",
         "image3" => "img/DILEX/1_3.jpg",
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+        "id_category" => 2,
+        "id_subcategory" => 10,
         "prix" => 15,
         "avis" => "<p>OK</p>",
         "note" => 3
@@ -110,6 +117,38 @@ function showItem() {
         
     $datas = $donnees;
     return ["template" => "item.php", "datas" => $datas];
+}
+
+function showCategory() {
+
+    $category = new Category();
+    $donnees = $category->select();
+
+    $donnees = [
+        "id_category" => 1,
+        "name" => "Beauté"    
+    ];
+
+
+    $datas = $donnees;
+    return ["template" => "category.php", "datas" => $datas];
+    
+}
+
+function showSubcategory() {
+
+    $subcategory = new Subcategory();
+    $donnees = $subcategory->select();
+
+    $donnees = [
+        "id_subcategory" => 1,
+        "name" => "Beauté du visage",
+        "id_category" => 1,  
+    ];
+
+
+    $datas = $donnees;
+    return ["template" => "subcategory.php", "datas" => $datas];
 }
 
 function showContact() {
