@@ -1,4 +1,8 @@
-<h1>DILEX</h1>
+<?php
+var_dump($view["datas"]);
+?>
+
+<h1><?= $view["datas"]["brand"]->getName() ?></h1>
     <div class="container">
 
         <!-- 3. Attention, l'affichage de tes produits reprennent ta maquette, or, ces produits doivent provenir de ta base de données
@@ -6,7 +10,7 @@
         et boucler dessus pour afficher tes div, ce qui permettra d'afficher les bonnes informations dans ta modale -->
 
 
-        <?php foreach($donnees as $donnee): ?>
+        <?php foreach($view["datas"] as $donnee): ?>
 
             <div class="produit">
                 <div class="photo"> 

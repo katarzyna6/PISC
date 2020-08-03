@@ -101,16 +101,11 @@ function showHome() {
 function showBrand() {
 
     $brand = new Brand();
-    $donnees = $brand->select();
+    $brand->setIdBrand($_GET["id"]);
+    $datas["brand"] = $brand->select();
 
-    $donnees = [
-            "id_brand" => 1,
-            "name" => "DILEX",
-            "description" => "<P>Lorem ipsum ...</p>"     
-    ];
+    //$datas["items] = select by brand dans item....
 
-
-    $datas = $donnees;
     return ["template" => "brand.php", "datas" => $datas];
 }
 
