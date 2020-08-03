@@ -64,6 +64,21 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         default : $view = showHome();
     }
 
+function showMenu() {
+
+    global $menu;
+
+    $categories = new Category();
+    $menu["categories"] = $categories->selectAll();
+
+    foreach($menu["categories"] as &$cat) {
+        $subcats = new Subcategory();
+        $subcats->setIdCategory($cat->getIdCategory());
+        $cat->subCats = $subcats->selectByCategory();
+    }
+    
+}
+
 function showHome() {
         
     // if(isset($_SESSION["admin"])) {
@@ -71,15 +86,6 @@ function showHome() {
     // }
     $brands = new Brand();
     $datas["brands"] = $brands->selectAll();
-
-    $categories = new Category();
-    $datas["categories"] = $categories->selectAll();
-
-    foreach($datas["categories"] as &$cat) {
-        $subcats = new Subcategory();
-        $subcats->setIdCategory($cat->getIdCategory());
-        $cat->subCats = $subcats->selectByCategory();
-    }
 
     return ["template" => "home.php", "datas" => $datas];
 }
@@ -443,8 +449,9 @@ function delSubcategory() {
     </head>
 
 
-
+<?php showMenu() ?>
 <?php require "views/nav.php"; ?>
+
 <?php require "views/{$view['template']}"; ?>
 
 <div id="modContent"></div>
