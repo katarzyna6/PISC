@@ -15,14 +15,13 @@ $items = $view['datas']['items'];
 
 <ul>
     <?php
-    foreach((array) $items as $item) :?>
+    foreach($items as $item) :?>
 
         <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName()?></a></li>
         <li>Description : <?=$item->getDescription()?></li>
-        <li><img src="img/<?= $item->getPhoto() ?>" alt="" style="width:65px; height:56px; margin: 2px;"><a href="admin-<?= $item->getIdItem() ?>.html"></li>
-        <li>Marque : <?=$item->brand->getName();?></li>
+        <li>Marque : <?=$item->brandcomplete->getName();?></li>
         <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
-        <li>Sous-Catégorie : <?=$book->categoriecomplete->getName();?></li>
+        <li>Sous-Catégorie : <?=$item->subcategoriecomplete->getName();?></li>
         <li>Prix : <?=$item->getPrice()?></li>
         <li>Note : <?=$item->getNote()?></li>
         <li>Avis : <?=$item->getAvis()?></li>
@@ -37,11 +36,11 @@ $items = $view['datas']['items'];
 
 <div class = "form_admin">
         
-    <form action="<?= isset($view['datas']['item'])? "mod_item" : "insert_item"; ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= isset($view['datas']['item'])? "index.php?route=mod_item" : "index.php?route=insert_item"; ?>" method="POST" enctype="multipart/form-data">
             
         <h2><?= isset($view['datas']['item'])? "Modifier un produit" : "Ajouter un produit"; ?> </h2>
 
-        <div><label for="name">Nom</label><input type="text" name="title" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
+        <div><label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
 
         <div>
             <label for="brand">Marque :</label><br>
@@ -56,13 +55,15 @@ $items = $view['datas']['items'];
 
         <div><label for="price">Prix</label><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>"/></div>
 
-        <div><label for="category">Catégorie :</label><br>
-        <select id="category" name="category">
+        <div>
+            <label for="category">Catégorie :</label><br>
+            <select id="category" name="category">
 
-        <?php foreach ($view["datas"]["category"] as $cat): ?>
-            <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
-    
-        </select>
+                <?php foreach ($view["datas"]["category"] as $cat): ?>
+                    <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
+                <?php endforeach ?>
+
+            </select>
         </div>
 
         <div>

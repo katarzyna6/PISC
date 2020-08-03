@@ -100,8 +100,9 @@ class Item extends DbConnect {
 
     function insert(){
     
-        $query = "INSERT INTO item (id_item, name, description, price, avis, note, id_category, id_subcategory, id_brand, id_admin)
-            VALUES(:id_brand, :name, :description, :price, :avis, :note, :id_category, :id_subcategory, :id_brand, :id_admin)";
+        var_dump($this);
+        $query = "INSERT INTO item (name, description, price, avis, note, id_category, id_subcategory, id_brand, id_admin)
+            VALUES(:name, :description, :price, :avis, :note, :id_category, :id_subcategory, :id_brand, :id_admin)";
 
         $result = $this->pdo->prepare($query);
         $result->bindValue(':id_brand', $this->id_brand, PDO::PARAM_INT);
@@ -109,13 +110,16 @@ class Item extends DbConnect {
         $result->bindValue(':description', $this->description, PDO::PARAM_STR);
         $result->bindValue(':price', $this->price, PDO::PARAM_STR);
         $result->bindValue(':avis', $this->avis, PDO::PARAM_STR);
-        $result->bindValue(':note', $this->note, PDO::PARAM_STR);
-        $result->bindValue(':id_category', $this->id_category, PDO::PARAM_STR);
-        $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_STR);
-        $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_STR);
+        $result->bindValue(':note', $this->note, PDO::PARAM_INT);
+        $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
+        $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
+        $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
         $result->execute();
 
         $this->id_item = $this->pdo->lastInsertId();
+
+        
+        var_dump($result->queryString);
         return $this;
     }
 
@@ -158,12 +162,14 @@ class Item extends DbConnect {
     }
 
     public function selectByAdmin() {
-        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM books WHERE id_admin = :id";
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM item WHERE id_admin = :id";
         $result = $this->pdo->prepare($query);
 
         $result->bindValue("id", $this->id_admin, PDO::PARAM_INT);
         $result->execute();
         $datas = $result->fetchAll();
+
+        var_dump($datas);
 
         $items = [];
         foreach($datas as $elem) {
