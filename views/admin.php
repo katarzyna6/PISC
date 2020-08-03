@@ -25,6 +25,7 @@ $items = $view['datas']['items'];
         <li>Prix : <?=$item->getPrice()?></li>
         <li>Note : <?=$item->getNote()?></li>
         <li>Avis : <?=$item->getAvis()?></li>
+        <li><img src="img/<?= $item->getImage() ?>" alt="" style="width:265px; height:256px; margin: 2px;"><a href="admin-<?= $item->getIdItem() ?>.html"></li>
 
         <a href="admin-<?= $item->getIdItem()?>">Modifier</a>
         <a href="del_item-<?= $item->getIdItem()?>">Supprimer</a>
@@ -46,7 +47,7 @@ $items = $view['datas']['items'];
             <label for="brand">Marque :</label><br>
             <select id="brand" name="brand">
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
-                    <option value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?><?=$brand->getDescription(); ?></option>
+                    <option value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?></option>
                 <?php endforeach ?>
             </select>
         </div>

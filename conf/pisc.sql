@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `brand`;
 CREATE TABLE IF NOT EXISTS `brand` (
   `id_brand` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
-  `description` varchar(50) NOT NULL,
+  `description` varchar(250) NOT NULL,
   PRIMARY KEY (`id_brand`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `avis` varchar(250) NOT NULL,
   `note` int(5) NOT NULL,
   `id_admin` int(11) NOT NULL,
+  `image` varchar(250) NOT NULL,
   PRIMARY KEY (`id_item`),
   KEY `ITEM_CATEGORY_FK` (`id_category`),
   KEY `ITEM_BRAND0_FK` (`id_brand`),

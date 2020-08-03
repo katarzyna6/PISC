@@ -49,16 +49,6 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "del_item": $view = delItem();
         break;
-        // //SUBCATEGORY
-        // case "insert_category": $view = insertCategory();
-        // break;
-        // case "mod_category": $view = modCategory();
-        // break;
-        // case "del_category": $view = delCategory();
-        // break;
-        
-        
-        
         // case "ajax": $view = showAjax();
         // break;
         default : $view = showHome();
@@ -96,17 +86,15 @@ function showBrand() {
     $brand->setIdBrand($_GET["id"]);
     $datas["brand"] = $brand->select();
 
-    //$datas["items] = select by brand dans item....
-
     return ["template" => "brand.php", "datas" => $datas];
 }
 
 function showItem() {
 
-    // C'est ici que l'on gère les fluxs de données !!!
     $item = new Item();
-    $donnees = $item->select();
-    $donnees = [
+    $datas = $item->select();
+    $datas["items"] = $item->selectByBrand();
+    $datas = [
         "name" => "Lingettes hydratantes",
         "image1" => "img/DILEX/1.jpg",
         "image2" => "img/DILEX/1_2.jpg",
@@ -118,9 +106,8 @@ function showItem() {
         "avis" => "<p>OK</p>",
         "note" => 3
     ];
-    $donnees["brand"] = "DILEX";
+    $datas["brand"] = "DILEX";
         
-    $datas = $donnees;
     return ["template" => "item.php", "datas" => $datas];
 }
 
@@ -230,7 +217,6 @@ function showAdmin() {
         header("Location:index.php?route=connectform");
     }
 
-    
     $item = new Item();
     $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
     
@@ -280,9 +266,17 @@ function showAdmin() {
 }    
 
 function insertItem() {
+
+    var_dump($_POST);
+    var_dump($_FILES);
+    $image = "default.png";
+
+    if(!empty($_FILES['image']['tmp_name'])) {
+        $uploder = new UploadImage($_FILES['image'], 450, 450);
+        $image = $uploder->set_image();
+    }
     
     if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
-        var_dump("ok1");
     
         $item = new Item();
         $item->setName($_POST["name"]);
@@ -293,6 +287,7 @@ function insertItem() {
         $item->setIdBrand($_POST["brand"]);      
         $item->setIdCategory($_POST["category"]);
         $item->setIdSubcategory($_POST["subcategory"]);
+        $item->setImage($image);
         
 
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
@@ -315,13 +310,18 @@ function modItem() {
     $item->setIdBrand($_POST["id_brand"]);
     $item->setIdCategory($_POST["id_category"]);       
     $item->setIdSubcategory($_POST["id_subcategory"]);
+
+    if(!empty($_FILES['image']['tmp_name'])) {
+        var_dump('img');
+        $uploder = new UploadImage($_FILES['image'], 450, 450);
+        $item->setImage($uploder->set_image());
+    }
     
 
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
 
-    // Redirection vers espace admin
-    //header("Location:mod_item");
+    header("Location:index.php?route=admin");
     exit;
 }
 
@@ -333,47 +333,16 @@ function delItem() {
     $item->delete();
 
     if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
+        $image = $item->getImage();
         $item->delete();
+        if($image != "default.png") {
+            unlink("img/".$image); //Supprimer l'image
+        }
     }
 
-    // Redirection vers espace admin
+    header("Location:index.php?route=admin");
+    exit;
 }
-
-// function insertBrand() {
-        
-//     $datas = [];
-//     return ["template" => "insert_brand.php", "datas" => $datas];
-// }
-
-// function delBrand() {
-        
-//     $datas = [];
-//     return ["template" => "del_brand.php", "datas" => $datas];
-// }
-
-// function modBrand() {
-        
-//     $datas = [];
-//     return ["template" => "mod_brand.php", "datas" => $datas];
-// }
-
-// function insertCategory() {
-        
-//     $datas = [];
-//     return ["template" => "insert_category.php", "datas" => $datas];
-// }
-
-// function delCategory() {
-        
-//     $datas = [];
-//     return ["template" => "del_category.php", "datas" => $datas];
-// }
-
-// function modCategory() {
-        
-//     $datas = [];
-//     return ["template" => "mod_category.php", "datas" => $datas];
-// }
 
 function insertSubcategory() {
 
@@ -386,10 +355,12 @@ function insertSubcategory() {
 
         $subcategory->insert();
         
-        // Redirection vers espace admin
+        header("Location:index.php?route=admin");
+    exit;
     }
 
-    // Redirection vers espace admin
+    header("Location:index.php?route=admin");
+    exit;
 }
 
 function modSubcategory() {
@@ -400,24 +371,26 @@ function modSubcategory() {
     $subcategory->setIdCategory($_POST["id_category"]);
     $subcategory->update();
 
-    
-    // Redirection vers espace admin
-    //header("Location:mod_subcategory");
-        
+    header("Location:index.php?route=admin");
+    exit;       
 }
 
 
 function delSubcategory() {
 
     // Supprimer uniquement si elle est vide !!!
+    if(empty($_POST["name"]) && empty($_POST["id_subcategory"]) && empty($_POST["id_category"])) {
+        
     $subcategory = new Subcategory();
     $subcategory->setIdSubcategory($_REQUEST["id_subcategory"]);
 
     $subcategory->delete();
-     
-    // Redirection vers espace admin
+    }
+    header("Location:index.php?route=admin");
+    exit;
 }
 
+}
 
 // function showAjax() {
 
@@ -425,7 +398,11 @@ function delSubcategory() {
 //     echo("<p>Contenu modifie</p>");
 //     exit;
 // }
-}
+
+
+// function showFooter() {
+
+//     global $footer;
 
 ?>
 
