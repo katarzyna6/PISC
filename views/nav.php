@@ -12,7 +12,7 @@
     <ol>
         <li><a href="index?route=home">Accueil</a></li>
 
-        <?php foreach($view["datas"]["categories"] as $cat): ?>
+        <?php foreach($menu["categories"] as $cat): ?>
             <li><a href="#"><?= $cat->getName() ?></a>
                 <ul>
                     <?php foreach($cat->subCats as $subcat): ?>
