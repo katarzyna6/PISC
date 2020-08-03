@@ -19,6 +19,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "item": $view = showItem();
         break;
+        case "connectform": $view = showConnect();
+        break;
         case "category": $view = showCategory();
         break;
         case "subcategory": $view = showSubcategory();
@@ -119,6 +121,11 @@ function showItem() {
     return ["template" => "item.php", "datas" => $datas];
 }
 
+function showConnect() {
+    $datas = [];
+    return ["template" => "connect.php", "datas" => $datas];
+}
+
 function showCategory() {
 
     $category = new Category();
@@ -180,7 +187,7 @@ function InsertAdmin() {
     }
         
     setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
-    header("Location:admin");
+    header("Location:index.php?route=admin");
 }
 
 function connectAdmin() {
@@ -195,13 +202,13 @@ function connectAdmin() {
         if($verif) { 
             if(password_verify($_POST["password"], $verif["password"])) {
                 $_SESSION["admin"] = $verif;
-                header('Location:admin'); 
+                header('Location:index.php?route=admin'); 
             } else { 
-                header('Location:home');
+                header('Location:index.php');
             } 
                 
             } else {
-                header('Location:home');
+                header('Location:index.php');
         }
     }   
 }
@@ -215,9 +222,9 @@ function deconnectAdmin() {
 
 function showAdmin() {
     
-    // if(!isset($_SESSION["admin"])) {
-    //         header("Location:index.php?route=admin");
-    // }
+    if(!isset($_SESSION["admin"])) {
+        header("Location:index.php?route=connectform");
+    }
 
     
     $item = new Item();
@@ -227,6 +234,7 @@ function showAdmin() {
     $datas =[];
 
     $datas['items'] = $item->selectByAdmin();
+    var_dump($datas["items"]);
 
     //on récupére les noms des catégories
     foreach($datas['items'] as &$elem) {
@@ -255,8 +263,11 @@ function showAdmin() {
 
     $subcategory = new Subcategory();
     $datas["subcategory"] = $subcategory->selectAll();
-    
-    $datas = [];
+
+    $brand = new Brand();
+    $datas["brand"] = $brand->selectAll();
+
+    var_dump($datas);
     return ["template" => "admin.php", "datas" => $datas];
 }    
 

@@ -75,6 +75,8 @@ class Brand extends DbConnect {
     foreach($datas as $data) {
         $current = new Brand();
         $current->setIdBrand($data['id_brand']);
+        $current->setName($data['name']);
+        $current->setDescription($data['description']);
         array_push($tab, $current);
         }
         return $tab;

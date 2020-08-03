@@ -44,7 +44,7 @@
 
 <div class = "form_connect">
                     
-        <form action="index.php?route=connect.php" method="POST">
+        <form action="index.php?route=connect" method="POST">
             
         <h2>Connectez-vous</h2>
         
