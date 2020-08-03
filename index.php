@@ -19,6 +19,16 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "item": $view = showItem();
         break;
+        case "category": $view = showCategory();
+        break;
+        case "subcategory": $view = showSubcategory();
+        break;
+        case "insert_subcategory": $view = insertSubcategory();
+        break;
+        case "mod_subcategory": $view = modSubcategory();
+        break;
+        case "del_subcategory": $view = delSubcategory();
+        break;
         case "contact": $view = showContact();
         break;
         //ADMIN
@@ -37,27 +47,22 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "del_item": $view = delItem();
         break;
-        //BRAND
-        case "insert_brand": $view = insertBrand();
-        break;
-        case "mod_brand": $view = modBrand();
-        break;
-        case "del_brand": $view = delBrand();
-        break;
-        //CATEGORY
-        case "insert_category": $view = insertCategory();
-        break;
-        case "mod_category": $view = modCategory();
-        break;
-        case "del_category": $view = delCategory();
-        break;
+        // //BRAND
+        // case "insert_brand": $view = insertBrand();
+        // break;
+        // case "mod_brand": $view = modBrand();
+        // break;
+        // case "del_brand": $view = delBrand();
+        // break;
+        // //CATEGORY
+        // case "insert_category": $view = insertCategory();
+        // break;
+        // case "mod_category": $view = modCategory();
+        // break;
+        // case "del_category": $view = delCategory();
+        // break;
         //SUBCATEGORY
-        case "insert_subcategory": $view = insertSubcategory();
-        break;
-        case "mod_subcategory": $view = modSubcategory();
-        break;
-        case "del_subcategory": $view = delSubcategory();
-        break;
+        
         
         
         // case "ajax": $view = showAjax();
@@ -67,27 +72,43 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 
 function showHome() {
         
+    if(isset($_SESSION["admin"])) {
+        header("Location:admin");
+    }
+
     $datas = [];
     return ["template" => "home.php", "datas" => $datas];
 }
 
 function showBrand() {
-        
-    $datas = [];
+
+    $brand = new Brand();
+    $donnees = $brand->select();
+
+    $donnees = [
+            "id_brand" => 1,
+            "name" => "DILEX",
+            "description" => "<P>Lorem ipsum ...</p>"     
+    ];
+
+
+    $datas = $donnees;
     return ["template" => "brand.php", "datas" => $datas];
 }
 
 function showItem() {
 
     // C'est ici que l'on gère les fluxs de données !!!
-    //$item = new Item();
-    //$donnees = $item->select();
+    $item = new Item();
+    $donnees = $item->select();
     $donnees = [
         "name" => "Lingettes hydratantes",
         "image1" => "img/DILEX/1.jpg",
         "image2" => "img/DILEX/1_2.jpg",
         "image3" => "img/DILEX/1_3.jpg",
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+        "id_category" => 2,
+        "id_subcategory" => 10,
         "prix" => 15,
         "avis" => "<p>OK</p>",
         "note" => 3
@@ -96,6 +117,38 @@ function showItem() {
         
     $datas = $donnees;
     return ["template" => "item.php", "datas" => $datas];
+}
+
+function showCategory() {
+
+    $category = new Category();
+    $donnees = $category->select();
+
+    $donnees = [
+        "id_category" => 1,
+        "name" => "Beauté"    
+    ];
+
+
+    $datas = $donnees;
+    return ["template" => "category.php", "datas" => $datas];
+    
+}
+
+function showSubcategory() {
+
+    $subcategory = new Subcategory();
+    $donnees = $subcategory->select();
+
+    $donnees = [
+        "id_subcategory" => 1,
+        "name" => "Beauté du visage",
+        "id_category" => 1,  
+    ];
+
+
+    $datas = $donnees;
+    return ["template" => "subcategory.php", "datas" => $datas];
 }
 
 function showContact() {
@@ -166,88 +219,205 @@ function showAdmin() {
     //         header("Location:index.php?route=admin");
     // }
 
+    
+    $item = new Item();
+    $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
+    
 
+    $datas =[];
+
+    $datas['items'] = $item->selectByAdmin();
+
+    //on récupére les noms des catégories
+    foreach($datas['items'] as &$elem) {
+        $category = new Category();
+        $category->setIdCategory($elem->getIdCategory());
+        $elem->categorycomplete = $category->select();
+    }
+
+    //on récupére les noms des souscatégories
+    foreach($datas['items'] as &$elem) {
+        $subcategory = new Subcategory();
+        $subcategory->setIdSubcategory($elem->getIdSubcategory());
+        $elem->categoriecomplete = $subcategory->select();
+    }
+
+    //Récupérer un produit à modifier
+    if(isset($_GET['id'])) {
+        $item->setIdItem($_GET['id']);
+        $items = $item->select();
+        $datas['item'] = $item;
+    }
+
+    //on ajoute l'objet Categorie
+    $category = new Category();
+    $datas["category"] = $category->selectAll();
+
+    $subcategory = new Subcategory();
+    $datas["subcategory"] = $subcategory->selectAll();
+    
     $datas = [];
     return ["template" => "admin.php", "datas" => $datas];
 }    
 
 function insertItem() {
+    
+    if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
+
+    
+        $item = new Item();
+        $item->setName($_POST["name"]);
+        $item->setDescription($_POST["description"]);
+        $item->setPrice($_POST["price"]);
+        $item->setAvis($_POST["avis"]); 
+        $item->setNote($_POST["note"]);
+        $item->setIdBrand($_POST["id_brand"]);      
+        $item->setIdCategory($_POST["id_category"]);
+        $item->setIdSubcategory($_POST["id_subcategory"]);
+        
+
+        $item->setIdAdmin($_SESSION['admin']['id_admin']);
+
+        $item->insert();
+
+        header("Location:insert_item");
         
     $datas = [];
     return ["template" => "insert_item.php", "datas" => $datas];
 }
 
-function delItem() {
-        
-    $datas = [];
-    return ["template" => "del_item.php", "datas" => $datas];
-}
-
 function modItem() {
+
+    $item = new Item();
+    $item->setIdItem($_REQUEST['id_item']);
+    $item->setName($_POST["name"]);
+    $item->setDescription($_POST["description"]);
+    $item->setPrice($_POST["price"]);
+    $item->setAvis($_POST["avis"]);
+    $item->setNote($_POST["note"]);
+    $item->setIdBrand($_POST["id_brand"]);
+    $item->setIdCategory($_POST["id_category"]);       
+    $item->setIdSubcategory($_POST["id_subcategory"]);
+    
+
+    $item->setIdAdmin($_SESSION['admin']['id_admin']);
+    $item->update();
+
+    header("Location:mod_item");
         
     $datas = [];
     return ["template" => "mod_item.php", "datas" => $datas];
 }
 
-function insertBrand() {
-        
+function delItem() {
+
+    $item = new Item();
+    $item->setIdItem($_REQUEST["id_item"]);
+
+    $item->delete();
+
+    if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
+        $item->delete();
+    }
+
     $datas = [];
-    return ["template" => "insert_brand.php", "datas" => $datas];
+    return ["template" => "del_item.php", "datas" => $datas];
 }
 
-function delBrand() {
+// function insertBrand() {
         
-    $datas = [];
-    return ["template" => "del_brand.php", "datas" => $datas];
-}
+//     $datas = [];
+//     return ["template" => "insert_brand.php", "datas" => $datas];
+// }
 
-function modBrand() {
+// function delBrand() {
         
-    $datas = [];
-    return ["template" => "mod_brand.php", "datas" => $datas];
-}
+//     $datas = [];
+//     return ["template" => "del_brand.php", "datas" => $datas];
+// }
 
-function insertCategory() {
+// function modBrand() {
         
-    $datas = [];
-    return ["template" => "insert_category.php", "datas" => $datas];
-}
+//     $datas = [];
+//     return ["template" => "mod_brand.php", "datas" => $datas];
+// }
 
-function delCategory() {
+// function insertCategory() {
         
-    $datas = [];
-    return ["template" => "del_category.php", "datas" => $datas];
-}
+//     $datas = [];
+//     return ["template" => "insert_category.php", "datas" => $datas];
+// }
 
-function modCategory() {
+// function delCategory() {
         
-    $datas = [];
-    return ["template" => "mod_category.php", "datas" => $datas];
-}
+//     $datas = [];
+//     return ["template" => "del_category.php", "datas" => $datas];
+// }
+
+// function modCategory() {
+        
+//     $datas = [];
+//     return ["template" => "mod_category.php", "datas" => $datas];
+// }
 
 function insertSubcategory() {
+
+    if(!empty($_POST["name"]) && !empty($_POST["id_subcategory"]) && !empty($_POST["id_category"])) {
+
+        $subcategory = new Subcategory();
+        $subcategory->setName($_POST["name"]);
+        $subcategory->setIdSubcategory($_POST["id_subcategory"]);
+        $subcategory->setIdCategory($_POST["id_category"]);
+
+        $subcategory->insert();
         
     $datas = [];
     return ["template" => "insert_subcategory.php", "datas" => $datas];
-}
-
-function delSubcategory() {
-        
-    $datas = [];
-    return ["template" => "del_subcategory.php", "datas" => $datas];
+    }
 }
 
 function modSubcategory() {
+
+    $subcategory = new Subcategory();
+    $subcategory->setIdSubcategory($_REQUEST['id_subcategory']);
+    $subcategory->setName($_POST["name"]);      
+    $subcategory->setIdCategory($_POST["id_category"]);
+    
+
+    $subcategory->setIdAdmin($_SESSION['admin']['id_admin']); //on ajoute id_admin dans le modèle Subcategory????
+    $subcategory->update();
+
+    header("Location:mod_subcategory");
         
     $datas = [];
     return ["template" => "mod_subcategory.php", "datas" => $datas];
 }
 
-function showAjax() {
 
-    sleep(5);
-    echo("<p>Contenu modifie</p>");
-    exit;}
+function delSubcategory() {
+
+    $subcategory = new Subcategory();
+    $subcategory->setIdSubcategory($_REQUEST["id_subcategory"]);
+
+    $subcategory->delete();
+
+    if($subcategory->getIdAdmin() == $_SESSION['admin']['id_admin']) {
+        $subcategory->delete();
+    }
+     
+    $datas = [];
+    return ["template" => "del_subcategory.php", "datas" => $datas];
+}
+
+
+// function showAjax() {
+
+//     sleep(5);
+//     echo("<p>Contenu modifie</p>");
+//     exit;
+// }
+}
+
 ?>
 
 <!DOCTYPE html>

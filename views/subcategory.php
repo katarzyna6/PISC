@@ -1,4 +1,4 @@
-<h1>BEAUTE</h1>
+<h1>Bauté du visage</h1>
     <div class="container">
 
         <?php foreach($donnees as $donnee): ?>
@@ -9,7 +9,7 @@
 
                         <a href="#"><img src="<?= $donnee["image"]?>" alt="dilex"></a>
 
-                        <a class="link" href="index?route=category=<?= $donnee["id"]?>"><p><?= $donnee["nom"]?></p></a>
+                        <a class="link" href="index?route=subcategory=<?= $donnee["id"]?>"><p><?= $donnee["nom"]?></p></a>
 
                         <button class="myBtn" id="myBtn-<?= $donnee["id"]?>">Voir le produit</button>
 

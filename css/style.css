@@ -2,8 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.1em;
     background-color: #d4d4e9;
-    color: #762877;
-    
+    color: #762877;  
 }
 
 h1 {
@@ -34,19 +33,19 @@ header {
 
 } */
 
-img {
+/* .logo img {
     margin: auto;
-    /* margin-left: 42%; */
+    margin-left: 42%;
     width: 16%;
     margin-top: 15px;
-}
+} */
 
-.title {
+/* .title {
     
     font-size: 48px;
     margin: auto; 
     text-align: center;
-}
+} */
 
 .form {
     float: right;
@@ -193,26 +192,28 @@ ol > li > ul > li:hover {
 /* ------------------- CONTAINER ------------------------*/
 .container
 {
-	margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 35px;
+    width: 100%;
 }
 
 .produit {
-    display: inline-block;
-    clear: both;  
+    display: flex;
+    flex-direction: row;
+    width: 30%; 
+    margin: 0;
+    
 }
 .photo {
+    width: 100%;
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     -moz-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
+    
 }
 
 .overlay {
     position: relative;
-    width: 350px;
-    height: 300px;
 }
+
 
 .overlay .link {
     position: absolute;
@@ -221,8 +222,8 @@ ol > li > ul > li:hover {
     height: 65px;
     background-color: #9494b8;
     left: 0px;
+    bottom: 85px;
     
-    top: 0px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -231,9 +232,13 @@ ol > li > ul > li:hover {
     opacity: 0.8;
 }
 
-.overlay a {
+.produit .photo .overlay a {
     color: #ffffff;
     text-decoration: none;
+}
+
+.produit .photo .overlay a img {
+    width: 100%;
 }
 
 .overlay p {
@@ -247,7 +252,7 @@ ol > li > ul > li:hover {
 
 .modal-body .photos_modal {
     border: olivedrab 2px solid;
-    width: 30%;
+    width: 25%;
 }
 
 .modal-photo-container {
@@ -292,42 +297,39 @@ ol > li > ul > li:hover {
 
 /* ------------------- ITEM ----------------- */
 
+.content_item {
+    border: green solid 3px;
+    display: flex;
+}
 
-.product {
+.item {
     border: red solid 2px;  
-    text-align: center;   
+    width: 50%; 
+    overflow: hidden;
 }
 
-.product .item1  {
+.info {
+    border: red solid 2px; 
+    width: 50%;   
+}
+
+.item1_photo1 img {
+    width: 100%;
     border: red solid 2px;
+}
+
+.item1_photo {
+    display: flex;
+    flex-direction: row;
+    border: red solid 2px;
+
+}
+
+.item1_photo img {
     width: 50%;
-    margin: 0;
-    text-align: center;   
-}
-
-.product .item  {
-    clear: both;
     border: red solid 2px;
-    width: 25%;
-    display: inline-block;
-    margin: 0;
-    
 }
 
-.product .item1 img  {
-    border: red solid 2px;
-    width: 50%;
-}
-
-.product .item img  {
-    border: red solid 2px;
-    width: 35%;
-}
-
-.item
-{
-	overflow: hidden;
-}
 
 .item img {
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
@@ -340,16 +342,6 @@ ol > li > ul > li:hover {
 	-webkit-transform: scale(1.15);
 	-ms-transform: scale(1.15);
 	transform: scale(1.15);
-}
-
-.prix {
-    clear: both;
-    text-align: center;
-}
-
-.description {
-    clear: both;
-    text-align: center;
 }
 
 /* ------------------- BRAND ----------------- */

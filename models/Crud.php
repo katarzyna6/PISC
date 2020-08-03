@@ -2,14 +2,14 @@
 
 interface Crud {
 
-    // function insert();
+    function insert();
     
-    // function update();
+    function update();
 
-    // function delete();
+    function delete();
 
-    // function selectAll();
+    function selectAll();
         
-    // function select();
+    function select();
     
 }
