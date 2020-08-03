@@ -49,21 +49,13 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "del_item": $view = delItem();
         break;
-        // //BRAND
-        // case "insert_brand": $view = insertBrand();
-        // break;
-        // case "mod_brand": $view = modBrand();
-        // break;
-        // case "del_brand": $view = delBrand();
-        // break;
-        // //CATEGORY
+        // //SUBCATEGORY
         // case "insert_category": $view = insertCategory();
         // break;
         // case "mod_category": $view = modCategory();
         // break;
         // case "del_category": $view = delCategory();
         // break;
-        //SUBCATEGORY
         
         
         

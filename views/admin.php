@@ -62,27 +62,6 @@ $items = $view['datas']['items'];
         <?php foreach ($view["datas"]["category"] as $cat): ?>
             <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
     
-            <option value="Beauté">Beauté</option>
-                <!-- <div><label for="subcategory">Sous-catégorie :</label><br><br>
-                <select id="subcategory" name="subcategory">
-                <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
-                    <option value="<?=$subcat->getIdSubcategory(); ?>"><?=$subcat->getName(); ?></option>
-                <?php endforeach ?> -->
-
-            <option value="Hygiène et Soins">Hygiène et Soins</option>
-                <!-- <div><label for="subcategory">Sous-catégorie :</label><br><br>
-                <select id="subcategory" name="subcategory">
-                <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
-                    <option value="<?=$subcat->getIdSubcategory(); ?>"><?=$subcat->getName(); ?></option>
-                <?php endforeach ?> -->
-
-            <option value="Special Femme">Special Femme</option>
-                <!-- <div><label for="subcategory">Sous-catégorie :</label><br><br>
-                <select id="subcategory" name="subcategory">
-                <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
-                    <option value="<?=$subcat->getIdSubcategory(); ?>"><?=$subcat->getName(); ?></option>
-                <?php endforeach ?> -->
-            <?php endforeach ?>
         </select>
         </div>
 
