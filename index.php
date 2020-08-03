@@ -230,11 +230,16 @@ function showAdmin() {
     $item = new Item();
     $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
     
-
     $datas =[];
 
     $datas['items'] = $item->selectByAdmin();
-    var_dump($datas["items"]);
+
+    //on récupére les noms des catégories
+    foreach($datas['items'] as &$elem) {
+        $brand = new Brand();
+        $brand->setIdBrand($elem->getIdCategory());
+        $elem->brandcomplete = $brand->select();
+    }
 
     //on récupére les noms des catégories
     foreach($datas['items'] as &$elem) {
@@ -247,7 +252,7 @@ function showAdmin() {
     foreach($datas['items'] as &$elem) {
         $subcategory = new Subcategory();
         $subcategory->setIdSubcategory($elem->getIdSubcategory());
-        $elem->categoriecomplete = $subcategory->select();
+        $elem->subcategoriecomplete = $subcategory->select();
     }
 
     //Récupérer un produit à modifier
@@ -272,9 +277,11 @@ function showAdmin() {
 }    
 
 function insertItem() {
+
+    var_dump($_POST);
     
     if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
-
+        var_dump("ok1");
     
         $item = new Item();
         $item->setName($_POST["name"]);
@@ -282,19 +289,16 @@ function insertItem() {
         $item->setPrice($_POST["price"]);
         $item->setAvis($_POST["avis"]); 
         $item->setNote($_POST["note"]);
-        $item->setIdBrand($_POST["id_brand"]);      
-        $item->setIdCategory($_POST["id_category"]);
-        $item->setIdSubcategory($_POST["id_subcategory"]);
+        $item->setIdBrand($_POST["brand"]);      
+        $item->setIdCategory($_POST["category"]);
+        $item->setIdSubcategory($_POST["subcategory"]);
         
 
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
-
+        var_dump($item);
         $item->insert();
 
-        header("Location:insert_item");
-        
-    $datas = [];
-    return ["template" => "insert_item.php", "datas" => $datas];
+        header("Location:index.php?route=admin");
 }
 
 function modItem() {
