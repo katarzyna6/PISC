@@ -66,11 +66,21 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 
 function showHome() {
         
-    if(isset($_SESSION["admin"])) {
-        header("Location:admin");
+    // if(isset($_SESSION["admin"])) {
+    //     header("Location:index.php?route=admin");
+    // }
+    $brands = new Brand();
+    $datas["brands"] = $brands->selectAll();
+
+    $categories = new Category();
+    $datas["categories"] = $categories->selectAll();
+
+    foreach($datas["categories"] as &$cat) {
+        $subcats = new Subcategory();
+        $subcats->setIdCategory($cat->getIdCategory());
+        $cat->subCats = $subcats->selectByCategory();
     }
 
-    $datas = [];
     return ["template" => "home.php", "datas" => $datas];
 }
 
@@ -209,7 +219,8 @@ function connectAdmin() {
 function deconnectAdmin() {
         
     unset($_SESSION["admin"]);
-    header("Location:index");
+    // Redirection vers accueil
+    //header("Location:index");
 }
 
 function showAdmin() {
@@ -264,13 +275,10 @@ function showAdmin() {
     $brand = new Brand();
     $datas["brand"] = $brand->selectAll();
 
-    var_dump($datas);
     return ["template" => "admin.php", "datas" => $datas];
 }    
 
 function insertItem() {
-
-    var_dump($_POST);
     
     if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
         var_dump("ok1");
@@ -287,10 +295,11 @@ function insertItem() {
         
 
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
-        var_dump($item);
+        
         $item->insert();
 
         header("Location:index.php?route=admin");
+        exit;
 }
 
 function modItem() {
@@ -310,10 +319,9 @@ function modItem() {
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
 
-    header("Location:mod_item");
-        
-    $datas = [];
-    return ["template" => "mod_item.php", "datas" => $datas];
+    // Redirection vers espace admin
+    //header("Location:mod_item");
+    exit;
 }
 
 function delItem() {
@@ -327,8 +335,7 @@ function delItem() {
         $item->delete();
     }
 
-    $datas = [];
-    return ["template" => "del_item.php", "datas" => $datas];
+    // Redirection vers espace admin
 }
 
 // function insertBrand() {
@@ -378,9 +385,10 @@ function insertSubcategory() {
 
         $subcategory->insert();
         
-    $datas = [];
-    return ["template" => "insert_subcategory.php", "datas" => $datas];
+        // Redirection vers espace admin
     }
+
+    // Redirection vers espace admin
 }
 
 function modSubcategory() {
@@ -389,31 +397,24 @@ function modSubcategory() {
     $subcategory->setIdSubcategory($_REQUEST['id_subcategory']);
     $subcategory->setName($_POST["name"]);      
     $subcategory->setIdCategory($_POST["id_category"]);
-    
-
-    $subcategory->setIdAdmin($_SESSION['admin']['id_admin']); //on ajoute id_admin dans le modèle Subcategory????
     $subcategory->update();
 
-    header("Location:mod_subcategory");
+    
+    // Redirection vers espace admin
+    //header("Location:mod_subcategory");
         
-    $datas = [];
-    return ["template" => "mod_subcategory.php", "datas" => $datas];
 }
 
 
 function delSubcategory() {
 
+    // Supprimer uniquement si elle est vide !!!
     $subcategory = new Subcategory();
     $subcategory->setIdSubcategory($_REQUEST["id_subcategory"]);
 
     $subcategory->delete();
-
-    if($subcategory->getIdAdmin() == $_SESSION['admin']['id_admin']) {
-        $subcategory->delete();
-    }
      
-    $datas = [];
-    return ["template" => "del_subcategory.php", "datas" => $datas];
+    // Redirection vers espace admin
 }
 
 

@@ -76,6 +76,26 @@ class Subcategory extends DbConnect {
                 //appel aux setters de l'objet
             return $this;
         }
+
+        public function selectByCategory(){
+            $query ="SELECT * FROM subcategory WHERE id_category = :id;";
+            $result = $this->pdo->prepare($query);
+            $result->bindValue(':id', $this->id_category, PDO::PARAM_INT);
+            $result->execute();
+            $datas= $result->fetchAll(); //recupérer les données
+        
+            $tab=[];
+        
+            foreach($datas as $data) {
+                $current = new Subcategory();
+                $current->setIdSubcategory($data['id_subcategory']);
+                $current->setName($data['name']);
+                array_push($tab, $current);
+            }
+            return $tab;
+    
+        }
+
     
         public function update(){
             $query ="UPDATE subcategory SET `id_subcategory` = :id_subcategory, `name` = :name";

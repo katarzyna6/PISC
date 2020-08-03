@@ -117,9 +117,6 @@ class Item extends DbConnect {
         $result->execute();
 
         $this->id_item = $this->pdo->lastInsertId();
-
-        
-        var_dump($result->queryString);
         return $this;
     }
 
@@ -168,8 +165,6 @@ class Item extends DbConnect {
         $result->bindValue("id", $this->id_admin, PDO::PARAM_INT);
         $result->execute();
         $datas = $result->fetchAll();
-
-        var_dump($datas);
 
         $items = [];
         foreach($datas as $elem) {
