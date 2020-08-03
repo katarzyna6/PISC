@@ -2,14 +2,10 @@
 
 <div class="content">
     
-        
         <div class="brands">
-            <button><a href="index?route=brand">DILEX</a></button>
-            <button><a href="index?route=ellix">ELLIX</a></button>
-            <button><a href="index?route=ldora">L'DORA</a></button>
-            <button><a href="index?route=nurixo">NURIXO</a></button>
-            <button><a href="index?route=pristive">PRISTIVE</a></button>
-            <button><a href="index?route=w&b">W & B</a></button>
+            <?php foreach($view["datas"]["brands"] as $brand): ?>
+                <button><a href="index.php?route=brand&id=<?= $brand->getIdBrand() ?>"><?= $brand->getName() ?></a></button>
+            <?php endforeach ?>
         </div>
     
 </div>

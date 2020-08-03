@@ -12,7 +12,17 @@
     <ol>
         <li><a href="index?route=home">Accueil</a></li>
 
-        <li><a href="#">Beauté</a>
+        <?php foreach($view["datas"]["categories"] as $cat): ?>
+            <li><a href="#"><?= $cat->getName() ?></a>
+                <ul>
+                    <?php foreach($cat->subCats as $subcat): ?>
+                        <li><a href="#"><?= $subcat->getName() ?></a></li>
+                    <?php endforeach ?>
+                </ul>
+            </li>
+        <?php endforeach ?>
+
+        <!-- <li><a href="#">Beauté</a>
             <ul>
                 <li><a href="#">Beauté du Visage</a></li>
                 <li><a href="#">Beauté des cheveux</a></li>
@@ -38,7 +48,7 @@
                 <li><a href="#">Protection hygiènique</a></li>       
             </ul>
 
-        </li>
+        </li> -->
 
         <li><a href="index.php?route=contact">Contact</a></li>
         <li><a href="index.php?route=admin">Espace admin</a></li>
