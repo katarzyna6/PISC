@@ -1,25 +1,25 @@
 <?php
 
-$donnees = $view["datas"];
+$datas = $view["datas"];
 
 ?>
 
 <div class="content_item">
 
     <div class="info">
-        <h1><?= $donnees["brand"]?></h1>
-        <div class="item1"><h2><?= $donnees["name"]?><h2></div>
-        <div class="item1"><p><?= $donnees["description"]?></p></div>
-        <div class="item1"><p>Avis :<?= $donnees["avis"]?></p></div>
-        <div class="item1"><p>Note moyenne :<?= $donnees["note"]?></p></div>
-        <div><p>Prix :<?= $donnees["prix"]?></p></div>
+        <h1><?= $datas["brand"]?></h1>
+        <div class="item1"><h2><?= $datas["name"]?><h2></div>
+        <div class="item1"><p><?= $datas["description"]?></p></div>
+        <div class="item1"><p>Avis :<?= $datas["avis"]?></p></div>
+        <div class="item1"><p>Note moyenne :<?= $datas["note"]?></p></div>
+        <div><p>Prix :<?= $datas["prix"]?></p></div>
     </div>
     
     
     <div class="item">
-        <div class="item1_photo1"><img src="<?= $donnees["image1"]?>" width="175" height="150" alt="dilex"></div>
-        <div class="item1_photo"><img src="<?= $donnees["image2"]?>" width="175" height="150" alt="dilex"></div>
-        <div class="item1_photo"><img src="<?= $donnees["image3"]?>" width="175" height="150" alt="dilex"></div>
+        <div class="item1_photo1"><img src="<?= $datas["image1"]?>" width="175" height="150" alt="dilex"></div>
+        <div class="item1_photo"><img src="<?= $datas["image2"]?>" width="175" height="150" alt="dilex"></div>
+        <div class="item1_photo"><img src="<?= $datas["image3"]?>" width="175" height="150" alt="dilex"></div>
     </div>
 
 </div>

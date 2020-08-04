@@ -77,6 +77,12 @@ function showHome() {
     $brands = new Brand();
     $datas["brands"] = $brands->selectAll();
 
+    $categories = new Category();
+    $datas["categories"] = $categories->selectAll();
+
+    $subcategories = new Subcategory();
+    $datas["subcategories"] = $subcategories->selectAll();
+
     return ["template" => "home.php", "datas" => $datas];
 }
 
@@ -107,6 +113,40 @@ function showItem() {
         "note" => 3
     ];
     $datas["brand"] = "DILEX";
+
+    $item = new Item();
+    $datas = $item->select();
+    $datas["items"] = $item->selectByCategory();
+    $datas = [
+        "name" => "Lingettes hydratantes",
+        "image1" => "img/DILEX/1.jpg",
+        "image2" => "img/DILEX/1_2.jpg",
+        "image3" => "img/DILEX/1_3.jpg",
+        "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+        "id_category" => 2,
+        "id_subcategory" => 10,
+        "prix" => 15,
+        "avis" => "<p>OK</p>",
+        "note" => 3
+    ];
+    $datas["category"] = "Beauté";
+
+    $item = new Item();
+    $datas = $item->select();
+    $datas["items"] = $item->selectBySubcategory();
+    $datas = [
+        "name" => "Lingettes hydratantes",
+        "image1" => "img/DILEX/1.jpg",
+        "image2" => "img/DILEX/1_2.jpg",
+        "image3" => "img/DILEX/1_3.jpg",
+        "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+        "id_category" => 2,
+        "id_subcategory" => 10,
+        "prix" => 15,
+        "avis" => "<p>OK</p>",
+        "note" => 3
+    ];
+    $datas["subcategory"] = "Lingettes";
         
     return ["template" => "item.php", "datas" => $datas];
 }
@@ -119,15 +159,13 @@ function showConnect() {
 function showCategory() {
 
     $category = new Category();
-    $donnees = $category->select();
+    $datas = $category->select();
 
-    $donnees = [
+    $datas = [
         "id_category" => 1,
         "name" => "Beauté"    
     ];
 
-
-    $datas = $donnees;
     return ["template" => "category.php", "datas" => $datas];
     
 }
@@ -135,16 +173,14 @@ function showCategory() {
 function showSubcategory() {
 
     $subcategory = new Subcategory();
-    $donnees = $subcategory->select();
+    $datas = $subcategory->select();
 
-    $donnees = [
+    $datas = [
         "id_subcategory" => 1,
         "name" => "Beauté du visage",
         "id_category" => 1,  
     ];
 
-
-    $datas = $donnees;
     return ["template" => "subcategory.php", "datas" => $datas];
 }
 
@@ -400,9 +436,10 @@ function delSubcategory() {
 // }
 
 
-// function showFooter() {
+function showFooter() {
 
-//     global $footer;
+    global $footer; 
+}
 
 ?>
 
@@ -428,8 +465,10 @@ function delSubcategory() {
 
 <div id="modContent"></div>
 
-
+<?php showFooter() ?>
 <?php require "views/footer.php"; ?>
+
+<!-- <?php require "views/footer.php"; ?> -->
 
 <!-- <script src="js/jquery-3.4.1.js"></script>    
 <script src="js/script.js"></script> -->

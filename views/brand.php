@@ -10,19 +10,19 @@ var_dump($view["datas"]);
         et boucler dessus pour afficher tes div, ce qui permettra d'afficher les bonnes informations dans ta modale -->
 
 
-        <?php foreach($view["datas"] as $donnee): ?>
+        <?php foreach($view["datas"] as $data): ?>
 
             <div class="produit">
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="#"><img src="<?= $donnee["image"]?>" alt="dilex"></a>
+                        <a href="#"><img src="<?= $data["image"]?>" alt="image"></a>
 
-                        <a class="link" href="index?route=item&item=<?= $donnee["id"]?>"><p><?= $donnee["nom"]?></p></a>
+                        <a class="link" href="index?route=item&item=<?= $data["id_item"]?>"><p><?= $data["name"]?></p></a>
 
-                        <button class="myBtn" id="myBtn-<?= $donnee["id"]?>">Voir le produit</button>
+                        <button class="myBtn" id="myBtn-<?= $data["id_item"]?>">Voir le produit</button>
 
-                        <p>Prix : <?= $donnee["prix"]?> €</p>
+                        <p>Prix : <?= $data["price"]?> €</p>
 
                     </div>
                 </div>               

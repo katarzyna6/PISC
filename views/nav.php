@@ -16,7 +16,7 @@
             <li><a href="#"><?= $cat->getName() ?></a>
                 <ul>
                     <?php foreach($cat->subCats as $subcat): ?>
-                        <li><a href="#"><?= $subcat->getName() ?></a></li>
+                        <li><a href="index.php?route=subcategory.php"><?= $subcat->getName() ?></a></li>
                     <?php endforeach ?>
                 </ul>
             </li>
@@ -57,7 +57,7 @@
     
 </nav>
 
-<!-- <div class="form_nav">
+<div class="form_nav">
         <form class="nav2">
             <input type="search" id="maRecherche" name="q"
             placeholder="Rechercher un produit">
@@ -91,7 +91,7 @@
                 <option value="tri">Protection hygiènique</option>
             </select>
         </form>
-</div> -->
+</div>
 
 
 

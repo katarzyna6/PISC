@@ -227,6 +227,64 @@ class Item extends DbConnect {
         return $items; 
     }
 
+    public function selectByCategory() {
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM item WHERE id_brand = :id";
+        $result = $this->pdo->prepare($query);
+
+        $result->bindValue("id", $this->id_category, PDO::PARAM_INT);
+        $result->execute();
+        $datas = $result->fetchAll();
+
+        $items = [];
+        foreach($datas as $elem) {
+        $item = new Item();
+        $item->setIdItem($elem['id_item']);
+        $item->setIdAdmin($elem['id_admin']);
+        $item->setName($elem['name']);
+        $item->setDescription($elem['description']);
+        $item->setPrice($elem['price']);
+        $item->setAvis($elem['avis']);
+        $item->setNote($elem['note']);
+        $item->setIdBrand($elem['id_brand']);
+        $item->setIdCategory($elem['id_category']);
+        $item->setIdSubcategory($elem['id_subcategory']);
+        $item->setImage($elem['image']);
+        
+        array_push($items, $item);
+        }
+
+        return $items; 
+    }
+
+    public function selectBySubcategory() {
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM item WHERE id_brand = :id";
+        $result = $this->pdo->prepare($query);
+
+        $result->bindValue("id", $this->id_subcategory, PDO::PARAM_INT);
+        $result->execute();
+        $datas = $result->fetchAll();
+
+        $items = [];
+        foreach($datas as $elem) {
+        $item = new Item();
+        $item->setIdItem($elem['id_item']);
+        $item->setIdAdmin($elem['id_admin']);
+        $item->setName($elem['name']);
+        $item->setDescription($elem['description']);
+        $item->setPrice($elem['price']);
+        $item->setAvis($elem['avis']);
+        $item->setNote($elem['note']);
+        $item->setIdBrand($elem['id_brand']);
+        $item->setIdCategory($elem['id_category']);
+        $item->setIdSubcategory($elem['id_subcategory']);
+        $item->setImage($elem['image']);
+        
+        array_push($items, $item);
+        }
+
+        return $items; 
+    }
+
     public function update(){
         
         $query ="UPDATE item SET `id_item` = :id_item, `name` = :name, `description` = :description, `price` = :price, `avis` = :avis, `note` = :note, `id_category` = :id_category, `id_subcategory` = :id_subcategory, `id_brand` = :id_brand, `id_admin` = :id_admin, `image` = :image) WHERE `id_item` = :id_item";
