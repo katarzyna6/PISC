@@ -38,27 +38,29 @@ var_dump($view["datas"]);
 
     <div class="modal-header">
         <span class="close">X</span>
-        <h2>Nom du produit</h2>
+        <h2><?= $view["datas"]["brand"]->getName() ?></h2>
     </div>
 
     <div class="modal-body">
-        <p>Description text</p>
+        <p><?= $view["datas"]["description"]->getDescription() ?></p>
         <div class="modal-photo-container">
-            <div class="photos_modal"><img src="img\DILEX\1.jpg"  alt="dilex"></div>
-            <div class="photos_modal"><img src="img\DILEX\1_2.jpg"alt="dilex"></div>
-            <div class="photos_modal"><img src="img\DILEX\1_3.jpg"alt="dilex"></div>
+            <div class="photos_modal"><img src="<?= $data["image"]?>" alt="image"></div>
+            <div class="photos_modal"><img src="<?= $data["image"]?>" alt="image"></div>
+            <div class="photos_modal"><img src="<?= $data["image"]?>" alt="image"></div>
         </div>   
 
       
-        <p>Note moyenne : 10</p>
-        <a href="#">Voir les avis</a><br>
-        <a href="#">Laissez votre note et commentaire</a>
+        <p><?= $view["datas"]["note"]->getNote() ?></p>
+        <a href="index?route=item&item=<?= $data["id_item"]?>"><p><?= $data["avis"]?>Voir les avis</a><br>
+        <a href="index?route=comment.php">Laissez votre note et commentaire</a>
+
+    </div>
 
         <div class="modal-footer">
-            <h3>Prix : xx €</h3>
+            <h3><?= $view["datas"]["price"]->getPrice() ?></h3>
         </div>
-  </div>
-  
 </div>
+  
+
     
 

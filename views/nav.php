@@ -22,37 +22,15 @@
             </li>
         <?php endforeach ?>
 
-        <!-- <li><a href="#">Beauté</a>
-            <ul>
-                <li><a href="#">Beauté du Visage</a></li>
-                <li><a href="#">Beauté des cheveux</a></li>
-                <li><a href="#">Beauté des yeux et sourcils</a></li>
-                <li><a href="#">Beauté du corps</a></li>
-            </ul>
-        </li>
-
-        <li><a href="#">Hygiène et Soins</a>
-            <ul>
-                <li><a href="#">Soins des mains et du visage</a></li>
-                <li><a href="#">Soins des cheveux</a></li>
-                <li><a href="#">Soins bucco-dentaires</a></li>
-                <li><a href="#">Soins du corps</a></li>
-                <li><a href="#">Coton-tige</a></li>
-                <li><a href="#">Lingettes</a></li>
-            </ul>
-                    
-        </li>
-
         <li><a href="#">Spécial Femme</a>
             <ul>
                 <li><a href="#">Protection hygiènique</a></li>       
             </ul>
 
-        </li> -->
+        </li>
 
         <li><a href="index.php?route=contact">Contact</a></li>
-        <li><a href="index.php?route=admin">Espace admin</a></li>
-                        
+        <li><a href="index.php?route=admin">Espace admin</a></li>                 
     </ol>
     
 </nav>
