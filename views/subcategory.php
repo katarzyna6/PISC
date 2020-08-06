@@ -1,3 +1,6 @@
+<?php
+var_dump($view["datas"]);
+?>
 <h1><?= $view["datas"]["subcategory"]->getName() ?></h1>
     <div class="container">
 

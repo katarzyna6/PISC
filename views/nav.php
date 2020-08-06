@@ -12,6 +12,9 @@
     <ol>
         <li><a href="index?route=home">Accueil</a></li>
 
+<?php var_dump($view["datas"]["categories"]);
+var_dump($view["datas"]["subcategories"]) ?>
+
         <?php foreach($view["datas"]["categories"] as $cat): ?>
             <li><a href="index.php?route=category&id=<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a></li>
                     <?php foreach($cat->subCats as $subcat): ?>
