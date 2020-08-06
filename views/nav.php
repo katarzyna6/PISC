@@ -12,22 +12,14 @@
     <ol>
         <li><a href="index?route=home">Accueil</a></li>
 
-        <?php foreach($menu["categories"] as $cat): ?>
-            <li><a href="#"><?= $cat->getName() ?></a>
-                <ul>
+        <?php foreach($view["datas"]["categories"] as $cat): ?>
+            <li><a href="index.php?route=category&id=<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a></li>
                     <?php foreach($cat->subCats as $subcat): ?>
-                        <li><a href="index.php?route=subcategory.php"><?= $subcat->getName() ?></a></li>
+                        <li><a href="index.php?route=subcategory&id-<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
                     <?php endforeach ?>
-                </ul>
+                    
             </li>
         <?php endforeach ?>
-
-        <li><a href="#">Spécial Femme</a>
-            <ul>
-                <li><a href="#">Protection hygiènique</a></li>       
-            </ul>
-
-        </li>
 
         <li><a href="index.php?route=contact">Contact</a></li>
         <li><a href="index.php?route=admin">Espace admin</a></li>                 
@@ -35,7 +27,7 @@
     
 </nav>
 
-<div class="form_nav">
+<!-- <div class="form_nav">
         <form class="nav2">
             <input type="search" id="maRecherche" name="q"
             placeholder="Rechercher un produit">
@@ -72,4 +64,4 @@
 </div>
 
 
-
+ -->

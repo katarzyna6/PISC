@@ -79,7 +79,7 @@ nav {
 }
 
 .selection {
-    border: solid red 2px;
+    
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -96,7 +96,6 @@ nav {
 } 
 
 .insta {
-    border: solid red 2px;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -106,7 +105,6 @@ nav {
 .insta a img {
     width: 80%;
     margin: auto;
-    border: solid green 2px;
 } 
 
 
@@ -247,11 +245,11 @@ ol > li > ul > li:hover {
 
 /*-------------------MODAL-------------------*/
 .modal-body {
-    border: orangered 2px solid;
+    
 }
 
 .modal-body .photos_modal {
-    border: olivedrab 2px solid;
+   
     width: 25%;
 }
 
@@ -298,36 +296,36 @@ ol > li > ul > li:hover {
 /* ------------------- ITEM ----------------- */
 
 .content_item {
-    border: green solid 3px;
+   
     display: flex;
 }
 
 .item {
-    border: red solid 2px;  
+     
     width: 50%; 
     overflow: hidden;
 }
 
 .info {
-    border: red solid 2px; 
+    
     width: 50%;   
 }
 
 .item1_photo1 img {
     width: 100%;
-    border: red solid 2px;
+    
 }
 
 .item1_photo {
     display: flex;
     flex-direction: row;
-    border: red solid 2px;
+    
 
 }
 
 .item1_photo img {
     width: 50%;
-    border: red solid 2px;
+    
 }
 
 

@@ -16,7 +16,7 @@ var_dump($view["datas"]);
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="#"><img src="<?= $data["image"]?>" alt="image"></a>
+                        <a href="index?route=item"><img src="<?= $data["image"]?>" alt="image"></a>
 
                         <a class="link" href="index?route=item&item=<?= $data["id_item"]?>"><p><?= $data["name"]?></p></a>
 

@@ -61,12 +61,17 @@ class Admin extends DbConnect {
     }
 
     function update(){
-        $query ="UPDATE * FROM admins WHERE nick=:nick";
-        $result = $this->pdo->prepare($query);
-        $result->bindValue('nick', $this->nick, PDO::PARAM_STR);
-        $result->execute();
-        $data = $result->fetch();
-            return $this;
+        $query ="UPDATE admins SET `nick` = :nick , `email` = :email, `password` = :password WHERE `id_admin` = :id_admin";
+
+    $result = $this->pdo->prepare($query);
+    $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
+    $result->bindValue(':nick', $this->nick, PDO::PARAM_STR);
+    $result->bindValue(':email', $this->email, PDO::PARAM_STR);
+    $result->bindValue(':password', $this->password, PDO::PARAM_STR);
+    $result->execute();
+
+    $this->id = $this->pdo->lastInsertId();
+    return $this;
     }
 
     function delete(){

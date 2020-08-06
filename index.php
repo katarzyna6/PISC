@@ -159,12 +159,8 @@ function showConnect() {
 function showCategory() {
 
     $category = new Category();
-    $datas = $category->select();
-
-    $datas = [
-        "id_category" => 1,
-        "name" => "Beauté"    
-    ];
+    $category->setIdCategory($_GET["id"]);
+    $datas["category"] = $category->select();
 
     return ["template" => "category.php", "datas" => $datas];
     
@@ -173,6 +169,7 @@ function showCategory() {
 function showSubcategory() {
 
     $subcategory = new Subcategory();
+    $subcategory->setIdSubcategory($_GET["id"]);
     $datas = $subcategory->select();
 
     $datas = [
@@ -337,6 +334,7 @@ function insertItem() {
 function modItem() {
 
     $item = new Item();
+    var_dump($item);
     $item->setIdItem($_REQUEST['id_item']);
     $item->setName($_POST["name"]);
     $item->setDescription($_POST["description"]);
@@ -357,8 +355,10 @@ function modItem() {
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
 
-    header("Location:index.php?route=admin");
-    exit;
+   
+
+    // header("Location:index.php?route=admin");
+    // exit;
 }
 
 function delItem() {

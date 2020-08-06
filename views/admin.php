@@ -28,7 +28,7 @@ $items = $view['datas']['items'];
         <li><img src="img/<?= $item->getImage() ?>" alt="1" style="width:265px; height:256px; margin: 2px;"><a href="admin-<?= $item->getIdItem() ?>.html"></li>
         <li><img src="img/<?= $item->getImage() ?>" alt="2" style="width:265px; height:256px; margin: 2px;"><a href="admin-<?= $item->getIdItem() ?>.html"></li>
         <li><img src="img/<?= $item->getImage() ?>" alt="3" style="width:265px; height:256px; margin: 2px;"><a href="admin-<?= $item->getIdItem() ?>.html"></li>
-        <a href="admin-<?= $item->getIdItem()?>">Modifier</a>
+        <a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a>
         <a href="del_item-<?= $item->getIdItem()?>">Supprimer</a>
                     
         <?php endforeach ?>

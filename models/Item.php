@@ -287,7 +287,7 @@ class Item extends DbConnect {
 
     public function update(){
         
-        $query ="UPDATE item SET `id_item` = :id_item, `name` = :name, `description` = :description, `price` = :price, `avis` = :avis, `note` = :note, `id_category` = :id_category, `id_subcategory` = :id_subcategory, `id_brand` = :id_brand, `id_admin` = :id_admin, `image` = :image) WHERE `id_item` = :id_item";
+        $query ="UPDATE item SET (`name` = :name, `description` = :description, `price` = :price, `avis` = :avis, `note` = :note, `id_category` = :id_category, `id_subcategory` = :id_subcategory, `id_brand` = :id_brand, `id_admin` = :id_admin, `image` = :image) WHERE (`id_item` = :id_item)";
 
         $result = $this->pdo->prepare($query);
         $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
@@ -296,14 +296,13 @@ class Item extends DbConnect {
         $result->bindValue(':price', $this->price, PDO::PARAM_STR);
         $result->bindValue(':avis', $this->avis, PDO::PARAM_STR);
         $result->bindValue(':note', $this->note, PDO::PARAM_STR);
-        $result->bindValue(':id_category', $this->id_category, PDO::PARAM_STR);
-        $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_STR);
+        $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
+        $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
+        $result->bindValue(':id_brand', $this->id_brand, PDO::PARAM_INT);
         $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_STR);
         $result->bindValue(':image', $this->image, PDO::PARAM_STR);
         $result->execute();
-
-        $this->id_item = $this->pdo->lastInsertId();
-        return $this;        
+        
     }
 
     public function delete(){
