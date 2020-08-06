@@ -58,8 +58,8 @@ function showMenu() {
 
     global $menu;
 
-    $categories = new Category();
-    $menu["categories"] = $categories->selectAll();
+    $cat = new Category();
+    $menu["categories"] = $cat->selectAll();
 
     foreach($menu["categories"] as &$cat) {
         $subcats = new Subcategory();
@@ -77,11 +77,11 @@ function showHome() {
     $brands = new Brand();
     $datas["brands"] = $brands->selectAll();
 
-    $categories = new Category();
-    $datas["categories"] = $categories->selectAll();
+    $cats = new Category();
+    $datas["categories"] = $cats->selectAll();
 
-    $subcategories = new Subcategory();
-    $datas["subcategories"] = $subcategories->selectAll();
+    $subcats = new Subcategory();
+    $datas["subcategories"] = $subcats->selectAll();
 
     return ["template" => "home.php", "datas" => $datas];
 }
@@ -100,6 +100,9 @@ function showItem() {
     $item = new Item();
     $datas = $item->select();
     $datas["items"] = $item->selectByBrand();
+    $datas["items"] = $item->selectByCategory();
+    $datas["items"] = $item->selectBySubcategory();
+
     $datas = [
         "name" => "Lingettes hydratantes",
         "image1" => "img/DILEX/1.jpg",
@@ -113,41 +116,9 @@ function showItem() {
         "note" => 3
     ];
     $datas["brand"] = "DILEX";
-
-    $item = new Item();
-    $datas = $item->select();
-    $datas["items"] = $item->selectByCategory();
-    $datas = [
-        "name" => "Lingettes hydratantes",
-        "image1" => "img/DILEX/1.jpg",
-        "image2" => "img/DILEX/1_2.jpg",
-        "image3" => "img/DILEX/1_3.jpg",
-        "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
-        "id_category" => 2,
-        "id_subcategory" => 10,
-        "prix" => 15,
-        "avis" => "<p>OK</p>",
-        "note" => 3
-    ];
     $datas["category"] = "Beauté";
-
-    $item = new Item();
-    $datas = $item->select();
-    $datas["items"] = $item->selectBySubcategory();
-    $datas = [
-        "name" => "Lingettes hydratantes",
-        "image1" => "img/DILEX/1.jpg",
-        "image2" => "img/DILEX/1_2.jpg",
-        "image3" => "img/DILEX/1_3.jpg",
-        "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
-        "id_category" => 2,
-        "id_subcategory" => 10,
-        "prix" => 15,
-        "avis" => "<p>OK</p>",
-        "note" => 3
-    ];
     $datas["subcategory"] = "Lingettes";
-        
+
     return ["template" => "item.php", "datas" => $datas];
 }
 
@@ -158,9 +129,9 @@ function showConnect() {
 
 function showCategory() {
 
-    $category = new Category();
-    $category->setIdCategory($_GET["id"]);
-    $datas["category"] = $category->select();
+    $cat = new Category();
+    $cat->setIdCategory($_GET["id_category"]);
+    $datas ["categories"] = $cat->select();
 
     return ["template" => "category.php", "datas" => $datas];
     
@@ -168,15 +139,9 @@ function showCategory() {
 
 function showSubcategory() {
 
-    $subcategory = new Subcategory();
-    $subcategory->setIdSubcategory($_GET["id"]);
-    $datas = $subcategory->select();
-
-    $datas = [
-        "id_subcategory" => 1,
-        "name" => "Beauté du visage",
-        "id_category" => 1,  
-    ];
+    $subcat = new Subcategory();
+    $subcat->setIdSubcategory($_GET["id_subcategory"]);
+    $datas ["subcategories"] = $subcat->select();
 
     return ["template" => "subcategory.php", "datas" => $datas];
 }

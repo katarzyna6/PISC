@@ -1,4 +1,4 @@
-<h1><?= $view["datas"]["category"]->getName() ?></h1>
+<h1><?= $view["datas"]["categories"]->getName() ?></h1>
     <div class="container">
 
         <?php foreach($view["datas"] as $data): ?>
