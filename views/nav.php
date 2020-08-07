@@ -25,6 +25,7 @@ var_dump($view["datas"]["subcategories"]) ?> -->
         <?php endforeach ?>
 
         <li><a href="index.php?route=contact">Contact</a></li>
+        <li><a href="index.php?route=termes">Termes et Conditions</a></li>
         <li><a href="index.php?route=admin">Espace admin</a></li>                 
     </ol>
     
