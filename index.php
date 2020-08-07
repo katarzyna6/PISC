@@ -15,11 +15,9 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //GENERAL
         case "home": $view = showHome();
         break;
-        case "brand": $view = showBrand();
-        break;
         case "item": $view = showItem();
         break;
-        case "connectform": $view = showConnect();
+        case "brand": $view = showBrand();
         break;
         case "category": $view = showCategory();
         break;
@@ -33,7 +31,21 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "contact": $view = showContact();
         break;
+        //TERMES
+        case "termes": $view = showTermes();
+        break;
+        case "cgv": $view = showCgv();
+        break;
+        case "politique": $view = showPolitique();
+        break;
+        case "mentions": $view = showMentions();
+        break;
+        //LIENS
+        case "liens": $view = showLiens();
+        break;
         //ADMIN
+        case "connectform": $view = showConnect();
+        break;
         case "insert_admin" : $view = insertAdmin();
         break;
         case "admin" : $view = showAdmin();
@@ -86,15 +98,6 @@ function showHome() {
     return ["template" => "home.php", "datas" => $datas];
 }
 
-function showBrand() {
-
-    $brand = new Brand();
-    $brand->setIdBrand($_GET["id"]);
-    $datas["brand"] = $brand->select();
-
-    return ["template" => "brand.php", "datas" => $datas];
-}
-
 function showItem() {
 
     $item = new Item();
@@ -122,11 +125,17 @@ function showItem() {
     return ["template" => "item.php", "datas" => $datas];
 }
 
-function showConnect() {
-    $datas = [];
-    return ["template" => "connect.php", "datas" => $datas];
+//BRAND
+function showBrand() {
+
+    $brand = new Brand();
+    $brand->setIdBrand($_GET["id"]);
+    $datas["brand"] = $brand->select();
+
+    return ["template" => "brand.php", "datas" => $datas];
 }
 
+//CAT
 function showCategory() {
 
     $cat = new Category();
@@ -137,6 +146,7 @@ function showCategory() {
     
 }
 
+//SUBCAT
 function showSubcategory() {
 
     $subcat = new Subcategory();
@@ -146,10 +156,49 @@ function showSubcategory() {
     return ["template" => "subcategory.php", "datas" => $datas];
 }
 
+//CONTACT
 function showContact() {
         
     $datas = [];
     return ["template" => "contact.php", "datas" => $datas];
+}
+
+//TERMES
+function showTermes() {
+        
+    $datas = [];
+    return ["template" => "termes.php", "datas" => $datas];
+}
+
+function showCgv() {
+        
+    $datas = [];
+    return ["template" => "cgv.php", "datas" => $datas];
+}
+
+function showPolitique() {
+        
+    $datas = [];
+    return ["template" => "politique.php", "datas" => $datas];
+}
+
+function showMentions() {
+        
+    $datas = [];
+    return ["template" => "mentions.php", "datas" => $datas];
+}
+
+//LIENS
+function showLiens() {
+        
+    $datas = [];
+    return ["template" => "liens.php", "datas" => $datas];
+}
+
+//ADMIN
+function showConnect() {
+    $datas = [];
+    return ["template" => "connect.php", "datas" => $datas];
 }
 
 function InsertAdmin() {
