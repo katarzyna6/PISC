@@ -114,7 +114,7 @@ function showItem() {
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
         "id_category" => 2,
         "id_subcategory" => 10,
-        "prix" => 15,
+        "price" => 15,
         "avis" => "<p>OK</p>",
         "note" => 3
     ];

@@ -1,35 +1,40 @@
 <?php
 
-$datas = $view["datas"];
+$datas = $view["datas"]["items"]->getName();
 
 ?>
 
 <div class="content_item">
 
-    <div class="info">
-        <h1><?= $datas["brand"]?></h1>
-        <div class="item1"><h2><?= $datas["name"]?><h2></div>
-        <div class="item1"><p><?= $datas["description"]?></p></div>
-        <div class="item1"><p>Avis :<?= $datas["avis"]?></p></div>
-        <div class="item1"><p>Note moyenne :<?= $datas["note"]?></p></div>
-        <div><p>Prix :<?= $datas["prix"]?></p></div>
-    </div>
-    
-    
-    <div class="item">
-        <div class="item1_photo1"><img src="<?= $datas["image1"]?>" width="175" height="150" alt="dilex"></div>
-        <div class="item1_photo"><img src="<?= $datas["image2"]?>" width="175" height="150" alt="dilex"></div>
-        <div class="item1_photo"><img src="<?= $datas["image3"]?>" width="175" height="150" alt="dilex"></div>
-    </div>
+<?php foreach($view["datas"] as $data): ?>
 
+<div class="produit">
+    <div class="photo"> 
+        <div class="overlay">
+
+            <a href="index?route=item"><img src="<?= $data["image1"]?>" alt="image"></a>
+            <a href="index?route=item"><img src="<?= $data["image2"]?>" alt="image"></a>
+            <a href="index?route=item"><img src="<?= $data["image3"]?>" alt="image"></a>
+
+            <a class="link" href="index?route=item&item=<?= $data["id_item"]?>"><p><?= $data["name"]?></p></a>
+
+            <div class="item1"><p><?= $datas["description"]?></p></div>
+
+              <div class="item1"><p>Avis :<?= $datas["avis"]?></p></div>
+              <div class="item1"><p>Note moyenne :<?= $datas["note"]?></p></div>
+
+            <button class="myBtn" id="myBtn-<?= $data["id_item"]?>">Voir le produit</button>
+
+            <p>Prix : <?= $data["price"]?> €</p>
+
+        </div>
+    </div>               
 </div>
 
+<form>
+<p>Notez le produit</p>
 
-<form> 
-
-  <p>Notez le produit</p>
-
-  <div>
+<div>
     <input type="radio" id="1"
            name="note" checked value="note">
     <label for="1">1</label>
@@ -49,17 +54,21 @@ $datas = $view["datas"];
     <label for="avis">Votre avis :</label><br>
     <textarea id="avis" name="avis" rows="4" cols="50"></textarea>
     
-  </div>
+</div>
 
+<div>
+       <input type="checkbox" name="check" value="check">
+       <label for="check">Ajouter le produit sur ma liste</label>
+</div>
 
-
-  <div>
+<div>
     <button type="submit">Envoyer</button>
-  </div>
+</div>
   
 </form>
 
-</div>
+<?php endforeach ?>
+
 
 
 
