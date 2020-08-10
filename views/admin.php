@@ -1,9 +1,5 @@
 <?php
-//var_dump($view['datas']);
-
 $items = $view['datas']['items'];
-
-
 ?>
 
 <div class="espace">
@@ -25,6 +21,8 @@ $items = $view['datas']['items'];
         <li>Prix : <?=$item->getPrice()?></li>
         <li>Note : <?=$item->getNote()?></li>
         <li>Avis : <?=$item->getAvis()?></li>
+        <li>Ilustrations : <?=$item->getPhoto()?></li>
+
         <a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a>
         <a href="del_item-<?= $item->getIdItem()?>">Supprimer</a>
                     
