@@ -52,7 +52,7 @@ class Photo extends DbConnect {
         $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':alt', $this->alt, PDO::PARAM_STR);
-        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_STR);
+        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->execute();
 
         $this->id_photo = $this->pdo->lastInsertId();
