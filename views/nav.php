@@ -12,14 +12,11 @@
     <ol>
         <li><a href="index?route=home">Accueil</a></li>
 
-<!-- <?php var_dump($view["datas"]["categories"]);
-var_dump($view["datas"]["subcategories"]) ?> -->
-
         <?php foreach($menu["categories"] as $cat): ?>
-            <li><a href="index.php?route=category&id-<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a>
+            <li><a href="index.php?route=category&id=<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a>
                  <ul>
                     <?php foreach($cat->subCats as $subcat): ?>
-                        <li><a href="index.php?route=subcategory&id-<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
+                        <li><a href="index.php?route=subcategory&id=<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
                     <?php endforeach ?>
                 </ul>  
             </li>
@@ -31,6 +28,19 @@ var_dump($view["datas"]["subcategories"]) ?> -->
     </ol>
     
 </nav>
+
+<h2>NOS MARQUES : </h2>
+<!-- <?php var_dump($view['datas']); ?> -->
+
+<div class="content">
+    
+    <div class="brands">
+        <?php foreach($menu["brands"] as $brand): ?>
+            <button><a href="index.php?route=brand&id=<?= $brand->getIdBrand() ?>"><?= $brand->getName() ?></a></button>
+        <?php endforeach ?>
+    </div>
+    
+</div>
 
 <!-- <div class="form_nav">
         <form class="nav2">

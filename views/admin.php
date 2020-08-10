@@ -1,5 +1,6 @@
 <?php
 $items = $view['datas']['items'];
+// var_dump($view);
 ?>
 
 <div class="espace">
@@ -24,7 +25,7 @@ $items = $view['datas']['items'];
         <li>Ilustrations : <?=$item->getPhoto()?></li>
 
         <a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a>
-        <a href="del_item-<?= $item->getIdItem()?>">Supprimer</a>
+        <a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a>
                     
         <?php endforeach ?>
     

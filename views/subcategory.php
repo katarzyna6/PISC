@@ -1,10 +1,10 @@
 <?php
 var_dump($view["datas"]);
 ?>
-<h1><?= $view["datas"]["subcategory"]->getName() ?></h1>
+<h1><?= $cat["subcategories"]->$subcat->getIdSubcategory() ?><?= $subcat->getName() ?></h1>
     <div class="container">
 
-        <?php foreach($view["datas"] as $data): ?>
+        <?php foreach($cat->subCats as $subcat): ?>
 
             <div class="produit">
                 <div class="photo"> 

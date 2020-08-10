@@ -13,7 +13,7 @@ class Category extends DbConnect {
         return $this->id_category;
     }
 
-    public function setIdCategory(int $id_category) {
+    public function setIdCategory($id_category) {
         $this->id_category = $id_category;
     }
 

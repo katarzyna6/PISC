@@ -14,7 +14,7 @@ class Subcategory extends DbConnect {
         return $this->id_subcategory;
     }
 
-    public function setIdSubcategory(int $id_subcategory) {
+    public function setIdSubcategory($id_subcategory) {
         $this->id_subcategory = $id_subcategory;
     }
 

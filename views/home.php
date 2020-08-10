@@ -1,15 +1,3 @@
-<h2>NOS MARQUES : </h2>
-
-<div class="content">
-    
-        <div class="brands">
-            <?php foreach($view["datas"]["brands"] as $brand): ?>
-                <button><a href="index.php?route=brand&id=<?= $brand->getIdBrand() ?>"><?= $brand->getName() ?></a></button>
-            <?php endforeach ?>
-        </div>
-    
-</div>
-
 <div><h3>Nos nouveautés :</h3></div>
 
 <div class="selection">

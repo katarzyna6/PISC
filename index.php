@@ -78,7 +78,10 @@ function showMenu() {
         $subcats->setIdCategory($cat->getIdCategory());
         $cat->subCats = $subcats->selectByCategory();
     }
-    var_dump($menu);    
+
+    $brand = new Brand();
+    $menu["brands"] = $brand->selectAll();
+     
 }
 
 function showHome() {
@@ -139,7 +142,7 @@ function showBrand() {
 function showCategory() {
 
     $cat = new Category();
-    $cat->setIdCategory($_GET["id_category"]);
+    $cat->setIdCategory($_GET["id"]);
     $datas ["categories"] = $cat->select();
 
     return ["template" => "category.php", "datas" => $datas];
@@ -150,7 +153,7 @@ function showCategory() {
 function showSubcategory() {
 
     $subcat = new Subcategory();
-    $subcat->setIdSubcategory($_GET["id_subcategory"]);
+    $subcat->setIdSubcategory($_GET["id"]);
     $datas ["subcategories"] = $subcat->select();
 
     return ["template" => "subcategory.php", "datas" => $datas];
@@ -259,7 +262,7 @@ function deconnectAdmin() {
 }
 
 function showAdmin() {
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     if(!isset($_SESSION["admin"])) {
         header("Location:index.php?route=connectform");
     }
@@ -270,7 +273,7 @@ function showAdmin() {
     $datas =[];
 
     $datas['items'] = $item->selectByAdmin();
-
+    // var_dump($datas["items"]);
     //on récupére les noms des catégories
     foreach($datas['items'] as &$elem) {
         $brand = new Brand();
@@ -312,6 +315,26 @@ function showAdmin() {
     return ["template" => "admin.php", "datas" => $datas];
 }    
 
+function delItem() {
+
+    $item = new Item();
+    $item->setIdItem($_REQUEST["id"]);
+    $item->setIdAdmin($_SESSION['admin']['id_admin']);
+
+    // var_dump($item);
+    if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
+        // $image = $item->getImage();
+       
+        $item->delete();
+        // if($image != "default.png") {
+        //     unlink("img/".$image); //Supprimer l'image
+        // }
+    }
+
+    header("Location:index.php?route=admin");
+    exit;
+}
+
 function insertItem() {
 
     var_dump($_POST);
@@ -350,10 +373,11 @@ function insertItem() {
         exit;
 }
 
+
 function modItem() {
 
     $item = new Item();
-    var_dump($item);
+    // var_dump($item);
     $item->setIdItem($_REQUEST['id_item']);
     $item->setName($_POST["name"]);
     $item->setDescription($_POST["description"]);
@@ -380,24 +404,7 @@ function modItem() {
     // exit;
 }
 
-function delItem() {
 
-    $item = new Item();
-    $item->setIdItem($_REQUEST["id_item"]);
-
-    $item->delete();
-
-    if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
-        $image = $item->getImage();
-        $item->delete();
-        if($image != "default.png") {
-            unlink("img/".$image); //Supprimer l'image
-        }
-    }
-
-    header("Location:index.php?route=admin");
-    exit;
-}
 
 function insertSubcategory() {
 
