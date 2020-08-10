@@ -108,9 +108,9 @@ function showItem() {
 
     $datas = [
         "name" => "Lingettes hydratantes",
-        "image1" => "img/DILEX/1.jpg",
-        "image2" => "img/DILEX/1_2.jpg",
-        "image3" => "img/DILEX/1_3.jpg",
+        "photo1" => "img/DILEX/1.jpg",
+        "photo2" => "img/DILEX/1_2.jpg",
+        "photo3" => "img/DILEX/1_3.jpg",
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
         "id_category" => 2,
         "id_subcategory" => 10,
@@ -323,7 +323,7 @@ function insertItem() {
         $image = $uploder->set_image();
     }
     
-    if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
+    if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"]) && !empty($_POST["photo"])) {
     
         $item = new Item();
         $item->setName($_POST["name"]);
@@ -334,7 +334,7 @@ function insertItem() {
         $item->setIdBrand($_POST["brand"]);      
         $item->setIdCategory($_POST["category"]);
         $item->setIdSubcategory($_POST["subcategory"]);
-        $item->setImage($image);
+        $item->setIdPhoto($_POST["photo"]);
         
 
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
