@@ -45,14 +45,13 @@ class Photo extends DbConnect {
     }
 
     function insert() {
-        $query = "INSERT INTO photo (id_photo, name, alt, id_item)
-            VALUES(:id_photo, :name, :alt, :id_item)";
+        $query = "INSERT INTO photo (name, alt, id_item)
+            VALUES(:name, :alt, :id_item)";
 
         $result = $this->pdo->prepare($query);
-        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':alt', $this->alt, PDO::PARAM_STR);
-        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_STR);
+        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->execute();
 
         $this->id_photo = $this->pdo->lastInsertId();

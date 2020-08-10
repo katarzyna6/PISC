@@ -57,7 +57,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //ITEM
         case "insert_item": $view = insertItem();
         break;
-        case "mod_item": $view = modItem();
+        case "mod_item": modItem();
         break;
         case "del_item": $view = delItem();
         break;
@@ -259,7 +259,7 @@ function deconnectAdmin() {
 }
 
 function showAdmin() {
-    
+    var_dump($_SESSION);
     if(!isset($_SESSION["admin"])) {
         header("Location:index.php?route=connectform");
     }
@@ -334,12 +334,17 @@ function insertItem() {
         $item->setIdBrand($_POST["brand"]);      
         $item->setIdCategory($_POST["category"]);
         $item->setIdSubcategory($_POST["subcategory"]);
-        $item->setImage($image);
+        //$item->setImage($image);
         
-
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
         
         $item->insert();
+
+        $photo = new Photo();
+        $photo->setIdItem($item->getIdItem());
+        $photo->setName($image);
+        $photo->setAlt("Image de l'article");
+        $photo->insert();
 
         header("Location:index.php?route=admin");
         exit;
