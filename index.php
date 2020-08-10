@@ -78,7 +78,7 @@ function showMenu() {
         $subcats->setIdCategory($cat->getIdCategory());
         $cat->subCats = $subcats->selectByCategory();
     }
-    
+    var_dump($menu);    
 }
 
 function showHome() {

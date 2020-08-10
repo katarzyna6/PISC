@@ -15,10 +15,12 @@
 <!-- <?php var_dump($view["datas"]["categories"]);
 var_dump($view["datas"]["subcategories"]) ?> -->
 
-        <?php foreach($view["datas"]["categories"] as $cat): ?>
-            <li><a href="index.php?route=category&id-<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a></li>
-                    <?php foreach($view["datas"]["subcategories"] as $subcat): ?>
-                        <li><a href="index.php?route=subcategory&id-<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
+        <?php foreach($menu ["categories"] as $cat): ?>
+            <li><a href="index.php?route=category&id-<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a>
+                    <?php foreach($cat->subCats as $subcat): ?>
+                        <ul>
+                            <li><a href="index.php?route=subcategory&id-<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
+                        </ul>
                     <?php endforeach ?>
                     
             </li>
