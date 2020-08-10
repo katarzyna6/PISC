@@ -12,7 +12,7 @@ class Item extends DbConnect {
     private $id_subcategory;
     private $id_brand;
     private $id_admin;
-    private $image;
+    private $id_photo;
 
     function __construct($id = null) {
         parent::__construct($id);
@@ -99,12 +99,12 @@ class Item extends DbConnect {
         $this->id_admin = $id_admin;
     }
 
-    public function getImage () {    
-        return $this->image;
+    public function getIdPhoto () {    
+        return $this->photo;
     }
     
-    public function setImage($image) {
-        $this->image = $image;
+    public function setIdPhoto($photo) {
+        $this->photo = $photo;
     }
 
     function insert(){
@@ -169,7 +169,7 @@ class Item extends DbConnect {
     }
 
     public function selectByAdmin() {
-        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin, image FROM item WHERE id_admin = :id";
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin, id_photo FROM item WHERE id_admin = :id";
         $result = $this->pdo->prepare($query);
 
         $result->bindValue("id", $this->id_admin, PDO::PARAM_INT);
@@ -197,7 +197,7 @@ class Item extends DbConnect {
     }
 
     public function selectByBrand() {
-        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM item WHERE id_brand = :id";
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin, id_photo FROM item WHERE id_brand = :id";
         $result = $this->pdo->prepare($query);
 
         $result->bindValue("id", $this->id_brand, PDO::PARAM_INT);
@@ -225,7 +225,7 @@ class Item extends DbConnect {
     }
 
     public function selectByCategory() {
-        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM item WHERE id_brand = :id";
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin, id_photo FROM item WHERE id_brand = :id";
         $result = $this->pdo->prepare($query);
 
         $result->bindValue("id", $this->id_category, PDO::PARAM_INT);
@@ -253,7 +253,7 @@ class Item extends DbConnect {
     }
 
     public function selectBySubcategory() {
-        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM item WHERE id_brand = :id";
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin, id_photo FROM item WHERE id_brand = :id";
         $result = $this->pdo->prepare($query);
 
         $result->bindValue("id", $this->id_subcategory, PDO::PARAM_INT);

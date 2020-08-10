@@ -44,18 +44,20 @@ class Photo extends DbConnect {
         $this->id_item = $id_item;
     }
 
+
     function insert() {
         $query = "INSERT INTO photo (name, alt, id_item)
             VALUES(:name, :alt, :id_item)";
 
+        $query = "INSERT INTO photo (name, alt, id_item) VALUES(:name, :alt, :id_item)";
         $result = $this->pdo->prepare($query);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':alt', $this->alt, PDO::PARAM_STR);
         $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->execute();
-
         $this->id_photo = $this->pdo->lastInsertId();
         return $this;
+        
     }
         
     function select() {
@@ -65,7 +67,6 @@ class Photo extends DbConnect {
         $result->execute();
         $datas = $result->fetch();
         
-        $this->setIdPhoto($datas['id_photo']);
         $this->setName($datas['name']);
         $this->setAlt($datas['alt']);
         $this->setIdItem($datas['id_item']);
@@ -93,7 +94,6 @@ class Photo extends DbConnect {
         $query ="UPDATE photo SET `id_photo` = :id_photo, `name` = :name, `alt` = :alt, `id_item` = :id_item) WHERE `id_item` = :id_item";
 
         $result = $this->pdo->prepare($query);
-        $result->bindValue(':id_photo', $this->id_photo, PDO::PARAM_INT);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':alt', $this->alt, PDO::PARAM_STR);
         $result->bindValue(':id_item', $this->id_item, PDO::PARAM_STR);
