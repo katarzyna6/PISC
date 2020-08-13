@@ -281,8 +281,9 @@ class Item extends DbConnect {
     }
 
     public function update(){
-        
-        $query ="UPDATE item SET (`name` = :name, `description` = :description, `price` = :price, `avis` = :avis, `note` = :note, `id_category` = :id_category, `id_subcategory` = :id_subcategory, `id_brand` = :id_brand, `id_admin` = :id_admin) WHERE (`id_item` = :id_item)";
+        $image = (isset($this->image))? "`image` = :image, ": "" ;
+
+        $query ="UPDATE item SET `name`= :name, `description`= :description, `price`= :price, `avis`= :avis, `note`= :note, `id_category`= :id_category, `id_subcategory`= :id_subcategory, `id_brand`= :id_brand, `id_admin` = :id_admin WHERE `id_item`= :id_item";
 
         $result = $this->pdo->prepare($query);
         $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
@@ -294,7 +295,7 @@ class Item extends DbConnect {
         $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
         $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
         $result->bindValue(':id_brand', $this->id_brand, PDO::PARAM_INT);
-        $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_STR);
+        $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
         $result->execute();
         
     }

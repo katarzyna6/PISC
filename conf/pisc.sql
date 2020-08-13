@@ -206,3 +206,35 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+--
+-- Struktura tabeli dla tabeli `links`
+--
+
+DROP TABLE IF EXISTS `links`;
+CREATE TABLE IF NOT EXISTS `links` (
+  `id_link` int(250) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  `url` varchar(250) NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  PRIMARY KEY (`id_link`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `links`
+--
+
+INSERT INTO `links` (`id_link`, `name`, `url`, `id_admin`) VALUES
+(1, 'Accueil', 'index?route=home', 1),
+(2, 'Politique de confidentialité', 'index?route=politique', 1),
+(3, 'CGV', 'index?route=cgv', 1),
+(4, 'Contact', 'index?route=contact', 1),
+(5, 'Liens', 'index?route=liens', 1),
+(6, 'Facebook', 'https://www.facebook.com/piscofficial/', 1),
+(7, 'Instagram', 'https://www.instagram.com/piscofficial/', 1);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

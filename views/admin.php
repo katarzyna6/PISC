@@ -104,6 +104,6 @@ $items = $view['datas']['items'];
     </div>       
 
 <div>
-        <a href="insert_item">Ajouter un autre produit</a>
-        <div><a href="index.html">Retour</a></div>
+        <a href="index.php?route=insert_item">Ajouter un autre produit</a>
+        <div><a href="index.php">Retour</a></div>
 </div>

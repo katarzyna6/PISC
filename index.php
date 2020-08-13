@@ -23,11 +23,11 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "subcategory": $view = showSubcategory();
         break;
-        case "insert_subcategory": $view = insertSubcategory();
+        case "insert_subcategory": insertSubcategory();
         break;
-        case "mod_subcategory": $view = modSubcategory();
+        case "mod_subcategory": modSubcategory();
         break;
-        case "del_subcategory": $view = delSubcategory();
+        case "del_subcategory": delSubcategory();
         break;
         case "contact": $view = showContact();
         break;
@@ -46,20 +46,20 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //ADMIN
         case "connectform": $view = showConnect();
         break;
-        case "insert_admin" : $view = insertAdmin();
+        case "insert_admin" : insertAdmin();
         break;
         case "admin" : $view = showAdmin();
         break;
         case "connect": connectAdmin();
         break;
-        case "deconnect" : $view = deconnectAdmin();
+        case "deconnect" : deconnectAdmin();
         break;
         //ITEM
-        case "insert_item": $view = insertItem();
+        case "insert_item": insertItem();
         break;
         case "mod_item": modItem();
         break;
-        case "del_item": $view = delItem();
+        case "del_item": delItem();
         break;
         // case "ajax": $view = showAjax();
         // break;
@@ -89,6 +89,10 @@ function showHome() {
     // if(isset($_SESSION["admin"])) {
     //     header("Location:index.php?route=admin");
     // }
+
+    $items = new Item();
+    $datas["items"] = $items->selectAll();
+
     $brands = new Brand();
     $datas["brands"] = $brands->selectAll();
 
@@ -101,10 +105,81 @@ function showHome() {
     return ["template" => "home.php", "datas" => $datas];
 }
 
-function showItem() {
+function showAdmin() {
+    // var_dump($_SESSION);
+    if(!isset($_SESSION["admin"])) {
+        header("Location:index.php?route=connectform");
+    }
 
     $item = new Item();
-    $datas = $item->select();
+    $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
+    
+    $datas =[];
+
+    $datas['items'] = $item->selectByAdmin();
+    // var_dump($datas["items"]);
+    //on récupére les noms des marques
+    foreach($datas['items'] as &$elem) {
+        $brand = new Brand();
+        $brand->setIdBrand($elem->getIdCategory());
+        $elem->brandcomplete = $brand->select();
+    }
+
+    //on récupére les noms des catégories
+    foreach($datas['items'] as &$elem) {
+        $category = new Category();
+        $category->setIdCategory($elem->getIdCategory());
+        $elem->categorycomplete = $category->select();
+    }
+
+    //on récupére les noms des souscatégories
+    foreach($datas['items'] as &$elem) {
+        $subcategory = new Subcategory();
+        $subcategory->setIdSubcategory($elem->getIdSubcategory());
+        $elem->subcategoriecomplete = $subcategory->select();
+    }
+
+    //Récupérer un produit à modifier
+    if(isset($_GET['id'])) {
+        $item->setIdItem($_GET['id']);
+        $items = $item->select();
+        $datas['item'] = $item;
+    }
+
+    //on ajoute l'objet Categorie
+    $category = new Category();
+    $datas["category"] = $category->selectAll();
+
+    $subcategory = new Subcategory();
+    $datas["subcategory"] = $subcategory->selectAll();
+
+    $brand = new Brand();
+    $datas["brand"] = $brand->selectAll();
+
+    return ["template" => "admin.php", "datas" => $datas];
+}    
+
+function showItem() {
+
+    $datas = [];
+    $item = new Item();
+    $datas = $item->selectAll();
+
+    $item->setIdAdmin($_SESSION["id"]);
+        $datas["items"]= $item->selectByAdmin();
+        if(isset($_GET['id'])) {
+            $item->setIdItem($_GET['id']);
+            $items = $item->select();
+            $datas["item"]=$items;
+        }
+    
+        foreach($datas["items"] as &$item){
+            $admin = new Admin();
+            $admin->setIdAdmin($item->getIdAdmin());
+            $admin= $admin->select();
+            $item->user = $admin;
+        }
+
     $datas["items"] = $item->selectByBrand();
     $datas["items"] = $item->selectByCategory();
     $datas["items"] = $item->selectBySubcategory();
@@ -261,79 +336,7 @@ function deconnectAdmin() {
     //header("Location:index");
 }
 
-function showAdmin() {
-    // var_dump($_SESSION);
-    if(!isset($_SESSION["admin"])) {
-        header("Location:index.php?route=connectform");
-    }
 
-    $item = new Item();
-    $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
-    
-    $datas =[];
-
-    $datas['items'] = $item->selectByAdmin();
-    // var_dump($datas["items"]);
-    //on récupére les noms des catégories
-    foreach($datas['items'] as &$elem) {
-        $brand = new Brand();
-        $brand->setIdBrand($elem->getIdCategory());
-        $elem->brandcomplete = $brand->select();
-    }
-
-    //on récupére les noms des catégories
-    foreach($datas['items'] as &$elem) {
-        $category = new Category();
-        $category->setIdCategory($elem->getIdCategory());
-        $elem->categorycomplete = $category->select();
-    }
-
-    //on récupére les noms des souscatégories
-    foreach($datas['items'] as &$elem) {
-        $subcategory = new Subcategory();
-        $subcategory->setIdSubcategory($elem->getIdSubcategory());
-        $elem->subcategoriecomplete = $subcategory->select();
-    }
-
-    //Récupérer un produit à modifier
-    if(isset($_GET['id'])) {
-        $item->setIdItem($_GET['id']);
-        $items = $item->select();
-        $datas['item'] = $item;
-    }
-
-    //on ajoute l'objet Categorie
-    $category = new Category();
-    $datas["category"] = $category->selectAll();
-
-    $subcategory = new Subcategory();
-    $datas["subcategory"] = $subcategory->selectAll();
-
-    $brand = new Brand();
-    $datas["brand"] = $brand->selectAll();
-
-    return ["template" => "admin.php", "datas" => $datas];
-}    
-
-function delItem() {
-
-    $item = new Item();
-    $item->setIdItem($_REQUEST["id"]);
-    $item->setIdAdmin($_SESSION['admin']['id_admin']);
-
-    // var_dump($item);
-    if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
-        // $image = $item->getImage();
-       
-        $item->delete();
-        // if($image != "default.png") {
-        //     unlink("img/".$image); //Supprimer l'image
-        // }
-    }
-
-    header("Location:index.php?route=admin");
-    exit;
-}
 
 function insertItem() {
 
@@ -346,7 +349,7 @@ function insertItem() {
         $image = $uploder->set_image();
     }
     
-    if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"]) && !empty($_POST["photo"])) {
+    if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
     
         $item = new Item();
         $item->setName($_POST["name"]);
@@ -368,7 +371,7 @@ function insertItem() {
         $photo->setName($image);
         $photo->setAlt("Image de l'article");
         $photo->insert();
-
+    }
         header("Location:index.php?route=admin");
         exit;
 }
@@ -377,7 +380,7 @@ function insertItem() {
 function modItem() {
 
     $item = new Item();
-    // var_dump($item);
+    var_dump($item);
     $item->setIdItem($_REQUEST['id_item']);
     $item->setName($_POST["name"]);
     $item->setDescription($_POST["description"]);
@@ -398,12 +401,28 @@ function modItem() {
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
 
-   
-
     // header("Location:index.php?route=admin");
     // exit;
 }
 
+function delItem() {
+
+    $item = new Item();
+    $item->setIdItem($_REQUEST["id"]);
+
+    // var_dump($item);
+    if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
+        $image = $item->getImage();
+       
+        $item->delete();
+        if($image != "default.png") {
+            unlink("img/".$image); //Supprimer l'image
+        }
+    }
+
+    // header("Location:index.php?route=admin");
+    // exit;
+}
 
 
 function insertSubcategory() {
@@ -452,7 +471,15 @@ function delSubcategory() {
     exit;
 }
 
+function showFooter() {
+
+    global $footer;
+
+    $link = new Link();
+    $footer["links"] = $link->selectAll();
+     
 }
+
 
 // function showAjax() {
 
@@ -461,11 +488,6 @@ function delSubcategory() {
 //     exit;
 // }
 
-
-function showFooter() {
-
-    global $footer; 
-}
 
 ?>
 
