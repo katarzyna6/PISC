@@ -144,6 +144,7 @@ class Item extends DbConnect {
         $this->setPrice($datas['price']);
         $this->setAvis($datas['avis']);
         $this->setNote($datas['note']);
+        $this->setIdBrand($datas['id_brand']);
         $this->setIdCategory($datas['id_category']);
         $this->setIdSubcategory($datas['id_subcategory']);
         $this->setIdAdmin($datas['id_admin']);
@@ -281,7 +282,7 @@ class Item extends DbConnect {
     }
 
     public function update(){
-        $image = (isset($this->image))? "`image` = :image, ": "" ;
+        // $image = (isset($this->image))? "`image` = :image, ": "" ;
 
         $query ="UPDATE item SET `name`= :name, `description`= :description, `price`= :price, `avis`= :avis, `note`= :note, `id_category`= :id_category, `id_subcategory`= :id_subcategory, `id_brand`= :id_brand, `id_admin` = :id_admin WHERE `id_item`= :id_item";
 
@@ -301,7 +302,7 @@ class Item extends DbConnect {
     }
 
     public function delete(){
-
+var_dump($this->id_item);
         $query ="DELETE FROM item WHERE `id_item` = :id_item";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id_item', $this->id_item, PDO::PARAM_INT);

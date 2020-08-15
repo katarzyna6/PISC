@@ -9,11 +9,16 @@ spl_autoload_register(function ($class) {
     }
 });
 
+
 $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
 
     switch ($route) {
         //GENERAL
         case "home": $view = showHome();
+        break;
+        case "menu": $view = showMenu();
+        break;
+        case "footer": $view = showFooter();
         break;
         case "item": $view = showItem();
         break;
@@ -57,7 +62,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //ITEM
         case "insert_item": insertItem();
         break;
-        case "mod_item": modItem();
+        case "mod_item": $view = modItem();
         break;
         case "del_item": delItem();
         break;
@@ -121,22 +126,22 @@ function showAdmin() {
     //on récupére les noms des marques
     foreach($datas['items'] as &$elem) {
         $brand = new Brand();
-        $brand->setIdBrand($elem->getIdCategory());
+        $brand->setIdBrand($elem->getIdBrand());
         $elem->brandcomplete = $brand->select();
     }
 
     //on récupére les noms des catégories
     foreach($datas['items'] as &$elem) {
-        $category = new Category();
-        $category->setIdCategory($elem->getIdCategory());
-        $elem->categorycomplete = $category->select();
+        $cat = new Category();
+        $cat->setIdCategory($elem->getIdCategory());
+        $elem->categorycomplete = $cat->select();
     }
 
     //on récupére les noms des souscatégories
     foreach($datas['items'] as &$elem) {
-        $subcategory = new Subcategory();
-        $subcategory->setIdSubcategory($elem->getIdSubcategory());
-        $elem->subcategoriecomplete = $subcategory->select();
+        $subcat = new Subcategory();
+        $subcat->setIdSubcategory($elem->getIdSubcategory());
+        $elem->subcategorycomplete = $subcat->select();
     }
 
     //Récupérer un produit à modifier
@@ -147,11 +152,11 @@ function showAdmin() {
     }
 
     //on ajoute l'objet Categorie
-    $category = new Category();
-    $datas["category"] = $category->selectAll();
+    $cat = new Category();
+    $datas["category"] = $cat->selectAll();
 
-    $subcategory = new Subcategory();
-    $datas["subcategory"] = $subcategory->selectAll();
+    $subcat = new Subcategory();
+    $datas["subcategory"] = $subcat->selectAll();
 
     $brand = new Brand();
     $datas["brand"] = $brand->selectAll();
@@ -190,6 +195,7 @@ function showItem() {
         "photo2" => "img/DILEX/1_2.jpg",
         "photo3" => "img/DILEX/1_3.jpg",
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
+        "id_brand" => 1,
         "id_category" => 2,
         "id_subcategory" => 10,
         "price" => 15,
@@ -357,10 +363,10 @@ function insertItem() {
         $item->setPrice($_POST["price"]);
         $item->setAvis($_POST["avis"]); 
         $item->setNote($_POST["note"]);
-        $item->setIdBrand($_POST["brand"]);      
-        $item->setIdCategory($_POST["category"]);
-        $item->setIdSubcategory($_POST["subcategory"]);
-        //$item->setImage($image);
+        $item->setIdBrand($_POST["id_brand"]);      
+        $item->setIdCategory($_POST["id_category"]);
+        $item->setIdSubcategory($_POST["id_subcategory"]);
+        $item->setImage($image);
         
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
         
@@ -379,17 +385,39 @@ function insertItem() {
 
 function modItem() {
 
+    if($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+    $datas=[];
+
     $item = new Item();
-    var_dump($item);
+    $item->setIdItem($_REQUEST['id']);
+    $datas['item'] = $item->select();
+
+    $cat = new Category();
+    $datas["category"] = $cat->selectAll();
+
+    $subcat = new Subcategory();
+    $datas["subcategory"] = $subcat->selectAll();
+
+    $brand = new Brand();
+    $datas["brand"] = $brand->selectAll();
+
+
+    return ["template" => "mod_item.php", "datas" => $datas];
+    } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+   
+
+    $item = new Item();
     $item->setIdItem($_REQUEST['id_item']);
     $item->setName($_POST["name"]);
     $item->setDescription($_POST["description"]);
     $item->setPrice($_POST["price"]);
     $item->setAvis($_POST["avis"]);
     $item->setNote($_POST["note"]);
-    $item->setIdBrand($_POST["id_brand"]);
-    $item->setIdCategory($_POST["id_category"]);       
-    $item->setIdSubcategory($_POST["id_subcategory"]);
+    $item->setIdBrand($_POST["brand"]);
+    $item->setIdCategory($_POST["category"]);       
+    $item->setIdSubcategory($_POST["subcategory"]);
 
     if(!empty($_FILES['image']['tmp_name'])) {
         var_dump('img');
@@ -401,27 +429,29 @@ function modItem() {
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
 
-    // header("Location:index.php?route=admin");
-    // exit;
+    header("Location:index.php?route=admin");
+    exit;
+    }
 }
 
 function delItem() {
 
     $item = new Item();
-    $item->setIdItem($_REQUEST["id"]);
+    $item->setIdItem($_REQUEST['id']);
+    $item = $item->select();
 
     // var_dump($item);
     if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
-        $image = $item->getImage();
-       
+        // $image = $item->getImage();
+       var_dump($item);
         $item->delete();
         if($image != "default.png") {
             unlink("img/".$image); //Supprimer l'image
         }
     }
 
-    // header("Location:index.php?route=admin");
-    // exit;
+    header("Location:index.php?route=admin");
+    exit;
 }
 
 
@@ -511,16 +541,17 @@ function showFooter() {
 
 <?php require "views/{$view['template']}"; ?>
 
-<div id="modContent"></div>
+<!-- <div id="modContent"></div> -->
 
 <?php showFooter() ?>
 <?php require "views/footer.php"; ?>
 
 <!-- <?php require "views/footer.php"; ?> -->
 
-<!-- <script src="js/jquery-3.4.1.js"></script>    
-<script src="js/script.js"></script> -->
-<script src="js/modal.js"></script>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/multipleFileUpload.js"></script>     
+<!-- <script src="js/script.js"></script>
+<script src="js/modal.js"></script> -->
 <!-- <script src="js/ajax.js"></script> -->
 </body>
 </html>

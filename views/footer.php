@@ -8,12 +8,12 @@
 		<?php endforeach ?>
 	</ul>
     
-        <div><a href="index?route=home">Accueil</a></div>
+        <!-- <div><a href="index?route=home">Accueil</a></div>
         <div><a href="index?route=politique">Politique de confidentialité</a></div>
         <div><a href="index?route=cgv">CGV</a></div>
         <div><a href="index?route=contact">Contact</a></div>
         <div><a href="index?route=liens">Liens</a></div>
         <div><a href="https://www.facebook.com/piscofficial/" target="_blank" title="Facebook"><i class="icon-facebook"></i></a></div>
-        <div><a href="https://www.instagram.com/piscofficial/" target="_blank" title="Instagram"><i class="icon-instagram"></i></a></div>
+        <div><a href="https://www.instagram.com/piscofficial/" target="_blank" title="Instagram"><i class="icon-instagram"></i></a></div> -->
     </div>
 </div>

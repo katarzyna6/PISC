@@ -51,7 +51,7 @@ class Link extends DbConnect {
         $result = $this->pdo->prepare($query);
         $result->bindValue(':id_link', $this->id_link, PDO::PARAM_INT);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
-        $result->bindValue(':url', $this->url, PDO::PARAM_INT);
+        $result->bindValue(':url', $this->url, PDO::PARAM_STR);
         $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
         $result->execute();
 
@@ -92,5 +92,25 @@ class Link extends DbConnect {
             array_push($tab, $current);
             }
             return $tab;
+    }
+
+    public function update(){
+        
+        $query ="UPDATE links SET `name`= :name, `url` = :url WHERE `id_link` = :id_link";
+        $result = $this->pdo->prepare($query);
+        
+        $result->bindValue('name', $this->name, PDO::PARAM_STR);
+        $result->bindValue('url', $this->description, PDO::PARAM_STR);
+        $result->bindValue('id_link', $this->id_link, PDO::PARAM_INT);
+        $result->execute();           
+    }
+
+    public function delete(){
+
+        $query ="DELETE FROM links WHERE `id_link` = :id_link";
+        $result = $this->pdo->prepare($query);
+        $result->bindValue('id_link', $this->id_link, PDO::PARAM_INT);
+        $result->execute();
+                
     }
 }

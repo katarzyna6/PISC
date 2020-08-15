@@ -1,50 +1,20 @@
-<?php
-$items = $view['datas']['items'];
-// var_dump($view);
-?>
-
-<div class="espace">
-    <h2>Mon espace</h2>
-    <div><a href="deconnect.html">Me déconnecter</a></div>
-</div>
-
-<h2>Mes produits ajoutés :</h2>
-
-<ul>
-    <?php
-    foreach($items as $item) :?>
-
-        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName()?></a></li>
-        <li>Description : <?=$item->getDescription()?></li>
-        <li>Marque : <?=$item->brandcomplete->getName();?></li>
-        <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
-        <li>Sous-Catégorie : <?=$item->subcategorycomplete->getName();?></li>
-        <li>Prix : <?=$item->getPrice()?></li>
-        <li>Note : <?=$item->getNote()?></li>
-        <li>Avis : <?=$item->getAvis()?></li>
-        <li>Ilustrations : <?=$item->getPhoto()?></li>
-
-        <a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a>
-        <a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a>
-                    
-        <?php endforeach ?>
-    
-</ul>
-
-
 <div class = "form_admin">
-        
-    <form action="<?= isset($view['datas']['item'])? "index.php?route=mod_item" : "index.php?route=insert_item"; ?>" method="POST" enctype="multipart/form-data">
+
+    <form action="index.php?route=mod_item" method="POST" enctype="multipart/form-data">
             
-        <h2><?= isset($view['datas']['item'])? "Modifier un produit" : "Ajouter un produit"; ?> </h2>
+        <h2>Modifier un produit</h2>
 
         <div><label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
 
         <div>
+    
             <label for="brand">Marque :</label><br>
             <select id="brand" name="brand">
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
-                    <option value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?></option>
+                    
+                    <option <?= $brand->getIdBrand() == $view['datas']['item']->getIdBrand()? "selected" : "";?>
+                    value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?></option>
+                    
                 <?php endforeach ?>
             </select>
         </div>
@@ -53,12 +23,22 @@ $items = $view['datas']['items'];
 
         <div><label for="price">Prix</label><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>"/></div>
 
+        <!-- CATS -->
         <div>
             <label for="category">Catégorie :</label><br>
             <select id="category" name="category">
 
                 <?php foreach ($view["datas"]["category"] as $cat): ?>
-                    <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
+                    <?php 
+                    if($cat->getIdCategory() == $view['datas']['item']->getIdCategory()) {
+                        $selected = "selected";
+                         
+                    } else {
+                    $selected = "";
+                }
+                
+                ?>
+                    <option <?=$selected?> value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
                 <?php endforeach ?>
 
             </select>
@@ -68,17 +48,24 @@ $items = $view['datas']['items'];
             <label for="subcategory">Sous-catégorie :</label><br>
             <select id="subcategory" name="subcategory">
                 <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
-                    <option value="<?=$subcat->getIdSubcategory(); ?>"><?=$subcat->getName(); ?></option>
+                    <?php 
+                    if($subcat->getIdSubcategory() == $view['datas']['item']->getIdSubcategory()) {
+                        $selected = "selected";
+                         
+                    } else {
+                    $selected = "";
+                }?>
+                    <option <?=$selected?> value="<?=$subcat->getIdSubcategory(); ?>"><?=$subcat->getName(); ?></option>
                 <?php endforeach ?> 
             </select>
         </div>
 
         <div>
             <label for="image">Image</label>
-            <input type="file" name="image" id="image"  value="" multiple>
+            <input type="file" id="image" name="image"value="">
         </div>
                 
-        <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getAvis() : ""; ?>"/></div>
+        <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getAvis() : ""; ?>"/></div>
 
         <div>
             <label for="note">Ajouter une note</label><br>
@@ -102,8 +89,3 @@ $items = $view['datas']['items'];
                 <div><input type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>" /></div>
         </form>
     </div>       
-
-<div>
-        <a href="index.php?route=insert_item">Ajouter un autre produit</a>
-        <div><a href="index.php">Retour</a></div>
-</div>
