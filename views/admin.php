@@ -1,8 +1,7 @@
 <?php
 $items = $view['datas']['items'];
-$image = $view['datas']["image"];
+$image = $view['datas']["images"];
 var_dump($_GET);
-var_dump($image);
 // var_dump($view);
 ?>
 
@@ -17,20 +16,25 @@ var_dump($image);
     foreach($items as $item) :?>
     
 
-        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName()?></a></li>
+        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName();?></a></li>
         <li>Description : <?=$item->getDescription()?></li>
-        <li>Marque : <?=$item->brandcomplete->getName();?></li>
+        <li>Marque : <?=$item->brandcomplete->getName()?></li>
         <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
-        <li>Sous-Catégorie : <?=$item->subcategorycomplete->getName();?></li>
+        <li>Sous-Catégorie : <?=$item->subcategorycomplete->getName()?></li>
         <li>Prix : <?=$item->getPrice()?></li>
         <li>Note : <?=$item->getNote()?></li>
         <li>Avis : <?=$item->getAvis()?></li>
 
-      <?php  foreach()?>
-      <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+        <div>Images : 
+            <li>
+                <?php foreach($view["datas"]["images"] as $image) : ?>
+                    <img src="img/<?=$image->getName() ?>"alt="Image de l'article">
+                <?php endforeach?>
+            </li>
+        </div>
 
-        <a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a>
-        <a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a>
+        <li><a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a></li>
+        <li><a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a><li>
                     
         <?php endforeach ?>
     

@@ -157,7 +157,7 @@ function showAdmin() {
     $datas["brand"] = $brand->selectAll();
 
     $image = new Image();
-    $datas["image"] = $image->selectAll();
+    $datas["images"] = $image->selectAll();
 
     return ["template" => "admin.php", "datas" => $datas];
 }    
