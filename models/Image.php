@@ -1,8 +1,8 @@
 <?php
 
-class Photo extends DbConnect {
+class Image extends DbConnect {
     
-    private $id_photo;
+    private $id_image;
     private $name;
     private $alt;
     private $id_item;
@@ -11,13 +11,12 @@ class Photo extends DbConnect {
         parent::__construct($id);
     }
 
-    
-    public function getIdPhoto () {    
-        return $this->id_photo;
+    public function getIdImage () {    
+        return $this->id_image;
     }
     
-    public function setIdPhoto($id_photo) {
-        $this->id_photo = $id_photo;
+    public function setIdImage($id_image) {
+        $this->id_image = $id_image;
     }
 
     public function getName () {    
@@ -46,24 +45,24 @@ class Photo extends DbConnect {
 
 
     function insert() {
-        $query = "INSERT INTO photo (name, alt, id_item)
+        $query = "INSERT INTO images (name, alt, id_item)
             VALUES(:name, :alt, :id_item)";
 
-        $query = "INSERT INTO photo (name, alt, id_item) VALUES(:name, :alt, :id_item)";
+        $query = "INSERT INTO images (name, alt, id_item) VALUES(:name, :alt, :id_item)";
         $result = $this->pdo->prepare($query);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':alt', $this->alt, PDO::PARAM_STR);
         $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->execute();
-        $this->id_photo = $this->pdo->lastInsertId();
+        $this->id_image = $this->pdo->lastInsertId();
         return $this;
         
     }
         
     function select() {
-        $query = "SELECT * FROM photo WHERE id_photo = :id";
+        $query = "SELECT * FROM images WHERE id_image = :id";
         $result = $this->pdo->prepare($query);
-        $result->bindValue('id', $this->id_photo, PDO::PARAM_INT);
+        $result->bindValue('id', $this->id_image, PDO::PARAM_INT);
         $result->execute();
         $datas = $result->fetch();
         
@@ -75,7 +74,7 @@ class Photo extends DbConnect {
     }
 
     function selectAll() {
-        $query ="SELECT * FROM photo;";
+        $query ="SELECT * FROM images;";
         $result = $this->pdo->prepare($query);
         $result->execute();
         $datas= $result->fetchAll(); 
@@ -83,15 +82,15 @@ class Photo extends DbConnect {
         $tab=[];
 
         foreach($datas as $data) {
-            $current = new Photo();
-            $current->setIdPhoto($data['id_photo']);
+            $current = new Image();
+            $current->setIdImage($data['id_image']);
             array_push($tab, $current);
             }
             return $tab;
     }
 
     function update() {
-        $query ="UPDATE photo SET `id_photo` = :id_photo, `name` = :name, `alt` = :alt, `id_item` = :id_item) WHERE `id_item` = :id_item";
+        $query ="UPDATE images SET `id_image` = :id_image, `name` = :name, `alt` = :alt, `id_item` = :id_item) WHERE `id_item` = :id_item";
 
         $result = $this->pdo->prepare($query);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
@@ -104,9 +103,9 @@ class Photo extends DbConnect {
     }
 
     function delete() {
-        $query ="DELETE FROM photo WHERE `id_photo` = :id_photo";
+        $query ="DELETE FROM images WHERE `id_image` = :id_image";
         $result = $this->pdo->prepare($query);
-        $result->bindValue('id_photo', $this->id_photo, PDO::PARAM_INT);
+        $result->bindValue('id_image', $this->id_image, PDO::PARAM_INT);
         $result->execute();           
     }
 }

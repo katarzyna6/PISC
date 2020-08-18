@@ -48,7 +48,7 @@ class Subcategory extends DbConnect {
     }
 
     public function selectAll(){
-        $query ="SELECT * FROM subcategory;";
+        $query ="SELECT * FROM subcategories;";
         $result = $this->pdo->prepare($query);
         $result->execute();
         $datas= $result->fetchAll(); //recupérer les données
@@ -67,7 +67,7 @@ class Subcategory extends DbConnect {
     
         //on récupére les noms des categories
         function select(){
-            $query = "SELECT * FROM subcategory WHERE id_subcategory = :id";
+            $query = "SELECT * FROM subcategories WHERE id_subcategory = :id";
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id', $this->id_subcategory, PDO::PARAM_INT);
             $result->execute();
@@ -78,7 +78,7 @@ class Subcategory extends DbConnect {
         }
 
         public function selectByCategory(){
-            $query ="SELECT * FROM subcategory WHERE id_category = :id;";
+            $query ="SELECT * FROM subcategories WHERE id_category = :id;";
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id', $this->id_category, PDO::PARAM_INT);
             $result->execute();
@@ -98,7 +98,7 @@ class Subcategory extends DbConnect {
 
     
         public function update(){
-            $query ="UPDATE subcategory SET `id_subcategory` = :id_subcategory, `name` = :name";
+            $query ="UPDATE subcategories SET `id_subcategory` = :id_subcategory, `name` = :name";
 
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
@@ -112,7 +112,7 @@ class Subcategory extends DbConnect {
         }
 
         public function delete(){
-            $query ="DELETE FROM subcategory WHERE `id_subcategory` = :id_subcategory";
+            $query ="DELETE FROM subcategories WHERE `id_subcategory` = :id_subcategory";
             $result = $this->pdo->prepare($query);
             $result->bindValue('id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
             $result->execute(); 

@@ -1,5 +1,8 @@
 <?php
 $items = $view['datas']['items'];
+$image = $view['datas']["image"];
+var_dump($_GET);
+var_dump($image);
 // var_dump($view);
 ?>
 
@@ -9,10 +12,10 @@ $items = $view['datas']['items'];
 </div>
 
 <h2>Mes produits ajoutés :</h2>
-
 <ul>
     <?php
     foreach($items as $item) :?>
+    
 
         <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName()?></a></li>
         <li>Description : <?=$item->getDescription()?></li>
@@ -22,7 +25,9 @@ $items = $view['datas']['items'];
         <li>Prix : <?=$item->getPrice()?></li>
         <li>Note : <?=$item->getNote()?></li>
         <li>Avis : <?=$item->getAvis()?></li>
-        <li>Ilustrations : <?=$item->getPhoto()?></li>
+
+      <?php  foreach()?>
+      <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
 
         <a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a>
         <a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a>

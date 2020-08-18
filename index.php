@@ -28,12 +28,6 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "subcategory": $view = showSubcategory();
         break;
-        case "insert_subcategory": insertSubcategory();
-        break;
-        case "mod_subcategory": modSubcategory();
-        break;
-        case "del_subcategory": delSubcategory();
-        break;
         case "contact": $view = showContact();
         break;
         //TERMES
@@ -111,6 +105,7 @@ function showHome() {
 }
 
 function showAdmin() {
+    
     // var_dump($_SESSION);
     if(!isset($_SESSION["admin"])) {
         header("Location:index.php?route=connectform");
@@ -161,6 +156,9 @@ function showAdmin() {
     $brand = new Brand();
     $datas["brand"] = $brand->selectAll();
 
+    $image = new Image();
+    $datas["image"] = $image->selectAll();
+
     return ["template" => "admin.php", "datas" => $datas];
 }    
 
@@ -191,9 +189,7 @@ function showItem() {
 
     $datas = [
         "name" => "Lingettes hydratantes",
-        "photo1" => "img/DILEX/1.jpg",
-        "photo2" => "img/DILEX/1_2.jpg",
-        "photo3" => "img/DILEX/1_3.jpg",
+        "image" => "img/DILEX/1.jpg", "img/DILEX/1_2.jpg", "img/DILEX/1_3.jpg",
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
         "id_brand" => 1,
         "id_category" => 2,
@@ -338,22 +334,14 @@ function connectAdmin() {
 function deconnectAdmin() {
         
     unset($_SESSION["admin"]);
-    // Redirection vers accueil
-    //header("Location:index");
+    //Redirection vers accueil
+    header("Location:index");
 }
 
 
 
 function insertItem() {
-
-    var_dump($_POST);
-    var_dump($_FILES);
-    $image = "default.png";
-
-    if(!empty($_FILES['image']['tmp_name'])) {
-        $uploder = new UploadImage($_FILES['image'], 450, 450);
-        $image = $uploder->set_image();
-    }
+    
     
     if(!empty($_POST["name"]) && !empty($_POST["description"]) && !empty($_POST["brand"]) && !empty($_POST["category"]) && !empty($_POST["subcategory"]) && !empty($_POST["price"]) && !empty($_POST["note"]) && !empty($_POST["avis"])) {
     
@@ -363,23 +351,37 @@ function insertItem() {
         $item->setPrice($_POST["price"]);
         $item->setAvis($_POST["avis"]); 
         $item->setNote($_POST["note"]);
-        $item->setIdBrand($_POST["id_brand"]);      
-        $item->setIdCategory($_POST["id_category"]);
-        $item->setIdSubcategory($_POST["id_subcategory"]);
-        $item->setImage($image);
+        $item->setIdBrand($_POST["brand"]);      
+        $item->setIdCategory($_POST["category"]);
+        $item->setIdSubcategory($_POST["subcategory"]);
+
         
         $item->setIdAdmin($_SESSION['admin']['id_admin']);
         
         $item->insert();
 
-        $photo = new Photo();
-        $photo->setIdItem($item->getIdItem());
-        $photo->setName($image);
-        $photo->setAlt("Image de l'article");
-        $photo->insert();
+        $image = "default.png";
+        var_dump($_FILES);
+        $total = count($_FILES);
+
+        foreach($_FILES as $uploadedimage) {
+
+            if($uploadedimage ['size'] > 0) {
+
+                $uploder = new UploadImage($uploadedimage, 450, 450);
+                $imageFilePath = $uploder->set_image();
+
+                $image = new Image();
+                $image->setIdItem($item->getIdItem());
+                $image->setName($imageFilePath);
+                $image->setAlt("Image de l'article");
+                $image->insert();
+            }
+        }
+
     }
-        header("Location:index.php?route=admin");
-        exit;
+        // header("Location:index.php?route=admin");
+        // exit;
 }
 
 
@@ -402,6 +404,9 @@ function modItem() {
     $brand = new Brand();
     $datas["brand"] = $brand->selectAll();
 
+    $image = new Image();
+    $datas["image"] = $image->selectAll();
+
 
     return ["template" => "mod_item.php", "datas" => $datas];
     } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -419,11 +424,17 @@ function modItem() {
     $item->setIdCategory($_POST["category"]);       
     $item->setIdSubcategory($_POST["subcategory"]);
 
-    if(!empty($_FILES['image']['tmp_name'])) {
-        var_dump('img');
-        $uploder = new UploadImage($_FILES['image'], 450, 450);
-        $item->setImage($uploder->set_image());
-    }
+    // $image = new Image();
+    // $image->setIdImage($_REQUEST['id_image']);
+    // $image->setName($_POST["name"]);
+    // $image->setAlt($_POST["alt"]);
+    // $image->setIdItem($_POST["id_item"]);
+
+    // if(!empty($_FILES['image']['tmp_name'])) {
+    //     var_dump('img');
+    //     $uploder = new UploadImage($_FILES['image'], 450, 450);
+    //     $image->setImage($uploder->set_image());
+    // }
     
 
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
@@ -440,66 +451,65 @@ function delItem() {
     $item->setIdItem($_REQUEST['id']);
     $item = $item->select();
 
-    // var_dump($item);
     if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
         // $image = $item->getImage();
        var_dump($item);
         $item->delete();
-        if($image != "default.png") {
-            unlink("img/".$image); //Supprimer l'image
-        }
+        // if($image != "default.png") {
+        //     unlink("img/".$image); //Supprimer l'image
+        // }
     }
 
-    header("Location:index.php?route=admin");
-    exit;
+    // header("Location:index.php?route=admin");
+    // exit;
 }
 
 
-function insertSubcategory() {
+// function insertSubcategory() {
 
-    if(!empty($_POST["name"]) && !empty($_POST["id_subcategory"]) && !empty($_POST["id_category"])) {
+//     if(!empty($_POST["name"]) && !empty($_POST["id_subcategory"]) && !empty($_POST["id_category"])) {
 
-        $subcategory = new Subcategory();
-        $subcategory->setName($_POST["name"]);
-        $subcategory->setIdSubcategory($_POST["id_subcategory"]);
-        $subcategory->setIdCategory($_POST["id_category"]);
+//         $subcategory = new Subcategory();
+//         $subcategory->setName($_POST["name"]);
+//         $subcategory->setIdSubcategory($_POST["id_subcategory"]);
+//         $subcategory->setIdCategory($_POST["id_category"]);
 
-        $subcategory->insert();
+//         $subcategory->insert();
         
-        header("Location:index.php?route=admin");
-    exit;
-    }
+//         header("Location:index.php?route=admin");
+//     exit;
+//     }
 
-    header("Location:index.php?route=admin");
-    exit;
-}
+//     header("Location:index.php?route=admin");
+//     exit;
+// }
 
-function modSubcategory() {
+// function modSubcategory() {
 
-    $subcategory = new Subcategory();
-    $subcategory->setIdSubcategory($_REQUEST['id_subcategory']);
-    $subcategory->setName($_POST["name"]);      
-    $subcategory->setIdCategory($_POST["id_category"]);
-    $subcategory->update();
+//     $subcategory = new Subcategory();
+//     $subcategory->setIdSubcategory($_REQUEST['id_subcategory']);
+//     $subcategory->setName($_POST["name"]);      
+//     $subcategory->setIdCategory($_POST["id_category"]);
+//     $subcategory->update();
 
-    header("Location:index.php?route=admin");
-    exit;       
-}
+//     header("Location:index.php?route=admin");
+//     exit;       
+// }
 
 
-function delSubcategory() {
+// function delSubcategory() {
 
-    // Supprimer uniquement si elle est vide !!!
-    if(empty($_POST["name"]) && empty($_POST["id_subcategory"]) && empty($_POST["id_category"])) {
+//     // Supprimer uniquement si elle est vide !!!
+//     if(empty($_POST["name"]) && empty($_POST["id_subcategory"]) && empty($_POST["id_category"])) {
         
-    $subcategory = new Subcategory();
-    $subcategory->setIdSubcategory($_REQUEST["id_subcategory"]);
+//     $subcategory = new Subcategory();
+//     $subcategory->setIdSubcategory($_REQUEST["id_subcategory"]);
 
-    $subcategory->delete();
-    }
-    header("Location:index.php?route=admin");
-    exit;
-}
+//     $subcategory->delete();
+//     }
+//     header("Location:index.php?route=admin");
+//     exit;
+// }
 
 function showFooter() {
 
@@ -542,16 +552,13 @@ function showFooter() {
 <?php require "views/{$view['template']}"; ?>
 
 <!-- <div id="modContent"></div> -->
-
-<?php showFooter() ?>
+<?php showMenu() ?>
 <?php require "views/footer.php"; ?>
-
-<!-- <?php require "views/footer.php"; ?> -->
 
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/multipleFileUpload.js"></script>     
-<!-- <script src="js/script.js"></script>
-<script src="js/modal.js"></script> -->
+<script src="js/script.js"></script>
+<!-- <script src="js/modal.js"></script> -->
 <!-- <script src="js/ajax.js"></script> -->
 </body>
 </html>

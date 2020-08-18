@@ -36,7 +36,7 @@ class Brand extends DbConnect {
 
     function insert(){
     
-        $query = "INSERT INTO brand (id_brand, name, description)
+        $query = "INSERT INTO brands (id_brand, name, description)
             VALUES(:id_brand, :name, :description)";
 
         $result = $this->pdo->prepare($query);
@@ -51,7 +51,7 @@ class Brand extends DbConnect {
 
     public function select(){
 
-        $query = "SELECT * FROM brand WHERE id_brand = :id";
+        $query = "SELECT * FROM brands WHERE id_brand = :id";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id', $this->id_brand, PDO::PARAM_INT);
         $result->execute();
@@ -65,7 +65,7 @@ class Brand extends DbConnect {
     }
 
     public function selectAll(){
-    $query ="SELECT * FROM brand;";
+    $query ="SELECT * FROM brands;";
     $result = $this->pdo->prepare($query);
     $result->execute();
     $datas= $result->fetchAll(); 
@@ -84,7 +84,7 @@ class Brand extends DbConnect {
 
     public function update(){
         
-        $query ="UPDATE brand SET `name`= :name, `description` = :description WHERE `id_brand` = :id_brand";
+        $query ="UPDATE brands SET `name`= :name, `description` = :description WHERE `id_brand` = :id_brand";
         $result = $this->pdo->prepare($query);
         
         $result->bindValue('name', $this->name, PDO::PARAM_STR);
@@ -95,7 +95,7 @@ class Brand extends DbConnect {
 
     public function delete(){
 
-        $query ="DELETE FROM brand WHERE `id_brand` = :id_brand";
+        $query ="DELETE FROM brands WHERE `id_brand` = :id_brand";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id_brand', $this->id_brand, PDO::PARAM_INT);
         $result->execute();

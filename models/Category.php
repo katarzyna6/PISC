@@ -28,7 +28,7 @@ class Category extends DbConnect {
 
     function insert(){
     
-        $query = "INSERT INTO category (name) VALUES(:name)";
+        $query = "INSERT INTO categories (name) VALUES(:name)";
 
         $result = $this->pdo->prepare($query);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
@@ -39,7 +39,7 @@ class Category extends DbConnect {
     }
 
     public function selectAll(){
-        $query ="SELECT * FROM category;";
+        $query ="SELECT * FROM categories;";
         $result = $this->pdo->prepare($query);
         $result->execute();
         $datas= $result->fetchAll(); //recupérer les données
@@ -58,7 +58,7 @@ class Category extends DbConnect {
     
         //on récupére les noms des categories
         function select(){
-            $query = "SELECT * FROM category WHERE id_category = :id";
+            $query = "SELECT * FROM categories WHERE id_category = :id";
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id', $this->id_category, PDO::PARAM_INT);
             $result->execute();
@@ -70,7 +70,7 @@ class Category extends DbConnect {
     
         public function update(){
             
-            $query ="UPDATE category SET `id_category` = :id_category, `name` = :name";
+            $query ="UPDATE categories SET `id_category` = :id_category, `name` = :name";
 
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
@@ -84,7 +84,7 @@ class Category extends DbConnect {
 
         public function delete(){
 
-            $query ="DELETE FROM category WHERE `id_category` = :id_category";
+            $query ="DELETE FROM categories WHERE `id_category` = :id_category";
             $result = $this->pdo->prepare($query);
             $result->bindValue('id_category', $this->id_category, PDO::PARAM_INT);
             $result->execute();           
