@@ -30,7 +30,7 @@ class Subcategory extends DbConnect {
         return $this->id_category;
     }
 
-    public function setIdCategory(string $id_category) {
+    public function setIdCategory($id_category) {
         $this->id_category = $id_category;
     }
 

@@ -189,7 +189,7 @@ function showItem() {
 
     $datas = [
         "name" => "Lingettes hydratantes",
-        "image" => "img/DILEX/1.jpg", "img/DILEX/1_2.jpg", "img/DILEX/1_3.jpg",
+        "image" => "img/1597773323_1.jpg", "img/1597773323_1_2.jpg",
         "description" => "<p>Les lingettes nettoyantes et désinfectantes avec huile d'argan, huile d'amande, vitamine E, sans paraben. Appropriés lorsqu'il n'y a pas de conditions de toilette, idéales pour les soins des malades et des personnes âgées. Produit convient pour une utilisation quotidienne, ne dessèche pas la peau.</p>",
         "id_brand" => 1,
         "id_category" => 2,
@@ -208,9 +208,41 @@ function showItem() {
 //BRAND
 function showBrand() {
 
+    $datas = [];
+    $item = new Item();
+    $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
+    $datas = $item->selectAll();
+    
+   
+        $datas["items"]= $item->selectByAdmin();
+        if(isset($_GET['id'])) {
+            $item->setIdItem($_GET['id']);
+            $items = $item->select();
+            $datas["item"]=$items;
+        }
+    
+        foreach($datas["items"] as &$item){
+            $admin = new Admin();
+            $admin->setIdAdmin($item->getIdAdmin());
+            $admin= $admin->select();
+            $item->user = $admin;
+        }
+
+    $datas["items"] = $item->selectByBrand();
+    $datas["items"] = $item->selectByCategory();
+    $datas["items"] = $item->selectBySubcategory();
+
     $brand = new Brand();
     $brand->setIdBrand($_GET["id"]);
     $datas["brand"] = $brand->select();
+
+    $cat = new Category();
+    $cat->setIdCategory($_GET["id"]);
+    $datas ["category"] = $cat->select();
+
+    $subcat = new Subcategory();
+    $subcat->setIdSubcategory($_GET["id"]);
+    $datas ["subcategory"] = $subcat->select();
 
     return ["template" => "brand.php", "datas" => $datas];
 }
@@ -218,9 +250,41 @@ function showBrand() {
 //CAT
 function showCategory() {
 
+    $datas = [];
+    $item = new Item();
+    $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
+    $datas = $item->selectAll();
+    
+   
+        $datas["items"]= $item->selectByAdmin();
+        if(isset($_GET['id'])) {
+            $item->setIdItem($_GET['id']);
+            $items = $item->select();
+            $datas["item"]=$items;
+        }
+    
+        foreach($datas["items"] as &$item){
+            $admin = new Admin();
+            $admin->setIdAdmin($item->getIdAdmin());
+            $admin= $admin->select();
+            $item->user = $admin;
+        }
+
+    $datas["items"] = $item->selectByBrand();
+    $datas["items"] = $item->selectByCategory();
+    $datas["items"] = $item->selectBySubcategory();
+    
+
     $cat = new Category();
     $cat->setIdCategory($_GET["id"]);
-    $datas ["categories"] = $cat->select();
+    $datas ["category"] = $cat->select();
+
+    $subcat = new Subcategory();
+    $subcat->setIdSubcategory($_GET["id"]);
+    $datas ["subcategory"] = $subcat->select();
+
+    $image = new Image();
+    $datas["images"] = $image->selectAll();
 
     return ["template" => "category.php", "datas" => $datas];
     
@@ -231,7 +295,14 @@ function showSubcategory() {
 
     $subcat = new Subcategory();
     $subcat->setIdSubcategory($_GET["id"]);
-    $datas ["subcategories"] = $subcat->select();
+    $datas ["subcategory"] = $subcat->select();
+
+    $item = new Item();
+    $item->setIdSubcategory($_GET['id']);
+    $datas ['items'] = $item->selectBySubcategory();
+
+    $image = new Image();
+    $datas["images"] = $image->selectAll();
 
     return ["template" => "subcategory.php", "datas" => $datas];
 }
@@ -335,7 +406,7 @@ function deconnectAdmin() {
         
     unset($_SESSION["admin"]);
     //Redirection vers accueil
-    header("Location:index");
+    header("Location:index.php");
 }
 
 
@@ -361,7 +432,7 @@ function insertItem() {
         $item->insert();
 
         $image = "default.png";
-        var_dump($_FILES);
+        // var_dump($_FILES);
         $total = count($_FILES);
 
         foreach($_FILES as $uploadedimage) {
@@ -453,7 +524,7 @@ function delItem() {
 
     if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
         // $image = $item->getImage();
-       var_dump($item);
+    //    var_dump($item);
         $item->delete();
         // if($image != "default.png") {
         //     unlink("img/".$image); //Supprimer l'image
@@ -511,14 +582,14 @@ function delItem() {
 //     exit;
 // }
 
-function showFooter() {
+// function showFooter() {
 
-    global $footer;
+//     global $footer;
 
-    $link = new Link();
-    $footer["links"] = $link->selectAll();
+//     $link = new Link();
+//     $footer["links"] = $link->selectAll();
      
-}
+// }
 
 
 // function showAjax() {
@@ -552,8 +623,8 @@ function showFooter() {
 <?php require "views/{$view['template']}"; ?>
 
 <!-- <div id="modContent"></div> -->
-<?php showMenu() ?>
-<?php require "views/footer.php"; ?>
+
+
 
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/multipleFileUpload.js"></script>     

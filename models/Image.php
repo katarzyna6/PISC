@@ -84,6 +84,9 @@ class Image extends DbConnect {
         foreach($datas as $data) {
             $current = new Image();
             $current->setIdImage($data['id_image']);
+            $current->setName($data['name']);
+            $current->setAlt($data['alt']);
+            $current->setIdItem($data['id_item']);
             array_push($tab, $current);
             }
             return $tab;

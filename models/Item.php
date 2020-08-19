@@ -99,14 +99,6 @@ class Item extends DbConnect {
         $this->id_admin = $id_admin;
     }
 
-    // public function getIdImage () {    
-    //     return $this->id_image;
-    // }
-    
-    // public function setIdImage($id_image) {
-    //     $this->id_image = $id_image;
-    // }
-
     function insert(){
     
         $query = "INSERT INTO items (name, description, price, avis, note, id_category, id_subcategory, id_brand, id_admin)
@@ -164,6 +156,15 @@ class Item extends DbConnect {
         foreach($datas as $data) {
             $current = new Item();
             $current->setIdItem($data['id_item']);
+            $current->setName($data['name']);
+            $current->setDescription($data['description']);
+            $current->setPrice($data['price']);
+            $current->setAvis($data['avis']);
+            $current->setNote($data['note']);
+            $current->setIdBrand($data['id_brand']);
+            $current->setIdCategory($data['id_category']);
+            $current->setIdSubcategory($data['id_subcategory']);
+            $current->setIdAdmin($data['id_admin']);   
             array_push($tab, $current);
             }
             return $tab;

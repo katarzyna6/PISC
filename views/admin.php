@@ -1,13 +1,13 @@
 <?php
 $items = $view['datas']['items'];
 $image = $view['datas']["images"];
-var_dump($_GET);
-// var_dump($view);
+
+// var_dump($view['datas']["images"]);
 ?>
 
 <div class="espace">
     <h2>Mon espace</h2>
-    <div><a href="deconnect.html">Me déconnecter</a></div>
+    <div><a href="index.php?route=deconnect">Me déconnecter</a></div>
 </div>
 
 <h2>Mes produits ajoutés :</h2>
@@ -28,7 +28,9 @@ var_dump($_GET);
         <div>Images : 
             <li>
                 <?php foreach($view["datas"]["images"] as $image) : ?>
-                    <img src="img/<?=$image->getName() ?>"alt="Image de l'article">
+                    <?php if($item->getIdItem() == $image->getIdItem()) :?>
+                        <img src="img/<?=$image->getName(); ?>">
+                    <?php endif; ?>   
                 <?php endforeach?>
             </li>
         </div>
