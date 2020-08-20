@@ -29,7 +29,7 @@ $image = $view['datas']["images"];
             <li>
                 <?php foreach($view["datas"]["images"] as $image) : ?>
                     <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                        <img src="img/<?=$image->getName(); ?>">
+                        <img src="img/<?=$image->getName(); ?>" style="width:165px; height:156px; margin: 5px;">
                     <?php endif; ?>   
                 <?php endforeach?>
             </li>

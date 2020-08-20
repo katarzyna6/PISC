@@ -63,6 +63,7 @@
         <div>
             <label for="image">Image</label>
             <input type="file" id="image" name="image"value="">
+            
         </div>
                 
         <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getAvis() : ""; ?>"/></div>

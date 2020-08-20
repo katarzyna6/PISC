@@ -18,8 +18,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "menu": $view = showMenu();
         break;
-        case "footer": $view = showFooter();
-        break;
+        // case "footer": $view = showFooter();
+        // break;
         case "item": $view = showItem();
         break;
         case "brand": $view = showBrand();
@@ -244,6 +244,9 @@ function showBrand() {
     $subcat->setIdSubcategory($_GET["id"]);
     $datas ["subcategory"] = $subcat->select();
 
+    $image = new Image();
+    $datas["images"] = $image->selectAll();
+
     return ["template" => "brand.php", "datas" => $datas];
 }
 
@@ -451,8 +454,8 @@ function insertItem() {
         }
 
     }
-        // header("Location:index.php?route=admin");
-        // exit;
+        header("Location:index.php?route=admin");
+        exit;
 }
 
 
@@ -495,17 +498,17 @@ function modItem() {
     $item->setIdCategory($_POST["category"]);       
     $item->setIdSubcategory($_POST["subcategory"]);
 
-    // $image = new Image();
-    // $image->setIdImage($_REQUEST['id_image']);
-    // $image->setName($_POST["name"]);
-    // $image->setAlt($_POST["alt"]);
-    // $image->setIdItem($_POST["id_item"]);
+    $image = new Image();
+    $image->setIdImage($_REQUEST['id_image']);
+    $image->setName($_POST["name"]);
+    $image->setAlt($_POST["alt"]);
+    $image->setIdItem($_POST["id_item"]);
 
-    // if(!empty($_FILES['image']['tmp_name'])) {
-    //     var_dump('img');
-    //     $uploder = new UploadImage($_FILES['image'], 450, 450);
-    //     $image->setImage($uploder->set_image());
-    // }
+    if(!empty($_FILES['image']['tmp_name'])) {
+        
+        $uploder = new UploadImage($_FILES['image'], 450, 450);
+        $image->setIdImage($uploder->set_image());
+    }
     
 
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
@@ -522,13 +525,17 @@ function delItem() {
     $item->setIdItem($_REQUEST['id']);
     $item = $item->select();
 
+    $image = new Image();
+    $image->setIdImage($_REQUEST['id']);
+    $image = $image->select();
+
     if($item->getIdAdmin() == $_SESSION['admin']['id_admin']) {
-        // $image = $item->getImage();
-    //    var_dump($item);
+        $image = $image->getIdImage();
+
         $item->delete();
-        // if($image != "default.png") {
-        //     unlink("img/".$image); //Supprimer l'image
-        // }
+        if($image != "default.png") {
+            unlink("img/".$image); //Supprimer l'image
+        }
     }
 
     // header("Location:index.php?route=admin");
@@ -624,7 +631,7 @@ function delItem() {
 
 <!-- <div id="modContent"></div> -->
 
-
+<?php require "views/footer.php"; ?>
 
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/multipleFileUpload.js"></script>     

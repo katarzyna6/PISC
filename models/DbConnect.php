@@ -10,8 +10,8 @@ abstract class DbConnect implements Crud {
         $this->id = $id;
     }
 
-    function setId($id){
-        $this->id = $id;
+    function getId (): ?int {
+        return $this->id;
     }
 
     abstract function insert();
