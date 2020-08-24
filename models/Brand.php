@@ -35,7 +35,8 @@ class Brand extends DbConnect {
     }
 
     function insert(){
-    
+        
+        $this->connect();
         $query = "INSERT INTO brands (id_brand, name, description)
             VALUES(:id_brand, :name, :description)";
 
@@ -51,6 +52,8 @@ class Brand extends DbConnect {
 
     public function select(){
 
+        $this->connect();
+
         $query = "SELECT * FROM brands WHERE id_brand = :id";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id', $this->id_brand, PDO::PARAM_INT);
@@ -65,10 +68,11 @@ class Brand extends DbConnect {
     }
 
     public function selectAll(){
-    $query ="SELECT * FROM brands;";
-    $result = $this->pdo->prepare($query);
-    $result->execute();
-    $datas= $result->fetchAll(); 
+        $this->connect();
+        $query ="SELECT * FROM brands;";
+        $result = $this->pdo->prepare($query);
+        $result->execute();
+        $datas= $result->fetchAll(); 
 
     $tab=[];
 
@@ -84,6 +88,7 @@ class Brand extends DbConnect {
 
     public function update(){
         
+        $this->connect();
         $query ="UPDATE brands SET `name`= :name, `description` = :description WHERE `id_brand` = :id_brand";
         $result = $this->pdo->prepare($query);
         
@@ -95,6 +100,7 @@ class Brand extends DbConnect {
 
     public function delete(){
 
+        $this->connect();
         $query ="DELETE FROM brands WHERE `id_brand` = :id_brand";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id_brand', $this->id_brand, PDO::PARAM_INT);

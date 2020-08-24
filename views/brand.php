@@ -36,6 +36,7 @@ $images = $view['datas']['images'];
 
         <?php endforeach ?>
   
+    </div>
 
     
 

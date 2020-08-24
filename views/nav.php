@@ -30,12 +30,11 @@
 </nav>
 
 <h2>NOS MARQUES : </h2>
-<!-- <?php var_dump($view['datas']); ?> -->
 
 <div class="content">
     
     <div class="brands">
-        <?php foreach($menu["brands"] as $brand): ?>
+        <?php foreach($menu["brand"] as $brand): ?>
             <button><a href="index.php?route=brand&id=<?= $brand->getIdBrand() ?>"><?= $brand->getName() ?></a></button>
         <?php endforeach ?>
     </div>

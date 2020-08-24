@@ -6,7 +6,7 @@ $images = $view['datas']['images'];
 // var_dump($items);
 // var_dump($images);
 ?>
-<h1><?= $cat->getIdCategory() ?><?= $cat->getName() ?></h1>
+<h1><?= $cat->getName() ?></h1>
     <div class="container">
 
         <?php foreach($items as $item): ?>
@@ -35,6 +35,7 @@ $images = $view['datas']['images'];
             </div>
 
         <?php endforeach ?>
+    </div>
   
 
     

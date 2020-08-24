@@ -100,6 +100,7 @@ class Item extends DbConnect {
     }
 
     function insert(){
+        $this->connect();
     
         $query = "INSERT INTO items (name, description, price, avis, note, id_category, id_subcategory, id_brand, id_admin)
             VALUES(:name, :description, :price, :avis, :note, :id_category, :id_subcategory, :id_brand, :id_admin)";
@@ -123,7 +124,7 @@ class Item extends DbConnect {
     }
 
     public function select(){
-
+        $this->connect();
         $query = "SELECT * FROM items WHERE id_item = :id";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id', $this->id_item, PDO::PARAM_INT);
@@ -145,7 +146,7 @@ class Item extends DbConnect {
     }
 
     public function selectAll(){
-        
+        $this->connect();
         $query ="SELECT * FROM items;";
         $result = $this->pdo->prepare($query);
         $result->execute();
@@ -171,6 +172,8 @@ class Item extends DbConnect {
     }
 
     public function selectByAdmin() {
+
+        $this->connect();
         $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM items WHERE id_admin = :id";
         $result = $this->pdo->prepare($query);
         // var_dump($this->id_admin);
@@ -199,6 +202,7 @@ class Item extends DbConnect {
     }
 
     public function selectByBrand() {
+        $this->connect();
         $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM items WHERE id_brand = :id";
         $result = $this->pdo->prepare($query);
 
@@ -227,6 +231,7 @@ class Item extends DbConnect {
     }
 
     public function selectByCategory() {
+        $this->connect();
         $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM items WHERE id_category = :id";
         $result = $this->pdo->prepare($query);
 
@@ -255,6 +260,7 @@ class Item extends DbConnect {
     }
 
     public function selectBySubcategory() {
+        $this->connect();
         $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM items WHERE id_subcategory = :id";
         $result = $this->pdo->prepare($query);
 
@@ -283,6 +289,7 @@ class Item extends DbConnect {
     }
 
     public function update(){
+        $this->connect();
         // $image = (isset($this->image))? "`image` = :image, ": "" ;
 
         $query ="UPDATE items SET `name`= :name, `description`= :description, `price`= :price, `avis`= :avis, `note`= :note, `id_category`= :id_category, `id_subcategory`= :id_subcategory, `id_brand`= :id_brand, `id_admin` = :id_admin WHERE `id_item`= :id_item";
@@ -303,6 +310,7 @@ class Item extends DbConnect {
     }
 
     public function delete(){
+        $this->connect();
         var_dump($this->id_item);
         $query ="DELETE FROM items WHERE `id_item` = :id_item";
         $result = $this->pdo->prepare($query);

@@ -62,7 +62,19 @@
 
         <div>
             <label for="image">Image</label>
-            <input type="file" id="image" name="image"value="">
+            <!--php foreach ($view["datas"]["item"] as $item): ?> -->
+
+                <?php foreach ($view["datas"]["image"] as $image): ?>
+
+                    <?php if($image->getIdImage() == $view['datas']['item']->getIdItem()) : ?>
+                            <img src="img/<?=$image->getName(); ?>">
+                            <a class="link" href="index?route=delete_image=<?= $image->getIdImage()?>">Delete</a>
+                            <input type="file" id="image" name="image"value="">
+                    <?php endif ?>
+
+                <?php endforeach ?> 
+                
+            <!-- endforeach ?> -->
             
         </div>
                 

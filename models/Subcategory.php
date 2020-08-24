@@ -36,6 +36,7 @@ class Subcategory extends DbConnect {
 
     function insert(){
     
+        $this->connect();
         $query = "INSERT INTO subcategory (name) VALUES(:name)";
 
         $result = $this->pdo->prepare($query);
@@ -48,6 +49,7 @@ class Subcategory extends DbConnect {
     }
 
     public function selectAll(){
+        $this->connect();
         $query ="SELECT * FROM subcategories;";
         $result = $this->pdo->prepare($query);
         $result->execute();
@@ -67,6 +69,8 @@ class Subcategory extends DbConnect {
     
         //on récupére les noms des categories
         function select(){
+
+            $this->connect();
             $query = "SELECT * FROM subcategories WHERE id_subcategory = :id";
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id', $this->id_subcategory, PDO::PARAM_INT);
@@ -78,6 +82,8 @@ class Subcategory extends DbConnect {
         }
 
         public function selectByCategory(){
+
+            $this->connect();
             $query ="SELECT * FROM subcategories WHERE id_category = :id;";
             $result = $this->pdo->prepare($query);
             $result->bindValue(':id', $this->id_category, PDO::PARAM_INT);
@@ -98,6 +104,8 @@ class Subcategory extends DbConnect {
 
     
         public function update(){
+
+            $this->connect();
             $query ="UPDATE subcategories SET `id_subcategory` = :id_subcategory, `name` = :name";
 
             $result = $this->pdo->prepare($query);
@@ -112,6 +120,8 @@ class Subcategory extends DbConnect {
         }
 
         public function delete(){
+
+            $this->connect();
             $query ="DELETE FROM subcategories WHERE `id_subcategory` = :id_subcategory";
             $result = $this->pdo->prepare($query);
             $result->bindValue('id_subcategory', $this->id_subcategory, PDO::PARAM_INT);

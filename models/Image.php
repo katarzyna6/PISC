@@ -45,6 +45,8 @@ class Image extends DbConnect {
 
 
     function insert() {
+
+        $this->connect();
         $query = "INSERT INTO images (name, alt, id_item)
             VALUES(:name, :alt, :id_item)";
 
@@ -60,6 +62,7 @@ class Image extends DbConnect {
     }
         
     function select() {
+        $this->connect();
         $query = "SELECT * FROM images WHERE id_image = :id";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id', $this->id_image, PDO::PARAM_INT);
@@ -74,6 +77,7 @@ class Image extends DbConnect {
     }
 
     function selectAll() {
+        $this->connect();
         $query ="SELECT * FROM images;";
         $result = $this->pdo->prepare($query);
         $result->execute();
@@ -93,6 +97,8 @@ class Image extends DbConnect {
     }
 
     function update() {
+
+        $this->connect();
         $query ="UPDATE images SET `id_image` = :id_image, `name` = :name, `alt` = :alt, `id_item` = :id_item) WHERE `id_item` = :id_item";
 
         $result = $this->pdo->prepare($query);
@@ -106,6 +112,8 @@ class Image extends DbConnect {
     }
 
     function delete() {
+
+        $this->connect();
         $query ="DELETE FROM images WHERE `id_image` = :id_image";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id_image', $this->id_image, PDO::PARAM_INT);

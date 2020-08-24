@@ -29,3 +29,4 @@
 <div id="modeContent"></div>
 
 
+<div class="footer"></div>

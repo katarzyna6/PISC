@@ -1,6 +1,10 @@
 <?php
 
-$datas = $view["datas"]["items"]->getName();
+$items = $view['datas']['items'];
+$brand = $view['datas']['brand'];
+$cat = $view['datas']['category'];
+$subcat = $view['datas']['subcategory']; 
+$images = $view['datas']['images'];
 
 ?>
 
@@ -12,11 +16,17 @@ $datas = $view["datas"]["items"]->getName();
     <div class="photo"> 
         <div class="overlay">
 
-            <a href="index?route=item"><img src="<?= $data["image1"]?>" alt="image"></a>
-            <a href="index?route=item"><img src="<?= $data["image2"]?>" alt="image"></a>
-            <a href="index?route=item"><img src="<?= $data["image3"]?>" alt="image"></a>
+            <a href="index?route=item">
+              <?php foreach($images as $image) : ?>
+                     <?php if($items->getIdItem() == $image->getIdItem()) :?>
+                                <img src="img/<?=$image->getName(); ?>">
+                            <?php break; ?>
+                     <?php endif; ?>   
+              <?php endforeach?>
+            </a>
+            
 
-            <a class="link" href="index?route=item&item=<?= $data["id_item"]?>"><p><?= $data["name"]?></p></a>
+            <a class="link" href="index?route=item&item=<?= $datas["id_item"]?>"><p><?= $data["name"]?></p></a>
 
             <div class="item1"><p><?= $datas["description"]?></p></div>
 

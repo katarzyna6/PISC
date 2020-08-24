@@ -6,12 +6,16 @@ abstract class DbConnect implements Crud {
     protected $id;
 
     function __construct($id=null) {
-        $this->pdo = new PDO(DATABASE, LOGIN, PASSWD);
+        
         $this->id = $id;
     }
 
-    function getId (): ?int {
-        return $this->id;
+    function setId($id){
+        $this->id = $id;
+    }
+
+    function connect() {
+        $this->pdo = new PDO(DATABASE, LOGIN, PASSWD);
     }
 
     abstract function insert();

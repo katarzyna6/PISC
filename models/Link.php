@@ -46,6 +46,7 @@ class Link extends DbConnect {
 
     function insert(){
     
+        $this->connect();
         $query = "INSERT INTO links (name, url, id_admin) VALUES(:name, :url, :id_admin)";
 
         $result = $this->pdo->prepare($query);
@@ -63,6 +64,7 @@ class Link extends DbConnect {
 
     public function select(){
 
+        $this->connect();
         $query = "SELECT * FROM links WHERE id_link = :id";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id', $this->id_link, PDO::PARAM_INT);
@@ -79,6 +81,7 @@ class Link extends DbConnect {
 
     public function selectAll(){
         
+        $this->connect();
         $query ="SELECT * FROM links;";
         $result = $this->pdo->prepare($query);
         $result->execute();
@@ -96,6 +99,7 @@ class Link extends DbConnect {
 
     public function update(){
         
+        $this->connect();
         $query ="UPDATE links SET `name`= :name, `url` = :url WHERE `id_link` = :id_link";
         $result = $this->pdo->prepare($query);
         
@@ -107,6 +111,7 @@ class Link extends DbConnect {
 
     public function delete(){
 
+        $this->connect();
         $query ="DELETE FROM links WHERE `id_link` = :id_link";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id_link', $this->id_link, PDO::PARAM_INT);

@@ -6,7 +6,7 @@ $images = $view['datas']['images'];
 // var_dump($items);
 // var_dump($images);
 ?>
-<h1><?= $subcat->getIdSubcategory() ?><?= $subcat->getName() ?></h1>
+<h1><?= $subcat->getName() ?></h1>
     <div class="container">
 
         <?php foreach($items as $item): ?>
@@ -26,16 +26,16 @@ $images = $view['datas']['images'];
 
                         <a class="link" href="index?route=item&item=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
-                        <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
-
-                        <p>Prix : <?= $item->getPrice()?> €</p>
-
                     </div>
-                </div>               
+                </div>  
+                
+                <button class="myBtn"id="myBtn- <?= $item->getIdItem()?>">Voir le produit</button>
+
+                <p>Prix : <?= $item->getPrice()?> €</p>             
             </div>
 
         <?php endforeach ?>
-  
+    </div> 
 
     
 

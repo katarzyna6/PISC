@@ -60,6 +60,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "del_item": delItem();
         break;
+        case "del_image": delImage();
+        break;
         // case "ajax": $view = showAjax();
         // break;
         default : $view = showHome();
@@ -79,7 +81,7 @@ function showMenu() {
     }
 
     $brand = new Brand();
-    $menu["brands"] = $brand->selectAll();
+    $menu["brand"] = $brand->select();
      
 }
 
@@ -183,9 +185,24 @@ function showItem() {
             $item->user = $admin;
         }
 
-    $datas["items"] = $item->selectByBrand();
-    $datas["items"] = $item->selectByCategory();
-    $datas["items"] = $item->selectBySubcategory();
+        // $brand = new Brand();
+        // $brand->setIdBrand($_GET["id"]);
+        // $datas["brand"] = $brand->select();
+
+        // $cat = new Category();
+        // $cat->setIdCategory($_GET["id"]);
+        // $datas ["category"] = $cat->select();
+
+        // $subcat = new Subcategory();
+        // $subcat->setIdSubcategory($_GET["id"]);
+        // $datas ["subcategory"] = $subcat->select();
+
+        // $image = new Image();
+        // $datas["images"] = $image->selectAll();
+
+        $datas["items"] = $item->selectByBrand();
+        $datas["items"] = $item->selectByCategory();
+        $datas["items"] = $item->selectBySubcategory();
 
     $datas = [
         "name" => "Lingettes hydratantes",
@@ -625,13 +642,14 @@ function delItem() {
 
 
 <?php showMenu() ?>
+
 <?php require "views/nav.php"; ?>
 
 <?php require "views/{$view['template']}"; ?>
 
 <!-- <div id="modContent"></div> -->
-
 <?php require "views/footer.php"; ?>
+
 
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/multipleFileUpload.js"></script>     

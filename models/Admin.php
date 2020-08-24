@@ -45,7 +45,8 @@ class Admin extends DbConnect {
     }
     
     function insert(){
-    
+
+        $this->connect();
         $query = "INSERT INTO admins (nick, email, password)
             VALUES(:nick, :email, :password)";
 
@@ -61,6 +62,7 @@ class Admin extends DbConnect {
     }
 
     function update(){
+        $this->connect();
         $query ="UPDATE admins SET `nick` = :nick , `email` = :email, `password` = :password WHERE `id_admin` = :id_admin";
 
     $result = $this->pdo->prepare($query);
@@ -75,6 +77,7 @@ class Admin extends DbConnect {
     }
 
     function delete(){
+        $this->connect();
         $query ="DELETE * FROM admins WHERE nick=:nick";
         $result = $this->pdo->prepare($query);
         $result->bindValue(':nick', $this->nick, PDO::PARAM_STR);
@@ -84,6 +87,8 @@ class Admin extends DbConnect {
     }
        
     function select(){
+        
+        $this->connect();
         $query = "SELECT * FROM admins WHERE id_admin = :id_admin";
         $result = $this->pdo->prepare($query);
         $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
@@ -93,6 +98,7 @@ class Admin extends DbConnect {
     }
 
     public function selectByNick() {
+        $this->connect();
         $query = "SELECT * FROM admins WHERE nick = :nick";
         $result = $this->pdo->prepare($query);
         $result->bindValue(':nick', $this->nick, PDO::PARAM_STR);
@@ -102,6 +108,7 @@ class Admin extends DbConnect {
         }
 
     function selectAll() {
+        $this->connect();
         $query = "SELECT * FROM admins;";
         $result = $this->pdo->prepare($query);
         $result->execute();

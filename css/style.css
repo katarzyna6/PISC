@@ -50,6 +50,7 @@ header {
 .form {
     float: right;
     padding-top: 110px; 
+    clear: both;
 }
 
 
@@ -95,7 +96,7 @@ nav {
     margin: auto;
 } 
 
-.insta {
+/* .insta {
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -105,7 +106,7 @@ nav {
 .insta a img {
     width: 80%;
     margin: auto;
-} 
+}  */
 
 
 /* .sticky {
@@ -180,33 +181,40 @@ ol > li > ul > li:hover {
 
 /* ------------------- CONTENT ------------------------*/
 
-.content {
+/* .content {
     margin-bottom: 40px;
     padding-top: 25px;
     padding-bottom: 25px;
-}
+} */
 
 
 /* ------------------- CONTAINER ------------------------*/
-.container
-{
+.container {
     width: 100%;
-}
-
-.produit {
+    margin: auto;
+    
     display: flex;
     flex-direction: row;
-    width: 30%; 
-    margin: 0;
-    
+    justify-content: center;
 }
-.photo {
+
+.produit  {
+    width: 30%;
+    padding: 3px;
+}
+
+.produit a img {
+
     width: 100%;
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     -moz-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
-    
 }
+
+.produit button .myBtn {
+    text-align: center;
+}
+
 
 .overlay {
     position: relative;
@@ -217,10 +225,10 @@ ol > li > ul > li:hover {
     position: absolute;
     display: block;
     width: 100%;
-    height: 65px;
+    height: 75px;
     background-color: #9494b8;
     left: 0px;
-    bottom: 85px;
+    bottom: 40%;
     
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -239,12 +247,14 @@ ol > li > ul > li:hover {
     width: 100%;
 }
 
-.overlay p {
+.produit p {
     text-align: center;
 }
 
+
+
 /*-------------------MODAL-------------------*/
-.modal-body {
+/* .modal-body {
     
 }
 
@@ -265,12 +275,12 @@ ol > li > ul > li:hover {
 
 .modal-footer{
     
-}
+} */
 
 /* ------------FOOTER -------------------------*/
 
-.footer {
-    clear: both;
+.footer { 
+    display: block;
     background-color: #9494b8;
     padding: 10px;
     margin-top: 50px;
@@ -281,7 +291,7 @@ ol > li > ul > li:hover {
     font-size: 11px;
     font-style: italic;
 }
-.footer .liens {
+.footer ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -295,7 +305,7 @@ ol > li > ul > li:hover {
 
 /* ------------------- ITEM ----------------- */
 
-.content_item {
+/* .content_item {
    
     display: flex;
 }
@@ -338,9 +348,9 @@ ol > li > ul > li:hover {
 
 .item:hover img {
 	-webkit-transform: scale(1.15);
-	-ms-transform: scale(1.15);
+	-ms-transform: scale(1.15); 
 	transform: scale(1.15);
-}
+}*/
 
 /* ------------------- BRAND ----------------- */
 
@@ -353,6 +363,7 @@ ol > li > ul > li:hover {
 button a {
     color: #ffffff;
     text-decoration: none;
+    
 }
 
 button{
@@ -364,7 +375,7 @@ button{
     position: relative;
     width: 150px;
     line-height: 40px;
-    display: inline-block;
+    /* display: inline-block; */
      
     font-weight: 600;
     overflow: hidden;
@@ -439,3 +450,4 @@ button:hover:before{
     transform: skewX(-45deg) translateX(250px);
     transition: all 0.4s ease-in;
 }
+
