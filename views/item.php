@@ -1,41 +1,33 @@
 <?php
-
-$items = $view['datas']['items'];
-$brand = $view['datas']['brand'];
-$cat = $view['datas']['category'];
-$subcat = $view['datas']['subcategory']; 
+$item = $view['datas']['items']; 
 $images = $view['datas']['images'];
-
 ?>
 
 <div class="content_item">
-
-<?php foreach($view["datas"] as $data): ?>
 
 <div class="produit">
     <div class="photo"> 
         <div class="overlay">
 
-            <a href="index?route=item">
+            <a href="index?route=item&id">
               <?php foreach($images as $image) : ?>
-                     <?php if($items->getIdItem() == $image->getIdItem()) :?>
-                                <img src="img/<?=$image->getName(); ?>">
-                            <?php break; ?>
+                     <?php if($item->getIdItem() == $image->getIdItem()) :?>
+                            <img src="img/<?=$image->getName(); ?>">
                      <?php endif; ?>   
               <?php endforeach?>
             </a>
             
 
-            <a class="link" href="index?route=item&item=<?= $datas["id_item"]?>"><p><?= $data["name"]?></p></a>
+            <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
-            <div class="item1"><p><?= $datas["description"]?></p></div>
+            <div class="item1"><p><?= $item->getDescription()?></p></div>
 
-              <div class="item1"><p>Avis :<?= $datas["avis"]?></p></div>
-              <div class="item1"><p>Note moyenne :<?= $datas["note"]?></p></div>
+              <div class="item1"><p>Avis :<?= $item->getAvis()?></p></div>
+              <div class="item1"><p>Note moyenne :<?= $item->getNote()?></p></div>
 
-            <button class="myBtn" id="myBtn-<?= $data["id_item"]?>">Voir le produit</button>
+            <!-- <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button> -->
 
-            <p>Prix : <?= $data["price"]?> €</p>
+            <p>Prix : <?= $item->getPrice()?> €</p>
 
         </div>
     </div>               
@@ -77,7 +69,6 @@ $images = $view['datas']['images'];
   
 </form>
 
-<?php endforeach ?>
 
 
 

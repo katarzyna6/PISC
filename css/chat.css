@@ -1,0 +1,208 @@
+body {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: rgb(143, 25, 113);
+  color: white;
+  padding: 0 0 0 0;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  bottom: 23px;
+  right: 50px;
+  height: 50px;
+  width: 50px;
+    opacity: 0.8;
+  text-align : center;
+  border-style : solid;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  background-repeat : no-repeat;
+  border-radius : 10px;
+  width : 20%;
+}
+
+.form-container {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height : 50px;
+  
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  color : white;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  height : 75%;
+  opacity: 0.8;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  border-style : dotted;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+  text-align : center;
+  border-radius : 50%;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+ul {
+  padding: 10px;
+  list-style-type: none;
+}
+
+#chatlogs{
+  display : flex;
+  flex-flow : row wrap;
+  align-items : flex-start;
+  margin-bottom : 10px;
+}
+
+#chatbox {
+  height: 250px;
+  width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+}
+#chatbox::-webkit-scrollbar{
+  width : 10px;
+}
+
+#chatbox::-webkit-scrollbar-thumb{
+  background : rgba(0, 0, 0, .1);
+  border-radius : 5px;
+}
+
+#you-logs {
+  border-radius: 10px;
+	padding: 5px;
+  height: 50%;
+  width: 100%;
+}
+
+#you-message {
+  background-color: yellow;
+  text-align: right;
+  width: 75%;
+  float: left;
+	border-radius: 10px;
+	padding: 5px;
+	border-top: 13px solid transparent;
+  border-right: 26px solid white;
+	border-bottom: 13px solid transparent;
+
+}
+
+
+/* #you-image {
+  height: 50px;
+  width: 30%;
+  float: right;
+  padding: 10px;
+
+} */
+
+
+#bot-logs {
+	border-radius: 10px;
+	padding: 5px;
+  height: 50%;
+  width:100%;
+}
+
+#bot-message {
+  background-color: green;
+  width: 75%;
+  float: right;
+	border-radius: 10px;
+	padding: 5px;
+	 border-top: 13px solid transparent;
+   border-left: 26px solid white;
+	 border-bottom: 13px solid transparent;
+   width: 75%;
+}
+
+#bot-image {
+  width: 30%;
+  float: left;
+  height: 50px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+
+#name {
+  width: 75%;
+  height: 100%;
+}
+
+#add-btn {
+  height: 100%;
+  width: 25%;
+  text-align: center;
+}
+
+#bottom-container {
+  width : 100%;
+  height : 50px;
+  border : 2px solid #eee;
+  border-radius  : 3px;
+  resize : none;
+  padding : 10px;
+  font-size : 18px;
+  border-style : dotted;
+  }
+
+#name {
+  width : 75%;
+  height  : 50px;
+  float : left;
+}
+
+#add-btn{
+ background : #1ddced;
+  width : 20%;
+  height : 50px;
+  font-size : 5px;
+  color : #fff;
+  border-radius : 10px;
+  cursor : pointer;
+  float : left;
+  font-size : 20px;
+  text-align: center;
+}
+
+#chat-buttons-dynamic{
+  width: 25%;
+  height: 10%;
+  color: violet;
+  border : 2px solid violet;
+  background-color: black;
+  border-radius : 5px;
+  float : left;
+  text-align: center;
+}

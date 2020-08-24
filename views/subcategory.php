@@ -24,7 +24,7 @@ $images = $view['datas']['images'];
                             <?php endforeach?>
                         </a>
 
-                        <a class="link" href="index?route=item&item=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
+                        <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
                     </div>
                 </div>  

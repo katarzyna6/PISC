@@ -92,6 +92,9 @@ class Link extends DbConnect {
         foreach($datas as $data) {
             $current = new Link();
             $current->setIdLink($data['id_link']);
+            $current->setName($data['name']);
+            $current->setUrl($data['url']);
+            $current->setIdAdmin($data['id_admin']);
             array_push($tab, $current);
             }
             return $tab;

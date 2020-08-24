@@ -96,6 +96,27 @@ class Image extends DbConnect {
             return $tab;
     }
 
+    function selectByIdItem() {
+        $this->connect();
+        $query ="SELECT * FROM images WHERE id_item = :id_item";
+        $result = $this->pdo->prepare($query);
+        $result->bindValue('id_item', $this->id_item, PDO::PARAM_INT);
+        $result->execute();
+        $datas= $result->fetchAll(); 
+
+        $tab=[];
+
+        foreach($datas as $data) {
+            $current = new Image();
+            $current->setIdImage($data['id_image']);
+            $current->setName($data['name']);
+            $current->setAlt($data['alt']);
+            $current->setIdItem($data['id_item']);
+            array_push($tab, $current);
+            }
+            return $tab;
+    }
+
     function update() {
 
         $this->connect();
