@@ -31,12 +31,20 @@
                 </select>
             </div>
 
+            <?php if(isset($_SESSION['liste'])): ?>
+                <div>Les produits choisis :
+                    <?php foreach($_SESSION['liste'] as $li): ?>
+                        <label for="check-<?= $li ?>">Element n° <?= $li ?></label>
+                        <input type="checkbox" name="check-<?= $li ?>" id="check-<?= $li ?>" checked>
+                    <?php endforeach ?>
+                </div>
+            <?php endif ?>
+        
             <div>
-                <div>Les produits choisis : <br>...............</div>
                 <label for="message">Votre message</label><br>
                 <textarea id="message" name="message" rows="4" cols="50"></textarea>
             </div>
-        
+
             <button type="submit">Envoyer le message</button>
         
             <h3><a href="index.php">Retour</a><h3>
