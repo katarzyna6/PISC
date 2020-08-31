@@ -16,6 +16,9 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //GENERAL
         case "home": $view = showHome();
         break;
+        //SELECTION
+        case "new": $view = showNew();
+        break;
         //MENU
         case "menu": $view = showMenu();
         break;
@@ -87,6 +90,23 @@ function showMenu() {
     $menu["brand"] = $brand->selectAll();
 }
 
+function showNew() {
+
+    $datas = [];
+
+    $items = new Item();
+    $items->setIdItem($_GET['id']);
+    $items = $items->selectByLastId();
+
+    $image = new Image();
+    $image->setIdItem($_GET['id']);
+    
+    $images = $image->selectByIdItem();
+    var_dump($images);
+    
+    return ["template" => "new.php", "datas" => $datas];
+}
+
 function showFooter() {
 
     global $footer;
@@ -104,7 +124,6 @@ function showChat() {
 
 
 function showHome() {
-        
     // if(isset($_SESSION["admin"])) {
     //     header("Location:index.php?route=admin");
     // }
@@ -121,8 +140,13 @@ function showHome() {
     $subcats = new Subcategory();
     $datas["subcategories"] = $subcats->selectAll();
 
-    // $links = new Link();
-    // $datas["links"] = $links->selectAll();
+    //ShowNew
+    $items = new Item();
+    $datas['new_items'] = $items->selectByLastId();
+    
+
+    $images = new Image();
+    $datas['new_images'] = $images->selectAll();
 
     return ["template" => "home.php", "datas" => $datas];
 }
@@ -395,12 +419,13 @@ function insertItem() {
         $item->insert();
 
         $image = "default.png";
-        // var_dump($_FILES);
-        $total = count($_FILES);
+        var_dump($_FILES);
 
-        foreach($_FILES as $uploadedimage) {
+        $total = 0;
+        
+            foreach($_FILES as $uploadedimage) {
 
-            if($uploadedimage ['size'] > 0) {
+            if($uploadedimage ['size'] > 0) { // image not empty
 
                 $uploder = new UploadImage($uploadedimage, 450, 450);
                 $imageFilePath = $uploder->set_image();
@@ -410,12 +435,23 @@ function insertItem() {
                 $image->setName($imageFilePath);
                 $image->setAlt("Image de l'article");
                 $image->insert();
+                $total = $total + 1;
+
             }
-        }
+            }if($total < 1) { 
+       
+                $imageFilePath = "default.png";
+                var_dump($item);
+                $image = new Image();
+                $image->setIdItem($item->getIdItem());
+                $image->setName($imageFilePath);
+                $image->setAlt("Image de l'article");
+                $image->insert();
 
     }
-        header("Location:index.php?route=admin");
-        exit;
+    } 
+        // header("Location:index.php?route=admin");
+        // exit;
 }
 
 
@@ -445,8 +481,6 @@ function modItem() {
     return ["template" => "mod_item.php", "datas" => $datas];
     } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-   
-
     $item = new Item();
     $item->setIdItem($_REQUEST['id_item']);
     $item->setName($_POST["name"]);
@@ -458,18 +492,21 @@ function modItem() {
     $item->setIdCategory($_POST["category"]);       
     $item->setIdSubcategory($_POST["subcategory"]);
 
-    $image = new Image();
-    $image->setIdImage($_REQUEST['id_image']);
-    $image->setName($_POST["name"]);
-    $image->setAlt($_POST["alt"]);
-    $image->setIdItem($_POST["id_item"]);
+    foreach($_FILES as $uploadedimage) {
 
-    if(!empty($_FILES['image']['tmp_name'])) {
-        
-        $uploder = new UploadImage($_FILES['image'], 450, 450);
-        $image->setIdImage($uploder->set_image());
-    }
-    
+            if($uploadedimage ['size'] > 0) { // image not empty
+
+                $uploder = new UploadImage($uploadedimage, 450, 450);
+                $imageFilePath = $uploder->set_image();
+
+                $image = new Image();
+                $image->setIdItem($item->getIdItem());
+                $image->setName($imageFilePath);
+                $image->setAlt("Image de l'article");
+                $image->insert();
+                
+            }
+        }
 
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
@@ -552,7 +589,7 @@ function delImage() {
 
 <?php require "views/{$view['template']}"; ?>
 
-<!-- <div id="modContent"></div> -->
+
 
 <?php require "views/chat.php"; ?>
 

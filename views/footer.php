@@ -1,7 +1,3 @@
-<?php
-// $link = $footer['links'];
-
-?>
 <div class="footer">
         <div><p>Tous droits réservés à la société de magasinage en ligne Cotton Pearl.</p></div>
     

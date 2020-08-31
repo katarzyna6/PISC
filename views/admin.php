@@ -11,6 +11,7 @@ $image = $view['datas']["images"];
 </div>
 
 <h2>Mes produits ajoutés :</h2>
+<div class="articles">
 <ul>
     <?php
     foreach($items as $item) :?>
@@ -33,7 +34,7 @@ $image = $view['datas']["images"];
                     <?php endif; ?>   
                 <?php endforeach?>
             </li>
-        </div>
+        </div><br>
 
         <li><a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a></li>
         <li><a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a><li>
@@ -41,7 +42,7 @@ $image = $view['datas']["images"];
         <?php endforeach ?>
     
 </ul>
-
+</div>
 
 <div class = "form_admin">
         

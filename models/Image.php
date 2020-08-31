@@ -47,8 +47,6 @@ class Image extends DbConnect {
     function insert() {
 
         $this->connect();
-        $query = "INSERT INTO images (name, alt, id_item)
-            VALUES(:name, :alt, :id_item)";
 
         $query = "INSERT INTO images (name, alt, id_item) VALUES(:name, :alt, :id_item)";
         $result = $this->pdo->prepare($query);
@@ -125,7 +123,7 @@ class Image extends DbConnect {
         $result = $this->pdo->prepare($query);
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':alt', $this->alt, PDO::PARAM_STR);
-        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_STR);
+        $result->bindValue(':id_item', $this->id_item, PDO::PARAM_INT);
         $result->execute();
 
         $this->id_item = $this->pdo->lastInsertId();

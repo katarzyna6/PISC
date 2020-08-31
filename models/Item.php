@@ -100,22 +100,27 @@ class Item extends DbConnect {
     }
 
     function insert(){
+        var_dump($this);
         $this->connect();
     
         $query = "INSERT INTO items (name, description, price, avis, note, id_category, id_subcategory, id_brand, id_admin)
-            VALUES(:name, :description, :price, :avis, :note, :id_category, :id_subcategory, :id_brand, :id_admin)";
+        VALUES(:name, :description, :price, :avis, :note, :id_category, :id_subcategory, :id_brand, :id_admin)";
 
         $result = $this->pdo->prepare($query);
-        $result->bindValue(':id_brand', $this->id_brand, PDO::PARAM_INT);
+        
         $result->bindValue(':name', $this->name, PDO::PARAM_STR);
         $result->bindValue(':description', $this->description, PDO::PARAM_STR);
         $result->bindValue(':price', $this->price, PDO::PARAM_STR);
         $result->bindValue(':avis', $this->avis, PDO::PARAM_STR);
         $result->bindValue(':note', $this->note, PDO::PARAM_INT);
+        $result->bindValue(':id_brand', $this->id_brand, PDO::PARAM_INT);
         $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
         $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
         $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
-        $result->execute();
+        $success = $result->execute();
+            // if(!$success) {
+            //     var_dump($this->pdo->errorInfo());
+            // }
 
         $this->id_item = $this->pdo->lastInsertId();
         
@@ -288,9 +293,28 @@ class Item extends DbConnect {
         return $items; 
     }
 
+    public function selectByLastId() {
+
+        $this->connect();
+        $query = "SELECT * FROM `items` ORDER BY id_item DESC LIMIT 4";
+        $result = $this->pdo->prepare($query);
+        $result->execute();
+        $datas = $result->fetchAll();
+        $items = [];
+        foreach($datas as $elem) {
+        $item = new Item();
+        $item->setIdItem($elem['id_item']);
+        $item->setName($elem['name']);
+        $item->setPrice($elem['price']);
+        
+        array_push($items, $item);
+        }
+
+        return $items; 
+    }
+
     public function update(){
         $this->connect();
-        // $image = (isset($this->image))? "`image` = :image, ": "" ;
 
         $query ="UPDATE items SET `name`= :name, `description`= :description, `price`= :price, `avis`= :avis, `note`= :note, `id_category`= :id_category, `id_subcategory`= :id_subcategory, `id_brand`= :id_brand, `id_admin` = :id_admin WHERE `id_item`= :id_item";
 

@@ -195,11 +195,12 @@ ol > li > ul > li:hover {
     
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .produit  {
-    width: 30%;
+    width: 20%;
     padding: 3px;
 }
 
@@ -451,3 +452,5 @@ button:hover:before{
     transition: all 0.4s ease-in;
 }
 
+.articles {
+}

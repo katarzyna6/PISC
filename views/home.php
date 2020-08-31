@@ -1,11 +1,6 @@
 <div><h3>Nos nouveautés :</h3></div>
 
-<div class="selection">
-    <p><a href="index?route=item&id=31"><img src="img\DILEX\1.jpg"/></a></p>
-    <p><a href="#"><img src="img\DILEX\2.jpg"/></a></p>
-    <p><a href="#"><img src="img\DILEX\4.jpg"/></a></p>
-    <p><a href="#"><img src="img\DILEX\5.jpg"/></a></p>
-</div>
+<?php require "views/new.php" ?>
 
 <div><h3>Nos best-sellers :</h3></div>
 
@@ -27,6 +22,3 @@
 
 
 <div id="modeContent"></div>
-
-
-<div class="footer"></div>

@@ -16,6 +16,7 @@ abstract class DbConnect implements Crud {
 
     function connect() {
         $this->pdo = new PDO(DATABASE, LOGIN, PASSWD);
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //détails de l'erreur
     }
 
     abstract function insert();

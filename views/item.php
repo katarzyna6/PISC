@@ -16,7 +16,7 @@ $images = $view['datas']['images'];
                      <?php endif; ?>   
               <?php endforeach?>
             </a>
-            
+           
 
             <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
@@ -69,7 +69,7 @@ $images = $view['datas']['images'];
   
 </form>
 
-
+</div>
 
 
 

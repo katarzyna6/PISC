@@ -62,20 +62,16 @@
 
         <div>
             <label for="image">Image</label>
-            <!--php foreach ($view["datas"]["item"] as $item): ?> -->
 
                 <?php foreach ($view["datas"]["image"] as $image): ?>
 
                     <?php if($image->getIdItem() == $view['datas']['item']->getIdItem()) : ?>
                             <img src="img/<?=$image->getName(); ?>">
                             <a class="link" href="index?route=del_image&id=<?= $image->getIdImage()?>">Delete</a>
-                            <input type="file" id="image" name="image"value="">
                     <?php endif ?>
 
                 <?php endforeach ?> 
-                
-            <!-- endforeach ?> -->
-            
+                <input type="file" name="image" id="image"  value="" multiple>
         </div>
                 
         <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getAvis() : ""; ?>"/></div>
