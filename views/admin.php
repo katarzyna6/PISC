@@ -2,6 +2,7 @@
 $items = $view['datas']['items'];
 $image = $view['datas']["images"];
 
+var_dump($items);
 // var_dump($view['datas']["images"]);
 ?>
 

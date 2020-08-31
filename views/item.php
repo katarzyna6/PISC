@@ -33,6 +33,10 @@ $images = $view['datas']['images'];
     </div>               
 </div>
 
+<div>
+       <button><a href="index.php?route=addListe&item=<?= $item->getIdItem()?>">Ajouter le produit sur ma liste</a></button>
+</div>
+
 <form>
 <p>Notez le produit</p>
 
@@ -58,10 +62,6 @@ $images = $view['datas']['images'];
     
 </div>
 
-<div>
-       <input type="checkbox" name="check" value="check">
-       <label for="check">Ajouter le produit sur ma liste</label>
-</div>
 
 <div>
     <button type="submit">Envoyer</button>

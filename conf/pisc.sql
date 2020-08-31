@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 INSERT INTO `brands` (`id_brand`, `name`, `description`) VALUES
 (1, 'Dilex', 'description'),
 (2, 'Ellix', 'description'),
-(3, "L'dora" 'description'),
+(3, "L'dora", 'description'),
 (4, 'Nurixo', 'description'),
 (5, 'Pristive', 'description'),
 (6, 'W&B', 'description');

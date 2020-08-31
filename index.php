@@ -1,5 +1,6 @@
 <?php 
 session_start();
+var_dump($_SESSION);
 
 require_once "conf/global.php"; 
 
@@ -68,6 +69,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         case "connect": connectAdmin();
         break;
         case "deconnect" : deconnectAdmin();
+        break;
+        case "addListe" : addListe();
         break;
         // case "ajax": $view = showAjax();
         // break;
@@ -160,16 +163,17 @@ function showAdmin() {
 
     $item = new Item();
     $item->setIdAdmin($_SESSION["admin"]["id_admin"]);
-    
     $datas =[];
 
     $datas['items'] = $item->selectByAdmin();
     // var_dump($datas["items"]);
     //on récupére les noms des marques
     foreach($datas['items'] as &$elem) {
+        
         $brand = new Brand();
         $brand->setIdBrand($elem->getIdBrand());
         $elem->brandcomplete = $brand->select();
+        
     }
 
     //on récupére les noms des catégories
@@ -189,8 +193,7 @@ function showAdmin() {
     //Récupérer un produit à modifier
     if(isset($_GET['id'])) {
         $item->setIdItem($_GET['id']);
-        $items = $item->select();
-        $datas['item'] = $item;
+        $datas['item'] = $item->select();
     }
 
     //on ajoute l'objet Categorie
@@ -208,6 +211,15 @@ function showAdmin() {
 
     return ["template" => "admin.php", "datas" => $datas];
 }    
+
+function addListe() {
+    if(isset($_SESSION['liste'])) {
+        array_push($_SESSION['liste'], $_GET['item']);
+    } else {
+        $_SESSION['liste'] = [$_GET['item']];
+    }
+    header("Location:index?route=item&id=".$_GET['item']);
+}
 
 function showItem() {
 
