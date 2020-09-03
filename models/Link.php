@@ -5,7 +5,6 @@ class Link extends DbConnect {
     private $id_link;
     private $name;
     private $url;
-    private $id_admin;
 
     function __construct($id = null) {
         parent::__construct($id);
@@ -94,7 +93,6 @@ class Link extends DbConnect {
             $current->setIdLink($data['id_link']);
             $current->setName($data['name']);
             $current->setUrl($data['url']);
-            $current->setIdAdmin($data['id_admin']);
             array_push($tab, $current);
             }
             return $tab;

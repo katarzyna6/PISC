@@ -41,7 +41,7 @@
     
 </div>
 
-<!-- <div class="form_nav">
+<div class="form_nav">
         <form class="nav2">
             <input type="search" id="maRecherche" name="q"
             placeholder="Rechercher un produit">
@@ -78,4 +78,4 @@
 </div>
 
 
- -->
+

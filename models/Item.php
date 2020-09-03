@@ -313,6 +313,27 @@ class Item extends DbConnect {
         return $items; 
     }
 
+    public function selectByNote() {
+
+        $this->connect();
+        $query = "SELECT * FROM `items` ORDER BY note DESC LIMIT 4";
+        $result = $this->pdo->prepare($query);
+        $result->execute();
+        $datas = $result->fetchAll();
+        $items = [];
+        foreach($datas as $elem) {
+        $item = new Item();
+        $item->setNote($elem['note']);
+        $item->setIdItem($elem['id_item']);
+        $item->setName($elem['name']);
+        $item->setPrice($elem['price']);
+        
+        array_push($items, $item);
+        }
+
+        return $items; 
+    }
+
     public function update(){
         $this->connect();
 

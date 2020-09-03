@@ -20,6 +20,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //SELECTION
         case "new": $view = showNew();
         break;
+        case "best": $view = showBest();
+        break;
         //MENU
         case "menu": $view = showMenu();
         break;
@@ -110,6 +112,23 @@ function showNew() {
     return ["template" => "new.php", "datas" => $datas];
 }
 
+function showBest() {
+
+    $datas = [];
+
+    $items = new Item();
+    $items->setNote($_GET['note']);
+    $items = $items->selectByNote();
+
+    $image = new Image();
+    $image->setIdItem($_GET['id']);
+    
+    $images = $image->selectByIdItem();
+    
+    
+    return ["template" => "best.php", "datas" => $datas];
+}
+
 function showFooter() {
 
     global $footer;
@@ -150,6 +169,16 @@ function showHome() {
 
     $images = new Image();
     $datas['new_images'] = $images->selectAll();
+
+    return ["template" => "home.php", "datas" => $datas];
+
+    //ShowBest
+    $items = new Item();
+    $datas['best_items'] = $items->selectByNote();
+    
+
+    $images = new Image();
+    $datas['best_images'] = $images->selectAll();
 
     return ["template" => "home.php", "datas" => $datas];
 }
