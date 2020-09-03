@@ -1,9 +1,9 @@
-<div><h3>Nos nouveautés :</h3></div>
+<h3>Nos nouveautés :</h3>
 
-<?php require "views/new.php" ?>
+<?php require "views/subviews/new.php" ?>
 
-<div><h3>Nos best-sellers :</h3></div>
-<?php require "views/best.php" ?>
+<h3>Nos best-sellers :</h3>
+<?php require "views/subviews/best.php" ?>
 
 <p class="fbook">Retrouvez toutes nos actualités sur <a href="https://www.facebook.com/piscofficial/">Facebook</a></p>
 

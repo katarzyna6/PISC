@@ -17,11 +17,6 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //GENERAL
         case "home": $view = showHome();
         break;
-        //SELECTION
-        case "new": $view = showNew();
-        break;
-        case "best": $view = showBest();
-        break;
         //MENU
         case "menu": $view = showMenu();
         break;
@@ -95,40 +90,38 @@ function showMenu() {
     $menu["brand"] = $brand->selectAll();
 }
 
-function showNew() {
+// function showNew() {
 
-    $datas = [];
+//     $datas = [];
 
-    $items = new Item();
-    $items->setIdItem($_GET['id']);
-    $items = $items->selectByLastId();
+//     $items = new Item();
+//     $items->setIdItem($_GET['id']);
+//     $items = $items->selectByLastId();
 
-    $image = new Image();
-    $image->setIdItem($_GET['id']);
+//     $image = new Image();
+//     $image->setIdItem($_GET['id']);
     
-    $images = $image->selectByIdItem();
-    var_dump($images);
+//     $images = $image->selectByIdItem();
+//     var_dump($images);
     
-    return ["template" => "new.php", "datas" => $datas];
-}
+//     return ["template" => "new.php", "datas" => $datas];
+// }
 
-function showBest() {
+// function showBest() {
 
-    $datas = [];
+//     $datas = [];
 
-    $items = new Item();
-    $items->setNote($_GET['note']);
-    $datas['best_items'] = $items->selectByNote();
+//     $items = new Item();
+//     $items->setNote($_GET['note']);
+//     $items = $items->selectByNote();
 
-    $image = new Image();
-    $image->setIdItem($_GET['id']);
-    $datas['best_images'] = $image->selectAll();
+//     $image = new Image();
+//     $image->setIdItem($_GET['id']);
+//     $images = $image->selectByIdItem();
     
-    // $images = $image->selectByIdItem();
-    var_dump($datas);
     
-    return ["template" => "best.php", "datas" => $datas];
-}
+//     return ["template" => "best.php", "datas" => $datas];
+// }
 
 function showFooter() {
 
@@ -151,35 +144,24 @@ function showHome() {
     //     header("Location:index.php?route=admin");
     // }
 
-    $items = new Item();
-    $datas["items"] = $items->selectAll();
-
-    $brands = new Brand();
-    $datas["brands"] = $brands->selectAll();
-
-    $cats = new Category();
-    $datas["categories"] = $cats->selectAll();
-
-    $subcats = new Subcategory();
-    $datas["subcategories"] = $subcats->selectAll();
-
     //ShowNew
     $items = new Item();
     $datas['new_items'] = $items->selectByLastId();
     
-
     $images = new Image();
-    $datas['new_images'] = $images->selectAll();
-
-    return ["template" => "home.php", "datas" => $datas];
+    foreach($datas['new_items'] as &$item) {
+        $images->setIdItem($item->getIdItem());
+        $item->images = $images->selectByIdItem();
+    }
 
     //ShowBest
-    $items = new Item();
     $datas['best_items'] = $items->selectByNote();
-    
 
     $images = new Image();
-    $datas['best_images'] = $images->selectAll();
+    foreach($datas['best_items'] as &$item) {
+        $images->setIdItem($item->getIdItem());
+        $item->images = $images->selectByIdItem();
+    }
 
     return ["template" => "home.php", "datas" => $datas];
 }
