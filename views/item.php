@@ -76,26 +76,26 @@ $images = $view['datas']['images'];
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-<div class="modal-content">
-  <div class="modal-header">
-    <span class="close">&times;</span>
-    <h2><p><?= $item->getName()?></p></h2>
-  </div>
-  <div class="modal-body">
-    <p><p><?= $item->getDescription()?></p></p>
-  </div>
-  <div>
-  <?php foreach($images as $image) : ?>
-              <?php if($item->getIdItem() == $image->getIdItem()) :?>
+       <!-- Modal content -->
+       <div class="modal-content">
+              <div class="modal-header">
+                     <span class="close">&times;</span>
+                     <h2><?= $item->getName()?></h2>
+              </div>
+              <div class="modal-body">
+                     <p><?= $item->getDescription()?></p>
+              </div>
+              <div>
+              <?php foreach($images as $image) : ?>
+                     <?php if($item->getIdItem() == $image->getIdItem()) :?>
                             <img src="img/<?=$image->getName(); ?>" height="210" width="220">
                      <?php endif; ?>   
               <?php endforeach?>
-  </div>
-  <div class="modal-footer">
-    <h3><p>Prix : <?= $item->getPrice()?> €</p></h3>
-  </div>
-</div>
+              </div>
+              <div class="modal-footer">
+                     <h3>Prix : <?= $item->getPrice()?> €</h3>
+              </div>
+       </div>
 
 </div>
 
