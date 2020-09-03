@@ -20,19 +20,19 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 /* 2. Partant du principe que l'on a pas 1, mais plusieurs éléments, il faut ajouter des listeners sur
-      l'ensemble des éléments (du tableau), donc, utiliser une boucle!
+      l'ensemble des éléments (du tableau), donc, utiliser une boucle!*/
       for(var btn of btns) {
          btn.onclick = function() {
              console.log("click");
              modal.style.display = "block";
          }
       }
-}
-*/
-// btn.onclick = function() {
-//     console.log("click");
-//     modal.style.display = "block";
-// }
+
+
+btn.onclick = function() {
+    console.log("click");
+    modal.style.display = "block";
+ }
 
 console.log(btns);
 for(var btn of btns) {

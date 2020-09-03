@@ -25,7 +25,7 @@ $images = $view['datas']['images'];
               <div class="item1"><p>Avis :<?= $item->getAvis()?></p></div>
               <div class="item1"><p>Note moyenne :<?= $item->getNote()?></p></div>
 
-            <!-- <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button> -->
+            <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
             <p>Prix : <?= $item->getPrice()?> €</p>
 
@@ -71,7 +71,33 @@ $images = $view['datas']['images'];
 
 </div>
 
+<button id="myBtn">Open Modal</button>
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2><p><?= $item->getName()?></p></h2>
+  </div>
+  <div class="modal-body">
+    <p><p><?= $item->getDescription()?></p></p>
+  </div>
+  <div>
+  <?php foreach($images as $image) : ?>
+              <?php if($item->getIdItem() == $image->getIdItem()) :?>
+                            <img src="img/<?=$image->getName(); ?>" height="210" width="220">
+                     <?php endif; ?>   
+              <?php endforeach?>
+  </div>
+  <div class="modal-footer">
+    <h3><p>Prix : <?= $item->getPrice()?> €</p></h3>
+  </div>
+</div>
+
+</div>
 
 
 

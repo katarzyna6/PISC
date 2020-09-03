@@ -642,7 +642,7 @@ function delImage() {
 <script src="js/multipleFileUpload.js"></script>     
 <script src="js/script.js"></script>
 <script src="js/chat.js"></script>
-<!-- <script src="js/modal.js"></script> -->
+<script src="js/modal.js"></script>
 <!-- <script src="js/ajax.js"></script> -->
 </body>
 </html>
