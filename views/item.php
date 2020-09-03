@@ -71,15 +71,14 @@ $images = $view['datas']['images'];
 
 </div>
 
-<button id="myBtn">Open Modal</button>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="modal-<?= $item->getIdItem()?>" class="modal">
 
        <!-- Modal content -->
        <div class="modal-content">
               <div class="modal-header">
-                     <span class="close">&times;</span>
+                     <span class="close" id="close-<?= $item->getIdItem()?>">&times;</span>
                      <h2><?= $item->getName()?></h2>
               </div>
               <div class="modal-body">
