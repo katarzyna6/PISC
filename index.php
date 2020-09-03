@@ -118,13 +118,14 @@ function showBest() {
 
     $items = new Item();
     $items->setNote($_GET['note']);
-    $items = $items->selectByNote();
+    $datas['best_items'] = $items->selectByNote();
 
     $image = new Image();
     $image->setIdItem($_GET['id']);
+    $datas['best_images'] = $image->selectAll();
     
-    $images = $image->selectByIdItem();
-    
+    // $images = $image->selectByIdItem();
+    var_dump($datas);
     
     return ["template" => "best.php", "datas" => $datas];
 }
