@@ -22,6 +22,7 @@ $n_items = $view['datas']['new_items'];
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
                         <!-- The Modal -->
+                        
                         <div id="modal-<?= $item->getIdItem()?>" class="modal">
 
                             <div class="modal-header">

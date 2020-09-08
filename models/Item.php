@@ -306,7 +306,7 @@ class Item extends DbConnect {
         $item->setIdItem($elem['id_item']);
         $item->setName($elem['name']);
         $item->setPrice($elem['price']);
-        
+        $item->setDescription($elem['description']);
         array_push($items, $item);
         }
 
