@@ -47,15 +47,15 @@ header {
     text-align: center;
 } */
 
+
+/* -------------- MENU --------------------------- */
+
+
 .form {
     float: right;
     padding-top: 110px; 
     clear: both;
 }
-
-
-
-/* -------------- MENU --------------------------- */
 
 nav {
     width: 100%;
@@ -65,19 +65,36 @@ nav {
     text-align: center;   
 }
 
-.form_nav {
+/*FORM RECHERCHE*/
+
+.recherche {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-top: 15px;
+    margin-top: 5px;
 }
 
-.form_nav .nav2 {
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+.recherche input, select {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #d4d4e9;
+    border: solid 3px #762877;
+    margin: 2px;
 }
+
+.recherche input, select:hover {
+    border: solid 3px #a01259;
+}
+
+.recherche #button_nav {
+    margin-top: -5px;
+    padding : -5px;
+}
+
+
+/*-------------------------------------*/
 
 .selection {
     
@@ -95,27 +112,6 @@ nav {
     width: 100%;
     margin: auto;
 } 
-
-/* .insta {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
- 
-.insta a img {
-    width: 80%;
-    margin: auto;
-}  */
-
-
-/* .sticky {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
-} */
 
 ol {
     padding: 0;
@@ -255,28 +251,29 @@ ol > li > ul > li:hover {
 
 
 /*-------------------MODAL-------------------*/
-/* .modal-body {
+#modal {
+    width: 60%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.modal-header, .modal-footer {
+    padding: 2px 16px;
+    background-color: #d4d4e9;
+    color: white;
+    width: 60%;
     
 }
 
-.modal-body .photos_modal {
-   
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}
+
+.modal-body img {
     width: 25%;
 }
-
-.modal-photo-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.modal-body .photos_modal img {
-    border: rebeccapurple 2px solid;
-    width: 100%;
-}
-
-.modal-footer{
-    
-} */
 
 /* ------------FOOTER -------------------------*/
 
@@ -452,5 +449,5 @@ button:hover:before{
     transition: all 0.4s ease-in;
 }
 
-.articles {
-}
+/*FORMS*/
+

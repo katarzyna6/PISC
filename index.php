@@ -67,6 +67,7 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "deconnect" : deconnectAdmin();
         break;
+        //LISTE
         case "addListe" : addListe();
         break;
         // case "ajax": $view = showAjax();
@@ -178,7 +179,7 @@ function showAdmin() {
     $datas =[];
 
     $datas['items'] = $item->selectByAdmin();
-    // var_dump($datas["items"]);
+    
     //on récupére les noms des marques
     foreach($datas['items'] as &$elem) {
         
@@ -365,12 +366,14 @@ function showConnect() {
 
 function InsertAdmin() {
 
-    if(!empty($_POST["nick"]) /*&&(!empty($_POST["nom"]) && (!empty($_POST["prenom"])*/ && (!empty($_POST["email"]) && ($_POST["password"] === $_POST["password2"]))) {
+    if(!empty($_POST["nick"]) && (!empty($_POST["email"]) && ($_POST["password"] === $_POST["password2"]))) {
+
+        if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nick"])
+            && preg_match("#^(a-z0-9)+(a-z0-9)+@(a-z0-9)+(a-z0-9)$#", $_POST["email"])
+            && preg_match("#^[a-zA-Z0-9]+$#", $_POST["password"]))  {
     
         $admin = new Admin();
         $admin->setNick($_POST["nick"]);
-        // $admin->setNom($_POST["nom"]);
-        // $admin->setPrenom($_POST["prenom"]);
         $admin->setEmail($_POST["email"]);
         $admin->setPassword(password_hash($_POST["password"], PASSWORD_DEFAULT));
 
@@ -388,6 +391,7 @@ function InsertAdmin() {
     setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
     header("Location:index.php?route=admin");
 }
+}
 
 function connectAdmin() {
         
@@ -403,11 +407,11 @@ function connectAdmin() {
                 $_SESSION["admin"] = $verif;
                 header('Location:index.php?route=admin'); 
             } else { 
-                header('Location:index.php');
+                header('Location:index.php?route=connectform');
             } 
                 
             } else {
-                header('Location:index.php');
+                header('Location:index.php?route=connectform');
         }
     }   
 }
@@ -594,38 +598,34 @@ function delImage() {
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-        <title>P.I.S.C. Produits cosmétiques</title>
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
+        <title>P.I.S.C. Produits cosmétiques</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
         <link rel="stylesheet" type="text/css" href="css/chat.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
     </head>
-<body>
+    
+    <body>
+
+        <?php showMenu() ?>
+        <?php require "views/nav.php"; ?>
+
+        <?php require "views/{$view['template']}"; ?>
+
+        <?php require "views/chat.php"; ?>
+
+        <?php showFooter() ?>
+        <?php require "views/footer.php"; ?>
 
 
-
-<?php showMenu() ?>
-
-<?php require "views/nav.php"; ?>
-
-<?php require "views/{$view['template']}"; ?>
-
-
-
-<?php require "views/chat.php"; ?>
-
-<?php showFooter() ?>
-<?php require "views/footer.php"; ?>
-
-
-<!-- <script src="js/jquery-3.4.1.js"></script>
-<script src="js/multipleFileUpload.js"></script>     
-<script src="js/script.js"></script> 
-<script src="js/chat.js"></script> -->
-<script src="js/modal.js"></script>
-<!-- <script src="js/ajax.js"></script> -->
-</body>
+        <script src="js/jquery-3.4.1.js"></script>
+        <script src="js/multipleFileUpload.js"></script>     
+        <script src="js/script.js"></script> 
+        <script src="js/chat.js"></script>
+        <script src="js/modal.js"></script>
+        <script src="js/ajax.js"></script>
+    </body>
 </html>

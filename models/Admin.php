@@ -82,8 +82,6 @@ class Admin extends DbConnect {
         $result = $this->pdo->prepare($query);
         $result->bindValue(':nick', $this->nick, PDO::PARAM_STR);
         $result->execute();
-        $data = $result->fetch();
-        return $this;
     }
        
     function select(){

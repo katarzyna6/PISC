@@ -11,40 +11,6 @@ var_dump($items);
     <div><a href="index.php?route=deconnect">Me déconnecter</a></div>
 </div>
 
-<h2>Mes produits ajoutés :</h2>
-<div class="articles">
-<ul>
-    <?php
-    foreach($items as $item) :?>
-    
-
-        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName();?></a></li>
-        <li>Description : <?=$item->getDescription()?></li>
-        <li>Marque : <?=$item->brandcomplete->getName()?></li>
-        <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
-        <li>Sous-Catégorie : <?=$item->subcategorycomplete->getName()?></li>
-        <li>Prix : <?=$item->getPrice()?></li>
-        <li>Note : <?=$item->getNote()?></li>
-        <li>Avis : <?=$item->getAvis()?></li>
-
-        <div>Images : 
-            <li>
-                <?php foreach($view["datas"]["images"] as $image) : ?>
-                    <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                        <img src="img/<?=$image->getName(); ?>" style="width:165px; height:156px; margin: 5px;">
-                    <?php endif; ?>   
-                <?php endforeach?>
-            </li>
-        </div><br>
-
-        <li><a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a></li>
-        <li><a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a><li>
-                    
-        <?php endforeach ?>
-    
-</ul>
-</div>
-
 <div class = "form_admin">
         
     <form action="<?= isset($view['datas']['item'])? "index.php?route=mod_item" : "index.php?route=insert_item"; ?>" method="POST" enctype="multipart/form-data">
@@ -114,7 +80,41 @@ var_dump($items);
 
                 <div><input type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>" /></div>
         </form>
-    </div>       
+    </div>    
+    
+    <h2>Mes produits ajoutés :</h2>
+<div class="articles">
+<ul>
+    <?php
+    foreach($items as $item) :?>
+    
+
+        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName();?></a></li>
+        <li>Description : <?=$item->getDescription()?></li>
+        <li>Marque : <?=$item->brandcomplete->getName()?></li>
+        <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
+        <li>Sous-Catégorie : <?=$item->subcategorycomplete->getName()?></li>
+        <li>Prix : <?=$item->getPrice()?></li>
+        <li>Note : <?=$item->getNote()?></li>
+        <li>Avis : <?=$item->getAvis()?></li>
+
+        <div>Images : 
+            <li>
+                <?php foreach($view["datas"]["images"] as $image) : ?>
+                    <?php if($item->getIdItem() == $image->getIdItem()) :?>
+                        <img src="img/<?=$image->getName(); ?>" style="width:165px; height:156px; margin: 5px;">
+                    <?php endif; ?>   
+                <?php endforeach?>
+            </li>
+        </div><br>
+
+        <li><a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a></li>
+        <li><a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a><li>
+                    
+        <?php endforeach ?>
+    
+</ul>
+</div>
 
 <div>
         <a href="index.php?route=insert_item">Ajouter un autre produit</a>

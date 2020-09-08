@@ -22,28 +22,27 @@ $n_items = $view['datas']['new_items'];
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
                         <!-- The Modal -->
-                            <div id="modal-<?= $item->getIdItem()?>" class="modal">
+                        <div id="modal-<?= $item->getIdItem()?>" class="modal">
 
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                        <span class="close" id="close-<?= $item->getIdItem()?>">&times;</span>
-                                        <h2><?= $item->getName()?></h2>
-                                </div>
-                                <div class="modal-body">
-                                        <p><?= $item->getDescription()?></p>
-                                </div>
-                                <div>
+                            <div class="modal-header">
+                                <span class="close" id="close-<?= $item->getIdItem()?>">&times;</span>
+                                <h2><?= $item->getName()?></h2>
+                            </div>
+                            
+
+                            <div class="modal-body">
+                                <p><?= $item->getDescription()?></p>
+                            
                                 <?php foreach($item->images as $image) : ?>
-                                        <img src="img/<?=$image->getName(); ?>" height="210" width="220">
+                                    <img src="img/<?=$image->getName(); ?>">
                                 <?php endforeach?>
-                                </div>
-                                <div class="modal-footer">
-                                        <h3>Prix : <?= $item->getPrice()?> €</h3>
-                                </div>
                             </div>
 
+                            <div class="modal-footer">
+                                <h3>Prix : <?= $item->getPrice()?> €</h3>
                             </div>
+                        </div> 
+
                         <p>Prix : <?= $item->getPrice()?> €</p>
 
                     </div>
@@ -52,7 +51,6 @@ $n_items = $view['datas']['new_items'];
             
         <?php endforeach ?>
     </div>
-  
 </div>
     
 

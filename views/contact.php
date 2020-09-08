@@ -5,22 +5,22 @@
         <h2>Contactez-moi</h2>
         
             <div class="field">
-                <label for="name">Votre prenom</label><br>
+                <label for="name">Votre prenom</label>
                 <input type="text" name="name" id="first"/>
             </div>
 
             <div class="field">
-                <label for="name">Votre nom</label><br>
-                <input type="text" name="name" id="name"/>
+                <label for="name">Votre nom</label>
+                <input type="text" name="name" id="second"/>
             </div>
         
             <div class="field">
-                <label for="email">Votre adresse e-mail</label><br>
+                <label for="email">Votre adresse e-mail</label>
                 <input type="text" name="email" id="email"/>
             </div>
 
             <div class="field">
-                <label for="adresse">Votre adresse</label><br>
+                <label for="adresse">Votre adresse</label>
                 <input type="text" name="adresse" id="adresse"/>
             </div>
 

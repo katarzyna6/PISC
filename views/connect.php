@@ -3,27 +3,17 @@
         <form action="index.php?route=insert_admin" method="POST">
         <h2>Inscrivez-vous tant que Administrateur</h2>
         
-            <!-- <div class="field">
-                <label for="name" class="field-label">Nom</label>
-                <input type="text" name="nom" class="field-input">
-            </div>
-        
-            <div class="field">
-                <label for="name2" class="field-label">Prénom</label>
-                <input type="text" name="prenom" class="field-input">
-            </div> -->
-        
-            <div class="field">
-                <label for="email" class="field-label">E-mail</label>
-                <input type="text" name="email" class="field-input">
-            </div>
         
             <div class="field">
                 <label for="nick" class="field-label">Nick</label>
                 <input type="text" name="nick" class="field-input">
             </div>
-        
-                        
+
+            <div class="field">
+                <label for="email" class="field-label">E-mail</label>
+                <input type="text" name="email" class="field-input">
+            </div>
+                    
             <div class="field">
                 <label for="password" class="field-label">Mot de passe</label>
                 <input type="password" name="password" class="field-input">
@@ -52,11 +42,6 @@
                 <label for="nick">Nick</label><br>
                 <input type="text" name="nick"/>
             </div>
-
-            <!-- <div class="field">
-                <label for="code">Code d'accès</label><br>
-                <input type="text" name="code"/>
-            </div> -->
         
             <div class="field">
                 <label for="password">Mot de passe</label><br>
