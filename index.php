@@ -1,6 +1,6 @@
 <?php 
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 require_once "conf/global.php"; 
 
@@ -266,20 +266,21 @@ function showItem() {
 //BRAND
 function showBrand() {
 
-    $datas = [];
-    
-    $item = new Item();
-    $item->setIdBrand($_GET['id']);
-    $datas['items'] = $item->selectByBrand();
+    $items = new Item();
+    $datas['brand_items'] = $items->selectByBrand();
 
     $brand = new Brand();
     $brand->setIdBrand($_GET["id"]);
     $datas["brand"] = $brand->select();
 
-    $image = new Image();
-    $datas["images"] = $image->selectAll();
+    $images = new Image();
+    foreach($datas['brand_items'] as &$item) {
+        $images->setIdItem($item->getIdItem());
+        $item->images = $images->selectByIdItem();
+    }
 
     return ["template" => "brand.php", "datas" => $datas];
+
 }
 
 //CAT
@@ -600,11 +601,14 @@ function delImage() {
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>P.I.S.C. Produits cosmétiques</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/chat.css">
+        <link rel="stylesheet" type="text/css" href="css/item.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
     </head>
     
     <body>
@@ -626,5 +630,10 @@ function delImage() {
         <script src="js/chat.js"></script>
         <script src="js/modal.js"></script>
         <script src="js/ajax.js"></script>
+        <script src="js/item.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -97,9 +97,3 @@ $images = $view['datas']['images'];
        </div>
 
 </div>
-
-
-
-
-
-
