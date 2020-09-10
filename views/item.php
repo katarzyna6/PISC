@@ -4,7 +4,7 @@ $item = $view['datas']['item'];
 
 <div class="content_item">
 
-       <div class="produit">
+       <div class="prod">
 
               <div class="info">
                      <div class="item1"><p><?= $item->getDescription()?></p></div>

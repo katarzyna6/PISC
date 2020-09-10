@@ -509,18 +509,25 @@ button:hover:before{
 /*FORMS*/
 
 /* ITEM PAGE  */
+.prod {
+    display: flex;
+}
 
-.produit .photos {
+.prod .info {
+    width: 50%;
+}
+
+.prod .photos {
     width: 50%;
     border: 1px solid blue;
 }
 
-.produit .photos #img_default {
+.prod .photos #img_default {
     width: 60%;
     margin: auto;
 }
 
-.produit .photos #img_default img {
+.prod .photos #img_default img {
     width: 100%;
 }
 
