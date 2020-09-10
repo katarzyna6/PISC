@@ -133,9 +133,7 @@ ol > li {
     float: left;
     width: 180px;
     height: 40px;
-    border-right: 1px dashed  #762877;
-    
-    
+    border-right: 1px dashed  #762877;  
 }
 
 ol > li:first-child {
@@ -185,7 +183,9 @@ ol > li > ul > li:hover {
 
 
 /* ------------------- CONTAINER ------------------------*/
-.container {
+
+
+/* .container {
     width: 100%;
     margin: auto;
     
@@ -193,19 +193,31 @@ ol > li > ul > li:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+} */
+
+.content_item {
+    border: 3px solid red;
 }
 
 .produit  {
-    width: 20%;
-    padding: 3px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    border: 3px solid yellow;
 }
 
-.produit a img {
+.produit .info {
+    width: 50%;
+    border: 3px solid purple;
+}
 
-    width: 100%;
+.produit .photo {
+    width: 25%;
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     -moz-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
+    border: 3px solid blue;
 }
 
 .produit button .myBtn {
@@ -215,6 +227,7 @@ ol > li > ul > li:hover {
 
 .overlay {
     position: relative;
+    border: 3px solid green;
 }
 
 
@@ -248,7 +261,15 @@ ol > li > ul > li:hover {
     text-align: center;
 }
 
+.note {
+    display: flex;
+    justify-content: center;
+    border: 2px solid rebeccapurple;
+}
 
+.note p, button, form {
+    margin: auto;
+}
 
 /*-------------------MODAL-------------------*/
 div[id^='modal'] {
@@ -488,6 +509,8 @@ button:hover:before{
 /*FORMS*/
 
 /* ITEM PAGE  */
+
+
 
 
 
