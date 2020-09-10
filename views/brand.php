@@ -1,8 +1,6 @@
 <?php
 $items = $view['datas']['brand_items'];
-
-var_dump($items);
-var_dump($brand);
+$brand = $view['datas']['brand'];
 ?>
 <h1><?= $brand->getName() ?></h1>
     <div class="container">
@@ -12,14 +10,10 @@ var_dump($brand);
             <div class="produit">
                 <div class="photo"> 
                     <div class="overlay">
-
                         <a href="index?route=item">
-                            <?php foreach($images as $image) : ?>
-                                <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                                <img src="img/<?=$image->getName(); ?>">
-                                <?php break; ?>
-                                <?php endif; ?>   
-                            <?php endforeach?>
+                            <?php if(!empty($item->images)): ?>
+                            <img src="img/<?=$item->images[0]->getName(); ?>"> 
+                            <?php endif ?>
                         </a>
 
                         <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
