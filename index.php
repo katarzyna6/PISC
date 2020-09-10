@@ -229,11 +229,21 @@ function showItem() {
 function showBrand() {
 
     $items = new Item();
-    $datas['brand_items'] = $items->selectByBrand();
+    if(isset($_GET['id'])) {
+        $items->setIdBrand($_GET['id']);
+        $datas['brand_items'] = $items->selectByBrand();
+    } else {
+        $datas['brand_items'] = [];
+    }
 
     $brand = new Brand();
-    $brand->setIdBrand($_GET["id"]);
-    $datas["brand"] = $brand->select();
+    if(isset($_GET['id'])) {
+        $brand->setIdBrand($_GET["id"]);
+        $datas["brand"] = $brand->select();
+    } else {
+        $datas['brand'] = new Brand();
+    }
+    
 
     $images = new Image();
     foreach($datas['brand_items'] as &$item) {
