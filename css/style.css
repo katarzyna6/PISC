@@ -185,7 +185,7 @@ ol > li > ul > li:hover {
 /* ------------------- CONTAINER ------------------------*/
 
 
-/* .container {
+.container {
     width: 100%;
     margin: auto;
     
@@ -193,14 +193,14 @@ ol > li > ul > li:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-} */
+} 
 
 .content_item {
     border: 3px solid red;
 }
 
 .produit  {
-    width: 100%;
+    width: 20%;
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -213,7 +213,7 @@ ol > li > ul > li:hover {
 }
 
 .produit .photo {
-    width: 25%;
+    width: 100%;
     -webkit-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     -moz-box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
     box-shadow: 3px 4px 5px 0px rgba(179,179,204,1);
@@ -510,8 +510,41 @@ button:hover:before{
 
 /* ITEM PAGE  */
 
+.produit .photos {
+    width: 50%;
+    border: 1px solid blue;
+}
 
+.produit .photos #img_default {
+    width: 60%;
+    margin: auto;
+}
 
+.produit .photos #img_default img {
+    width: 100%;
+}
 
+.photos .img_selection {
+    display: flex;
+    justify-content: center;
+}
+
+.img_selection .img_vignette {
+    width: 25%;
+}
+
+.img_selection .img_vignette img {
+    width: 100%;
+}
+
+.item_button {
+    width: 100%;
+}
+
+.item_button .liste1, .item_button .myBtn {
+    width: 60%;
+    display: block;
+    margin: 1em auto;
+}
 
 /* LISTE */

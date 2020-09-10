@@ -1,6 +1,5 @@
 <?php
-$item = $view['datas']['items']; 
-$images = $view['datas']['images'];
+$item = $view['datas']['item']; 
 ?>
 
 <div class="content_item">
@@ -17,24 +16,31 @@ $images = $view['datas']['images'];
                      <p>Prix : <?= $item->getPrice()?> €</p> 
               </div>
 
-              <div class="photo"> 
-                     <div class="overlay">
+              <div class="photos"> 
+                     <?php if(!empty($item->images)): ?>
+                            <div id="img_default">
+                                   <img src="img/<?=$item->images[0]->getName(); ?>">
+                            </div>
 
-                            <a href="index?route=item&id">
-                                   <?php foreach($images as $image) : ?>
-                                          <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                                                 <img src="img/<?=$image->getName(); ?>">
-                                          <?php endif; ?>   
-                                   <?php endforeach?>
-                            </a>
-                            
-                            <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
+                            <div class="img_selection">
+                            <?php foreach($item->images as $image):?>
+                                   <div class="img_vignette">
+                                          <img src="img/<?=$image->getName(); ?>">
+                                   </div>
+                            <?php endforeach ?>
                      </div>
+                     <?php endif ?>
+                     
+                            
+                            
+                     
 
-                     <div><button class="liste1"><a href="index.php?route=addListe&item=<?= $item->getIdItem()?>">Ajouter le produit sur ma liste</a></button></div>
-
-                     <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
-              </div>
+                     <div class="item_button">
+                            <button class="liste1"><a href="index.php?route=addListe&item=<?= $item->getIdItem()?>">Ajouter le produit sur ma liste</a></button>
+                     </div>
+                     <div class="item_button">
+                            <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
+                     </div>
 
                             
        </div>

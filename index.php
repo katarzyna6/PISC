@@ -201,11 +201,11 @@ function showItem() {
     $datas = [];
     $item = new Item();
     $item->setIdItem($_GET['id']);
-    $datas['items'] = $item->select();
+    $datas['item'] = $item->select();
 
     $image = new Image();
     $image->setIdItem($_GET['id']);
-    $datas['images'] = $image->selectByIdItem();
+    $datas['item']->images = $image->selectByIdItem();
     
     // $item->setIdAdmin($_SESSION["id"]);
     //     $datas["items"]= $item->selectByAdmin();
@@ -297,12 +297,9 @@ function showContact() {
 
     $datas = [];
     $datas['liste'] = [];
-    
-var_dump($_SESSION['liste']);
 
     $item = new Item();
     foreach($_SESSION['liste'] as $li) {
-        
         $item->setIdItem($li);
         array_push($datas['liste'], clone ($item->select()));
     }
