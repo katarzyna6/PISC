@@ -284,6 +284,15 @@ function showSubcategory() {
 
 //CONTACT
 function showContact() {
+
+    $datas = [];
+
+    $item = new Item();
+    foreach($_SESSION['items'] as $item) {
+        $item->selectIdItem($item);
+        $item->select();
+        array_push($datas, $item);
+    }
         
     $datas = [];
     return ["template" => "contact.php", "datas" => $datas];
