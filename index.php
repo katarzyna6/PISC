@@ -41,9 +41,6 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //FOOTER
         case "footer": $view = showFooter();
         break;
-        //CHAT
-        case "chat": $view = showChat();
-        break;
         //CONTACT
         case "contact": $view = showContact();
         break;
@@ -70,6 +67,9 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //LISTE
         case "addListe" : addListe();
         break;
+        //CHAT
+        case "chat" : $view = showChat();
+        break;
         // case "ajax": $view = showAjax();
         // break;
         default : $view = showHome();
@@ -91,39 +91,6 @@ function showMenu() {
     $menu["brand"] = $brand->selectAll();
 }
 
-// function showNew() {
-
-//     $datas = [];
-
-//     $items = new Item();
-//     $items->setIdItem($_GET['id']);
-//     $items = $items->selectByLastId();
-
-//     $image = new Image();
-//     $image->setIdItem($_GET['id']);
-    
-//     $images = $image->selectByIdItem();
-//     var_dump($images);
-    
-//     return ["template" => "new.php", "datas" => $datas];
-// }
-
-// function showBest() {
-
-//     $datas = [];
-
-//     $items = new Item();
-//     $items->setNote($_GET['note']);
-//     $items = $items->selectByNote();
-
-//     $image = new Image();
-//     $image->setIdItem($_GET['id']);
-//     $images = $image->selectByIdItem();
-    
-    
-//     return ["template" => "best.php", "datas" => $datas];
-// }
-
 function showFooter() {
 
     global $footer;
@@ -134,11 +101,6 @@ function showFooter() {
     // var_dump($link->selectAll());
 
 }
-
-function showChat() {
-
-}
-
 
 function showHome() {
     // if(isset($_SESSION["admin"])) {
@@ -590,6 +552,15 @@ function delImage() {
 //     echo("<p>Contenu modifie</p>");
 //     exit;
 // }
+
+function showChat() {
+    $datas = [];
+    $chat = new Chat();
+    $chat->setPseudo($_SESSION["pseudo"]);
+    $datas["chat"]= $chat->selectAll();
+
+    return ["template" => "chat.php", "datas" => $datas];
+}
 
 
 ?>

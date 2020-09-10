@@ -221,6 +221,20 @@ ALTER TABLE `subcategories`
   ADD CONSTRAINT `CATEGORY_PK` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`);
 COMMIT;
 
+--
+-- Structure de la table `chat`
+--
+
+DROP TABLE IF EXISTS `chat`;
+CREATE TABLE IF NOT EXISTS `chat` (
+  `id_chat` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(250) NOT NULL,
+  `message` text NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  PRIMARY KEY (`id_chat`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
