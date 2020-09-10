@@ -1,3 +1,7 @@
+<?php
+$liste = $view['datas']['liste'];
+?>
+
 <div class = "form_contact">
                     
         <form action="index.php?route=contact" method="POST">
@@ -33,9 +37,9 @@
 
             <?php if(isset($_SESSION['liste'])): ?>
                 <div>Les produits choisis :
-                    <?php foreach($_SESSION['liste'] as $li): ?>
-                        <label for="check-<?= $li ?>">Element n° <?= $li ?></label>
-                        <input type="checkbox" name="check-<?= $li ?>" id="check-<?= $li ?>" checked>
+                    <?php foreach($liste as $li): ?>
+                        <label for="check-<?= $li->getIdItem() ?>"><?= $li->getName() ?></label>
+                        <input type="checkbox" name="check-<?= $li->getIdItem() ?>" id="check-<?= $li->getIdItem() ?>" checked>
                     <?php endforeach ?>
                 </div>
             <?php endif ?>

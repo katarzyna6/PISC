@@ -296,15 +296,17 @@ function showSubcategory() {
 function showContact() {
 
     $datas = [];
+    $datas['liste'] = [];
+    
+var_dump($_SESSION['liste']);
 
     $item = new Item();
-    foreach($_SESSION['items'] as $item) {
-        $item->selectIdItem($item);
-        $item->select();
-        array_push($datas, $item);
-    }
+    foreach($_SESSION['liste'] as $li) {
         
-    $datas = [];
+        $item->setIdItem($li);
+        array_push($datas['liste'], clone ($item->select()));
+    }
+
     return ["template" => "contact.php", "datas" => $datas];
 }
 
