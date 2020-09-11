@@ -7,13 +7,13 @@ $item = $view['datas']['item'];
        <div class="prod">
 
               <div class="info">
-                     <div class="item1"><p><?= $item->getDescription()?></p></div>
+                     <div class="item1"><p><b><?= $item->getDescription()?></b></p></div>
 
-                     <div class="item1"><p>Avis :<?= $item->getAvis()?></p></div>
+                     <div class="item1"><p><b>Avis : </b><?= $item->getAvis()?></p></div>
 
-                     <div class="item1"><p>Note moyenne :<?= $item->getNote()?></p></div>
+                     <div class="item1"><p><b>Note moyenne : </b><?= $item->getNote()?></p></div>
 
-                     <p>Prix : <?= $item->getPrice()?> €</p> 
+                     <p><b>Prix : </b><?= $item->getPrice()?> €</p> 
               </div>
 
               <div class="photos"> 
@@ -50,33 +50,32 @@ $item = $view['datas']['item'];
 
 <div class="note">
        <form>
-              <p style="text-align:center;">Notez le produit</p>
+              <p>Notez le produit</p>
 
-              <div style="text-align:center;">
-              <input type="radio" id="1"
-                     name="note" checked value="note">
-              <label for="1">1</label>
-              <input type="radio" id="2"
-                     name="note" value="2">
-              <label for="2">2</label>
-              <input type="radio" id="3"
-                     name="note" value="3">
-              <label for="3">3</label>
-              <input type="radio" id="4"
-                     name="note" value="4">
-              <label for="4">4</label>
-              <input type="radio" id="5"
-                     name="note" value="5">
-              <label for="5">5</label><br><br>
-
-              <label for="avis">Votre avis :</label><br>
-              <textarea id="avis" name="avis" rows="4" cols="50"></textarea>
-              
+              <div class="radio">
+                     <input type="radio" id="1"
+                            name="note" checked value="note">
+                     <label for="1">1</label>
+                     <input type="radio" id="2"
+                            name="note" value="2">
+                     <label for="2">2</label>
+                     <input type="radio" id="3"
+                            name="note" value="3">
+                     <label for="3">3</label>
+                     <input type="radio" id="4"
+                            name="note" value="4">
+                     <label for="4">4</label>
+                     <input type="radio" id="5"
+                            name="note" value="5">
+                     <label for="5">5</label>
               </div>
 
-
-              <div>
-              <button style="text-align:center;" type="submit">Envoyer</button>
+              <label for="avis">Votre avis : </label>
+              <textarea id="avis" name="avis" rows="4" cols="50"></textarea>
+              
+       
+              <div class="env">
+              <button  type="submit">Envoyer</button>
               </div>
   
        </form>

@@ -4,7 +4,7 @@
         <div class="liens">
             <ul>
                 <?php foreach($footer['links'] as $link): ?>
-                    <li><a href="<?= $link->getUrl() ?>"><p><?= $link->getName() ?></a></p></li>
+                    <li><a href="<?= $link->getUrl() ?>"><?= $link->getName() ?></a></li>
                 <?php endforeach ?>
             </ul>
         </div>

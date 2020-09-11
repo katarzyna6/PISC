@@ -200,8 +200,14 @@ function showItem() {
 
     $datas = [];
     $item = new Item();
-    $item->setIdItem($_GET['id']);
-    $datas['item'] = $item->select();
+
+    if(isset($_GET['id'])) {
+        $item->setIdItem($_GET['id']);
+        $datas['item'] = $item->select();
+    } else {
+        $datas['item'] = [];
+    }
+
 
     $image = new Image();
     $image->setIdItem($_GET['id']);
@@ -597,7 +603,7 @@ function showChat() {
         <link rel="stylesheet" type="text/css" href="css/item.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    
     </head>
     
     <body>
@@ -616,13 +622,9 @@ function showChat() {
         <script src="js/jquery-3.4.1.js"></script>
         <script src="js/multipleFileUpload.js"></script>     
         <script src="js/script.js"></script> 
-        <script src="js/chat.js"></script>
+        <!-- <script src="js/chat.js"></script> -->
         <script src="js/modal.js"></script>
         <script src="js/ajax.js"></script>
-        <script src="js/item.js"></script>
-        <!-- BOOTSTRAP -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
     </body>
 </html>

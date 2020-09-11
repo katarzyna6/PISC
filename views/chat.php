@@ -1,12 +1,12 @@
-<button class="open-button" onclick="openForm()">Chat</button>
+<!-- <button class="open-button" onclick="openForm()">Chat</button>
   <div class="chat-popup" id="myForm">
     <form class="form-container">
       <button type="button" class="btn cancel" onclick="closeForm()">X</button>
     </form>
     <div id="chatbox">
-      <!-- <div id = "chat-buttons-dynamic">
+      <div id = "chat-buttons-dynamic">
         Admin1
-      </div> -->
+      </div>
         <ul id='list'>
         </ul>
       </div>
@@ -15,4 +15,4 @@
       <input type='text' id='name' placeholder='Votre message'>
       <button><a href='#' id='add-btn'>Envoyer</a></button>
  </div>
-  </div>
+  </div> -->
