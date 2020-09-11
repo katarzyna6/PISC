@@ -2,7 +2,7 @@
 <header>
     <div class="logo">
         <div><img src="img\logo.png"/></div>
-        <div class="title"> <p>Produits cosmétiques</p></div>
+        <h1 class="title">Produits cosmétiques</h1>
     </div>      
 </header>
 
