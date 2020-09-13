@@ -1,28 +1,31 @@
+/* Règles tous supports + mobile */
+
 body {
-        font-family: 'Roboto', sans-serif;
-        letter-spacing: 0.1em;
-        background-color: #d4d4e9;
-        color: #762877;  
-    }
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    background-color: #d4d4e9;
+    color: #762877;  
+}
     
-    h1 {
-        text-align: center;
-    }
+h1, h2, h3 {
+    text-align: center;
+}
     
-    h2 {
-        text-align: center;
-        
-    }
-    h3 {
-        text-align: center;
-    }
+h2 {
+    font-size: 40px;
+}
+
 
 /* SMALL -----------------------------------------------------------------*/
+/* header */
 .logo {
     width: 100%;
     font-size: 48px;
     margin: auto;    
+}
 
+.logo div {
+    text-align: center;
 }
 
 .logo img {
@@ -31,20 +34,19 @@ body {
     margin-top: 15px;
 } 
 
-.logo div {
-    text-align: center;
-}
-
- .title {
-    
-    font-size: 28px;
+.title {
+    font-size: 36px;
     margin: auto; 
     text-align: center;
-    font-size: 25px ;
 } 
 
+<<<<<<< HEAD
 
 /* -------------- MENU SMALL --------------------------- */
+=======
+/* menu */
+/* Le menu principal est en <ol> */
+>>>>>>> d32ffa4de9960e4916f0eafd6b00c326171b386b
 nav ol {
     width: 100%;
     list-style: none;
@@ -90,9 +92,6 @@ ol li ul li:hover {
     list-style-type: none;
 }
 
-h2 {
-    font-size: 40px;
-}
 
 /* BRANDS */
 
@@ -463,34 +462,54 @@ div[id^='modal'] {
 
 
 }
+<<<<<<< HEAD
 /* LISTE SMALL */
+=======
+>>>>>>> d32ffa4de9960e4916f0eafd6b00c326171b386b
+
+@media (min-width:780px) {
+
+    /* MEDIUM -----------------------------------------------------------------*/
+    /* header */
+    .logo {
+        width: 50%;  
+    }
+
+    .logo div {
+        text-align: center;
+    }
+
+<<<<<<< HEAD
+/* LARGE---------------------------------------------------------------------- */
+=======
+    .logo img {
+        width: 80%;
+    } 
+>>>>>>> d32ffa4de9960e4916f0eafd6b00c326171b386b
+
+    .title {
+        font-size: 34px;
+    } 
+
+}
+/* LISTE */
 
 @media (min-width:1024px) {
 
+    /* LARGE -----------------------------------------------------------------*/
+    /* header */
 
+    .logo {
+        width: 25%;
+    }
 
-/* LARGE---------------------------------------------------------------------- */
+    .logo img {
+        width: 100%;
+    }
 
-
-.logo {
-    width: 100%;
-    font-size: 23px;
-    margin: auto;    
-
-}
-
-.logo img {
-    margin: auto;
-    width: 17%;
-    margin-top: 15px;
-}
-
-.title {
-    
-    font-size: 48px;
-    margin: auto; 
-    text-align: center;
-}
+    .title {
+        font-size: 32px;
+    }
 
 
 /* -------------- MENU LARGE--------------------------- */
