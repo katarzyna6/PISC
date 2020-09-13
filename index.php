@@ -600,9 +600,10 @@ function showChat() {
         <title>P.I.S.C. Produits cosmétiques</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/chat.css">
-        <link rel="stylesheet" type="text/css" href="css/item.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        
     
     </head>
     
@@ -613,7 +614,7 @@ function showChat() {
 
         <?php require "views/{$view['template']}"; ?>
 
-        <?php require "views/chat.php"; ?>
+        <?php require "views/basket.php"; ?>
 
         <?php showFooter() ?>
         <?php require "views/footer.php"; ?>
@@ -621,10 +622,11 @@ function showChat() {
 
         <script src="js/jquery-3.4.1.js"></script>
         <script src="js/multipleFileUpload.js"></script>     
-        <script src="js/script.js"></script> 
+        <!-- <script src="js/script.js"></script>  -->
         <!-- <script src="js/chat.js"></script> -->
         <script src="js/modal.js"></script>
         <script src="js/ajax.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         
     </body>
 </html>

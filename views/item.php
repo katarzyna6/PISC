@@ -28,7 +28,8 @@ $item = $view['datas']['item'];
                                           <img src="img/<?=$image->getName(); ?>">
                                    </div>
                             <?php endforeach ?>
-                     </div>
+              </div>
+
                      <?php endif ?>
                      
                             
@@ -108,3 +109,10 @@ $item = $view['datas']['item'];
        </div>
 
 </div>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+       $('.img_selection').slick(
+  );
+});
+</script>

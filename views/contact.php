@@ -9,50 +9,54 @@ $liste = $view['datas']['liste'];
         <h2>Contactez-moi</h2>
         
             <div class="field">
-                <label for="name">Votre prenom</label>
-                <input type="text" name="name" id="first"/>
+                <label for="name"></label>
+                <input type="text" name="name" id="first" placeholder="Votre prenom"/>
             </div>
 
             <div class="field">
-                <label for="name">Votre nom</label>
-                <input type="text" name="name" id="second"/>
+                <label for="name"></label>
+                <input type="text" name="name" id="second" placeholder="Votre nom"/>
             </div>
         
             <div class="field">
-                <label for="email">Votre adresse e-mail</label>
-                <input type="text" name="email" id="email"/>
+                <label for="email"></label>
+                <input type="text" name="email" id="email" placeholder="Votre adresse e-mail"/>
             </div>
 
             <div class="field">
-                <label for="adresse">Votre adresse</label>
-                <input type="text" name="adresse" id="adresse"/>
+                <label for="adresse"></label>
+                <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"/>
             </div>
 
-            <div>
+            <div class="cp_input">
             <input type="text" name="cp" id="cp" placeholder="Code Postal">
                 <select name="ville" id="ville">
                     <option disabled selected>Choisissez votre ville</option>
                 </select>
             </div>
-
+        <div class="liste_contact">
             <?php if(isset($_SESSION['liste'])): ?>
                 <div>Les produits choisis :
                     <?php foreach($liste as $li): ?>
-                        <label for="check-<?= $li->getIdItem() ?>"><?= $li->getName() ?></label>
-                        <input type="checkbox" name="check-<?= $li->getIdItem() ?>" id="check-<?= $li->getIdItem() ?>" checked>
+                        <li>
+                            <input type="checkbox" name="check-<?= $li->getIdItem() ?>" id="check-<?= $li->getIdItem() ?>" checked>
+                            <label for="check-<?= $li->getIdItem() ?>"><?= $li->getName() ?></label>
+                        </li>
                     <?php endforeach ?>
                 </div>
             <?php endif ?>
-        
+        </div>
+
             <div>
-                <label for="message">Votre message</label><br>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                <label for="message"></label>
+                <textarea id="message" name="message" rows="4" cols="25" placeholder="Votre message"></textarea>
             </div>
 
-            <button type="submit">Envoyer le message</button>
+            <button class="cont" type="submit">Envoyer le message</button>
         
             <h3><a href="index.php">Retour</a><h3>
 
         </form>
+</div>
 
 <script src="js/contact.js"></script>

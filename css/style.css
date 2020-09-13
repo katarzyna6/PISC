@@ -44,7 +44,7 @@ body {
 } 
 
 
-/* -------------- MENU --------------------------- */
+/* -------------- MENU SMALL --------------------------- */
 nav ol {
     width: 100%;
     list-style: none;
@@ -99,7 +99,7 @@ h2 {
 .content {
     text-align: center;
 }
-/* ------------------BUTTONS-------------------------------------- */
+/* ------------------BUTTONS SMALL -------------------------------------- */
 
 button a {
     color: #ffffff;
@@ -109,6 +109,7 @@ button a {
 }
 
 button{
+    font-family: 'Roboto', sans-serif;
     width: 40%;
     margin: 2px;
     text-decoration: none;
@@ -197,10 +198,10 @@ button:hover:before{
 
 
 
-/*FORM RECHERCHE*/
+/*FORM RECHERCHE SMALL*/
 
 .recherche {
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -209,16 +210,18 @@ button:hover:before{
 }
 
 .recherche form {
-    margin: 2px;
+    
 }
 
-.recherche input, select {
+.recherche input [type=serch], select {
    
     border-radius: 4px;
     background-color: #d4d4e9;
     border: solid 3px #762877;
-    margin: 2px;
-    width: 100%;
+}
+
+.nav3{
+    margin: auto;
 }
 
 
@@ -231,11 +234,49 @@ button:hover:before{
     margin: auto;
 }
 #button_recherche {
-    width: 100%;
+    width: 95%;
     display: block;
     margin: 1em auto;
     
 }
+
+/* FORM CONTACT SMALL */
+
+.form_contact {
+    margin: auto;
+    background-color: rgba(163, 163, 167, 0.8);
+    width: 85%;
+    padding: 10px;
+    border-radius: 8px;
+    -webkit-box-shadow: 17px 17px 21px -5px rgb(18, 20, 22);
+    -moz-box-shadow: 17px 17px 21px -5px rgb(45, 50, 53);
+    box-shadow: 17px 17px 21px -5px rgb(30, 31, 32);
+}
+
+.form_contact h2 {
+    font-size: large;
+}
+
+.form_contact input[type=text], select, textarea {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color:rgba(247, 247, 247, 0.8);
+    color: #666;
+    border : 2px solid #4f1b50;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form_contact .field {
+    text-align: center;
+}
+
+.form_contact .liste_contact li {
+    list-style: none;
+}
+
+
 
 /*-------------------------------------*/
 
@@ -391,7 +432,7 @@ div[id^='modal'] {
     text-align: center;
 }
 
-/* ------------FOOTER -------------------------*/
+/* ------------FOOTER SMALL-------------------------*/
 
 .footer { 
     display: block;
@@ -422,13 +463,13 @@ div[id^='modal'] {
 
 
 }
-/* LISTE */
+/* LISTE SMALL */
 
 @media (min-width:1024px) {
 
 
 
-/* ---------------------------------------------------------------------- */
+/* LARGE---------------------------------------------------------------------- */
 
 
 .logo {
@@ -452,7 +493,7 @@ div[id^='modal'] {
 }
 
 
-/* -------------- MENU --------------------------- */
+/* -------------- MENU LARGE--------------------------- */
 
 /* 
 .form {
@@ -469,7 +510,7 @@ nav {
     text-align: center;   
 }
 
-/*FORM RECHERCHE*/
+/* FORM RECHERCHE LARGE
 
 .recherche {
     width: 100%;
@@ -507,7 +548,7 @@ nav {
     display: block;
     margin: 1em auto;
     
-}
+} */
 
 
 
@@ -709,7 +750,33 @@ ol > li > ul > li:hover {
     margin: 1em auto;
 }
 
-/*-------------------MODAL-------------------*/
+/* FORM CONTACT LARGE */
+
+.form_contact {
+    width: 50%;
+    padding: 50px;
+    margin-top: 80px;
+    margin:auto;
+    margin-bottom: 80px;
+}
+
+.form_contact h2 {
+    font-size: xx-large;
+}
+
+.form_contact input[type=text], textarea {
+    width: 95%;
+} 
+
+.form_contact .cp_input {
+}
+
+.form_contact .cp_input input, select {
+    text-align: center;
+    width: 40%;
+}
+
+/*-------------------MODAL LARGE -------------------*/
 div[id^='modal'] {
     width: 60%;
     background-color: #ffffff;
@@ -769,9 +836,10 @@ div[id^='modal'] {
     cursor: pointer;
 }
 
-/* ------------FOOTER -------------------------*/
+/* ------------FOOTER LARGE -------------------------*/
 
 .footer { 
+    width: 100%;
     display: block;
     background-color: #9494b8;
     padding: 10px;
@@ -850,7 +918,7 @@ div[id^='modal'] {
     text-align: center;
   }
 
-/* ------------------BUTTONS-------------------------------------- */
+/* ------------------BUTTONS LARGE -------------------------------------- */
 
 button a {
     color: #ffffff;
@@ -943,9 +1011,8 @@ button:hover:before{
     transition: all 0.4s ease-in;
 }
 
-/*FORMS*/
 
-/* ITEM PAGE  */
+/* ITEM PAGE LARGE */
 .prod {
     display: flex;
 }
@@ -995,4 +1062,20 @@ button:hover:before{
 }
 
 /* LISTE */
+
+/* BASKET LARGE */
+.basket {
+    position: fixed;
+    bottom: 40%;
+    width:10%;
+    left:90%;
+    z-index: 100;
+    background-color:rgba(99, 55, 110, 0.7);
+    border-radius: 6%;
+}
+
+.basket input, label {
+    display: block;
+}
+
 }
