@@ -747,8 +747,6 @@ ol > li > ul > li:hover {
     justify-content: center;
 } 
 
-.content_item {
-}
 
 .produit  {
     width: 20%;
@@ -861,9 +859,6 @@ ol > li > ul > li:hover {
 .form_contact input[type=text], textarea {
     width: 95%;
 } 
-
-.form_contact .cp_input {
-}
 
 .form_contact .cp_input input, select {
     text-align: center;
