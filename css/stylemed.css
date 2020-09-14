@@ -1,0 +1,79 @@
+@media (min-width:780px) {
+
+    /* MEDIUM -----------------------------------------------------------------*/
+    /* header */
+    .logo {
+        width: 50%;  
+    }
+
+    /* menu */
+    #menu ul li a{
+        padding: 0.5em 2px;
+    }
+
+    /* FORM RECHERCHE MEDIUM*/
+
+    .recherche {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        padding: 10px;
+    }
+
+    #button_recherche {
+        width: 80%;
+        margin: auto;
+    }
+
+/*BRANDS MEDIUM */
+div.content > div > button{
+    width: 40%;
+
+}
+
+    /* FORM CONTACT MEDIUM */
+
+    .form_contact {
+        width: 70%;
+        padding: 1.5em;
+    }
+    
+    .form_contact h2 {
+        font-size: 1em;
+    }
+    
+    .form_contact .cp_input {
+        width: calc(100% + 2px);
+        padding: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    #cp {
+        width: calc(100% - 3em);
+    }
+
+/* BASKET MEDIUM */
+.basket {
+    position: fixed;
+    padding: 10px;
+    bottom: 10%;
+    width:20%;
+    left:80%;
+    z-index: 100;
+}
+
+.basket input, label {
+    display: block;
+}
+
+/* LARGE---------------------------------------------------------------------- */
+
+    .title {
+        font-size: 34px;
+    } 
+
+}

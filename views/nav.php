@@ -1,18 +1,18 @@
 
 <header>
     <div class="logo">
-        <div><img src="img\logo.png"/></div>
-        <h1 class="title">Produits cosmétiques</h1>
+        <img src="img\logo.png"/>
     </div>      
+    <h1 class="title">Produits cosmétiques</h1>
 </header>
 
-<nav>
-    <ol>
+<nav id="menu">
+    <ul>
         <li><a href="index?route=home">Accueil</a></li>
 
         <?php foreach($menu["categories"] as $cat): ?>
             <li><a href="index.php?route=category&id=<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a>
-                 <ul>
+                 <ul class="submenu">
                     <?php foreach($cat->subCats as $subcat): ?>
                         <li><a href="index.php?route=subcategory&id=<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
                     <?php endforeach ?>
@@ -23,13 +23,13 @@
         <li><a href="index.php?route=contact">Contact</a></li>
         <li><a href="index.php?route=termes">Termes et Conditions</a></li>
         <li><a href="index.php?route=admin">Espace admin</a></li>                 
-    </ol>
+    </ul>
     
 </nav>
 
-<h2>NOS MARQUES</h2>
-
 <div class="content">
+
+    <h2>NOS MARQUES</h2>
     
     <div class="brands">
         <?php foreach($menu["brand"] as $brand): ?>

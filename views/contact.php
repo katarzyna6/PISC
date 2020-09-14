@@ -1,40 +1,38 @@
 <?php
 $liste = $view['datas']['liste'];
 ?>
-
-<div class = "form_contact">
-                    
-    <form action="index.php?route=contact" method="POST">
             
+<form class = "form_contact" action="index.php?route=contact" method="POST">
+        
     <h2>Contactez-moi</h2>
-        
-        <div class="field">
-            <label for="name"></label>
-            <input type="text" name="name" id="first" placeholder="Votre prenom"/>
-        </div>
+    
+    <div class="field">
+        <input type="text" name="name" id="first" placeholder="Votre prenom"/>
+    </div>
 
-        <div class="field">
-            <label for="name"></label>
-            <input type="text" name="name" id="second" placeholder="Votre nom"/>
-        </div>
-        
-        <div class="field">
-            <label for="email"></label>
-            <input type="text" name="email" id="email" placeholder="Votre adresse e-mail"/>
-        </div>
+    <div class="field">
+        <input type="text" name="name" id="second" placeholder="Votre nom"/>
+    </div>
 
-        <div class="field">
-            <label for="adresse"></label>
-            <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"/>
-        </div>
+    <div class="field">
+        <input type="text" name="email" id="email" placeholder="Votre adresse e-mail"/>
+    </div>
 
-        <div class="cp_input">
+    <div class="field">
+        <input type="text" name="adresse" id="adresse" placeholder="Votre adresse"/>
+    </div>
+
+    <div class="cp_input">
+        <div class="field">
             <input type="text" name="cp" id="cp" placeholder="Code Postal">
-                
+        </div>
+        
+        <div class="field">
             <select name="ville" id="ville">
                 <option disabled selected>Choisissez votre ville</option>
             </select>
         </div>
+    </div>
 
         <div class="liste_contact">
             <?php if(isset($_SESSION['liste'])): ?>
@@ -62,6 +60,6 @@ $liste = $view['datas']['liste'];
 
     </form>
     
-</div>
+
 
 <script src="js/contact.js"></script>

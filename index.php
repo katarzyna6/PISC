@@ -1,6 +1,6 @@
 <?php 
 session_start();
-// var_dump($_SESSION);
+$_SESSION['liste'] = $_SESSION['liste']?? [];
 
 require_once "conf/global.php"; 
 
@@ -107,10 +107,14 @@ function showFooter() {
 
 function showBasket() {
 
-    global $liste;
-
-    $li = new Item();
-    $liste = $li->selectByIds($_SESSION['liste']);
+    $item = new Item();
+    $datas = [];
+    //$liste = $li->selectByIds($_SESSION['liste']);
+    foreach($_SESSION['liste'] as $elem) {
+        $item->setIdItem($elem);
+        array_push($datas, clone $item->select());
+    }
+    return $datas;
 }
 
 function showHome() {
@@ -209,35 +213,20 @@ function addListe() {
 
 function showItem() {
 
-    $datas = [];
-    $item = new Item();
-
     if(!isset($_GET['id'])) {
         header("Location:index");
-        return [];
+        exit;
     } 
-    
 
+    $datas = [];
+    $item = new Item();
+    $item->setIdItem($_GET['id']);
+    $datas['item'] = $item->select();
 
     $image = new Image();
     $image->setIdItem($_GET['id']);
-    $datas['item']['images'] = $image->selectByIdItem();
+    $datas['item']->images = $image->selectByIdItem();
     
-    // $item->setIdAdmin($_SESSION["id"]);
-    //     $datas["items"]= $item->selectByAdmin();
-    //     if(isset($_GET['id'])) {
-    //         $item->setIdItem($_GET['id']);
-    //         $items = $item->select();
-    //         $datas["item"]=$items;
-    //     }
-    
-    //     foreach($datas["items"] as &$item){
-    //         $admin = new Admin();
-    //         $admin->setIdAdmin($item->getIdAdmin());
-    //         $admin= $admin->select();
-    //         $item->user = $admin;
-    //     }
-
     return ["template" => "item.php", "datas" => $datas];
 }
 
@@ -608,7 +597,9 @@ function showChat() {
         <meta name="keywords" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>P.I.S.C. Produits cosmétiques</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/stylemin.css">
+        <link rel="stylesheet" type="text/css" href="css/stylemed.css">
+        <link rel="stylesheet" type="text/css" href="css/stylelar.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -619,10 +610,14 @@ function showChat() {
         <?php showMenu() ?>
         <?php require "views/nav.php"; ?>
 
+        <div id="main">
         <?php require "views/{$view['template']}"; ?>
+        </div>
 
-        <?php showBasket() ?>
-        <?php require "views/basket.php"; ?>
+        <?php 
+            $liste = showBasket();
+            require "views/basket.php"; 
+        ?>
 
         <?php showFooter() ?>
         <?php require "views/footer.php"; ?>
