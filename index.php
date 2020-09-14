@@ -606,15 +606,12 @@ function showChat() {
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
         <meta name="description" content=""/>
         <meta name="keywords" content=""/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>P.I.S.C. Produits cosmétiques</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/chat.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        
-    
     </head>
     
     <body>
