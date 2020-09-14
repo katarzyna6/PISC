@@ -1,5 +1,5 @@
 <div class="basket">
-<p style = "color:#4f1b50">MA LISTE</p>
+<p>MA LISTE</p>
     <?php if(isset($_SESSION['liste'])): ?>
                 <div>
                     <?php foreach($liste as $li): ?>

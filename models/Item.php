@@ -362,4 +362,33 @@ class Item extends DbConnect {
         $result->bindValue('id_item', $this->id_item, PDO::PARAM_INT);
         $result->execute();           
     }
+
+    public function selectByIds($ids) {
+        $this->connect();
+        $in  = str_repeat('?,', count($ids) - 1) . '?';//generuje ilosc ? = ilosc id
+        $query = "SELECT id_item, name, description, price, avis, note, id_brand, id_category, id_subcategory, id_admin FROM items WHERE id_item IN ($in)";
+        $result = $this->pdo->prepare($query);
+
+        $result->execute($ids);//wygenerowana lista ids 
+        $datas = $result->fetchAll();
+
+        $items = [];
+        foreach($datas as $elem) {
+        $item = new Item();
+        $item->setIdItem($elem['id_item']);
+        $item->setIdAdmin($elem['id_admin']);
+        $item->setName($elem['name']);
+        $item->setDescription($elem['description']);
+        $item->setPrice($elem['price']);
+        $item->setAvis($elem['avis']);
+        $item->setNote($elem['note']);
+        $item->setIdBrand($elem['id_brand']);
+        $item->setIdCategory($elem['id_category']);
+        $item->setIdSubcategory($elem['id_subcategory']);
+        
+        array_push($items, $item);
+        }
+
+        return $items; 
+    }
 }

@@ -39,14 +39,14 @@
     
 </div>
 <div class="nav_barre">
-    <div class="recherche">
+    <form class="recherche">
 
-        <form class="nav1">
+        
             <input type="search" id="maRecherche" name="q"
             placeholder="Rechercher un produit">
-        </form>
+        
 
-        <form class="nav2" name="brand">
+        
             <select class="liste" name="option">
                 <option value="#" disabled selected>Trier par une marque</option>
                 <option value="dilex">DILEX</option>
@@ -55,9 +55,9 @@
                 <option value="nurixo">NURIXO</option>
                 <option value="w&b">W & B</option>
             </select>
-        </form>
+        
 
-        <form class="nav3" name="type">
+        
             <select class="liste" name="option">
                 <option value="#" disabled selected>Trier par un type</option>
                 <option value="tri">Beauté du visage</option>
@@ -72,10 +72,12 @@
                 <option value="tri">Lingettes</option>
                 <option value="tri">Protection hygiènique</option>
             </select>
+        
+            <div class="btn_rech"><button id="button_recherche">Rechercher</button></div>
+            
         </form>
-    </div>
 
-    <div class="btn_rech"><button id="button_recherche">Rechercher</button></div>
+    
 
 </div>
 

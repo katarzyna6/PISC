@@ -99,7 +99,7 @@ $item = $view['datas']['item'];
               <div>
               <?php foreach($images as $image) : ?>
                      <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                            <img src="img/<?=$image->getName(); ?>" height="210" width="220">
+                            <img src="img/<?=$image->getName(); ?>">
                      <?php endif; ?>   
               <?php endforeach?>
               </div>

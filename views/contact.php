@@ -29,7 +29,8 @@ $liste = $view['datas']['liste'];
             </div>
 
             <div class="cp_input">
-            <input type="text" name="cp" id="cp" placeholder="Code Postal">
+                <input type="text" name="cp" id="cp" placeholder="Code Postal">
+                
                 <select name="ville" id="ville">
                     <option disabled selected>Choisissez votre ville</option>
                 </select>
@@ -52,7 +53,7 @@ $liste = $view['datas']['liste'];
                 <textarea id="message" name="message" rows="4" cols="25" placeholder="Votre message"></textarea>
             </div>
 
-            <button class="cont" type="submit">Envoyer le message</button>
+            <div class="cont"><button type="submit">Envoyer le message</button></div>
         
             <h3><a href="index.php">Retour</a><h3>
 

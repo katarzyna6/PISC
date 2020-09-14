@@ -41,6 +41,9 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //FOOTER
         case "footer": $view = showFooter();
         break;
+        //BASKET
+        case "basket": $view = showBasket();
+        break;
         //CONTACT
         case "contact": $view = showContact();
         break;
@@ -100,6 +103,14 @@ function showFooter() {
 
     // var_dump($link->selectAll());
 
+}
+
+function showBasket() {
+
+    global $liste;
+
+    $li = new Item();
+    $liste = $li->selectByIds($_SESSION['liste']);
 }
 
 function showHome() {
@@ -201,17 +212,16 @@ function showItem() {
     $datas = [];
     $item = new Item();
 
-    if(isset($_GET['id'])) {
-        $item->setIdItem($_GET['id']);
-        $datas['item'] = $item->select();
-    } else {
-        $datas['item'] = [];
-    }
+    if(!isset($_GET['id'])) {
+        header("Location:index");
+        return [];
+    } 
+    
 
 
     $image = new Image();
     $image->setIdItem($_GET['id']);
-    $datas['item']->images = $image->selectByIdItem();
+    $datas['item']['images'] = $image->selectByIdItem();
     
     // $item->setIdAdmin($_SESSION["id"]);
     //     $datas["items"]= $item->selectByAdmin();
@@ -614,6 +624,7 @@ function showChat() {
 
         <?php require "views/{$view['template']}"; ?>
 
+        <?php showBasket() ?>
         <?php require "views/basket.php"; ?>
 
         <?php showFooter() ?>
