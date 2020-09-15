@@ -70,9 +70,6 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //LISTE
         case "addListe" : addListe();
         break;
-        //CHAT
-        case "chat" : $view = showChat();
-        break;
         // case "ajax": $view = showAjax();
         // break;
         default : $view = showHome();

@@ -17,23 +17,23 @@ $n_items = $view['datas']['new_items'];
                             <?php endif?>
                         </a>
 
-                        <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
+                        <a class="link" href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
-                        <p class="description_item"><?= $item->getName()?></p>
-                        <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
+                        <a href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
+                        <button class="myBtn" id="myBtn-<?= htmlspecialchars($item->getIdItem())?>">Voir le produit</button>
 
                         <!-- The Modal -->
                         
-                        <div id="modal-<?= $item->getIdItem()?>" class="modal">
+                        <div id="modal-<?= htmlspecialchars($item->getIdItem())?>" class="modal">
 
                             <div class="modal-header">
-                                <span class="close" id="close-<?= $item->getIdItem()?>">&times;</span>
-                                <h2><?= $item->getName()?></h2>
+                                <span class="close" id="close-<?= htmlspecialchars($item->getIdItem())?>">&times;</span>
+                                <h2><?= htmlspecialchars($item->getName())?></h2>
                             </div>
                             
 
                             <div class="modal-body">
-                                <p><?= $item->getDescription()?></p>
+                                <p><?= htmlspecialchars($item->getDescription())?></p>
                             
                                 <?php foreach($item->images as $image) : ?>
                                     <img src="img/<?=$image->getName(); ?>">
@@ -41,11 +41,11 @@ $n_items = $view['datas']['new_items'];
                             </div>
 
                             <div class="modal-footer">
-                                <h3>Prix : <?= $item->getPrice()?> €</h3>
+                                <h3>Prix : <?= htmlspecialchars($item->getPrice())?> €</h3>
                             </div>
                         </div> 
 
-                        <p>Prix : <?= $item->getPrice()?> €</p>
+                        <p>Prix : <?= htmlspecialchars($item->getPrice())?> €</p>
 
                     </div>
                 </div>               

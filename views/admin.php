@@ -23,7 +23,7 @@ var_dump($items);
             <label for="brand">Marque :</label><br>
             <select id="brand" name="brand">
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
-                    <option value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?></option>
+                    <option value="<?= htmlspecialchars($brand->getIdBrand()); ?>"><?= htmlspecialchars($brand->getName()); ?></option>
                 <?php endforeach ?>
             </select>
         </div>
@@ -37,7 +37,7 @@ var_dump($items);
             <select id="category" name="category">
 
                 <?php foreach ($view["datas"]["category"] as $cat): ?>
-                    <option value="<?=$cat->getIdCategory(); ?>"><?=$cat->getName(); ?></option>  
+                    <option value="<?= htmlspecialchars($cat->getIdCategory()); ?>"><?= htmlspecialchars($cat->getName()); ?></option>  
                 <?php endforeach ?>
 
             </select>
@@ -47,7 +47,7 @@ var_dump($items);
             <label for="subcategory">Sous-catégorie :</label><br>
             <select id="subcategory" name="subcategory">
                 <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
-                    <option value="<?=$subcat->getIdSubcategory(); ?>"><?=$subcat->getName(); ?></option>
+                    <option value="<?= htmlspecialchars($subcat->getIdSubcategory()); ?>"><?= htmlspecialchars($subcat->getName()); ?></option>
                 <?php endforeach ?> 
             </select>
         </div>
@@ -89,27 +89,27 @@ var_dump($items);
     foreach($items as $item) :?>
     
 
-        <li>Nom : <a href="admin-<?= $item->getIdItem()?>.html"><?= $item->getName();?></a></li>
-        <li>Description : <?=$item->getDescription()?></li>
-        <li>Marque : <?=$item->brandcomplete->getName()?></li>
-        <li>Catégorie : <?=$item->categorycomplete->getName();?></li>
-        <li>Sous-Catégorie : <?=$item->subcategorycomplete->getName()?></li>
-        <li>Prix : <?=$item->getPrice()?></li>
-        <li>Note : <?=$item->getNote()?></li>
-        <li>Avis : <?=$item->getAvis()?></li>
+        <li>Nom : <a href="admin-<?= htmlspecialchars($item->getIdItem())?>.html"><?= htmlspecialchars($item->getName());?></a></li>
+        <li>Description : <?= htmlspecialchars($item->getDescription())?></li>
+        <li>Marque : <?= htmlspecialchars($item->brandcomplete->getName())?></li>
+        <li>Catégorie : <?= htmlspecialchars($item->categorycomplete->getName());?></li>
+        <li>Sous-Catégorie : <?= htmlspecialchars($item->subcategorycomplete->getName())?></li>
+        <li>Prix : <?= htmlspecialchars($item->getPrice())?></li>
+        <li>Note : <?= htmlspecialchars($item->getNote())?></li>
+        <li>Avis : <?= htmlspecialchars($item->getAvis())?></li>
 
         <div>Images : 
             <li>
                 <?php foreach($view["datas"]["images"] as $image) : ?>
                     <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                        <img src="img/<?=$image->getName(); ?>" style="width:165px; height:156px; margin: 5px;">
+                        <img src="img/<?= htmlspecialchars($image->getName()); ?>" style="width:165px; height:156px; margin: 5px;">
                     <?php endif; ?>   
                 <?php endforeach?>
             </li>
         </div><br>
 
-        <li><a href="index.php?route=mod_item&id=<?= $item->getIdItem()?>">Modifier</a></li>
-        <li><a href="index.php?route=del_item&id=<?= $item->getIdItem()?>">Supprimer</a><li>
+        <li><a href="index.php?route=mod_item&id=<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></li>
+        <li><a href="index.php?route=del_item&id=<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a><li>
                     
         <?php endforeach ?>
     

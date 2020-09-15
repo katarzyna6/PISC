@@ -26,13 +26,13 @@ $b_items = $view['datas']['best_items'];
                         <div id="modal-<?= $item->getIdItem()?>" class="modal">
 
                             <div class="modal-header">
-                                <span class="close" id="close-<?= $item->getIdItem()?>">&times;</span>
+                                <span class="close" id="close-<?= htmlspecialchars($item->getIdItem())?>">&times;</span>
                                 <h2><?= $item->getName()?></h2>
                             </div>
                             
 
                             <div class="modal-body">
-                                <p><?= $item->getDescription()?></p>
+                                <p><?= htmlspecialchars($item->getDescription())?></p>
                             
                                 <?php foreach($item->images as $image) : ?>
                                     <img src="img/<?=$image->getName(); ?>">
@@ -40,12 +40,12 @@ $b_items = $view['datas']['best_items'];
                             </div>
 
                             <div class="modal-footer">
-                                <h3>Prix : <?= $item->getPrice()?> €</h3>
+                                <h3>Prix : <?= htmlspecialchars($item->getPrice())?> €</h3>
                             </div>
                         </div> 
 
                         
-                        <p>Prix : <?= $item->getPrice()?> €</p>
+                        <p>Prix : <?= htmlspecialchars($item->getPrice())?> €</p>
 
                     </div>
                 </div>               
