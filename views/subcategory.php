@@ -15,7 +15,7 @@ $images = $view['datas']['images'];
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="index?route=item">
+                        <a href="item">
                             <?php foreach($images as $image) : ?>
                                 <?php if($item->getIdItem() == $image->getIdItem()) :?>
                                 <img src="img/<?=$image->getName(); ?>">
@@ -24,7 +24,7 @@ $images = $view['datas']['images'];
                             <?php endforeach?>
                         </a>
 
-                        <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
+                        <a class="link" href="item-<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
                     </div>
                 </div>  

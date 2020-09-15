@@ -8,21 +8,21 @@
 
 <nav id="menu">
     <ul>
-        <li><a href="index?route=home">Accueil</a></li>
+        <li><a href="home">Accueil</a></li>
 
         <?php foreach($menu["categories"] as $cat): ?>
-            <li><a href="index.php?route=category&id=<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a>
+            <li><a href="category-<?= $cat->getIdCategory() ?>"><?= $cat->getName() ?></a>
                  <ul class="submenu">
                     <?php foreach($cat->subCats as $subcat): ?>
-                        <li><a href="index.php?route=subcategory&id=<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
+                        <li><a href="subcategory-<?= $subcat->getIdSubcategory() ?>"><?= $subcat->getName() ?></a></li>
                     <?php endforeach ?>
                 </ul>  
             </li>
         <?php endforeach ?>
 
-        <li><a href="index.php?route=contact">Contact</a></li>
-        <li><a href="index.php?route=termes">Termes et Conditions</a></li>
-        <li><a href="index.php?route=admin">Espace admin</a></li>                 
+        <li><a href="contact">Contact</a></li>
+        <li><a href="termes">Termes et Conditions</a></li>
+        <li><a href="admin">Espace admin</a></li>                 
     </ul>
     
 </nav>
@@ -33,7 +33,7 @@
     
     <div class="brands">
         <?php foreach($menu["brand"] as $brand): ?>
-            <button><a href="index.php?route=brand&id=<?= $brand->getIdBrand() ?>"><?= $brand->getName() ?></a></button>
+            <button><a href="brand-<?= $brand->getIdBrand() ?>"><?= $brand->getName() ?></a></button>
         <?php endforeach ?>
     </div>
     

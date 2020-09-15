@@ -200,11 +200,11 @@ function showAdmin() {
 
 function addListe() {
     if(isset($_SESSION['liste'])) {
-        array_push($_SESSION['liste'], $_GET['item']);
+        array_push($_SESSION['liste'], $_GET['id']);
     } else {
-        $_SESSION['liste'] = [$_GET['item']];
+        $_SESSION['liste'] = [$_GET['id']];
     }
-    header("Location:item-".$_GET['item']);
+    header("Location:item-".$_GET['id']);
 }
 
 function showItem() {
