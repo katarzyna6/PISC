@@ -6,6 +6,7 @@
     .logo {
         width: 20%;
         min-width: 300px;
+        max-width: 400px;
     }
 
     .logo img {
