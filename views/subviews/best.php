@@ -20,6 +20,7 @@ $b_items = $view['datas']['best_items'];
 
                         <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
+                        <p class="description_item"><?= $item->getName()?></p>
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
                         <div id="modal-<?= $item->getIdItem()?>" class="modal">

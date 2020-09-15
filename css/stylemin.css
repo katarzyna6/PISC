@@ -190,6 +190,10 @@ button:hover:before{
     transition: all 0.4s ease-in;
 }
 
+.img_selection button {
+    width: 50%;
+}
+
 
 
 /*FORM RECHERCHE SMALL-------------------------------------------------------*/
@@ -468,6 +472,7 @@ div[id^='modal'] {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    list-style-type: none;
 }
 
 .footer li {

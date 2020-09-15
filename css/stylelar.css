@@ -112,6 +112,9 @@ margin: 10px;
     width: 100%;
     margin: auto;
 } 
+p.description_item {
+    display: none;
+}
 
 /* ol {
     padding: 0;

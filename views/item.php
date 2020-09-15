@@ -18,9 +18,9 @@ $item = $view['datas']['item'];
 
               <div class="photos"> 
                      <?php if(!empty($item->images)): ?>
-                            <div id="img_default">
+                            <!-- <div id="img_default">
                                    <img src="img/<?=$item->images[0]->getName(); ?>">
-                            </div>
+                            </div> -->
 
                             <div class="img_selection">
                             <?php foreach($item->images as $image):?>
