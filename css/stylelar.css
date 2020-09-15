@@ -4,7 +4,8 @@
     /* header */
 
     .logo {
-        width: 25%;
+        width: 20%;
+        min-width: 300px;
     }
 
     .logo img {
@@ -12,72 +13,73 @@
     }
 
     .title {
-        font-size: 32px;
+        font-size: 1.95em;
     }
 
-/* -------------- MENU LARGE--------------------------- */
-#menu {
-    position: absolute;
-    background-color: #9494b8;
-    width: 100%;
-    left: 0;
-    top: 20vh;
-}
-#menu ul {
-    width: 80%;
-    margin: auto;
-    background-color: #9494b8;
-    display: flex;
-    justify-content: center;
-}
+    /* -------------- MENU LARGE--------------------------- */
+    #menu {
+        position: absolute;
+        background-color: #9494b8;
+        width: 100%;
+        left: 0;
+        top: 180px;
+    }
+    #menu ul {
+        width: 80%;
+        margin: auto;
+        background-color: #9494b8;
+        display: flex;
+        justify-content: center;
+    }
 
-#menu ul li {
-    position: relative;
-    margin-top: 0;
-    font-size: 1.2em;
-}
+    #menu ul li {
+        position: relative;
+        margin-top: 0;
+        font-size: 1.2em;
+    }
 
-#menu ul li a{
-    padding: 0.8em 1em;
-    white-space: nowrap;
-    overflow: hidden;
-}
+    #menu ul li a{
+        padding: 0.8em 1em;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 
-#menu ul li a:hover {
-    background-color: #797997;
-}
+    #menu ul li a:hover {
+        background-color: #797997;
+    }
 
-#menu ul li .submenu {
-    position: absolute;
-    z-index: 1000;
-    width: 370px;
-    display: flex;
-    flex-direction: column;
-    /* margin-top: 10px; */
-    display: none;
-    margin-top: 0;
-    align-content: flex-start;
-    padding: 0;
-}
+    #menu ul li .submenu {
+        position: absolute;
+        z-index: 1000;
+        width: 370px;
+        display: flex;
+        flex-direction: column;
+        /* margin-top: 10px; */
+        display: none;
+        margin-top: 0;
+        align-content: flex-start;
+        padding: 0;
+    }
 
-#menu ul li .submenu li {
-    width: 100%;
-    font-size: 1em;
-}
-#menu ul li .submenu li a {
-    text-align: left;
-    background-color: #9494b8;
-}
+    #menu ul li .submenu li {
+        width: 100%;
+        font-size: 1em;
+    }
 
-#menu ul li:hover .submenu {
-    display: block;
-}
+    #menu ul li .submenu li a {
+        text-align: left;
+        background-color: #9494b8;
+    }
 
-.content {
-    margin-top: 25vh;
-}
+    #menu ul li:hover .submenu {
+        display: block;
+    }
 
-/* FORM RECHERCHE LARGE*/
+    .content {
+        margin-top: 150px;
+    }
+
+    /* FORM RECHERCHE LARGE*/
 
 .recherche {
     width: 60%;
