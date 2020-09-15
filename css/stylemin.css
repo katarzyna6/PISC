@@ -52,7 +52,7 @@ h2 {
 #menu ul li {
     margin-top: 10px;
     list-style-type: none;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 #menu ul li a{
@@ -94,12 +94,16 @@ h2 {
     text-align: center;
 }
 
+.content h2 {
+    font-size: 1.6em;
+}
+
 /* ------------------BUTTONS brands SMALL -------------------------------------- */
 
 button a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.4em;
 }
 
 button{
