@@ -14,7 +14,7 @@
     /* FORM RECHERCHE MEDIUM*/
 
     .recherche {
-        width: 80%;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -23,14 +23,49 @@
     }
 
     #button_recherche {
-        width: 80%;
+        width: 100%;
         margin: auto;
     }
 
 /*BRANDS MEDIUM */
 div.content > div > button{
-    width: 40%;
+    width: 45%;
 
+}
+
+/* ------------------- CONTAINER ------------------------*/
+
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+} 
+
+.produit {
+    width: 60%;
+}
+
+
+.overlay button{ 
+    width: 80%;
+}
+
+
+.overlay {
+    position: relative;
+    padding: 0;
+    margin: 2px;
+}
+
+
+.produit .photo .overlay a img {
+    width: 100%;
+}
+
+
+.produit p {
+    text-align: center;
 }
 
     /* FORM CONTACT MEDIUM */

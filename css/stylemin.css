@@ -431,13 +431,13 @@ div[id^='modal'] {
     background-color: #9494b8;
     left: 0px;
     bottom: 16%;
-    
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
 .overlay:hover .link {
     opacity: 0.8;
+    display: none;
 }
 
 .produit .photo .overlay a {
