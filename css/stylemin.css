@@ -337,18 +337,18 @@ div[id^='modal'] {
 .modal-header, .modal-footer {
     padding: 2px 0;
     font-size: 3vh;
-    position: absolute;
+    position: fixed;
     background-color: #4f1b50;
     color: rgb(233, 220, 220);
-    width: 100%;
+    width: 80%;
 }
 
 .modal-header {
-    top: 0;
+    top: 15vh;
 }
 
 .modal-footer {
-    bottom: 0;
+    top: 75vh;
 }
 
 .modal-body {
@@ -389,11 +389,6 @@ div[id^='modal'] {
     flex-direction: column;
     justify-items: center;
 } 
-
-.produit {
-    text-align: center;
-}
-
 
 .overlay button{ 
     width: 80%;
@@ -438,6 +433,11 @@ div[id^='modal'] {
 .overlay:hover .link {
     opacity: 0.8;
     display: none;
+}
+
+
+.produit {
+    text-align: center;
 }
 
 .produit .photo .overlay a {

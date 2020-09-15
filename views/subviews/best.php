@@ -14,13 +14,13 @@ $b_items = $view['datas']['best_items'];
                         <a href="index?route=item">
                             <?php if(isset($item->images[0])) : ?>
                                 <p>Note : <?= $item->getNote()?></p>
-                                <img src="img/<?=$item->images[0]->getName(); ?>">  
+                                <img src="img/<?= htmlspecialchars($item->images[0]->getName()); ?>">  
                             <?php endif ?>
                         </a>
 
-                        <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
+                        <a class="link" href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
-                        <p class="description_item"><?= $item->getName()?></p>
+                        <p class="description_item"><?= htmlspecialchars($item->getName())?></p>
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
                         <div id="modal-<?= $item->getIdItem()?>" class="modal">
