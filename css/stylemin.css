@@ -52,7 +52,7 @@ h2 {
 #menu ul li {
     margin-top: 10px;
     list-style-type: none;
-    font-size: 23px;
+    font-size: 1em;
 }
 
 #menu ul li a{
