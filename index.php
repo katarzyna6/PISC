@@ -144,7 +144,7 @@ function showAdmin() {
     
     // var_dump($_SESSION);
     if(!isset($_SESSION["admin"])) {
-        header("Location:(\w*)connectform");
+        header("Location:connectform");
     }
 
     $item = new Item();
@@ -195,7 +195,7 @@ function showAdmin() {
     $image = new Image();
     $datas["images"] = $image->selectAll();
 
-    return ["template" => "(\w*)admin.php", "datas" => $datas];
+    return ["template" => "admin.php", "datas" => $datas];
 }    
 
 function addListe() {
@@ -204,7 +204,7 @@ function addListe() {
     } else {
         $_SESSION['liste'] = [$_GET['item']];
     }
-    header("Location:(\w*)-(\d*)".$_GET['item']);
+    header("Location:item-".$_GET['item']);
 }
 
 function showItem() {
@@ -223,7 +223,7 @@ function showItem() {
     $image->setIdItem($_GET['id']);
     $datas['item']->images = $image->selectByIdItem();
     
-    return ["template" => "(\w*)item.php", "datas" => $datas];
+    return ["template" => "item.php", "datas" => $datas];
 }
 
 //BRAND
@@ -252,7 +252,7 @@ function showBrand() {
         $item->images = $images->selectByIdItem();
     }
 
-    return ["template" => "(\w*)brand.php", "datas" => $datas];
+    return ["template" => "brand.php", "datas" => $datas];
 
 }
 
@@ -272,7 +272,7 @@ function showCategory() {
     $image = new Image();
     $datas["images"] = $image->selectAll();
 
-    return ["template" => "(\w*)category.php", "datas" => $datas];
+    return ["template" => "category.php", "datas" => $datas];
     
 }
 
@@ -290,7 +290,7 @@ function showSubcategory() {
     $image = new Image();
     $datas["images"] = $image->selectAll();
 
-    return ["template" => "(\w*)subcategory.php", "datas" => $datas];
+    return ["template" => "subcategory.php", "datas" => $datas];
 }
 
 //CONTACT
@@ -305,45 +305,45 @@ function showContact() {
         array_push($datas['liste'], clone ($item->select()));
     }
 
-    return ["template" => "(\w*)contact.php", "datas" => $datas];
+    return ["template" => "contact.php", "datas" => $datas];
 }
 
 //TERMES
 function showTermes() {
         
     $datas = [];
-    return ["template" => "(\w*)termes.php", "datas" => $datas];
+    return ["template" => "termes.php", "datas" => $datas];
 }
 
 function showCgv() {
         
     $datas = [];
-    return ["template" => "(\w*)cgv.php", "datas" => $datas];
+    return ["template" => "cgv.php", "datas" => $datas];
 }
 
 function showPolitique() {
         
     $datas = [];
-    return ["template" => "(\w*)politique.php", "datas" => $datas];
+    return ["template" => "politique.php", "datas" => $datas];
 }
 
 function showMentions() {
         
     $datas = [];
-    return ["template" => "(\w*)mentions.php", "datas" => $datas];
+    return ["template" => "mentions.php", "datas" => $datas];
 }
 
 //LIENS
 function showLiens() {
         
     $datas = [];
-    return ["template" => "(\w*)liens.php", "datas" => $datas];
+    return ["template" => "liens.php", "datas" => $datas];
 }
 
 //ADMIN
 function showConnect() {
     $datas = [];
-    return ["template" => "(\w*)connect.php", "datas" => $datas];
+    return ["template" => "connect.php", "datas" => $datas];
 }
 
 function InsertAdmin() {
@@ -371,7 +371,7 @@ function InsertAdmin() {
     }
         
     setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
-    header("Location:(\w*)admin");
+    header("Location:admin");
 }
 }
 
@@ -387,13 +387,13 @@ function connectAdmin() {
         if($verif) { 
             if(password_verify($_POST["password"], $verif["password"])) {
                 $_SESSION["admin"] = $verif;
-                header('Location:(\w*)admin'); 
+                header('Location:admin'); 
             } else { 
-                header('Location:(\w*)connectform');
+                header('Location:connectform');
             } 
                 
             } else {
-                header('Location:(\w*)connectform');
+                header('Location:connectform');
         }
     }   
 }
@@ -403,7 +403,7 @@ function deconnectAdmin() {
         
     unset($_SESSION["admin"]);
     //Redirection vers accueil
-    header("Location:index.php");
+    header("Location:produits-cosmetiques");
 }
 
 
@@ -488,7 +488,7 @@ function modItem() {
     $datas["image"] = $image->selectAll();
 
 
-    return ["template" => "(\w*)mod_item.php", "datas" => $datas];
+    return ["template" => "mod_item.php", "datas" => $datas];
     } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $item = new Item();
@@ -521,7 +521,7 @@ function modItem() {
     $item->setIdAdmin($_SESSION['admin']['id_admin']);
     $item->update();
 
-    header("Location:(\w*)admin");
+    header("Location:admin");
     exit;
     }
 }
@@ -548,7 +548,7 @@ function delItem() {
         $item->delete();
     }
 
-    header("Location:(\w*)admin");
+    header("Location:admin");
     exit;
 }
 
@@ -561,7 +561,7 @@ function delImage() {
 
     $image->delete();
 
-    header("Location:(\w*)admin");
+    header("Location:admin");
     exit;
 }
 

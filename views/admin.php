@@ -8,12 +8,12 @@ var_dump($items);
 
 <div class="espace">
     <h2>Mon espace</h2>
-    <div><a href="index.php?route=deconnect">Me déconnecter</a></div>
+    <div><a href="deconnect">Me déconnecter</a></div>
 </div>
 
 <div class = "form_admin">
         
-    <form action="<?= isset($view['datas']['item'])? "index.php?route=mod_item" : "index.php?route=insert_item"; ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= isset($view['datas']['item'])? "mod_item" : "insert_item"; ?>" method="POST" enctype="multipart/form-data">
             
         <h2><?= isset($view['datas']['item'])? "Modifier un produit" : "Ajouter un produit"; ?> </h2>
 
@@ -108,8 +108,8 @@ var_dump($items);
             </li>
         </div><br>
 
-        <li><a href="index.php?route=mod_item&id=<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></li>
-        <li><a href="index.php?route=del_item&id=<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a><li>
+        <li><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></li>
+        <li><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a><li>
                     
         <?php endforeach ?>
     

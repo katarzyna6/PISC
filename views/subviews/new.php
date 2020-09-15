@@ -11,7 +11,7 @@ $n_items = $view['datas']['new_items'];
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="index?route=item">
+                        <a href="item">
                             <?php if(isset($item->images[0])) : ?>
                                 <img src="img/<?=$item->images[0]->getName(); ?>">
                             <?php endif?>
@@ -19,7 +19,7 @@ $n_items = $view['datas']['new_items'];
 
                         <a class="link" href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
-                        <a href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
+                        <a href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
                         <button class="myBtn" id="myBtn-<?= htmlspecialchars($item->getIdItem())?>">Voir le produit</button>
 
                         <!-- The Modal -->

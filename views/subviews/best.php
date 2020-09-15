@@ -11,14 +11,14 @@ $b_items = $view['datas']['best_items'];
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="index?route=item">
+                        <a href="item">
                             <?php if(isset($item->images[0])) : ?>
                                 <p>Note : <?= $item->getNote()?></p>
                                 <img src="img/<?= htmlspecialchars($item->images[0]->getName()); ?>">  
                             <?php endif ?>
                         </a>
 
-                        <a class="link" href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
+                        <a class="link" href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
                         <p class="description_item"><?= htmlspecialchars($item->getName())?></p>
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
