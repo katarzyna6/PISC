@@ -1,4 +1,4 @@
-<?php var_dump($view) ?>
+
 <div class="basket">
     <p>MA LISTE</p>
     <?php if(isset($_SESSION['liste'])): ?>

@@ -1,5 +1,5 @@
 RewriteEngine on
 
-RewriteRule ^produits_cosmetiques$ index.php [L]
+RewriteRule ^accueil$ index.php [L]
 #RewriteRule ^(\w*)$ index.php?route=$1 [L]
 #RewriteRule ^(\w*)-(\w*)$ index.php?route=$1&route2=$2 [L]

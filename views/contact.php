@@ -38,10 +38,12 @@ $liste = $view['datas']['liste'];
             <?php if(isset($_SESSION['liste'])): ?>
                 <div>Les produits choisis :
                     <?php foreach($liste as $li): ?>
-                        <li>
-                            <input type="checkbox" name="check-<?= $li->getIdItem() ?>" id="check-<?= $li->getIdItem() ?>" checked>
-                            <label for="check-<?= $li->getIdItem() ?>"><?= $li->getName() ?></label>
-                        </li>
+                        <ul>
+                            <li>
+                                <input type="checkbox" name="check-<?= $li->getIdItem() ?>" id="check-<?= $li->getIdItem() ?>" checked>
+                                <label for="check-<?= $li->getIdItem() ?>"><?= $li->getName() ?></label>
+                            </li>
+                        </ul>
                     <?php endforeach ?>
                 </div>
             <?php endif ?>

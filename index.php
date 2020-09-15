@@ -109,7 +109,6 @@ function showBasket() {
 
     $item = new Item();
     $datas = [];
-    //$liste = $li->selectByIds($_SESSION['liste']);
     foreach($_SESSION['liste'] as $elem) {
         $item->setIdItem($elem);
         array_push($datas, clone $item->select());
@@ -354,9 +353,9 @@ function InsertAdmin() {
 
     if(!empty($_POST["nick"]) && (!empty($_POST["email"]) && ($_POST["password"] === $_POST["password2"]))) {
 
-        if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nick"])
-            && preg_match("#^(a-z0-9)+(a-z0-9)+@(a-z0-9)+(a-z0-9)$#", $_POST["email"])
-            && preg_match("#^[a-zA-Z0-9]+$#", $_POST["password"]))  {
+        if (preg_match("^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$", $_POST["nick"])
+            && preg_match("^(a-z0-9)+(a-z0-9)+@(a-z0-9)+(a-z0-9)$", $_POST["email"])
+            && preg_match("^[a-zA-Z0-9]+$", $_POST["password"]))  {
     
         $admin = new Admin();
         $admin->setNick($_POST["nick"]);
@@ -593,8 +592,7 @@ function showChat() {
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-        <meta name="description" content=""/>
-        <meta name="keywords" content=""/>
+        <meta name="description" content="P.I.S.C produits cosmetiques"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>P.I.S.C. Produits cosmétiques</title>
         <link rel="stylesheet" type="text/css" href="css/stylemin.css">
