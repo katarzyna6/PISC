@@ -2,14 +2,15 @@
 $items = $view['datas']['items'];
 $image = $view['datas']["images"];
 
-var_dump($items);
+// var_dump($items);
 // var_dump($view['datas']["images"]);
 ?>
+<div class="monEspace">
+<h2>Mon espace</h2>
+    <div class="espace">
+        <button><a href="deconnect">Me déconnecter</a></button>
+    </div>
 
-<div class="espace">
-    <h2>Mon espace</h2>
-    <div><a href="deconnect">Me déconnecter</a></div>
-</div>
 
 <div class = "form_admin">
         
@@ -19,7 +20,7 @@ var_dump($items);
 
         <div><label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
 
-        <div>
+        <div class="select">
             <label for="brand">Marque :</label><br>
             <select id="brand" name="brand">
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
@@ -32,7 +33,7 @@ var_dump($items);
 
         <div><label for="price">Prix</label><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>"/></div>
 
-        <div>
+        <div class="select">
             <label for="category">Catégorie :</label><br>
             <select id="category" name="category">
 
@@ -43,8 +44,8 @@ var_dump($items);
             </select>
         </div>
 
-        <div>
-            <label for="subcategory">Sous-catégorie :</label><br>
+        <div class="select">
+            <label for="subcategory">Sous-catégorie</label>
             <select id="subcategory" name="subcategory">
                 <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
                     <option value="<?= htmlspecialchars($subcat->getIdSubcategory()); ?>"><?= htmlspecialchars($subcat->getName()); ?></option>
@@ -78,38 +79,38 @@ var_dump($items);
 
                 <div><?= isset($view['datas']['item'])? "<input type='hidden' name='id_item' value=' ".$view['datas']['item']->getIdItem()."'>" : ""; ?></div>
 
-                <div><input type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>" /></div>
+                <div><button type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>">Ajouter</button></div>
         </form>
     </div>    
     
     <h2>Mes produits ajoutés :</h2>
 <div class="articles">
-<ul>
+<ul class="articles_list">
     <?php
     foreach($items as $item) :?>
     
+<p><b>
+        <li><p><b>Nom :</b></p> <a href="admin-<?= htmlspecialchars($item->getIdItem())?>.html"><?= htmlspecialchars($item->getName());?></a></li>
+        <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
+        <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
+        <li><p><b>Catégorie :</b></p> <?= htmlspecialchars($item->categorycomplete->getName());?></li>
+        <li><p><b>Sous-Catégorie :</b></p> <?= htmlspecialchars($item->subcategorycomplete->getName())?></li>
+        <li><p><b>Prix :</b></p> <?= htmlspecialchars($item->getPrice())?></li>
+        <li><p><b>Note :</b></p> <?= htmlspecialchars($item->getNote())?></li>
+        <li><p><b>Avis :</b></p> <?= htmlspecialchars($item->getAvis())?></li>
+        <p><b>Images : </b></p>
+        <li class="liste_img">
+                <div class="img-list"> 
+                        <?php foreach($view["datas"]["images"] as $image) : ?>
+                            <?php if($item->getIdItem() == $image->getIdItem()) :?>
+                                <img src="img/<?= htmlspecialchars($image->getName()); ?>">
+                            <?php endif; ?>   
+                        <?php endforeach?>
 
-        <li>Nom : <a href="admin-<?= htmlspecialchars($item->getIdItem())?>.html"><?= htmlspecialchars($item->getName());?></a></li>
-        <li>Description : <?= htmlspecialchars($item->getDescription())?></li>
-        <li>Marque : <?= htmlspecialchars($item->brandcomplete->getName())?></li>
-        <li>Catégorie : <?= htmlspecialchars($item->categorycomplete->getName());?></li>
-        <li>Sous-Catégorie : <?= htmlspecialchars($item->subcategorycomplete->getName())?></li>
-        <li>Prix : <?= htmlspecialchars($item->getPrice())?></li>
-        <li>Note : <?= htmlspecialchars($item->getNote())?></li>
-        <li>Avis : <?= htmlspecialchars($item->getAvis())?></li>
-
-        <div>Images : 
-            <li>
-                <?php foreach($view["datas"]["images"] as $image) : ?>
-                    <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                        <img src="img/<?= htmlspecialchars($image->getName()); ?>" style="width:165px; height:156px; margin: 5px;">
-                    <?php endif; ?>   
-                <?php endforeach?>
-            </li>
-        </div><br>
-
-        <li><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></li>
-        <li><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a><li>
+                </div>
+        </li>
+        <li><button><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></button></li>
+        <li><button><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a></button><li>
                     
         <?php endforeach ?>
     
@@ -119,4 +120,6 @@ var_dump($items);
 <div>
         <a href="index.php?route=insert_item">Ajouter un autre produit</a>
         <div><a href="index.php">Retour</a></div>
+</div>
+
 </div>

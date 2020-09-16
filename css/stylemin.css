@@ -98,7 +98,7 @@ h2 {
     font-size: 1.6em;
 }
 
-/* ------------------BUTTONS brands SMALL -------------------------------------- */
+/* ------------------BUTTONS brands -------------------------------------- */
 
 button a {
     color: #ffffff;
@@ -107,7 +107,6 @@ button a {
 }
 
 button{
-    font-family: 'Roboto', sans-serif;
     width: 40%;
     margin: 2px;
     text-decoration: none;
@@ -200,7 +199,7 @@ button:hover:before{
 
 
 
-/*FORM RECHERCHE SMALL-------------------------------------------------------*/
+/*FORM RECHERCHE -------------------------------------------------------*/
 
 .nav_barre {
     text-align: center;
@@ -211,7 +210,6 @@ button:hover:before{
     width: 80%;
     display: inline-block;
 }
-
 
 .recherche #maRecherche, .recherche select {
    
@@ -239,27 +237,21 @@ button:hover:before{
     margin: 1em auto;
 }
 
-/* FORM CONTACT SMALL --------------------------------------------------- */
+/* FORM CONTACT + INSCRIPTION + CONNECT + ADMIN --------------------------------------------------- */
 
-.form_contact {
-    background-color: rgba(163, 163, 167, 0.8);
-    width: 90%;
-    border-radius: 8px;
-    -webkit-box-shadow: 17px 17px 21px -5px rgb(18, 20, 22);
-    -moz-box-shadow: 17px 17px 21px -5px rgb(45, 50, 53);
-    box-shadow: 17px 17px 21px -5px rgb(30, 31, 32);
+.form_contact, .form_signUp, .form_connect { 
     margin: auto;
     padding: 1em;
     display: flex;
     flex-flow: column wrap;
 }
 
-.form_contact h2 {
+.form_contact h2, .form_signUp h2, .form_connect h2, .monEspace h2 {
     font-size: large;
     width: 100%;
 }
 
-.form_contact .field {
+.form_contact .field, .form_signUp .field, .form_connect .field {
     width: 100%;
     padding: 0;
     margin: 0.5em 0;
@@ -267,7 +259,13 @@ button:hover:before{
 
 .form_contact input[type=text], 
 .form_contact select, 
-.form_contact textarea {
+.form_contact textarea,
+.form_signUp input[type=text],
+.form_signUp input[type=password],
+.form_connect input[type=text],
+.form_connect input[type=password],
+.form_admin input[type=text],
+.note_form textarea {
     width: calc(100% - 2em - 4px);
     padding: 1em;
     font-size: 20px;
@@ -278,7 +276,7 @@ button:hover:before{
     outline: none;
 }
 
-.form_contact .cp_input {
+.form_contact .cp_input, .form_admin .select {
     width: 100%;
     padding: 0;
     display: flex;
@@ -286,7 +284,7 @@ button:hover:before{
     align-items: center;
 }
 
-.form_contact .cp_input select {
+.form_contact .cp_input select, .form_admin .select select {
     width: 100%;
 }
 
@@ -295,12 +293,21 @@ button:hover:before{
 }
 
 
-.cont button {
+.cont button, .signUp button, .form_connect_btn button, .monEspace .espace button, .form_admin button, .articles button  {
     width: 100%;
+    margin-top: 5%;
+    outline: none;
 }
 
+.monEspace .espace button {
+    width: 50%;
+}
 
-/*SELECTION SMALL -------------------------------------*/
+.monEspace .espace {
+    text-align: center;
+}
+
+/*SELECTION -------------------------------------*/
 
 .selection {
     
@@ -340,11 +347,14 @@ div[id^='modal'] {
 
 .modal-header, .modal-footer {
     padding: 2px 0;
-    font-size: 3vh;
     position: fixed;
     background-color: #4f1b50;
     color: rgb(233, 220, 220);
     width: 80%;
+}
+
+.modal-header h2, .modal-footer h3 {
+font-size: small;
 }
 
 .modal-header {
@@ -434,28 +444,59 @@ div[id^='modal'] {
     transition: opacity 0.5s ease-in-out;
 }
 
-.overlay:hover .link {
-    opacity: 0.8;
-    display: none;
-}
-
-
 .produit {
     text-align: center;
 }
 
 .produit .photo .overlay a {
-    color: #ffffff;
+    color:#862588;
     text-decoration: none;
+    
 }
 
 .produit .photo .overlay a img {
-    width: 80%;
 }
 
 
 .produit p {
     text-align: center;
+    min-height: 70px;
+}
+
+
+/* ------------ CONTENT_ITEM -------------------------*/
+
+.prod .info {
+    text-align: center;
+}
+
+div.img_vignette.slick-slide.slick-current.slick-active {
+    margin: auto;
+}
+
+button.slick-prev.slick-arrow, button.slick-next.slick-arrow, button.liste1 {
+    width: 100%;
+    margin: auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    outline: none;
+}
+
+
+.note form .env button {
+    width: 100%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.note form .env button:focus {
+    outline: none;
+}
+
+.note_form p, .radio, #avis_label {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 /* ------------FOOTER-------------------------*/
@@ -498,6 +539,7 @@ div[id^='modal'] {
     background-color:rgba(99, 55, 110, 0.7);
     border-radius: 5px;
     margin: auto;
+    margin-top: 10%;
 }
 
 #basket p {
@@ -514,5 +556,30 @@ div[id^='modal'] {
     display: block;
     margin: auto;
     margin-top: 10px;
+}
+
+/* ESPACE ADMIN */
+
+.monEspace {
+    width: 100%;
+    margin: auto;
+}
+.articles ul li{
+    list-style-type: none;
+}
+
+.articles ul {
+    padding: 0;
+    margin: auto;
+    
+}
+
+.liste_img {
+    display: flex;
+    flex-direction: row;
+}
+
+.liste_img img {
+    width: 30%;
 }
 

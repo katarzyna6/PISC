@@ -31,6 +31,8 @@
         margin: auto;
     }
 
+    /* FORM CONTACT + INSCRIPTION + CONNECT + ADMIN -MEDIUM-------------------------------------------------- */
+
     /*BRANDS MEDIUM */
     div.content > div > button{
         width: 45%;
@@ -66,12 +68,14 @@
 
     .produit .photo .overlay a img {
         width: 100%;
+        margin: auto;
+        
     }
-
 
     .produit p {
         text-align: center;
     }
+
 
     /* FORM CONTACT MEDIUM */
 
@@ -106,6 +110,47 @@
         z-index: 100;
     }
 
+    /* ------------ CONTENT_ITEM -------------------------*/
 
-    
-}
+
+    .img_vignette img {
+        width: 80%;
+        margin: auto;
+    } 
+
+    div.img_vignette.slick-slide.slick-current.slick-active {
+        margin: 0;
+    }
+
+    button.slick-prev.slick-arrow, button.slick-next.slick-arrow, button.liste1 {
+        display: block;
+        width: 80%;
+        margin: auto;
+        margin-top: 4%;
+        margin-bottom: 4%;
+        outline: none;
+    }
+
+    .note_form textarea {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+
+
+    .note form .env button {
+        display: block;
+        width: 84%;
+    }
+
+    .note form .env button:focus {
+        outline: none;
+    }
+
+    .note_form p, .radio, #avis_label {
+        text-align: center;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+        
+    }

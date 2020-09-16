@@ -19,7 +19,8 @@ $n_items = $view['datas']['new_items'];
 
                         <a class="link" href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
-                        <a href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
+                        
+                        <p class="description_item"><?= htmlspecialchars($item->getName())?></p>
                         <button class="myBtn" id="myBtn-<?= htmlspecialchars($item->getIdItem())?>">Voir le produit</button>
 
                         <!-- The Modal -->

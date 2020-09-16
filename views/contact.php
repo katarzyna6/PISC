@@ -36,7 +36,7 @@ $liste = $view['datas']['liste'];
 
         <div class="liste_contact">
             <?php if(isset($_SESSION['liste'])): ?>
-                <div>Les produits choisis :
+                <div><b>Les produits choisis : </b>
                     <?php foreach($liste as $li): ?>
                         <ul>
                             <li>
@@ -53,6 +53,8 @@ $liste = $view['datas']['liste'];
             <label for="message"></label>
             <textarea id="message" name="message" rows="4" cols="25" placeholder="Votre message"></textarea>
         </div>
+
+        <div class="g-recaptcha" data-sitekey="6LcrEM0ZAAAAAPJHGqthmKXmi5LuAsvj8fhnJYEd"></div>
 
         <div class="cont">
             <button type="submit">Envoyer le message</button>

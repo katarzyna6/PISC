@@ -91,17 +91,16 @@
         padding: 10px;
     }
 
-    .recherche #maRecherche, .recherche select {
+    .recherche #maRecherche, .recherche select, .btn_rech {
     
         width: 100%;
-        padding: 10px;
         margin:10px;
     }
 
     #button_recherche {
-        display: block;
-    width: 100%;
-    margin: 10px;
+        /* display: block;
+        width: 100%;
+        margin: 10px; */
     }
 
     /*-------------------------------------*/
@@ -263,19 +262,32 @@
         flex-direction: column;
     }
 
-    .note p, .radio, label, textarea {
+    .note_form textarea {
+        width: 50%;
+    }
+    #main > div.note > form > div.env > button{
+        width: 54%;
+        display: block;
+    } 
+
+    button.slick-prev.slick-arrow, button.slick-next.slick-arrow {
         margin: auto;
     }
-
-    .env {
-        width: 100%;
+        /* position: absolute;
+        cursor: pointer;
+        border: 30px solid transparent;
     }
-
-    .env button {
-        width: 28%;
-        display: block;
-        margin: 1em auto;
+    
+      button.slick-next.slick-arrow {
+        border-left: 30px solid rgb(66, 67, 70);
     }
+    
+    button.slick-prev.slick-arrow {
+        border-right: 30px solid rgb(66, 67, 70);
+    }
+    
+        button.slick-next.slick-arrow { left: 5em; }
+        button.slick-prev.slick-arrow { right: 5em; } */
 
     /* ------------------- BRAND ----------------- */
 
