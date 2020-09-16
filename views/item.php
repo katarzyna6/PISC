@@ -3,9 +3,10 @@ $item = $view['datas']['item'];
 ?>
 
 <div class="content_item">
+<h3><?= $item->getName()?></h3>
 
        <div class="prod">
-
+       
               <div class="info">
                      <div class="item1"><p><b><?= $item->getDescription()?></b></p></div>
 
