@@ -2,7 +2,7 @@
 $liste = $view['datas']['liste'];
 ?>
             
-<form class = "form_contact" action="index.php?route=contact" method="POST">
+<form class = "form_contact" action="contact" method="POST">
         
     <h2>Contactez-moi</h2>
     

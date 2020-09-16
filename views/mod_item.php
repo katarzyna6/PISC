@@ -1,6 +1,6 @@
 <div class = "form_admin">
 
-    <form action="index.php?route=mod_item" method="POST" enctype="multipart/form-data">
+    <form action="mod_item" method="POST" enctype="multipart/form-data">
             
         <h2>Modifier un produit</h2>
 
@@ -67,7 +67,7 @@
 
                     <?php if($image->getIdItem() == $view['datas']['item']->getIdItem()) : ?>
                             <img src="img/<?=$image->getName(); ?>">
-                            <a class="link" href="index?route=del_image&id=<?= $image->getIdImage()?>">Delete</a>
+                            <a class="link" href="del_image-<?= $image->getIdImage()?>">Delete</a>
                     <?php endif ?>
 
                 <?php endforeach ?> 

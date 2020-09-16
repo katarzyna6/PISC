@@ -1,6 +1,6 @@
 <div class = "form_signUp">
                 
-        <form action="index.php?route=insert_admin" method="POST">
+        <form action="insert_admin" method="POST">
         <h2>Inscrivez-vous tant que Administrateur</h2>
         
         
@@ -34,7 +34,7 @@
 
 <div class = "form_connect">
                     
-        <form action="index.php?route=connect" method="POST">
+        <form action="connect" method="POST">
             
         <h2>Connectez-vous</h2>
         

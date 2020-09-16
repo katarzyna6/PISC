@@ -17,7 +17,7 @@ $n_items = $view['datas']['new_items'];
                             <?php endif?>
                         </a>
 
-                        <a class="link" href="index?route=item&id=<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
+                        <a class="link" href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
                         <a href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
                         <button class="myBtn" id="myBtn-<?= htmlspecialchars($item->getIdItem())?>">Voir le produit</button>

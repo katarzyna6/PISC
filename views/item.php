@@ -31,11 +31,8 @@ $item = $view['datas']['item'];
               </div>
 
                      <?php endif ?>
-                     
+                       
                             
-                            
-                     
-
                      <div class="item_button">
                             <button class="liste1"><a href="addListe-<?= $item->getIdItem()?>">Ajouter le produit sur ma liste</a></button>
                      </div>

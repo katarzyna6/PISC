@@ -5,7 +5,7 @@
           <b>4</b>
         </span>
       </h4>
-      <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a> <span class="price"><?= $item->getPrice()?></span></p>
+      <a class="link" href="item-<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a> <span class="price"><?= $item->getPrice()?></span></p>
       <p><a href="#">Product 2</a> <span class="price">$5</span></p>
       <p><a href="#">Product 3</a> <span class="price">$8</span></p>
       <p><a href="#">Product 4</a> <span class="price">$2</span></p>

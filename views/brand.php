@@ -10,13 +10,13 @@ $brand = $view['datas']['brand'];
             <div class="produit">
                 <div class="photo"> 
                     <div class="overlay">
-                        <a href="index?route=item">
+                        <a href="item">
                             <?php if(!empty($item->images)): ?>
                             <img src="img/<?=$item->images[0]->getName(); ?>"> 
                             <?php endif ?>
                         </a>
 
-                        <a class="link" href="index?route=item&id=<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
+                        <a class="link" href="item-<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
