@@ -200,11 +200,11 @@ function showAdmin() {
 
 function addListe() {
     if(isset($_SESSION['liste'])) {
-        array_push($_SESSION['liste'], $_GET['item']);
+        array_push($_SESSION['liste'], $_GET['id']);
     } else {
-        $_SESSION['liste'] = [$_GET['item']];
+        $_SESSION['liste'] = [$_GET['id']];
     }
-    header("Location:item-".$_GET['item']);
+    header("Location:item-".$_GET['id']);
 }
 
 function showItem() {
@@ -588,7 +588,7 @@ function delImage() {
         <link rel="stylesheet" type="text/css" href="css/stylemed.css">
         <link rel="stylesheet" type="text/css" href="css/stylelar.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-        <link href="fonts\fontello\css\fontello.css" rel="stylesheet">
+        <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     </head>
     

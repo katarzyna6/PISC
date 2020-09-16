@@ -32,7 +32,7 @@ h2 {
 } 
 
 .title {
-    font-size: 36px;
+    font-size: 1.7em;
     margin: auto; 
     text-align: center;
 } 
@@ -458,51 +458,55 @@ div[id^='modal'] {
     text-align: center;
 }
 
-/* ------------FOOTER SMALL-------------------------*/
+/* ------------FOOTER-------------------------*/
 
-.footer { 
+#footer { 
     display: block;
     background-color: #9494b8;
     padding: 10px;
     margin-top: 50px;
 }
 
-.footer p {
+#footer p {
     text-align: center;
     font-size: 11px;
     font-style: italic;
 }
-.footer ul {
+
+#footer ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style-type: none;
 }
 
-.footer li {
+#footer li {
     padding: 2px; 
     text-align: center;
 }
 
-.footer li a{
+#footer li a{
     color: #ffffff;
     text-decoration: none;
-
-
 }
-/* BASKET SMALL */
- .basket {
+
+/* BASKET */
+#basket {
     color: #fff;
     width:80%;
     padding: 10px;
     background-color:rgba(99, 55, 110, 0.7);
-    border-radius: 5%;
+    border-radius: 5px;
     margin: auto;
 }
 
-.basket p {
+#basket p {
     text-align: center;
 }
 
-
+#basket #panier {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+}
 

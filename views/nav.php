@@ -1,7 +1,7 @@
 
 <header>
     <div class="logo">
-        <img src="img\logo.png"/>
+        <img src="img/logo.png"/>
     </div>      
     <h1 class="title">Produits cosmétiques</h1>
 </header>

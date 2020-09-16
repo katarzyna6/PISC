@@ -6,6 +6,10 @@
         width: 50%;  
     }
 
+    .title {
+        font-size: 1.7px;
+    } 
+
     /* menu */
     #menu ul li a{
         padding: 0.5em 2px;
@@ -27,47 +31,47 @@
         margin: auto;
     }
 
-/*BRANDS MEDIUM */
-div.content > div > button{
-    width: 45%;
+    /*BRANDS MEDIUM */
+    div.content > div > button{
+        width: 45%;
 
-}
+    }
 
-/* ------------------- CONTAINER ------------------------*/
-
-
-.container {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-} 
-
-.produit {
-    width: 45%;
-}
+    /* ------------------- CONTAINER ------------------------*/
 
 
-.overlay button{ 
-    width: 100%;
-}
+    .container {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+    } 
+
+    .produit {
+        width: 45%;
+    }
 
 
-.overlay {
-    position: relative;
-    padding: 0;
-    margin: 2px;
-}
+    .overlay button{ 
+        width: 100%;
+    }
 
 
-.produit .photo .overlay a img {
-    width: 100%;
-}
+    .overlay {
+        position: relative;
+        padding: 0;
+        margin: 2px;
+    }
 
 
-.produit p {
-    text-align: center;
-}
+    .produit .photo .overlay a img {
+        width: 100%;
+    }
+
+
+    .produit p {
+        text-align: center;
+    }
 
     /* FORM CONTACT MEDIUM */
 
@@ -92,24 +96,16 @@ div.content > div > button{
         width: calc(100% - 3em);
     }
 
-/* BASKET MEDIUM */
-.basket {
-    position: fixed;
-    padding: 10px;
-    bottom: 10%;
-    width:20%;
-    left:80%;
-    z-index: 100;
-}
+    /* BASKET MEDIUM */
+    #basket {
+        position: fixed;
+        padding: 10px;
+        bottom: 10%;
+        width: 25%;
+        right: 0;
+        z-index: 100;
+    }
 
-.basket input, label {
-    display: block;
-}
 
-/* LARGE---------------------------------------------------------------------- */
-
-    .title {
-        font-size: 34px;
-    } 
-
+    
 }

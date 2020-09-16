@@ -37,7 +37,7 @@ $item = $view['datas']['item'];
                      
 
                      <div class="item_button">
-                            <button class="liste1"><a href="index.php?route=addListe&item=<?= $item->getIdItem()?>">Ajouter le produit sur ma liste</a></button>
+                            <button class="liste1"><a href="addListe-<?= $item->getIdItem()?>">Ajouter le produit sur ma liste</a></button>
                      </div>
                      <div class="item_button">
                             <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
