@@ -510,3 +510,9 @@ div[id^='modal'] {
     align-content: center;
 }
 
+#basket button {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+

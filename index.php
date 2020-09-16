@@ -70,6 +70,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         //LISTE
         case "addListe" : addListe();
         break;
+        case "modListe" : modListe();
+        break;
         // case "ajax": $view = showAjax();
         // break;
         default : $view = showHome();
@@ -200,11 +202,36 @@ function showAdmin() {
 
 function addListe() {
     if(isset($_SESSION['liste'])) {
-        array_push($_SESSION['liste'], $_GET['id']);
+        $verif = true;
+        foreach($_SESSION['liste'] as $li) {
+            if($li == $_GET['id']) {
+                $verif = false;
+            }
+        }
+        if($verif) {
+            array_push($_SESSION['liste'], $_GET['id']);
+        } 
     } else {
         $_SESSION['liste'] = [$_GET['id']];
     }
     header("Location:item-".$_GET['id']);
+}
+
+function modListe() {
+    if(!empty($_SESSION['liste'])) {
+        $_SESSION["liste"] = [];
+        foreach($_POST as $key => $elem) {
+            if($key != "redir" && $key != "id") {
+                array_push($_SESSION['liste'], $key);
+            }
+        }
+    } else {
+        $_SESSION['liste'] = [];
+    }
+
+    $redir = (isset($_REQUEST['id']))? $_POST['redir']."-".$_REQUEST['id'] : $_POST['redir'];
+    var_dump($redir);
+    header("Location:$redir");
 }
 
 function showItem() {

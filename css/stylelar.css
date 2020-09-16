@@ -339,19 +339,9 @@
     /* LISTE */
 
     /* BASKET LARGE */
-    /* .basket {
-        position: fixed;
-        bottom: 20%;
-        width:10%;
-        left:90%;
-        z-index: 100;
-        background-color:rgba(99, 55, 110, 0.7);
-        border-radius: 6%;
+    #basket {
+        width: 15%;
     }
-
-    .basket input, label {
-        display: block;
-    } */
 
     /* ------------FOOTER LARGE -------------------------*/
 

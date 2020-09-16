@@ -40,7 +40,6 @@ $item = $view['datas']['item'];
                             <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
                      </div>
 
-                            
        </div>
 </div>
 
