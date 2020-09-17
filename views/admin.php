@@ -58,7 +58,7 @@ $image = $view['datas']["images"];
             <input type="file" name="image" id="image"  value="" multiple>
         </div>
                 
-        <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['book']->getAvis() : ""; ?>"/></div>
+        <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getAvis() : ""; ?>"/></div>
 
         <div>
             <label for="note">Ajouter une note</label><br>
@@ -90,7 +90,7 @@ $image = $view['datas']["images"];
     foreach($items as $item) :?>
     
 <p><b>
-        <li><p><b>Nom :</b></p> <a href="admin-<?= htmlspecialchars($item->getIdItem())?>.html"><?= htmlspecialchars($item->getName());?></a></li>
+        <li><p><b>Nom :</b></p> <a href="admin-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
         <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
         <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
         <li><p><b>Catégorie :</b></p> <?= htmlspecialchars($item->categorycomplete->getName());?></li>
