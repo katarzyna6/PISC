@@ -91,11 +91,7 @@ $image = $view['datas']["images"];
     foreach($items as $item) :?>
     
 <p><b>
-<<<<<<< HEAD
-        <li><p><b>Nom :</b></p> <a href="admin-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
-=======
         <li><p><b>Nom :</b></p> <a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
->>>>>>> 2289318e94ce12f3111a9035ac9e1b1c41bbbc4c
         <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
         <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
         <li><p><b>Catégorie :</b></p> <?= htmlspecialchars($item->categorycomplete->getName());?></li>
