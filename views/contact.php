@@ -60,7 +60,7 @@ $liste = $view['datas']['liste'];
             <button type="submit">Envoyer le message</button>
         </div>
         
-            <h3><a href="index.php">Retour</a><h3>
+            <h3 id="retour"><a href="index.php">Retour</a><h3>
 
     </form>
     

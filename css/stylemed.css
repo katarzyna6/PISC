@@ -100,6 +100,10 @@
         width: calc(100% - 3em);
     }
 
+    .cont button {
+        margin-bottom: 20%;
+    }
+
     /* BASKET MEDIUM */
     #basket {
         position: fixed;
@@ -152,5 +156,6 @@
         margin-top: 2%;
         margin-bottom: 2%;
     }
+
         
-    }
+}
