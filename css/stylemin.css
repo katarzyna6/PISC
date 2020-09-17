@@ -417,6 +417,7 @@ font-size: small;
     position: relative;
     padding: 0;
     margin: 2px;
+    border: 1px solid red;
 }
 
 .overlay img {
@@ -466,7 +467,7 @@ font-size: small;
 
 /* ------------ CONTENT_ITEM -------------------------*/
 
-.prod .info {
+.info {
     text-align: center;
 }
 
@@ -474,14 +475,49 @@ div.img_vignette.slick-slide.slick-current.slick-active {
     margin: auto;
 }
 
-button.slick-prev.slick-arrow, button.slick-next.slick-arrow, button.liste1 {
-    width: 100%;
+.img_selection {
+    margin: auto;
+}
+
+.img_selection .img_vignette img{
+    width: 90%;
+    margin: auto;
+}
+
+button.slick-prev, button.slick-next {
+    display: block;
+    margin: auto;
+    width: 15vw !important;
+    height : calc(15vw);
+    padding: 0;
+    background-color: transparent !important;
+    border: calc(7.5vw) solid transparent;
+}
+
+button.slick-prev {
+    border-right: calc(7.5vw) solid #9494b8;
+    position: absolute;
+    z-index: 5000;
+    left: -7%;
+    top: 42%;
+}
+
+button.slick-next {
+    border-left: calc(7.5vw) solid #9494b8;
+    position: absolute;
+    z-index: 5000;
+    right: -7%;
+    top: 42%;
+}
+
+button.liste1 {
+    display: block;
+    width: 90%;
     margin: auto;
     margin-top: 4%;
     margin-bottom: 4%;
     outline: none;
-}
-
+} 
 
 .note form .env button {
     width: 100%;

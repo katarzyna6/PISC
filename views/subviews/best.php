@@ -11,7 +11,7 @@ $b_items = $view['datas']['best_items'];
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="item">
+                        <a href="item-<?= htmlspecialchars($item->getIdItem())?>">
                             <?php if(isset($item->images[0])) : ?>
                                 <p>Note : <?= htmlspecialchars($item->getNote())?></p>
                                 <img src="img/<?= htmlspecialchars($item->images[0]->getName()); ?>">  

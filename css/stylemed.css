@@ -111,7 +111,7 @@
         bottom: 10%;
         width: 25%;
         right: 0;
-        z-index: 100;
+        z-index: 7000;
     }
 
     /* ------------ CONTENT_ITEM -------------------------*/
@@ -126,13 +126,20 @@
         margin: 0;
     }
 
-    button.slick-prev.slick-arrow, button.slick-next.slick-arrow, button.liste1 {
-        display: block;
-        width: 80%;
-        margin: auto;
-        margin-top: 4%;
-        margin-bottom: 4%;
-        outline: none;
+    button.slick-prev {
+        border-right: calc(7.5vw) solid #9494b8;
+        position: absolute;
+        z-index: 5000;
+        left: -7%;
+        top: 38%;
+    }
+    
+    button.slick-next {
+        border-left: calc(7.5vw) solid #9494b8;
+        position: absolute;
+        z-index: 5000;
+        right: -7%;
+        top: 38%;
     }
 
     .note_form textarea {

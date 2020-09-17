@@ -78,8 +78,8 @@ $item = $view['datas']['item'];
 
 document.addEventListener("DOMContentLoaded", function(event) { 
        $('.img_selection').slick( {
-              prevArrow: '<button type="button" class="slick-prev">Precedent</button>',
-              nextArrow: '<button type="button" class="slick-next">Suivant</button>'
+              prevArrow: '<button type="button" class="slick-prev"></button>',
+              nextArrow: '<button type="button" class="slick-next"></button>'
        }
               
   );

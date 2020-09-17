@@ -270,24 +270,37 @@
         display: block;
     } 
 
-    button.slick-prev.slick-arrow, button.slick-next.slick-arrow {
-        margin: auto;
+    .img_selection .img_vignette{
+        width: 90%;
     }
-        /* position: absolute;
+
+    button.slick-prev, button.slick-next {
+        width: 5vw !important;
+        height : calc(5vw);
+        padding: 0;
+        background-color: transparent !important;
+        border: calc(2.5vw) solid transparent;
+    }
+
+    button.slick-prev {
+        border-right: calc(2.5vw) solid #9494b8;
+        position: absolute;
+        z-index: 5000;
+        left: -5%;
+        top: 45%;
+    }
+    
+    button.slick-next {
+        border-left: calc(2.5vw) solid #9494b8;
+        position: absolute;
+        z-index: 5000;
+        right: -5%;
+        top: 45%;
+    }
+
+    button.slick-prev:hover, button.slick-next:hover {
         cursor: pointer;
-        border: 30px solid transparent;
     }
-    
-      button.slick-next.slick-arrow {
-        border-left: 30px solid rgb(66, 67, 70);
-    }
-    
-    button.slick-prev.slick-arrow {
-        border-right: 30px solid rgb(66, 67, 70);
-    }
-    
-        button.slick-next.slick-arrow { left: 5em; }
-        button.slick-prev.slick-arrow { right: 5em; } */
 
     /* ------------------- BRAND ----------------- */
 

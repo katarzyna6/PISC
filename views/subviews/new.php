@@ -11,7 +11,7 @@ $n_items = $view['datas']['new_items'];
                 <div class="photo"> 
                     <div class="overlay">
 
-                        <a href="item">
+                        <a href="item-<?= htmlspecialchars($item->getIdItem())?>">
                             <?php if(isset($item->images[0])) : ?>
                                 <img src="img/<?=$item->images[0]->getName(); ?>">
                             <?php endif?>
