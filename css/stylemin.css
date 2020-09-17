@@ -265,6 +265,8 @@ button:hover:before{
 .form_connect input[type=text],
 .form_connect input[type=password],
 .form_admin input[type=text],
+.form_admin input[type=file],
+.form_admin select,
 .note_form textarea {
     width: calc(100% - 2em - 4px);
     padding: 1em;

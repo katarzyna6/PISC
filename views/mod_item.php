@@ -7,9 +7,8 @@
         <div><label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
 
         <div>
-    
-            <label for="brand">Marque :</label><br>
             <select id="brand" name="brand">
+                <option disabled selected>-- Choisissez une marque --</option>
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
                     
                     <option <?= $brand->getIdBrand() == $view['datas']['item']->getIdBrand()? "selected" : "";?>
