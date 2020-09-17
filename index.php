@@ -375,33 +375,32 @@ function showConnect() {
     return ["template" => "connect.php", "datas" => $datas];
 }
 
-function InsertAdmin() {
+function insertAdmin() {
 
     if(!empty($_POST["nick"]) && (!empty($_POST["email"]) && ($_POST["password"] === $_POST["password2"]))) {
-
-        if (preg_match("^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$", $_POST["nick"])
-            && preg_match("^(a-z0-9)+(a-z0-9)+@(a-z0-9)+(a-z0-9)$", $_POST["email"])
-            && preg_match("^[a-zA-Z0-9]+$", $_POST["password"]))  {
-    
-        $admin = new Admin();
-        $admin->setNick($_POST["nick"]);
-        $admin->setEmail($_POST["email"]);
-        $admin->setPassword(password_hash($_POST["password"], PASSWORD_DEFAULT));
-
-        $admin->insert();
-        $nick= isset($_POST['nick'])? $_POST['nick'] : "null";
-        $password= isset($_POST['password'])? $_POST['password'] : "null";
-        $_SESSION['nick']=$nick;
-        $_SESSION['password']=$password;
-    
-    }
-    else {
-        echo "Erreur.<br>"; 
-    }
         
-    setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
-    header("Location:admin");
-}
+    var_dump($_POST);
+        if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nick"])
+            && preg_match("#^[a-z0-9]+@[a-z0-9]+.[a-z0-9]+$#", $_POST["email"]))  {
+    
+            $admin = new Admin();
+            $admin->setNick($_POST["nick"]);
+            $admin->setEmail($_POST["email"]);
+            $admin->setPassword(password_hash($_POST["password"], PASSWORD_DEFAULT));
+
+            $admin->insert();
+            $nick= isset($_POST['nick'])? $_POST['nick'] : "null";
+            $password= isset($_POST['password'])? $_POST['password'] : "null";
+            $_SESSION['nick']=$nick;
+            $_SESSION['password']=$password;
+    
+        } else {
+            echo "Erreur.<br>"; 
+        }
+        
+        setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
+        //header("Location:admin");
+    }
 }
 
 function connectAdmin() {
@@ -610,7 +609,7 @@ function sendEmail() {
 
     if($verifCaptcha) {
         // Autres vérifications
-        
+
         $subject = "";
         $message = "";
 

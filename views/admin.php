@@ -18,11 +18,13 @@ $image = $view['datas']["images"];
             
         <h2><?= isset($view['datas']['item'])? "Modifier un produit" : "Ajouter un produit"; ?> </h2>
 
-        <div><label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/></div>
+        <div class="field">
+            <label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/>
+        </div>
 
         <div class="select">
-            <label for="brand">Marque :</label><br>
             <select id="brand" name="brand">
+                <option value="" disabled selected>-- Choisissez une marque --</option>
                 <?php foreach ($view["datas"]["brand"] as $brand): ?>
                     <option value="<?= htmlspecialchars($brand->getIdBrand()); ?>"><?= htmlspecialchars($brand->getName()); ?></option>
                 <?php endforeach ?>
@@ -34,9 +36,8 @@ $image = $view['datas']["images"];
         <div><label for="price">Prix</label><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>"/></div>
 
         <div class="select">
-            <label for="category">Catégorie :</label><br>
             <select id="category" name="category">
-
+                <option value="" disabled selected>-- Choisissez une catégorie --</option>
                 <?php foreach ($view["datas"]["category"] as $cat): ?>
                     <option value="<?= htmlspecialchars($cat->getIdCategory()); ?>"><?= htmlspecialchars($cat->getName()); ?></option>  
                 <?php endforeach ?>
@@ -45,8 +46,8 @@ $image = $view['datas']["images"];
         </div>
 
         <div class="select">
-            <label for="subcategory">Sous-catégorie</label>
             <select id="subcategory" name="subcategory">
+                <option value="" disabled selected>-- Choisissez une sous-catégorie --</option>
                 <?php foreach ($view["datas"]["subcategory"] as $subcat): ?>
                     <option value="<?= htmlspecialchars($subcat->getIdSubcategory()); ?>"><?= htmlspecialchars($subcat->getName()); ?></option>
                 <?php endforeach ?> 
@@ -90,7 +91,11 @@ $image = $view['datas']["images"];
     foreach($items as $item) :?>
     
 <p><b>
+<<<<<<< HEAD
         <li><p><b>Nom :</b></p> <a href="admin-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
+=======
+        <li><p><b>Nom :</b></p> <a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
+>>>>>>> 2289318e94ce12f3111a9035ac9e1b1c41bbbc4c
         <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
         <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
         <li><p><b>Catégorie :</b></p> <?= htmlspecialchars($item->categorycomplete->getName());?></li>

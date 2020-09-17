@@ -375,4 +375,10 @@
         flex-direction: row;
         justify-content: space-around;
     }
+
+    /* Formulaires */
+    .form_signUp, .form_connect, .form_admin { 
+        width: 60%;
+        margin: auto;
+    }
 }
