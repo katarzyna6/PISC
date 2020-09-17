@@ -26,6 +26,16 @@ for(var btn of btns) {
         let modal = document.getElementById("modal-" + id[1]);
         console.log(modal);
         modal.style.display = "block";
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            console.log("windows click");
+            console.log(event.target);
+            if (event.target == modal) {
+                console.log("windows click out");
+                modal.style.display = "none";
+            }
+        }
     }
 }
 
@@ -39,12 +49,7 @@ for(var span of spans) {
         console.log(id);
         let modal = document.getElementById("modal-" + id[1]);
         modal.style.display = "none";
+
     }
 }
 
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }

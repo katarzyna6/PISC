@@ -358,11 +358,11 @@ font-size: small;
 }
 
 .modal-header {
-    top: 15vh;
+    top: 20vh;
 }
 
 .modal-footer {
-    top: 75vh;
+    top: 80vh;
 }
 
 .modal-body {
@@ -380,8 +380,8 @@ font-size: small;
     color: white;
     position: absolute;
     z-index: 2;
-    right: 1em;
-    top: 0.5em;
+    right: 0.5em;
+    top: 0.2em;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;

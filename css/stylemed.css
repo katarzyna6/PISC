@@ -76,6 +76,10 @@
         text-align: center;
     }
 
+    /* MODALE */
+    .modal-header h2, .modal-footer h3 {
+        font-size: large;
+    }
 
     /* FORM CONTACT MEDIUM */
 
