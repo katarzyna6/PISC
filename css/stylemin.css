@@ -496,6 +496,7 @@ button.slick-prev, button.slick-next {
     padding: 0;
     background-color: transparent !important;
     border: calc(7.5vw) solid transparent;
+    outline: none;
 }
 
 button.slick-prev {
@@ -631,5 +632,4 @@ button.liste1 {
 .but {
     width: 92%;
     margin: auto;
-}
 }
