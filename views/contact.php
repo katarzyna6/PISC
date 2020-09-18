@@ -35,7 +35,7 @@ $liste = $view['datas']['liste'];
     </div>
 
         <div class="liste_contact">
-            <?php if(isset($_SESSION['liste'])): ?>
+            <?php if(isset($_SESSION['liste'])): echo "Vous n'avez pas d'articles à afficher"; ?>
                 <div><b>Les produits choisis : </b>
                     <?php foreach($liste as $li): ?>
                         <ul>
