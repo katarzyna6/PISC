@@ -10,5 +10,5 @@
 
     </div>
 
-    <a href="index.php?route=home" target="_blank">Retour à l'Accueil</a>
+    <a href="home" target="_blank">Retour à l'Accueil</a>
 </div>
