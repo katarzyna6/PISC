@@ -56,10 +56,10 @@ $liste = $view['datas']['liste'];
             <textarea id="message" name="message" rows="4" cols="25" placeholder="Votre message"></textarea>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LcrEM0ZAAAAAPJHGqthmKXmi5LuAsvj8fhnJYEd"></div>
+        <div class="g-recaptcha" data-sitekey="6LcrE"></div>
         <?php 
             if (isset($_POST['submit'])) {
-                $secret = '6Le88MwZAAAAAAOzQfLVecRBIUXkbIv51Uf_PZEi';
+                $secret = '6Le88Mw';
                 $response = $_POST['g-recaptcha-response'];
                 $remoteip = $_SERVER['REMOTE_ADDR'];
                 

@@ -597,7 +597,7 @@ function delImage() {
 
 function sendEmail() {
 
-    $secret = '6Le88MwZAAAAAAOzQfLVecRBIUXkbIv51Uf_PZEi';
+    $secret = '6Le88';
     $response = $_POST['g-recaptcha-response'];
     $remoteip = $_SERVER['REMOTE_ADDR'];
     
