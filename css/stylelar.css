@@ -312,6 +312,12 @@
         width: 15%;
     }
 
+    /* FORM CONTACT + INSCRIPTION + CONNECT + ADMIN -LARGE-------------------------------------------------- */
+
+    .monEspace .espace button {
+        width: 60%;
+    }
+
     /* ------------------- ITEM PAGE LARGE ----------------- */
     .prod {
         display: flex;
@@ -380,5 +386,9 @@
     .form_signUp, .form_connect, .form_admin { 
         width: 60%;
         margin: auto;
+        margin-bottom: 10%;
+    }
+
+    .articles {
     }
 }

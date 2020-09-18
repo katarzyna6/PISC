@@ -33,6 +33,14 @@
 
     /* FORM CONTACT + INSCRIPTION + CONNECT + ADMIN -MEDIUM-------------------------------------------------- */
 
+    .form_admin {
+        width: 90%;
+    }
+
+    .monEspace .espace button {
+        width: 90%;
+    }
+
     /*BRANDS MEDIUM */
     div.content > div > button{
         width: 45%;

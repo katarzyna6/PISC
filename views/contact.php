@@ -2,7 +2,7 @@
 $liste = $view['datas']['liste'];
 ?>
             
-<form class = "form_contact" action="sendemail" method="POST">
+<form class = "form_contact" action="contact" method="POST">
         
     <h2>Contactez-moi</h2>
     
@@ -57,6 +57,21 @@ $liste = $view['datas']['liste'];
         </div>
 
         <div class="g-recaptcha" data-sitekey="6LcrEM0ZAAAAAPJHGqthmKXmi5LuAsvj8fhnJYEd"></div>
+        <?php 
+            if (isset($_POST['submit'])) {
+                $secret = '6Le88MwZAAAAAAOzQfLVecRBIUXkbIv51Uf_PZEi';
+                $response = $_POST['g-recaptcha-response'];
+                $remoteip = $_SERVER['REMOTE_ADDR'];
+                
+                $url = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip");
+                $result = json_decode($url, TRUE);
+                    if ($result['success'] == 1) {
+                    echo 'ok';
+                    }else{
+                    echo 'error reCAPTCHA';
+                }
+            }
+        ?>
 
         <div class="cont">
             <button type="submit">Envoyer le message</button>

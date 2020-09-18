@@ -2,7 +2,7 @@
     <p>MA LISTE</p>
     <form action="modListe" method="POST">
         <table id="panier">
-            <?php if(isset($_SESSION['liste'])): ?>
+            <?php if(isset($_SESSION['liste'])): echo "Vous n'avez pas d'articles à afficher"; ?>
                 <?php foreach($liste as $li): ?>
                 <tr>
                     <td><input class="bsk" type="checkbox" name="<?= $li->getIdItem() ?>" id="check-<?= $li->getIdItem() ?>" checked></td>

@@ -1,11 +1,14 @@
-<h1>Termes et Conditions</h1>
+<div class="trm">
+    <h1>Termes et Conditions</h1>
 
-<ol>
-    <li><a href="index.php?route=politique" target="_blank">Politique de Confidentialité</a></li>
+    <div class="termes">
+        <button><a href="index.php?route=politique" target="_blank">Politique de Confidentialité</a></button>
 
-    <li><a href="index.php?route=cgv" target="_blank">Conditions Générales de Vente</a></li>
+        <button><a href="index.php?route=cgv" target="_blank">Conditions Générales de Vente</a></button>
 
-    <li><a href="index.php?route=mentions" target="_blank">Mentions Légales</a></li>
+        <button><a href="index.php?route=mentions" target="_blank">Mentions Légales</a></button>
 
-    <li><a href="index.php?route=home" target="_blank">Retour à l'Accueil</a></li>
-</ol>
+    </div>
+
+    <a href="index.php?route=home" target="_blank">Retour à l'Accueil</a>
+</div>

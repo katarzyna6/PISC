@@ -19,7 +19,7 @@ $image = $view['datas']["images"];
         <h2><?= isset($view['datas']['item'])? "Modifier un produit" : "Ajouter un produit"; ?> </h2>
 
         <div class="field">
-            <label for="name">Nom</label><input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>"/>
+            <input type="text" name="name" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getName() : ""; ?>" placeholder="Nom"/>
         </div>
 
         <div class="select">
@@ -31,9 +31,9 @@ $image = $view['datas']["images"];
             </select>
         </div>
 
-        <div><label for="description">Description</label><input type="text" name="description" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getDescription() : ""; ?>"/></div>
+        <div class="field"><input type="text" name="description" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getDescription() : ""; ?>" placeholder="Description"/></div>
 
-        <div><label for="price">Prix</label><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>"/></div>
+        <div class="field"><input type="text" name="price" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getPrice() : ""; ?>" placeholder="Prix"/></div>
 
         <div class="select">
             <select id="category" name="category">
@@ -54,14 +54,16 @@ $image = $view['datas']["images"];
             </select>
         </div>
 
-        <div>
-            <label for="image">Image</label>
-            <input type="file" name="image" id="image"  value="" multiple>
+        <div class="field">
+            <input type="file" name="image" id="image"  value="" multiple placeholder="Image">
         </div>
                 
-        <div><label for="avis">Avis</label><input type="text" name="avis" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getAvis() : ""; ?>"/></div>
-
         <div>
+            <label for="message"></label>
+            <textarea id="message" type="text" name="avis" rows="4" cols="25" value="<?= isset($view['datas']['item'])? $view['datas']['item']->getAvis() : ""; ?>" placeholder="Avis"/></textarea>
+        </div>
+
+        <div id="avis_label">
             <label for="note">Ajouter une note</label><br>
             <input type="radio" name="note" value=" <?= isset($view['datas']['item'])? $view['datas']['item']->getNote() : ""; ?>">
 
@@ -83,14 +85,20 @@ $image = $view['datas']["images"];
                 <div><button type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>">Ajouter</button></div>
         </form>
     </div>    
+
+
+<!-- <table>
+<tr><th>NOM</th><th>DESCRIPTION</th><th>MARQUE</th><th>CATEGORIE</th><th>SOUS-CATEGORIE</th><th>PRIX</th><th>NOTE</th><th>AVIS</th><th>IMAGES</th></tr>
+<tr><th>NOM</th>
+</table> -->
     
     <h2>Mes produits ajoutés :</h2>
 <div class="articles">
 <ul class="articles_list">
     <?php
+
     foreach($items as $item) :?>
-    
-<p><b>
+
         <li><p><b>Nom :</b></p> <a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
         <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
         <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
@@ -110,9 +118,12 @@ $image = $view['datas']["images"];
 
                 </div>
         </li>
-        <li><button><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></button></li>
-        <li><button><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a></button><li>
-                    
+        <div class="but">
+            <button id="adm" type="submit"><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></button>
+            <button id="adm" type="submit"><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a></button>
+        </div>          
+        
+        <hr><hr>
         <?php endforeach ?>
     
 </ul>
