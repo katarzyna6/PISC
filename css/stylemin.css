@@ -239,19 +239,20 @@ button:hover:before{
 
 /* FORM CONTACT + INSCRIPTION + CONNECT + ADMIN --------------------------------------------------- */
 
-.form_contact, .form_signUp, .form_connect { 
+.form_contact, .form_signUp, .form_connect, .form_admin { 
     margin: auto;
     padding: 1em;
     display: flex;
     flex-flow: column wrap;
+    margin-bottom: 10%;
 }
 
-.form_contact h2, .form_signUp h2, .form_connect h2, .monEspace h2 {
+.form_contact h2, .form_signUp h2, .form_connect h2, .monEspace h2, .form_admin h2 {
     font-size: large;
     width: 100%;
 }
 
-.form_contact .field, .form_signUp .field, .form_connect .field {
+.form_contact .field, .form_signUp .field, .form_connect .field, .form_admin .field, .select {
     width: 100%;
     padding: 0;
     margin: 0.5em 0;
@@ -267,6 +268,7 @@ button:hover:before{
 .form_admin input[type=text],
 .form_admin input[type=file],
 .form_admin select,
+.form_admin textarea,
 .note_form textarea {
     width: calc(100% - 2em - 4px);
     padding: 1em;
@@ -302,7 +304,7 @@ button:hover:before{
 }
 
 .monEspace .espace button {
-    width: 50%;
+    width: 93%;
 }
 
 .monEspace .espace {
@@ -531,7 +533,7 @@ button.liste1 {
     outline: none;
 }
 
-.note_form p, .radio, #avis_label {
+.note_form p, .radio, #avis_label, .form_admin p, .radio, #avis_label {
     text-align: center;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -598,26 +600,36 @@ button.liste1 {
 
 /* ESPACE ADMIN */
 
-.monEspace {
-    width: 100%;
-    margin: auto;
-}
-.articles ul li{
-    list-style-type: none;
-}
-
-.articles ul {
-    padding: 0;
-    margin: auto;
+.articles {
     
 }
 
-.liste_img {
+.articles ul {
+    list-style: none;
+    padding: 2%;
+    border: #862588 2px solid;
+    border-radius: 5px;
+}
+
+.articles ul li {
+}
+
+.img-list {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
-.liste_img img {
-    width: 30%;
+.img-list img {
+    width: 25%
 }
 
+.form_admin #adm [type=submit] {
+    width: 15%;
+}  
+
+.but {
+    width: 92%;
+    margin: auto;
+}
+}
