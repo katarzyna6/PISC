@@ -203,9 +203,15 @@
 
 
     .overlay {
+        width: 18vw;
         position: relative;
         padding: 0;
         margin: 18px;
+    }
+
+    .image_accueil {
+        height: calc(18vw);
+        overflow: hidden;
     }
 
     .overlay img {

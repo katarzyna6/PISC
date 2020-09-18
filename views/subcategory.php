@@ -18,7 +18,7 @@ $images = $view['datas']['images'];
                         <a href="item">
                             <?php foreach($images as $image) : ?>
                                 <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                                <img src="img/<?=$image->getName(); ?>">
+                                <div class="image_accueil"><img src="img/<?=$image->getName(); ?>"></div>
                                 <?php break; ?>
                                 <?php endif; ?>   
                             <?php endforeach?>
@@ -26,12 +26,11 @@ $images = $view['datas']['images'];
 
                         <a class="link" href="item-<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
 
-                    </div>
-                </div>  
-                
-                <button class="myBtn"id="myBtn- <?= $item->getIdItem()?>">Voir le produit</button>
+                        <button class="myBtn"id="myBtn- <?= $item->getIdItem()?>">Voir le produit</button>
+                        <p>Prix : <?= $item->getPrice()?> €</p>
 
-                <p>Prix : <?= $item->getPrice()?> €</p>             
+                    </div>
+                </div>   
             </div>
 
         <?php endforeach ?>

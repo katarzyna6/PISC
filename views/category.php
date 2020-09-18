@@ -18,7 +18,7 @@ $images = $view['datas']['images'];
                         <a href="item">
                             <?php foreach($images as $image) : ?>
                                 <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                                <img src="img/<?=$image->getName(); ?>">
+                                <div class="image_accueil"><img src="img/<?=$image->getName(); ?>"></div>
                                 <?php break; ?>
                                 <?php endif; ?>   
                             <?php endforeach?>

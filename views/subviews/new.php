@@ -13,7 +13,7 @@ $n_items = $view['datas']['new_items'];
 
                         <a href="item-<?= htmlspecialchars($item->getIdItem())?>">
                             <?php if(isset($item->images[0])) : ?>
-                                <img src="img/<?=$item->images[0]->getName(); ?>">
+                                <div class="image_accueil"><img src="img/<?=$item->images[0]->getName(); ?>"></div>
                             <?php endif?>
                         </a>
 

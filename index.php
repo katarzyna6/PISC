@@ -231,7 +231,9 @@ function modListe() {
         $_SESSION['liste'] = [];
     }
 
-    $redir = (isset($_REQUEST['id']))? $_POST['redir']."-".$_REQUEST['id'] : $_POST['redir'];
+    
+    $route = isset($_POST['redir'])? $_POST['redir'] : "home";
+    $redir = (isset($_REQUEST['id']))? $route."-".$_REQUEST['id'] : $_POST['redir'];
     header("Location:$redir");
 }
 

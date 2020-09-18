@@ -12,7 +12,7 @@ $brand = $view['datas']['brand'];
                     <div class="overlay">
                         <a href="item">
                             <?php if(!empty($item->images)): ?>
-                            <img src="img/<?=$item->images[0]->getName(); ?>"> 
+                            <div class="image_accueil"><img src="img/<?=$item->images[0]->getName(); ?>"></div>
                             <?php endif ?>
                         </a>
 
