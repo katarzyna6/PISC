@@ -1,7 +1,7 @@
 <div class = "form_signUp">
                 
         <form action="insert_admin" method="POST">
-        <h2>Inscrivez-vous en tant que Administrateur</h2>
+        <h2>Inscrivez-vous en tant qu'Administrateur</h2>
         
         
             <div class="field">
