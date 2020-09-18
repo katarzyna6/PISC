@@ -669,7 +669,7 @@ function sendEmail() {
         <!-- <script src="js/script.js"></script>  -->
         <!-- <script src="js/chat.js"></script> -->
         <script src="js/modal.js"></script>
-        <script src="js/ajax.js"></script>
+        <!-- <script src="js/ajax.js"></script> -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
         

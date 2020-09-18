@@ -633,3 +633,24 @@ button.liste1 {
     width: 92%;
     margin: auto;
 }
+
+/*TERMES*/
+
+.termes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.termes button {
+    
+    width: 30%; 
+}
+
+.termes a {
+    text-align: center;
+}
+
+.trm a {
+    text-align: center;
+}
