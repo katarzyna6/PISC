@@ -232,7 +232,6 @@ function modListe() {
     }
 
     $redir = (isset($_REQUEST['id']))? $_POST['redir']."-".$_REQUEST['id'] : $_POST['redir'];
-    var_dump($redir);
     header("Location:$redir");
 }
 
