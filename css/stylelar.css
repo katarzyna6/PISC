@@ -233,7 +233,7 @@
         height: 100px;
         background-color: #9494b8;
         left: 0px;
-        bottom: 27%;
+        bottom: 38%;
         
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
@@ -308,6 +308,10 @@
         cursor: pointer;
     }
 
+    .myBtn {
+        margin-top: 8%;
+    }
+
     /* ------------------- BRAND ----------------- */
 
     .brands {
@@ -324,6 +328,32 @@
         width: 60%;
     }
 
+    .form_signUp, .form_connect, .form_admin, .form_mod { 
+        width: 60%;
+        margin: auto;
+        margin-bottom: 10%;
+    }
+
+    .articles_list li {
+        list-style: none;
+        text-align: center;
+    }
+
+    .articles_list li p{
+        text-align: center;
+    }
+
+
+
+    .articles_list li img{
+        width: 30%;
+    }
+
+    .img-list {
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+    }
     /* ------------------- ITEM PAGE LARGE ----------------- */
     .prod {
         display: flex;
@@ -368,7 +398,7 @@
     }
 
     .item_button .liste1, .item_button .myBtn {
-        width: 60%;
+        width: 100%;
         display: block;
         margin: 1em auto;
     }
@@ -388,13 +418,4 @@
         justify-content: space-around;
     }
 
-    /* Formulaires */
-    .form_signUp, .form_connect, .form_admin { 
-        width: 60%;
-        margin: auto;
-        margin-bottom: 10%;
-    }
-
-    .articles {
-    }
 }

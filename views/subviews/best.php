@@ -13,21 +13,23 @@ $b_items = $view['datas']['best_items'];
 
                         <a href="item-<?= htmlspecialchars($item->getIdItem())?>">
                             <?php if(isset($item->images[0])) : ?>
-                                <p>Note : <?= htmlspecialchars($item->getNote())?></p>
-                                <div class="image_accueil"><img src="img/<?= htmlspecialchars($item->images[0]->getName()); ?>"></div>
-                            <?php endif ?>
+                                <div class="image_accueil"><img src="img/<?=$item->images[0]->getName(); ?>"></div>
+                            <?php endif?>
                         </a>
 
                         <a class="link" href="item-<?= htmlspecialchars($item->getIdItem())?>"><p><?= htmlspecialchars($item->getName())?></p></a>
 
+                        
                         <p class="description_item"><?= htmlspecialchars($item->getName())?></p>
                         <button class="myBtn" id="myBtn-<?= htmlspecialchars($item->getIdItem())?>">Voir le produit</button>
 
-                        <div id="modal-<?= $item->getIdItem()?>" class="modal">
+                        <!-- The Modal -->
+                        
+                        <div id="modal-<?= htmlspecialchars($item->getIdItem())?>" class="modal">
 
                             <div class="modal-header">
                                 <span class="close" id="close-<?= htmlspecialchars($item->getIdItem())?>">&times;</span>
-                                <h2><?= $item->getName()?></h2>
+                                <h2><?= htmlspecialchars($item->getName())?></h2>
                             </div>
                             
 
@@ -44,7 +46,6 @@ $b_items = $view['datas']['best_items'];
                             </div>
                         </div> 
 
-                        
                         <p>Prix : <?= htmlspecialchars($item->getPrice())?> €</p>
 
                     </div>
@@ -53,7 +54,6 @@ $b_items = $view['datas']['best_items'];
             
         <?php endforeach ?>
     </div>
-  
 </div>
     
 

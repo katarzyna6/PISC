@@ -10,7 +10,7 @@
         font-size: 1.7px;
     } 
 
-    /* menu */
+   /* -------------- MENU MEDIUM --------------------------- */
     #menu ul li a{
         padding: 0.5em 2px;
     }
@@ -88,6 +88,10 @@
 
     .produit p {
         text-align: center;
+    }
+
+    .myBtn {
+        margin-top: -15%;
     }
 
     /* MODALE */

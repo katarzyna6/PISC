@@ -86,11 +86,6 @@ $image = $view['datas']["images"];
         </form>
     </div>    
 
-
-<!-- <table>
-<tr><th>NOM</th><th>DESCRIPTION</th><th>MARQUE</th><th>CATEGORIE</th><th>SOUS-CATEGORIE</th><th>PRIX</th><th>NOTE</th><th>AVIS</th><th>IMAGES</th></tr>
-<tr><th>NOM</th>
-</table> -->
     
     <h2>Mes produits ajoutés :</h2>
 <div class="articles">
