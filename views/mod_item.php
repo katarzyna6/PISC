@@ -8,13 +8,11 @@
 
         <div class="field">
             <select id="brand" name="brand">
-            <option value="" disabled selected>-- Choisissez une marque --</option>
-                <?php foreach ($view["datas"]["brand"] as $brand): ?>
-                    
-                    <option <?= $brand->getIdBrand() == $view['datas']['item']->getIdBrand()? "selected" : "";?>
-                    value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?></option>
-                    
-                <?php endforeach ?>
+                <option value="" disabled selected>-- Choisissez une marque --</option>
+                    <?php foreach ($view["datas"]["brand"] as $brand): ?>
+                        <option <?= $brand->getIdBrand() == $view['datas']['item']->getIdBrand()? "selected" : "";?>
+                        value="<?=$brand->getIdBrand(); ?>"><?=$brand->getName(); ?></option>
+                    <?php endforeach ?>
             </select>
         </div>
 
@@ -98,6 +96,6 @@
 
                 <div><?= isset($view['datas']['item'])? "<input type='hidden' name='id_item' value=' ".$view['datas']['item']->getIdItem()."'>" : ""; ?></div>
 
-                <div><button type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>">Ajouter</button></div>
+                <div><button type="submit" value="<?= isset($view['datas']['item'])? "Modifier" : "Ajouter"; ?>">Modifier</button></div>
         </form>
     </div>       

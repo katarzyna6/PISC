@@ -88,45 +88,46 @@ $image = $view['datas']["images"];
 
     
     <h2>Mes produits ajoutés :</h2>
-<div class="articles">
-<ul class="articles_list">
-    <?php
 
-    foreach($items as $item) :?>
+    <div class="articles">
+        <ul class="articles_list">
+            <?php
 
-        <li><p><b>Nom :</b></p> <a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
-        <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
-        <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
-        <li><p><b>Catégorie :</b></p> <?= htmlspecialchars($item->categorycomplete->getName());?></li>
-        <li><p><b>Sous-Catégorie :</b></p> <?= htmlspecialchars($item->subcategorycomplete->getName())?></li>
-        <li><p><b>Prix :</b></p> <?= htmlspecialchars($item->getPrice())?></li>
-        <li><p><b>Note :</b></p> <?= htmlspecialchars($item->getNote())?></li>
-        <li><p><b>Avis :</b></p> <?= htmlspecialchars($item->getAvis())?></li>
-        <p><b>Images : </b></p>
-        <li class="liste_img">
-                <div class="img-list"> 
-                        <?php foreach($view["datas"]["images"] as $image) : ?>
-                            <?php if($item->getIdItem() == $image->getIdItem()) :?>
-                                <img src="img/<?= htmlspecialchars($image->getName()); ?>">
-                            <?php endif; ?>   
-                        <?php endforeach?>
+                foreach($items as $item) :?>
 
-                </div>
-        </li>
-        <div class="but">
-            <button id="adm" type="submit"><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></button>
-            <button id="adm" type="submit"><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a></button>
-        </div>          
-        
-        <hr><hr>
-        <?php endforeach ?>
+                    <li><p><b>Nom :</b></p> <a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>"><?= htmlspecialchars($item->getName());?></a></li>
+                    <li><p><b>Description :</b></p></b></p> <?= htmlspecialchars($item->getDescription())?></li>
+                    <li><p><b>Marque :</b></p> <?= htmlspecialchars($item->brandcomplete->getName())?></li>
+                    <li><p><b>Catégorie :</b></p> <?= htmlspecialchars($item->categorycomplete->getName());?></li>
+                    <li><p><b>Sous-Catégorie :</b></p> <?= htmlspecialchars($item->subcategorycomplete->getName())?></li>
+                    <li><p><b>Prix :</b></p> <?= htmlspecialchars($item->getPrice())?></li>
+                    <li><p><b>Note :</b></p> <?= htmlspecialchars($item->getNote())?></li>
+                    <li><p><b>Avis :</b></p> <?= htmlspecialchars($item->getAvis())?></li>
+                    <li><p><b>Images : </b></p></li>
+                    <li class="liste_img">
+                        <div class="img-list"> 
+                            <?php foreach($view["datas"]["images"] as $image) : ?>
+                                <?php if($item->getIdItem() == $image->getIdItem()) :?>
+                                    <img src="img/<?= htmlspecialchars($image->getName()); ?>">
+                                 <?php endif; ?>   
+                            <?php endforeach?>
+                        </div>
+                    </li>
+
+                    <div class="but">
+                        <button id="adm" type="submit"><a href="mod_item-<?= htmlspecialchars($item->getIdItem())?>">Modifier</a></button>
+                        <button id="adm" type="submit"><a href="del_item-<?= htmlspecialchars($item->getIdItem())?>">Supprimer</a></button>
+                    </div>          
+                    
+                    <hr><hr>
+                <?php endforeach ?>
     
-</ul>
-</div>
+        </ul>
+    </div>
 
-<div>
+    <div>
         <a href="index.php?route=insert_item">Ajouter un autre produit</a>
         <div><a href="index.php">Retour</a></div>
-</div>
+    </div>
 
 </div>
