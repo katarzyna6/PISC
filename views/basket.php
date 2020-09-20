@@ -14,7 +14,7 @@
             <?php endif ?>
         </table>
         <hr>
-        <input type="hidden" name="redir" value="<?= $_REQUEST['route']?>">
+        <input type="hidden" name="redir" value="<?= $_REQUEST['route']?? "home"?>">
         <?php if (isset($_REQUEST['id'])): ?>
             <input type="hidden" name="id" value="<?= $_REQUEST['id']?>">
         <?php endif ?>

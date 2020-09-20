@@ -398,10 +398,11 @@ function insertAdmin() {
     
         } else {
             echo "Erreur.<br>"; 
+            header("Location:connectform");
         }
         
         setcookie('nick', $_POST['nick'], time() + 182 * 24 * 60 * 60, '/');
-        //header("Location:admin");
+        header("Location:admin");
     }
 }
 
