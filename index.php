@@ -643,6 +643,7 @@ function sendEmail() {
         <link rel="stylesheet" type="text/css" href="css/stylemin.css">
         <link rel="stylesheet" type="text/css" href="css/stylemed.css">
         <link rel="stylesheet" type="text/css" href="css/stylelar.css">
+        <link rel="icon" href="img/favicon.png" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
