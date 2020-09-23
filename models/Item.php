@@ -117,7 +117,7 @@ class Item extends DbConnect {
         $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
         $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
         $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
-        //$success = $result->execute();
+        $success = $result->execute();
             // if(!$success) {
             //     var_dump($this->pdo->errorInfo());
             // }

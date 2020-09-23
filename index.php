@@ -383,7 +383,7 @@ function insertAdmin() {
     var_dump($_POST);
         if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nick"])
             && preg_match("#^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$#", $_POST["email"]) 
-            && preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w]).{8,}$#", $_POST["password"])) {
+            && preg_match("", $_POST["password"])) {
     
             $admin = new Admin();
             $admin->setNick($_POST["nick"]);
