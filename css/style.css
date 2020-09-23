@@ -352,8 +352,8 @@ button:hover:before{
     width: 30%;
 }
 
-.img-list {
-}
+/* .img-list {
+} */
 
 /*SELECTION -------------------------------------*/
 
@@ -963,11 +963,11 @@ button.liste1 {
         margin:10px;
     }
 
-    #button_recherche {
+    /* #button_recherche {
         /* display: block;
         width: 100%;
-        margin: 10px; */
-    }
+        margin: 10px;}  */
+    
 
     /*-------------------------------------*/
 

@@ -293,16 +293,28 @@ function showCategory() {
 
     $datas = [];
     
-    $item = new Item();
-    $item->setIdCategory($_GET['id']);
-    $datas['items'] = $item->selectByCategory();
+    $items = new Item();
+    if(isset($_GET['id'])) {
+        $items->setIdCategory($_GET['id']);
+        $datas['cat_items'] = $items->selectByCategory();
+    } else {
+        $datas['cat_items'] = [];
+    }
+    // $item->setIdCategory($_GET['id']);
+    // $datas['items'] = $item->selectByCategory();
 
     $cat = new Category();
     $cat->setIdCategory($_GET["id"]);
     $datas ["category"] = $cat->select();
 
-    $image = new Image();
-    $datas["images"] = $image->selectAll();
+    $images = new Image();
+    foreach($datas['cat_items'] as &$item) {
+        $images->setIdItem($item->getIdItem());
+        $item->images = $images->selectByIdItem();
+    }
+
+    // $image = new Image();
+    // $datas["images"] = $image->selectAll();
 
     return ["template" => "category.php", "datas" => $datas];
     
@@ -315,12 +327,22 @@ function showSubcategory() {
     $subcat->setIdSubcategory($_GET["id"]);
     $datas ["subcategory"] = $subcat->select();
 
-    $item = new Item();
-    $item->setIdSubcategory($_GET['id']);
-    $datas ['items'] = $item->selectBySubcategory();
+    $items = new Item();
+    if(isset($_GET['id'])) {
+        $items->setIdSubcategory($_GET['id']);
+        $datas['subcat_items'] = $items->selectBySubcategory();
+    } else {
+        $datas['subcat_items'] = [];
+    }
 
-    $image = new Image();
-    $datas["images"] = $image->selectAll();
+    $images = new Image();
+    foreach($datas['subcat_items'] as &$item) {
+        $images->setIdItem($item->getIdItem());
+        $item->images = $images->selectByIdItem();
+    }
+
+    // $image = new Image();
+    // $datas["images"] = $image->selectAll();
 
     return ["template" => "subcategory.php", "datas" => $datas];
 }
