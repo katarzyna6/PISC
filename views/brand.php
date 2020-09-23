@@ -17,7 +17,7 @@ $brand = $view['datas']['brand'];
                         </a>
 
                         <a class="link" href="item-<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
-
+                        <p class="description_item"><?= htmlspecialchars($item->getName())?></p>
                         <button class="myBtn" id="myBtn-<?= $item->getIdItem()?>">Voir le produit</button>
 
                         <div id="modal-<?= $item->getIdItem()?>" class="modal">

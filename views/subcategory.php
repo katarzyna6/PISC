@@ -25,7 +25,7 @@ $images = $view['datas']['images'];
                         </a>
 
                         <a class="link" href="item-<?= $item->getIdItem()?>"><p><?= $item->getName()?></p></a>
-
+                        <p class="description_item"><?= htmlspecialchars($item->getName())?></p>
                         <button class="myBtn"id="myBtn- <?= $item->getIdItem()?>">Voir le produit</button>
                         <p>Prix : <?= $item->getPrice()?> €</p>
 

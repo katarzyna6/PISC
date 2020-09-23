@@ -58,6 +58,8 @@ $route = isset($_REQUEST["route"])? $_REQUEST["route"] : "home";
         break;
         case "mentions": $view = showMentions();
         break;
+        case "liens": $view = showLiens();
+        break;
         //ADMIN
         case "connectform": $view = showConnect();
         break;
@@ -380,10 +382,10 @@ function insertAdmin() {
 
     if(!empty($_POST["nick"]) && (!empty($_POST["email"]) && ($_POST["password"] === $_POST["password2"]))) {
         
-    var_dump($_POST);
+    // var_dump($_POST);
         if (preg_match("#^[a-zA-Z-àâäéèêëïîôöùûüçàâäéèêëïîôöùûüçÀÂÄÉÈËÏÔÖÙÛÜŸÇæœÆŒ]+$#", $_POST["nick"])
-            && preg_match("#^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$#", $_POST["email"]) 
-            && preg_match("", $_POST["password"])) {
+        && preg_match("#^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$#", $_POST["email"]) 
+        && preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w]).{8,}$#", $_POST["password"])) {
     
             $admin = new Admin();
             $admin->setNick($_POST["nick"]);
@@ -640,9 +642,7 @@ function sendEmail() {
         <meta name="description" content="P.I.S.C produits cosmetiques"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>P.I.S.C. Produits cosmétiques</title>
-        <link rel="stylesheet" type="text/css" href="css/stylemin.css">
-        <link rel="stylesheet" type="text/css" href="css/stylemed.css">
-        <link rel="stylesheet" type="text/css" href="css/stylelar.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="icon" href="img/favicon.png" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
         <link href="fonts/fontello/css/fontello.css" rel="stylesheet">

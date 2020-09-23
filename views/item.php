@@ -64,7 +64,10 @@ $item = $view['datas']['item'];
                             <label for="5">5</label>
                      </div>
 
-                     <textarea id="avis" name="avis" rows="4" cols="50" placeholder="Votre avis : "></textarea>
+                     <div>
+                            <label for="message"></label>
+                            <textarea id="avis" name="avis" rows="4" cols="25" placeholder="Votre avis"></textarea>
+                     </div>
               
        
                      <div class="env">

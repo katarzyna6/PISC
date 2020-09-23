@@ -126,8 +126,8 @@ $image = $view['datas']["images"];
     </div>
 
     <div>
-        <a href="index.php?route=insert_item">Ajouter un autre produit</a>
-        <div><a href="index.php">Retour</a></div>
+        <a href="admin">Ajouter un autre produit</a>
+        <div><a href="home">Retour</a></div>
     </div>
 
 </div>
