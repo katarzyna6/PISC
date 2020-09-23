@@ -434,7 +434,7 @@ function deconnectAdmin() {
         
     unset($_SESSION["admin"]);
     //Redirection vers accueil
-    header("Location:produits-cosmetiques");
+    header("Location:connectform");
 }
 
 
@@ -460,7 +460,7 @@ function insertItem() {
         $item->insert();
 
         $image = "default.png";
-        var_dump($_FILES);
+        // var_dump($_FILES);
 
         $total = 0;
         
@@ -491,8 +491,8 @@ function insertItem() {
 
     }
     } 
-        // header("Location:index.php?route=admin");
-        // exit;
+        header("Location:index.php?route=admin");
+        exit;
 }
 
 

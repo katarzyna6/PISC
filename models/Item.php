@@ -100,7 +100,7 @@ class Item extends DbConnect {
     }
 
     function insert(){
-        var_dump($this);
+
         $this->connect();
     
         $query = "INSERT INTO items (name, description, price, avis, note, id_category, id_subcategory, id_brand, id_admin)
@@ -117,14 +117,14 @@ class Item extends DbConnect {
         $result->bindValue(':id_category', $this->id_category, PDO::PARAM_INT);
         $result->bindValue(':id_subcategory', $this->id_subcategory, PDO::PARAM_INT);
         $result->bindValue(':id_admin', $this->id_admin, PDO::PARAM_INT);
-        $success = $result->execute();
+        //$success = $result->execute();
             // if(!$success) {
             //     var_dump($this->pdo->errorInfo());
             // }
 
         $this->id_item = $this->pdo->lastInsertId();
         
-        var_dump($this);
+       
         return $this;
     }
 
@@ -356,7 +356,6 @@ class Item extends DbConnect {
 
     public function delete(){
         $this->connect();
-        var_dump($this->id_item);
         $query ="DELETE FROM items WHERE `id_item` = :id_item";
         $result = $this->pdo->prepare($query);
         $result->bindValue('id_item', $this->id_item, PDO::PARAM_INT);
